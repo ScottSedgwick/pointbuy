@@ -1,0 +1,44 @@
+cabal-version:      3.0
+name:               pointbuy
+version:            0.1.0.0
+synopsis:           A simple point-buy character generator for tabletop RPGs.
+category:           Web
+
+
+license:            BSD-3-Clause
+license-file:       LICENSE
+author:             ssedgwick
+maintainer:         ssedgwick@cochlear.com
+build-type:         Simple
+extra-doc-files:    CHANGELOG.md
+
+
+common wasm
+  if arch(wasm32)
+    ghc-options:
+      -no-hs-main
+      -optl-mexec-model=reactor
+      "-optl-Wl,--export=hs_start"
+    cpp-options:
+      -DWASM
+
+executable pointbuy
+    import:           wasm
+    main-is:          Main.hs
+    other-modules:    Types
+                    , Types.Races
+                    , Types.Stats
+                    , View.Calculator
+                    , View.Calculator.Race
+                    , View.Custom
+                    , View.Main
+                    , View.Raw
+    build-depends:    base ^>= 4.22
+                    , containers ^>= 0.8
+                    , data-default ^>= 0.8
+                    , jsaddle ^>= 0.9
+                    , jsaddle-wasm ^>= 0.1
+                    , lens ^>= 5.3
+                    , miso ^>= 1.9
+    hs-source-dirs:   app
+    default-language: Haskell2010
