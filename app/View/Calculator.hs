@@ -17,7 +17,7 @@ viewCalculator :: Model -> View Model Action
 viewCalculator x =
   H.article_ [ P.className "grid" ]
   [ H.h2_ [ P.className "s12" ] [ text "Calculator" ]
-  , H.article_ [ P.className "s6 fill" ]
+  , H.article_ [ P.className "s12 fill" ]
     [ H.article_ [] [ raceSelector x ]
     , H.article_ []
       [ H.table_ [ P.className "stripes" ]
@@ -36,8 +36,8 @@ viewCalculator x =
         , H.tbody_ [] ((map (mkAttributeRow x) allStats) ++ [ totalRow x ])
         ]
       ]
+      , H.article_ [ P.className "s12" ] ( H.h4_ [] [ text "Racial Traits"] : racialTraits (x ^. race) )
     ]
-  , H.article_ [ P.className "s6 fill" ] ( H.h4_ [] [ text "Racial Traits"] : racialTraits (x ^. race) )
   ]
 
 mkAttributeRow :: Model -> Stat -> View Model Action

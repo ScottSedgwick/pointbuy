@@ -25,7 +25,7 @@ standardSelector x =
 
 raceSelect :: Model -> View Model Action
 raceSelect x =
-  H.div_ [ P.className "field label suffix border s6"] 
+  H.div_ [ P.className "field label suffix border s12"] 
   [ H.select_ [ E.onInput ChangeRace ] ( map (mkRaceOption (x ^. race)) allRaces )
   , H.label_ [] [ text"Select Race" ]
   , H.i_ [] [ text "arrow_drop_down" ]
