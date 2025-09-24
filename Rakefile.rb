@@ -1,6 +1,6 @@
 require 'rake/clean'
 
-DEPLOY_FOLDER = 'app.wasmexe'
+DEPLOY_FOLDER = 'docs'
 BUILD_FOLDER = 'dist-newstyle'
 STATIC_SRC_FOLDER = 'html-src'
 
