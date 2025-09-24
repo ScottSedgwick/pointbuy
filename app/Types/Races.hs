@@ -120,7 +120,21 @@ data Race
   | HalflingHospitality
   | Hobgoblin
   | HumanStandard
-  | HumanVariant Stat Stat
+  | HumanVariantStrDex
+  | HumanVariantStrCon
+  | HumanVariantStrInt
+  | HumanVariantStrWis
+  | HumanVariantStrCha
+  | HumanVariantDexCon
+  | HumanVariantDexInt
+  | HumanVariantDexWis
+  | HumanVariantDexCha
+  | HumanVariantConInt
+  | HumanVariantConWis
+  | HumanVariantConCha
+  | HumanVariantIntWis
+  | HumanVariantIntCha
+  | HumanVariantWisCha
   | HumanFinding
   | HumanHandling HumanHandlingStat
   | HumanMaking HumanMakingStat
@@ -217,7 +231,21 @@ showPretty HalflingHealing = "Halfling (Dragonmark of Healing)"
 showPretty HalflingHospitality = "HalflingHospitality"
 showPretty Hobgoblin = "Hobgoblin"
 showPretty HumanStandard = "Human"
-showPretty (HumanVariant _ _) = "Human (Variant)"
+showPretty HumanVariantStrDex = "Human (Variant - Str & Dex)"
+showPretty HumanVariantStrCon = "Human (Variant - Str & Con)"
+showPretty HumanVariantStrInt = "Human (Variant - Str & Int)"
+showPretty HumanVariantStrWis = "Human (Variant - Str & Wis)"
+showPretty HumanVariantStrCha = "Human (Variant - Str & Cha)"
+showPretty HumanVariantDexCon = "Human (Variant - Dex & Con)"
+showPretty HumanVariantDexInt = "Human (Variant - Dex & Int)"
+showPretty HumanVariantDexWis = "Human (Variant - Dex & Wis)"
+showPretty HumanVariantDexCha = "Human (Variant - Dex & Cha)"
+showPretty HumanVariantConInt = "Human (Variant - Con & Int)"
+showPretty HumanVariantConWis = "Human (Variant - Con & Wis)"
+showPretty HumanVariantConCha = "Human (Variant - Con & Cha)"
+showPretty HumanVariantIntWis = "Human (Variant - Int & Wis)"
+showPretty HumanVariantIntCha = "Human (Variant - Int & Cha)"
+showPretty HumanVariantWisCha = "Human (Variant - Wis & Cha)"
 showPretty HumanFinding = "Human (Dragonmark of Finding)"
 showPretty (HumanHandling _) = "Human (Dragonmark of Handling)"
 showPretty (HumanMaking _) = "Human (Dragonmark of Making)"
@@ -311,7 +339,21 @@ allRaces =
   , HalflingHospitality
   , Hobgoblin
   , HumanStandard
-  , HumanVariant Strength Strength
+  , HumanVariantStrDex
+  , HumanVariantStrCon
+  , HumanVariantStrInt
+  , HumanVariantStrWis
+  , HumanVariantStrCha
+  , HumanVariantDexCon
+  , HumanVariantDexInt
+  , HumanVariantDexWis
+  , HumanVariantDexCha
+  , HumanVariantConInt
+  , HumanVariantConWis
+  , HumanVariantConCha
+  , HumanVariantIntWis
+  , HumanVariantIntCha
+  , HumanVariantWisCha
   , HumanFinding
   , HumanHandling HumanHandlingStrength
   , HumanMaking HumanMakingStrength
@@ -352,61 +394,61 @@ allRaces =
   ]
 
 defaultRacialBonuses :: Race -> StatBlock
-defaultRacialBonuses (CustomRace) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 0, _wis = 0, _cha = 0 }
+defaultRacialBonuses CustomRace = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 0, _wis = 0, _cha = 0 }
 
-defaultRacialBonuses (Aarakocra) = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 0, _wis = 1, _cha = 0 }
+defaultRacialBonuses Aarakocra = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 0, _wis = 1, _cha = 0 }
 
-defaultRacialBonuses (AasimarDMG) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 0, _wis = 1, _cha = 2 }
-defaultRacialBonuses (AasimarProtector) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 0, _wis = 1, _cha = 2 }
-defaultRacialBonuses (AasimarScourge) = StatBlock { _str = 0, _dex = 0, _con = 1, _int = 0, _wis = 0, _cha = 2 }
-defaultRacialBonuses (AasimarFallen) = StatBlock { _str = 1, _dex = 0, _con = 0, _int = 0, _wis = 0, _cha = 2 }
+defaultRacialBonuses AasimarDMG = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 0, _wis = 1, _cha = 2 }
+defaultRacialBonuses AasimarProtector = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 0, _wis = 1, _cha = 2 }
+defaultRacialBonuses AasimarScourge = StatBlock { _str = 0, _dex = 0, _con = 1, _int = 0, _wis = 0, _cha = 2 }
+defaultRacialBonuses AasimarFallen = StatBlock { _str = 1, _dex = 0, _con = 0, _int = 0, _wis = 0, _cha = 2 }
 
-defaultRacialBonuses (Bugbear) = StatBlock { _str = 2, _dex = 1, _con = 0, _int = 0, _wis = 0, _cha = 0 }
+defaultRacialBonuses Bugbear = StatBlock { _str = 2, _dex = 1, _con = 0, _int = 0, _wis = 0, _cha = 0 }
   
-defaultRacialBonuses (Centaur) = StatBlock { _str = 2, _dex = 0, _con = 0, _int = 0, _wis = 1, _cha = 0 }
+defaultRacialBonuses Centaur = StatBlock { _str = 2, _dex = 0, _con = 0, _int = 0, _wis = 1, _cha = 0 }
 
-defaultRacialBonuses (ChangelingStrength) = StatBlock { _str = 1, _dex = 0, _con = 0, _int = 0, _wis = 0, _cha = 2 }
-defaultRacialBonuses (ChangelingDexterity) = StatBlock { _str = 0, _dex = 1, _con = 0, _int = 0, _wis = 0, _cha = 2 }
-defaultRacialBonuses (ChangelingConstitution) = StatBlock { _str = 0, _dex = 0, _con = 1, _int = 0, _wis = 0, _cha = 2 }
-defaultRacialBonuses (ChangelingIntelligence) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 1, _wis = 0, _cha = 2 }
-defaultRacialBonuses (ChangelingWisdom) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 0, _wis = 1, _cha = 2 }
+defaultRacialBonuses ChangelingStrength = StatBlock { _str = 1, _dex = 0, _con = 0, _int = 0, _wis = 0, _cha = 2 }
+defaultRacialBonuses ChangelingDexterity = StatBlock { _str = 0, _dex = 1, _con = 0, _int = 0, _wis = 0, _cha = 2 }
+defaultRacialBonuses ChangelingConstitution = StatBlock { _str = 0, _dex = 0, _con = 1, _int = 0, _wis = 0, _cha = 2 }
+defaultRacialBonuses ChangelingIntelligence = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 1, _wis = 0, _cha = 2 }
+defaultRacialBonuses ChangelingWisdom = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 0, _wis = 1, _cha = 2 }
 
-defaultRacialBonuses (Dragonborn) = StatBlock { _str = 2, _dex = 0, _con = 0, _int = 0, _wis = 0, _cha = 1 }
+defaultRacialBonuses Dragonborn = StatBlock { _str = 2, _dex = 0, _con = 0, _int = 0, _wis = 0, _cha = 1 }
 
-defaultRacialBonuses (DwarfHill) = StatBlock { _str = 0, _dex = 0, _con = 2, _int = 0, _wis = 1, _cha = 0 }
-defaultRacialBonuses (DwarfMountain) = StatBlock { _str = 2, _dex = 0, _con = 2, _int = 0, _wis = 0, _cha = 0 }
-defaultRacialBonuses (DwarfDuergar) = StatBlock { _str = 1, _dex = 0, _con = 2, _int = 0, _wis = 0, _cha = 0 }
-defaultRacialBonuses (DwarfWarding) = StatBlock { _str = 0, _dex = 0, _con = 2, _int = 1, _wis = 0, _cha = 0 }
+defaultRacialBonuses DwarfHill = StatBlock { _str = 0, _dex = 0, _con = 2, _int = 0, _wis = 1, _cha = 0 }
+defaultRacialBonuses DwarfMountain = StatBlock { _str = 2, _dex = 0, _con = 2, _int = 0, _wis = 0, _cha = 0 }
+defaultRacialBonuses DwarfDuergar = StatBlock { _str = 1, _dex = 0, _con = 2, _int = 0, _wis = 0, _cha = 0 }
+defaultRacialBonuses DwarfWarding = StatBlock { _str = 0, _dex = 0, _con = 2, _int = 1, _wis = 0, _cha = 0 }
 
-defaultRacialBonuses (ElfHigh) = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 1, _wis = 0, _cha = 0 }
-defaultRacialBonuses (ElfWood) = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 0, _wis = 1, _cha = 0 }
-defaultRacialBonuses (ElfEladrin) = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 1, _wis = 0, _cha = 0 }
-defaultRacialBonuses (ElfEladrinMtof) = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 0, _wis = 0, _cha = 1 }
-defaultRacialBonuses (ElfDrow) = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 0, _wis = 0, _cha = 1 }
-defaultRacialBonuses (ElfSea) = StatBlock { _str = 0, _dex = 2, _con = 1, _int = 0, _wis = 0, _cha = 0 }
-defaultRacialBonuses (ElfShadarKai) = StatBlock { _str = 0, _dex = 2, _con = 1, _int = 0, _wis = 0, _cha = 0 }
-defaultRacialBonuses (ElfShadow) = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 0, _wis = 0, _cha = 1 }
+defaultRacialBonuses ElfHigh = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 1, _wis = 0, _cha = 0 }
+defaultRacialBonuses ElfWood = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 0, _wis = 1, _cha = 0 }
+defaultRacialBonuses ElfEladrin = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 1, _wis = 0, _cha = 0 }
+defaultRacialBonuses ElfEladrinMtof = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 0, _wis = 0, _cha = 1 }
+defaultRacialBonuses ElfDrow = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 0, _wis = 0, _cha = 1 }
+defaultRacialBonuses ElfSea = StatBlock { _str = 0, _dex = 2, _con = 1, _int = 0, _wis = 0, _cha = 0 }
+defaultRacialBonuses ElfShadarKai = StatBlock { _str = 0, _dex = 2, _con = 1, _int = 0, _wis = 0, _cha = 0 }
+defaultRacialBonuses ElfShadow = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 0, _wis = 0, _cha = 1 }
 
-defaultRacialBonuses (Firbolg) = StatBlock { _str = 1, _dex = 0, _con = 0, _int = 0, _wis = 2, _cha = 0 }
+defaultRacialBonuses Firbolg = StatBlock { _str = 1, _dex = 0, _con = 0, _int = 0, _wis = 2, _cha = 0 }
 
-defaultRacialBonuses (GenasiAir) = StatBlock { _str = 0, _dex = 1, _con = 2, _int = 0, _wis = 0, _cha = 0 }
-defaultRacialBonuses (GenasiEarth) = StatBlock { _str = 1, _dex = 0, _con = 2, _int = 0, _wis = 0, _cha = 0 }
-defaultRacialBonuses (GenasiFire) = StatBlock { _str = 0, _dex = 0, _con = 2, _int = 1, _wis = 0, _cha = 0 }
-defaultRacialBonuses (GenasiWater) = StatBlock { _str = 0, _dex = 0, _con = 2, _int = 0, _wis = 1, _cha = 0 }
+defaultRacialBonuses GenasiAir = StatBlock { _str = 0, _dex = 1, _con = 2, _int = 0, _wis = 0, _cha = 0 }
+defaultRacialBonuses GenasiEarth = StatBlock { _str = 1, _dex = 0, _con = 2, _int = 0, _wis = 0, _cha = 0 }
+defaultRacialBonuses GenasiFire = StatBlock { _str = 0, _dex = 0, _con = 2, _int = 1, _wis = 0, _cha = 0 }
+defaultRacialBonuses GenasiWater = StatBlock { _str = 0, _dex = 0, _con = 2, _int = 0, _wis = 1, _cha = 0 }
   
-defaultRacialBonuses (Githyanki) = StatBlock { _str = 2, _dex = 0, _con = 0, _int = 1, _wis = 0, _cha = 0 }
-defaultRacialBonuses (Githzerai) = StatBlock { _str = 0, _dex = 1, _con = 0, _int = 1, _wis = 2, _cha = 0 }
+defaultRacialBonuses Githyanki = StatBlock { _str = 2, _dex = 0, _con = 0, _int = 1, _wis = 0, _cha = 0 }
+defaultRacialBonuses Githzerai = StatBlock { _str = 0, _dex = 1, _con = 0, _int = 1, _wis = 2, _cha = 0 }
 
-defaultRacialBonuses (GnomeForest) = StatBlock { _str = 0, _dex = 1, _con = 0, _int = 2, _wis = 0, _cha = 0 }
-defaultRacialBonuses (GnomeRock) = StatBlock { _str = 0, _dex = 0, _con = 1, _int = 2, _wis = 0, _cha = 0 }
-defaultRacialBonuses (GnomeDeep) = StatBlock { _str = 0, _dex = 1, _con = 0, _int = 2, _wis = 0, _cha = 0 }
-defaultRacialBonuses (GnomeScribing) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 2, _wis = 0, _cha = 1 }
+defaultRacialBonuses GnomeForest = StatBlock { _str = 0, _dex = 1, _con = 0, _int = 2, _wis = 0, _cha = 0 }
+defaultRacialBonuses GnomeRock = StatBlock { _str = 0, _dex = 0, _con = 1, _int = 2, _wis = 0, _cha = 0 }
+defaultRacialBonuses GnomeDeep = StatBlock { _str = 0, _dex = 1, _con = 0, _int = 2, _wis = 0, _cha = 0 }
+defaultRacialBonuses GnomeScribing = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 2, _wis = 0, _cha = 1 }
 
-defaultRacialBonuses (Goblin) = StatBlock { _str = 0, _dex = 2, _con = 1, _int = 0, _wis = 0, _cha = 0 }
+defaultRacialBonuses Goblin = StatBlock { _str = 0, _dex = 2, _con = 1, _int = 0, _wis = 0, _cha = 0 }
 
-defaultRacialBonuses (Goliath) = StatBlock { _str = 2, _dex = 0, _con = 1, _int = 0, _wis = 0, _cha = 0 }
+defaultRacialBonuses Goliath = StatBlock { _str = 2, _dex = 0, _con = 1, _int = 0, _wis = 0, _cha = 0 }
 
-defaultRacialBonuses (Grung) = StatBlock { _str = 0, _dex = 2, _con = 1, _int = 0, _wis = 0, _cha = 0 }
+defaultRacialBonuses Grung = StatBlock { _str = 0, _dex = 2, _con = 1, _int = 0, _wis = 0, _cha = 0 }
 
 defaultRacialBonuses (HalfElfDMG HalfElfDMGStrength HalfElfDMGStrength) = StatBlock { _str = 2, _dex = 0, _con = 0, _int = 0, _wis = 0, _cha = 2 }
 defaultRacialBonuses (HalfElfDMG HalfElfDMGStrength HalfElfDMGDexterity) = StatBlock { _str = 1, _dex = 1, _con = 0, _int = 0, _wis = 0, _cha = 2 }
@@ -465,134 +507,113 @@ defaultRacialBonuses (HalfElfDetection HalfElfDetectionIntelligence) = StatBlock
 defaultRacialBonuses (HalfElfDetection HalfElfDetectionCharisma) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 0, _wis = 2, _cha = 1 }
 defaultRacialBonuses (HalfElfStorm) = StatBlock { _str = 0, _dex = 1, _con = 0, _int = 0, _wis = 0, _cha = 2 }
 
-defaultRacialBonuses (HalfOrcStandard) = StatBlock { _str = 2, _dex = 0, _con = 1, _int = 0, _wis = 0, _cha = 0 }
-defaultRacialBonuses (HalfOrcFinding) = StatBlock { _str = 0, _dex = 0, _con = 1, _int = 0, _wis = 2, _cha = 0 }
+defaultRacialBonuses HalfOrcStandard = StatBlock { _str = 2, _dex = 0, _con = 1, _int = 0, _wis = 0, _cha = 0 }
+defaultRacialBonuses HalfOrcFinding = StatBlock { _str = 0, _dex = 0, _con = 1, _int = 0, _wis = 2, _cha = 0 }
 
-defaultRacialBonuses (HalflingLightfoot) = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 0, _wis = 0, _cha = 1 }
-defaultRacialBonuses (HalflingStout) = StatBlock { _str = 0, _dex = 2, _con = 1, _int = 0, _wis = 0, _cha = 0 }
-defaultRacialBonuses (HalflingGhostwise) = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 0, _wis = 1, _cha = 0 }
-defaultRacialBonuses (HalflingHealing) = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 0, _wis = 1, _cha = 0 }
-defaultRacialBonuses (HalflingHospitality) = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 0, _wis = 0, _cha = 1 }
+defaultRacialBonuses HalflingLightfoot = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 0, _wis = 0, _cha = 1 }
+defaultRacialBonuses HalflingStout = StatBlock { _str = 0, _dex = 2, _con = 1, _int = 0, _wis = 0, _cha = 0 }
+defaultRacialBonuses HalflingGhostwise = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 0, _wis = 1, _cha = 0 }
+defaultRacialBonuses HalflingHealing = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 0, _wis = 1, _cha = 0 }
+defaultRacialBonuses HalflingHospitality = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 0, _wis = 0, _cha = 1 }
 
-defaultRacialBonuses (Hobgoblin) = StatBlock { _str = 0, _dex = 0, _con = 2, _int = 1, _wis = 0, _cha = 0 }
+defaultRacialBonuses Hobgoblin = StatBlock { _str = 0, _dex = 0, _con = 2, _int = 1, _wis = 0, _cha = 0 }
 
-defaultRacialBonuses (HumanStandard) = StatBlock { _str = 1, _dex = 1, _con = 1, _int = 1, _wis = 1, _cha = 1 }
-defaultRacialBonuses ((HumanVariant Strength Strength)) = StatBlock { _str = 2, _dex = 0, _con = 0, _int = 0, _wis = 0, _cha = 0 }
-defaultRacialBonuses ((HumanVariant Strength Dexterity)) = StatBlock { _str = 1, _dex = 1, _con = 0, _int = 0, _wis = 0, _cha = 0 }
-defaultRacialBonuses ((HumanVariant Strength Constitution)) = StatBlock { _str = 1, _dex = 0, _con = 1, _int = 0, _wis = 0, _cha = 0 }
-defaultRacialBonuses ((HumanVariant Strength Intelligence)) = StatBlock { _str = 1, _dex = 0, _con = 0, _int = 1, _wis = 0, _cha = 0 }
-defaultRacialBonuses ((HumanVariant Strength Wisdom)) = StatBlock { _str = 1, _dex = 0, _con = 0, _int = 0, _wis = 1, _cha = 0 }
-defaultRacialBonuses ((HumanVariant Strength Charisma)) = StatBlock { _str = 1, _dex = 0, _con = 0, _int = 0, _wis = 0, _cha = 1 }
-defaultRacialBonuses ((HumanVariant Dexterity Strength)) = StatBlock { _str = 1, _dex = 1, _con = 0, _int = 0, _wis = 0, _cha = 0 }
-defaultRacialBonuses ((HumanVariant Dexterity Dexterity)) = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 0, _wis = 0, _cha = 0 }
-defaultRacialBonuses ((HumanVariant Dexterity Constitution)) = StatBlock { _str = 0, _dex = 1, _con = 1, _int = 0, _wis = 0, _cha = 0 }
-defaultRacialBonuses ((HumanVariant Dexterity Intelligence)) = StatBlock { _str = 0, _dex = 1, _con = 0, _int = 1, _wis = 0, _cha = 0 }
-defaultRacialBonuses ((HumanVariant Dexterity Wisdom)) = StatBlock { _str = 0, _dex = 1, _con = 0, _int = 0, _wis = 1, _cha = 0 }
-defaultRacialBonuses ((HumanVariant Dexterity Charisma)) = StatBlock { _str = 0, _dex = 1, _con = 0, _int = 0, _wis = 0, _cha = 1 }
-defaultRacialBonuses ((HumanVariant Constitution Strength)) = StatBlock { _str = 1, _dex = 0, _con = 1, _int = 0, _wis = 0, _cha = 0 }
-defaultRacialBonuses ((HumanVariant Constitution Dexterity)) = StatBlock { _str = 0, _dex = 1, _con = 1, _int = 0, _wis = 0, _cha = 0 }
-defaultRacialBonuses ((HumanVariant Constitution Constitution)) = StatBlock { _str = 0, _dex = 0, _con = 2, _int = 0, _wis = 0, _cha = 0 }
-defaultRacialBonuses ((HumanVariant Constitution Intelligence)) = StatBlock { _str = 0, _dex = 0, _con = 1, _int = 1, _wis = 0, _cha = 0 }
-defaultRacialBonuses ((HumanVariant Constitution Wisdom)) = StatBlock { _str = 0, _dex = 0, _con = 1, _int = 0, _wis = 1, _cha = 0 }
-defaultRacialBonuses ((HumanVariant Constitution Charisma)) = StatBlock { _str = 0, _dex = 0, _con = 1, _int = 0, _wis = 0, _cha = 1 }
-defaultRacialBonuses ((HumanVariant Intelligence Strength)) = StatBlock { _str = 1, _dex = 0, _con = 0, _int = 1, _wis = 0, _cha = 0 }
-defaultRacialBonuses ((HumanVariant Intelligence Dexterity)) = StatBlock { _str = 0, _dex = 1, _con = 0, _int = 1, _wis = 0, _cha = 0 }
-defaultRacialBonuses ((HumanVariant Intelligence Constitution)) = StatBlock { _str = 0, _dex = 0, _con = 1, _int = 1, _wis = 0, _cha = 0 }
-defaultRacialBonuses ((HumanVariant Intelligence Intelligence)) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 2, _wis = 0, _cha = 0 }
-defaultRacialBonuses ((HumanVariant Intelligence Wisdom)) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 1, _wis = 1, _cha = 0 }
-defaultRacialBonuses ((HumanVariant Intelligence Charisma)) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 1, _wis = 0, _cha = 1 }
-defaultRacialBonuses ((HumanVariant Wisdom Strength)) = StatBlock { _str = 1, _dex = 0, _con = 0, _int = 0, _wis = 1, _cha = 0 }
-defaultRacialBonuses ((HumanVariant Wisdom Dexterity)) = StatBlock { _str = 0, _dex = 1, _con = 0, _int = 0, _wis = 1, _cha = 0 }
-defaultRacialBonuses ((HumanVariant Wisdom Constitution)) = StatBlock { _str = 0, _dex = 0, _con = 1, _int = 0, _wis = 1, _cha = 0 }
-defaultRacialBonuses ((HumanVariant Wisdom Intelligence)) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 1, _wis = 1, _cha = 0 }
-defaultRacialBonuses ((HumanVariant Wisdom Wisdom)) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 0, _wis = 2, _cha = 0 }
-defaultRacialBonuses ((HumanVariant Wisdom Charisma)) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 0, _wis = 1, _cha = 1 }
-defaultRacialBonuses ((HumanVariant Charisma Strength)) = StatBlock { _str = 1, _dex = 0, _con = 0, _int = 0, _wis = 0, _cha = 1 }
-defaultRacialBonuses ((HumanVariant Charisma Dexterity)) = StatBlock { _str = 0, _dex = 1, _con = 0, _int = 0, _wis = 0, _cha = 1 }
-defaultRacialBonuses ((HumanVariant Charisma Constitution)) = StatBlock { _str = 0, _dex = 0, _con = 1, _int = 0, _wis = 0, _cha = 1 }
-defaultRacialBonuses ((HumanVariant Charisma Intelligence)) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 1, _wis = 0, _cha = 1 }
-defaultRacialBonuses ((HumanVariant Charisma Wisdom)) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 0, _wis = 1, _cha = 1 }
-defaultRacialBonuses ((HumanVariant Charisma Charisma)) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 0, _wis = 0, _cha = 2 }
-defaultRacialBonuses (HumanFinding) = StatBlock { _str = 0, _dex = 0, _con = 1, _int = 0, _wis = 2, _cha = 0 }
-defaultRacialBonuses ((HumanHandling HumanHandlingStrength)) = StatBlock { _str = 1, _dex = 0, _con = 0, _int = 0, _wis = 2, _cha = 0 }
-defaultRacialBonuses ((HumanHandling HumanHandlingDexterity)) = StatBlock { _str = 0, _dex = 1, _con = 0, _int = 0, _wis = 2, _cha = 0 }
-defaultRacialBonuses ((HumanHandling HumanHandlingConstitution)) = StatBlock { _str = 0, _dex = 0, _con = 1, _int = 0, _wis = 2, _cha = 0 }
-defaultRacialBonuses ((HumanHandling HumanHandlingIntelligence)) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 1, _wis = 2, _cha = 0 }
-defaultRacialBonuses ((HumanHandling HumanHandlingCharisma)) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 0, _wis = 2, _cha = 1 }
-defaultRacialBonuses ((HumanMaking HumanMakingStrength)) = StatBlock { _str = 1, _dex = 0, _con = 0, _int = 2, _wis = 0, _cha = 0 }
-defaultRacialBonuses ((HumanMaking HumanMakingDexterity)) = StatBlock { _str = 0, _dex = 1, _con = 0, _int = 2, _wis = 0, _cha = 0 }
-defaultRacialBonuses ((HumanMaking HumanMakingConstitution)) = StatBlock { _str = 0, _dex = 0, _con = 1, _int = 2, _wis = 0, _cha = 0 }
-defaultRacialBonuses ((HumanMaking HumanMakingWisdom)) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 2, _wis = 1, _cha = 0 }
-defaultRacialBonuses ((HumanMaking HumanMakingCharisma)) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 2, _wis = 0, _cha = 1 }
-defaultRacialBonuses ((HumanPassage HumanPassageStrength)) = StatBlock { _str = 1, _dex = 2, _con = 0, _int = 0, _wis = 0, _cha = 0 }
-defaultRacialBonuses ((HumanPassage HumanPassageConstitution)) = StatBlock { _str = 0, _dex = 2, _con = 1, _int = 0, _wis = 0, _cha = 0 }
-defaultRacialBonuses ((HumanPassage HumanPassageIntelligence)) = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 1, _wis = 0, _cha = 0 }
-defaultRacialBonuses ((HumanPassage HumanPassageWisdom)) = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 0, _wis = 1, _cha = 0 }
-defaultRacialBonuses ((HumanPassage HumanPassageCharisma)) = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 0, _wis = 0, _cha = 1 }
-defaultRacialBonuses (HumanSentinel) = StatBlock { _str = 0, _dex = 0, _con = 2, _int = 0, _wis = 1, _cha = 0 }
+defaultRacialBonuses HumanStandard = StatBlock { _str = 1, _dex = 1, _con = 1, _int = 1, _wis = 1, _cha = 1 }
+defaultRacialBonuses HumanVariantStrDex = StatBlock { _str = 1, _dex = 1, _con = 0, _int = 0, _wis = 0, _cha = 0 }
+defaultRacialBonuses HumanVariantStrCon = StatBlock { _str = 1, _dex = 0, _con = 1, _int = 0, _wis = 0, _cha = 0 }
+defaultRacialBonuses HumanVariantStrInt = StatBlock { _str = 1, _dex = 0, _con = 0, _int = 1, _wis = 0, _cha = 0 }
+defaultRacialBonuses HumanVariantStrWis = StatBlock { _str = 1, _dex = 0, _con = 0, _int = 0, _wis = 1, _cha = 0 }
+defaultRacialBonuses HumanVariantStrCha = StatBlock { _str = 1, _dex = 0, _con = 0, _int = 0, _wis = 0, _cha = 1 }
+defaultRacialBonuses HumanVariantDexCon = StatBlock { _str = 0, _dex = 1, _con = 1, _int = 0, _wis = 0, _cha = 0 }
+defaultRacialBonuses HumanVariantDexInt = StatBlock { _str = 0, _dex = 1, _con = 0, _int = 1, _wis = 0, _cha = 0 }
+defaultRacialBonuses HumanVariantDexWis = StatBlock { _str = 0, _dex = 1, _con = 0, _int = 0, _wis = 1, _cha = 0 }
+defaultRacialBonuses HumanVariantDexCha = StatBlock { _str = 0, _dex = 1, _con = 0, _int = 0, _wis = 0, _cha = 1 }
+defaultRacialBonuses HumanVariantConInt = StatBlock { _str = 0, _dex = 0, _con = 1, _int = 1, _wis = 0, _cha = 0 }
+defaultRacialBonuses HumanVariantConWis = StatBlock { _str = 0, _dex = 0, _con = 1, _int = 0, _wis = 1, _cha = 0 }
+defaultRacialBonuses HumanVariantConCha = StatBlock { _str = 0, _dex = 0, _con = 1, _int = 0, _wis = 0, _cha = 1 }
+defaultRacialBonuses HumanVariantIntWis = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 1, _wis = 1, _cha = 0 }
+defaultRacialBonuses HumanVariantIntCha = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 1, _wis = 0, _cha = 1 }
+defaultRacialBonuses HumanVariantWisCha = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 0, _wis = 1, _cha = 1 }
+defaultRacialBonuses HumanFinding = StatBlock { _str = 0, _dex = 0, _con = 1, _int = 0, _wis = 2, _cha = 0 }
+defaultRacialBonuses (HumanHandling HumanHandlingStrength) = StatBlock { _str = 1, _dex = 0, _con = 0, _int = 0, _wis = 2, _cha = 0 }
+defaultRacialBonuses (HumanHandling HumanHandlingDexterity) = StatBlock { _str = 0, _dex = 1, _con = 0, _int = 0, _wis = 2, _cha = 0 }
+defaultRacialBonuses (HumanHandling HumanHandlingConstitution) = StatBlock { _str = 0, _dex = 0, _con = 1, _int = 0, _wis = 2, _cha = 0 }
+defaultRacialBonuses (HumanHandling HumanHandlingIntelligence) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 1, _wis = 2, _cha = 0 }
+defaultRacialBonuses (HumanHandling HumanHandlingCharisma) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 0, _wis = 2, _cha = 1 }
+defaultRacialBonuses (HumanMaking HumanMakingStrength) = StatBlock { _str = 1, _dex = 0, _con = 0, _int = 2, _wis = 0, _cha = 0 }
+defaultRacialBonuses (HumanMaking HumanMakingDexterity) = StatBlock { _str = 0, _dex = 1, _con = 0, _int = 2, _wis = 0, _cha = 0 }
+defaultRacialBonuses (HumanMaking HumanMakingConstitution) = StatBlock { _str = 0, _dex = 0, _con = 1, _int = 2, _wis = 0, _cha = 0 }
+defaultRacialBonuses (HumanMaking HumanMakingWisdom) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 2, _wis = 1, _cha = 0 }
+defaultRacialBonuses (HumanMaking HumanMakingCharisma) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 2, _wis = 0, _cha = 1 }
+defaultRacialBonuses (HumanPassage HumanPassageStrength) = StatBlock { _str = 1, _dex = 2, _con = 0, _int = 0, _wis = 0, _cha = 0 }
+defaultRacialBonuses (HumanPassage HumanPassageConstitution) = StatBlock { _str = 0, _dex = 2, _con = 1, _int = 0, _wis = 0, _cha = 0 }
+defaultRacialBonuses (HumanPassage HumanPassageIntelligence) = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 1, _wis = 0, _cha = 0 }
+defaultRacialBonuses (HumanPassage HumanPassageWisdom) = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 0, _wis = 1, _cha = 0 }
+defaultRacialBonuses (HumanPassage HumanPassageCharisma) = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 0, _wis = 0, _cha = 1 }
+defaultRacialBonuses HumanSentinel = StatBlock { _str = 0, _dex = 0, _con = 2, _int = 0, _wis = 1, _cha = 0 }
 
-defaultRacialBonuses (Kalashtar) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 0, _wis = 2, _cha = 1 }
+defaultRacialBonuses Kalashtar = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 0, _wis = 2, _cha = 1 }
 
-defaultRacialBonuses (Kenku) = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 0, _wis = 1, _cha = 0 }
+defaultRacialBonuses Kenku = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 0, _wis = 1, _cha = 0 }
 
-defaultRacialBonuses (Kobold) = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 0, _wis = 0, _cha = 0 }
+defaultRacialBonuses Kobold = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 0, _wis = 0, _cha = 0 }
 
-defaultRacialBonuses (Leonin) = StatBlock { _str = 1, _dex = 0, _con = 2, _int = 0, _wis = 0, _cha = 0 }
+defaultRacialBonuses Leonin = StatBlock { _str = 1, _dex = 0, _con = 2, _int = 0, _wis = 0, _cha = 0 }
 
-defaultRacialBonuses (Lizardfolk) = StatBlock { _str = 0, _dex = 0, _con = 2, _int = 0, _wis = 1, _cha = 0 }
+defaultRacialBonuses Lizardfolk = StatBlock { _str = 0, _dex = 0, _con = 2, _int = 0, _wis = 1, _cha = 0 }
 
-defaultRacialBonuses (Locathah) = StatBlock { _str = 2, _dex = 1, _con = 0, _int = 0, _wis = 0, _cha = 0 }
+defaultRacialBonuses Locathah = StatBlock { _str = 2, _dex = 1, _con = 0, _int = 0, _wis = 0, _cha = 0 }
 
-defaultRacialBonuses (Loxodon) = StatBlock { _str = 0, _dex = 0, _con = 2, _int = 0, _wis = 1, _cha = 0 }
+defaultRacialBonuses Loxodon = StatBlock { _str = 0, _dex = 0, _con = 2, _int = 0, _wis = 1, _cha = 0 }
 
-defaultRacialBonuses (Minotaur) = StatBlock { _str = 2, _dex = 0, _con = 1, _int = 0, _wis = 0, _cha = 0 }
+defaultRacialBonuses Minotaur = StatBlock { _str = 2, _dex = 0, _con = 1, _int = 0, _wis = 0, _cha = 0 }
 
-defaultRacialBonuses (OrcStandard) = StatBlock { _str = 2, _dex = 0, _con = 1, _int = 0, _wis = 0, _cha = 0 }
-defaultRacialBonuses (OrcEberron) = StatBlock { _str = 2, _dex = 0, _con = 1, _int = 0, _wis = 0, _cha = 0 }
+defaultRacialBonuses OrcStandard = StatBlock { _str = 2, _dex = 0, _con = 1, _int = 0, _wis = 0, _cha = 0 }
+defaultRacialBonuses OrcEberron = StatBlock { _str = 2, _dex = 0, _con = 1, _int = 0, _wis = 0, _cha = 0 }
 
-defaultRacialBonuses (Satyr) = StatBlock { _str = 0, _dex = 1, _con = 0, _int = 0, _wis = 0, _cha = 2 }
+defaultRacialBonuses Satyr = StatBlock { _str = 0, _dex = 1, _con = 0, _int = 0, _wis = 0, _cha = 2 }
 
-defaultRacialBonuses (ShifterBeasthide) = StatBlock { _str = 1, _dex = 0, _con = 2, _int = 0, _wis = 0, _cha = 0 }
-defaultRacialBonuses (ShifterLongtooth) = StatBlock { _str = 2, _dex = 1, _con = 0, _int = 0, _wis = 0, _cha = 0 }
-defaultRacialBonuses (ShifterSwiftstride) = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 0, _wis = 0, _cha = 1 }
-defaultRacialBonuses (ShifterWildhunt) = StatBlock { _str = 0, _dex = 1, _con = 0, _int = 0, _wis = 2, _cha = 0 }
+defaultRacialBonuses ShifterBeasthide = StatBlock { _str = 1, _dex = 0, _con = 2, _int = 0, _wis = 0, _cha = 0 }
+defaultRacialBonuses ShifterLongtooth = StatBlock { _str = 2, _dex = 1, _con = 0, _int = 0, _wis = 0, _cha = 0 }
+defaultRacialBonuses ShifterSwiftstride = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 0, _wis = 0, _cha = 1 }
+defaultRacialBonuses ShifterWildhunt = StatBlock { _str = 0, _dex = 1, _con = 0, _int = 0, _wis = 2, _cha = 0 }
 
-defaultRacialBonuses (SimicStrength) = StatBlock { _str = 1, _dex = 0, _con = 2, _int = 0, _wis = 0, _cha = 0 }
-defaultRacialBonuses (SimicDexterity) = StatBlock { _str = 0, _dex = 1, _con = 2, _int = 0, _wis = 0, _cha = 0 }
-defaultRacialBonuses (SimicIntelligence) = StatBlock { _str = 0, _dex = 0, _con = 2, _int = 1, _wis = 0, _cha = 0 }
-defaultRacialBonuses (SimicWisdom) = StatBlock { _str = 0, _dex = 0, _con = 2, _int = 0, _wis = 1, _cha = 0 }
-defaultRacialBonuses (SimicCharisma) = StatBlock { _str = 0, _dex = 0, _con = 2, _int = 0, _wis = 0, _cha = 1 }
+defaultRacialBonuses SimicStrength = StatBlock { _str = 1, _dex = 0, _con = 2, _int = 0, _wis = 0, _cha = 0 }
+defaultRacialBonuses SimicDexterity = StatBlock { _str = 0, _dex = 1, _con = 2, _int = 0, _wis = 0, _cha = 0 }
+defaultRacialBonuses SimicIntelligence = StatBlock { _str = 0, _dex = 0, _con = 2, _int = 1, _wis = 0, _cha = 0 }
+defaultRacialBonuses SimicWisdom = StatBlock { _str = 0, _dex = 0, _con = 2, _int = 0, _wis = 1, _cha = 0 }
+defaultRacialBonuses SimicCharisma = StatBlock { _str = 0, _dex = 0, _con = 2, _int = 0, _wis = 0, _cha = 1 }
 
-defaultRacialBonuses (Tabaxi) = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 0, _wis = 0, _cha = 1 }
+defaultRacialBonuses Tabaxi = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 0, _wis = 0, _cha = 1 }
 
-defaultRacialBonuses ((TieflingNormal TieflingNormalDevilsTongue)) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 1, _wis = 0, _cha = 2 }
-defaultRacialBonuses ((TieflingNormal TieflingNormalHellfire)) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 1, _wis = 0, _cha = 2 }
-defaultRacialBonuses ((TieflingNormal TieflingNormalWinged)) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 1, _wis = 0, _cha = 2 }
-defaultRacialBonuses ((TieflingNormal TieflingNormalAsmodeus)) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 1, _wis = 0, _cha = 2 }
-defaultRacialBonuses ((TieflingNormal TieflingNormalBaalzebul)) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 1, _wis = 0, _cha = 2 }
-defaultRacialBonuses ((TieflingNormal TieflingNormalDispater)) = StatBlock { _str = 0, _dex = 1, _con = 0, _int = 0, _wis = 0, _cha = 2 }
-defaultRacialBonuses ((TieflingNormal TieflingNormalFierna)) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 0, _wis = 1, _cha = 2 }
-defaultRacialBonuses ((TieflingNormal TieflingNormalGlasya)) = StatBlock { _str = 0, _dex = 1, _con = 0, _int = 0, _wis = 0, _cha = 2 }
-defaultRacialBonuses ((TieflingNormal TieflingNormalLevistus)) = StatBlock { _str = 0, _dex = 0, _con = 1, _int = 0, _wis = 0, _cha = 2 }
-defaultRacialBonuses ((TieflingNormal TieflingNormalMammon)) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 1, _wis = 0, _cha = 2 }
-defaultRacialBonuses ((TieflingNormal TieflingNormalMephistopheles)) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 1, _wis = 0, _cha = 2 }
-defaultRacialBonuses ((TieflingNormal TieflingNormalZariel)) = StatBlock { _str = 1, _dex = 0, _con = 0, _int = 0, _wis = 0, _cha = 2 }
+defaultRacialBonuses (TieflingNormal TieflingNormalDevilsTongue) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 1, _wis = 0, _cha = 2 }
+defaultRacialBonuses (TieflingNormal TieflingNormalHellfire) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 1, _wis = 0, _cha = 2 }
+defaultRacialBonuses (TieflingNormal TieflingNormalWinged) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 1, _wis = 0, _cha = 2 }
+defaultRacialBonuses (TieflingNormal TieflingNormalAsmodeus) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 1, _wis = 0, _cha = 2 }
+defaultRacialBonuses (TieflingNormal TieflingNormalBaalzebul) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 1, _wis = 0, _cha = 2 }
+defaultRacialBonuses (TieflingNormal TieflingNormalDispater) = StatBlock { _str = 0, _dex = 1, _con = 0, _int = 0, _wis = 0, _cha = 2 }
+defaultRacialBonuses (TieflingNormal TieflingNormalFierna) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 0, _wis = 1, _cha = 2 }
+defaultRacialBonuses (TieflingNormal TieflingNormalGlasya) = StatBlock { _str = 0, _dex = 1, _con = 0, _int = 0, _wis = 0, _cha = 2 }
+defaultRacialBonuses (TieflingNormal TieflingNormalLevistus) = StatBlock { _str = 0, _dex = 0, _con = 1, _int = 0, _wis = 0, _cha = 2 }
+defaultRacialBonuses (TieflingNormal TieflingNormalMammon) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 1, _wis = 0, _cha = 2 }
+defaultRacialBonuses (TieflingNormal TieflingNormalMephistopheles) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 1, _wis = 0, _cha = 2 }
+defaultRacialBonuses (TieflingNormal TieflingNormalZariel) = StatBlock { _str = 1, _dex = 0, _con = 0, _int = 0, _wis = 0, _cha = 2 }
 
-defaultRacialBonuses ((TieflingFeral TieflingFeralDevilsTongue)) = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 1, _wis = 0, _cha = 0 }
-defaultRacialBonuses ((TieflingFeral TieflingFeralHellfire)) = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 1, _wis = 0, _cha = 0 }
-defaultRacialBonuses ((TieflingFeral TieflingFeralWinged)) = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 1, _wis = 0, _cha = 0 }
+defaultRacialBonuses (TieflingFeral TieflingFeralDevilsTongue) = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 1, _wis = 0, _cha = 0 }
+defaultRacialBonuses (TieflingFeral TieflingFeralHellfire) = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 1, _wis = 0, _cha = 0 }
+defaultRacialBonuses (TieflingFeral TieflingFeralWinged) = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 1, _wis = 0, _cha = 0 }
 
-defaultRacialBonuses (Tortle) = StatBlock { _str = 2, _dex = 0, _con = 0, _int = 0, _wis = 1, _cha = 0 }
+defaultRacialBonuses Tortle = StatBlock { _str = 2, _dex = 0, _con = 0, _int = 0, _wis = 1, _cha = 0 }
 
-defaultRacialBonuses (Triton) = StatBlock { _str = 1, _dex = 0, _con = 1, _int = 0, _wis = 0, _cha = 1 }
+defaultRacialBonuses Triton = StatBlock { _str = 1, _dex = 0, _con = 1, _int = 0, _wis = 0, _cha = 1 }
   
-defaultRacialBonuses (Vedalken) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 2, _wis = 1, _cha = 0 }
+defaultRacialBonuses Vedalken = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 2, _wis = 1, _cha = 0 }
   
-defaultRacialBonuses (WarforgedStrength) = StatBlock { _str = 1, _dex = 0, _con = 2, _int = 0, _wis = 0, _cha = 0 }
-defaultRacialBonuses (WarforgedDexterity) = StatBlock { _str = 0, _dex = 1, _con = 2, _int = 0, _wis = 0, _cha = 0 }
-defaultRacialBonuses (WarforgedIntelligence) = StatBlock { _str = 0, _dex = 0, _con = 2, _int = 1, _wis = 0, _cha = 0 }
-defaultRacialBonuses (WarforgedWisdom) = StatBlock { _str = 0, _dex = 0, _con = 2, _int = 0, _wis = 1, _cha = 0 }
-defaultRacialBonuses (WarforgedCharisma) = StatBlock { _str = 0, _dex = 0, _con = 2, _int = 0, _wis = 0, _cha = 1 }
+defaultRacialBonuses WarforgedStrength = StatBlock { _str = 1, _dex = 0, _con = 2, _int = 0, _wis = 0, _cha = 0 }
+defaultRacialBonuses WarforgedDexterity = StatBlock { _str = 0, _dex = 1, _con = 2, _int = 0, _wis = 0, _cha = 0 }
+defaultRacialBonuses WarforgedIntelligence = StatBlock { _str = 0, _dex = 0, _con = 2, _int = 1, _wis = 0, _cha = 0 }
+defaultRacialBonuses WarforgedWisdom = StatBlock { _str = 0, _dex = 0, _con = 2, _int = 0, _wis = 1, _cha = 0 }
+defaultRacialBonuses WarforgedCharisma = StatBlock { _str = 0, _dex = 0, _con = 2, _int = 0, _wis = 0, _cha = 1 }
 
-defaultRacialBonuses (YuanTiPureblood) = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 1, _wis = 0, _cha = 2 }
+defaultRacialBonuses YuanTiPureblood = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 1, _wis = 0, _cha = 2 }
   

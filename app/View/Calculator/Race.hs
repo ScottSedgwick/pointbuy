@@ -387,78 +387,23 @@ racialTraits (Hobgoblin) =
 
 racialTraits (HumanStandard) =
     []
-racialTraits ((HumanVariant Strength Strength)) =
-    []
-racialTraits ((HumanVariant Strength Dexterity)) =
-    []
-racialTraits ((HumanVariant Strength Constitution)) =
-    []
-racialTraits ((HumanVariant Strength Intelligence)) =
-    []
-racialTraits ((HumanVariant Strength Wisdom)) =
-    []
-racialTraits ((HumanVariant Strength Charisma)) =
-    []
-racialTraits ((HumanVariant Dexterity Strength)) =
-    []
-racialTraits ((HumanVariant Dexterity Dexterity)) =
-    []
-racialTraits ((HumanVariant Dexterity Constitution)) =
-    []
-racialTraits ((HumanVariant Dexterity Intelligence)) =
-    []
-racialTraits ((HumanVariant Dexterity Wisdom)) =
-    []
-racialTraits ((HumanVariant Dexterity Charisma)) =
-    []
-racialTraits ((HumanVariant Constitution Strength)) =
-    []
-racialTraits ((HumanVariant Constitution Dexterity)) =
-    []
-racialTraits ((HumanVariant Constitution Constitution)) =
-    []
-racialTraits ((HumanVariant Constitution Intelligence)) =
-    []
-racialTraits ((HumanVariant Constitution Wisdom)) =
-    []
-racialTraits ((HumanVariant Constitution Charisma)) =
-    []
-racialTraits ((HumanVariant Intelligence Strength)) =
-    []
-racialTraits ((HumanVariant Intelligence Dexterity)) =
-    []
-racialTraits ((HumanVariant Intelligence Constitution)) =
-    []
-racialTraits ((HumanVariant Intelligence Intelligence)) =
-    []
-racialTraits ((HumanVariant Intelligence Wisdom)) =
-    []
-racialTraits ((HumanVariant Intelligence Charisma)) =
-    []
-racialTraits ((HumanVariant Wisdom Strength)) =
-    []
-racialTraits ((HumanVariant Wisdom Dexterity)) =
-    []
-racialTraits ((HumanVariant Wisdom Constitution)) =
-    []
-racialTraits ((HumanVariant Wisdom Intelligence)) =
-    []
-racialTraits ((HumanVariant Wisdom Wisdom)) =
-    []
-racialTraits ((HumanVariant Wisdom Charisma)) =
-    []
-racialTraits ((HumanVariant Charisma Strength)) =
-    []
-racialTraits ((HumanVariant Charisma Dexterity)) =
-    []
-racialTraits ((HumanVariant Charisma Constitution)) =
-    []
-racialTraits ((HumanVariant Charisma Intelligence)) =
-    []
-racialTraits ((HumanVariant Charisma Wisdom)) =
-    []
-racialTraits ((HumanVariant Charisma Charisma)) =
-    []
+
+racialTraits HumanVariantStrDex = []
+racialTraits HumanVariantStrCon = []
+racialTraits HumanVariantStrInt = []
+racialTraits HumanVariantStrWis = []
+racialTraits HumanVariantStrCha = []
+racialTraits HumanVariantDexCon = []
+racialTraits HumanVariantDexInt = []
+racialTraits HumanVariantDexWis = []
+racialTraits HumanVariantDexCha = []
+racialTraits HumanVariantConInt = []
+racialTraits HumanVariantConWis = []
+racialTraits HumanVariantConCha = []
+racialTraits HumanVariantIntWis = []
+racialTraits HumanVariantIntCha = []
+racialTraits HumanVariantWisCha = []
+
 racialTraits (HumanFinding) =
     []
 racialTraits ((HumanHandling HumanHandlingStrength)) =
