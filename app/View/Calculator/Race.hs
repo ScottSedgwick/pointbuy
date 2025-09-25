@@ -32,7 +32,7 @@ raceSelect x =
   ]
 
 mkRaceOption :: Race -> Race -> View Model Action
-mkRaceOption c r = H.option_ [ P.selected_ (c == r), P.value_ (ms $ show r) ] [ text (ms $ showPretty r) ]
+mkRaceOption c r = H.option_ [ P.selected_ (c == r), P.value_ (ms $ show r) ] [ text (ms $ Types.Races.showPretty r) ]
 
 aasimarSelector :: Model -> View Model Action
 aasimarSelector x =

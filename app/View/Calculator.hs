@@ -20,10 +20,10 @@ viewCalculator x =
   , H.article_ [ P.className "s12 fill" ]
     [ H.article_ [] [ raceSelector x ]
     , H.article_ [ P.className "grid" ]
-      ( [ H.div_ [ P.className "s2" ] [ H.p_ [] [ H.b_ [] [ text "Attribute" ] ] ]
+      ( [ H.div_ [ P.className "s1" ] [ H.p_ [] [ H.b_ [] [ text "Attribute" ] ] ]
         , H.div_ [ P.className "s2" ] [ H.p_ [ P.className "center-align" ] [ H.b_ [] [ text "Base Score" ] ] ]
         , H.div_ [ P.className "s1" ] [ H.p_ [ P.className "center-align" ] [ H.b_ [] [ text "" ] ] ]
-        , H.div_ [ P.className "s1" ] [ H.p_ [ P.className "center-align" ] [ H.b_ [] [ text "Racial Bonus" ] ] ]
+        , H.div_ [ P.className "s2" ] [ H.p_ [ P.className "center-align" ] [ H.b_ [] [ text "Racial Bonus" ] ] ]
         , H.div_ [ P.className "s1" ] [ H.p_ [ P.className "center-align" ] [ H.b_ [] [ text "" ] ] ]
         , H.div_ [ P.className "s2" ] [ H.p_ [ P.className "center-align" ] [ H.b_ [] [ text "Total Score" ] ] ]
         , H.div_ [ P.className "s1" ] [ H.p_ [ P.className "center-align" ] [ H.b_ [] [ text "Ability Modifier" ] ] ]
@@ -38,10 +38,10 @@ viewCalculator x =
 
 mkAttributeRow :: Model -> Stat -> [View Model Action]
 mkAttributeRow x s =
-    [ H.div_ [ P.className "s2" ] [ H.p_ [] [ text (ms $ show s) ] ]
+    [ H.div_ [ P.className "s1" ] [ H.p_ [] [ text (ms $ Types.Stats.showPretty s) ] ]
     , H.div_ [ P.className "s2" ] [ numberField x sl (min, max) (ChangeInt sl) ]
     , H.div_ [ P.className "s1" ] [ H.p_ [ P.className "center-align" ] [ text "+" ] ]
-    , H.div_ [ P.className "s1" ] [ H.p_ [ P.className "center-align" ] [ text (msshow (x ^. rbl)) ]]  -- in special cases, this can change (for selected races)
+    , H.div_ [ P.className "s2" ] [ H.p_ [ P.className "center-align" ] [ text (msshow (x ^. rbl)) ]]  -- in special cases, this can change (for selected races)
     , H.div_ [ P.className "s1" ] [ H.p_ [ P.className "center-align" ] [ text "=" ] ]
     , H.div_ [ P.className "s2" ] [ H.p_ [ P.className "center-align" ] [ H.b_ [] [ text (msshow total) ] ] ]
     , H.div_ [ P.className "s1" ] [ H.p_ [ P.className "center-align" ] [ text (msshow mod) ] ]
