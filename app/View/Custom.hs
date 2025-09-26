@@ -1,20 +1,20 @@
 {-# LANGUAGE OverloadedStrings #-}
 module View.Custom where
 
-import qualified Data.IntMap as IM
-import           Miso
-import qualified Miso.Html as H
+import           Control.Lens       ( (^.) )
+import qualified Data.IntMap        as IM
+import           Miso               ( View, ms, text )
+import qualified Miso.Html          as H
 import qualified Miso.Html.Property as P
-import           Miso.Lens
 
-import           Types
+import           Types              ( Action(..), Model, availablePoints, maxPurchasableAttribute, minPurchasableAttribute, pointBuyCosts, pointBuyCostValue )
 
 viewCustom :: Model -> View Model Action
 viewCustom x =
   H.article_ [ P.className "fill grid" ]
   [ H.h2_ [ P.className "s12" ] [ text "Custom Rules" ]
   , H.article_ [ P.className "s12" ] [ text "Your DM may use House Rules regarding the Point Buy system. Adjust the numbers below to meet those rules." ]
-  , H.article_ [ P.className "grid s12"]
+  , H.article_ [ P.className "grid s12 m4"]
     [ H.div_ [ P.className "s12" ] [ H.h6_ [] [ text "Limits" ] ]
     , H.div_ [ P.className "s12" ]
       [ H.div_ [ P.className "field border small" ] 
@@ -35,9 +35,9 @@ viewCustom x =
         ]
       ]
     , H.div_ [ P.className "s12" ]
-      [ H.div_ [ P.className "field border small" ] [ H.button_ [ P.className "responsive", H.onClick ResetCustomValues ] [ text "Reset" ] ] ]
+      [ H.div_ [ P.className "field border small" ] [ H.button_ [ P.className "responsive", H.onClick Reset ] [ text "Reset" ] ] ]
     ]
-  , H.article_ [ P.className "s12 grid" ] 
+  , H.article_ [ P.className "s12 m8 grid" ] 
     ( (H.div_ [ P.className "s12" ] [ H.h6_ [] [text "Costs" ]]) : map (viewPointBuyCost x) (reverse $ IM.keys (x ^. pointBuyCosts)))
   ]
 

@@ -1,11 +1,11 @@
 {-# LANGUAGE OverloadedStrings #-}
 module View.Raw where
 
-import           Miso
-import qualified Miso.Html as H
+import           Miso               ( View, text )
+import qualified Miso.Html          as H
 import qualified Miso.Html.Property as P
 
-import           Types
+import           Types              ( Action, Model )
 
 viewRaw :: Model -> View Model Action
 viewRaw x =

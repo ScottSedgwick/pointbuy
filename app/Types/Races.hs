@@ -1,9 +1,7 @@
 module Types.Races where
 
-import           Data.Default
-import qualified Data.Map as M
-
-import Types.Stats
+import Data.Default ( Default, def )
+import Types.Stats  ( StatBlock(..) )
 
 data HalfElfDMGStat
   = HalfElfDMGStrength
@@ -195,7 +193,7 @@ showPretty Dragonborn = "Dragonborn"
 showPretty DwarfHill = "Dwarf (Hill)"
 showPretty DwarfMountain = "Dwarf (Mountain)"
 showPretty DwarfDuergar = "Dwarf (Duergar)"
-showPretty DwarfWarding = "Dwarf (Warding)"
+showPretty DwarfWarding = "Dwarf (Dragonmark of Warding)"
 showPretty ElfHigh = "Elf (High)"
 showPretty ElfWood = "Elf (Wood)"
 showPretty ElfEladrin = "Elf (Eladrin)"
