@@ -14,7 +14,6 @@ task :build do
     sh 'wasm32-wasi-cabal build --allow-newer'
 end
 
-
 desc 'Generate the JS files WASM needs to work in the browser'
 task :wasm => [:build, DEPLOY_FOLDER] do
     libdir = `wasm32-wasi-ghc --print-libdir`.strip

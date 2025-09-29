@@ -1,7 +1,7 @@
 module Types.Races where
 
 import Data.Default ( Default, def )
-import Types.Stats  ( StatBlock(..) )
+import Types.Stats  ( StatBlock(..), Stat(..) )
   
 data Race
   = CustomRace
@@ -132,6 +132,7 @@ data Race
   | SimicWis
   | SimicCha
   | Tabaxi
+  | Tiefling
   | TieflingNormalDevilsTongue
   | TieflingNormalHellfire
   | TieflingNormalWinged
@@ -144,6 +145,7 @@ data Race
   | TieflingNormalMammon
   | TieflingNormalMephistopheles
   | TieflingNormalZariel
+  | TieflingFeral
   | TieflingFeralDevilsTongue
   | TieflingFeralHellfire
   | TieflingFeralWinged
@@ -156,7 +158,7 @@ data Race
   | WarforgedWis
   | WarforgedCha
   | YuanTiPureblood
-  deriving (Eq, Ord, Show, Read)
+  deriving (Eq, Ord, Show, Read, Enum, Bounded)
 
 instance Default Race where
   def = CustomRace
@@ -290,6 +292,7 @@ showPretty SimicInt = "Simic (Int)"
 showPretty SimicWis = "Simic (Wis)"
 showPretty SimicCha = "Simic (Cha)"
 showPretty Tabaxi = "Tabaxi"
+showPretty Tiefling = "Tiefling"
 showPretty TieflingNormalDevilsTongue = "Tiefling (Normal - DevilsTongue)"
 showPretty TieflingNormalHellfire = "Tiefling (Normal - Hellfire)"
 showPretty TieflingNormalWinged = "Tiefling (Normal - Winged)"
@@ -302,6 +305,7 @@ showPretty TieflingNormalLevistus = "Tiefling (Normal - Levistus)"
 showPretty TieflingNormalMammon = "Tiefling (Normal - Mammon)"
 showPretty TieflingNormalMephistopheles = "Tiefling (Normal - Mephistopheles)"
 showPretty TieflingNormalZariel = "Tiefling (Normal - Zariel)"
+showPretty TieflingFeral = "Tiefling (Feral)"
 showPretty TieflingFeralDevilsTongue = "Tiefling (Feral - DevilsTongue)"
 showPretty TieflingFeralHellfire = "Tiefling (Feral - Hellfire)"
 showPretty TieflingFeralWinged = "Tiefling (Feral - Winged)"
@@ -316,160 +320,7 @@ showPretty WarforgedCha = "Warforged (Cha)"
 showPretty YuanTiPureblood = "Yuan-Ti Pureblood"
 
 allRaces :: [Race]
-allRaces = 
-  [ CustomRace
-  , Aarakocra
-  , AasimarDMG
-  , AasimarProtector
-  , AasimarScourge
-  , AasimarFallen
-  , Bugbear
-  , Centaur
-  , ChangelingStr
-  , ChangelingDex
-  , ChangelingCon
-  , ChangelingInt
-  , ChangelingWis
-  , Dragonborn
-  , DwarfHill
-  , DwarfMountain
-  , DwarfDuergar
-  , DwarfWarding
-  , ElfHigh
-  , ElfWood
-  , ElfEladrin
-  , ElfEladrinMtof
-  , ElfDrow
-  , ElfSea
-  , ElfShadarKai
-  , ElfShadow
-  , Firbolg
-  , GenasiAir
-  , GenasiEarth
-  , GenasiFire
-  , GenasiWater
-  , Githyanki
-  , Githzerai
-  , GnomeForest
-  , GnomeRock
-  , GnomeDeep
-  , GnomeScribing
-  , Goblin
-  , Goliath
-  , Grung
-  , HalfElfDMGStrDex
-  , HalfElfDMGStrCon
-  , HalfElfDMGStrInt
-  , HalfElfDMGStrWis
-  , HalfElfDMGDexCon
-  , HalfElfDMGDexInt
-  , HalfElfDMGDexWis
-  , HalfElfDMGConInt
-  , HalfElfDMGConWis
-  , HalfElfDMGIntWis
-  , HalfElfVariantStrDex
-  , HalfElfVariantStrCon
-  , HalfElfVariantStrInt
-  , HalfElfVariantStrWis
-  , HalfElfVariantDexCon
-  , HalfElfVariantDexInt
-  , HalfElfVariantDexWis
-  , HalfElfVariantConInt
-  , HalfElfVariantConWis
-  , HalfElfVariantIntWis
-  , HalfElfDetectionStr
-  , HalfElfDetectionDex
-  , HalfElfDetectionCon
-  , HalfElfDetectionInt
-  , HalfElfDetectionCha
-  , HalfElfStorm
-  , HalfOrcStandard
-  , HalfOrcFinding
-  , HalflingLightfoot
-  , HalflingStout
-  , HalflingGhostwise
-  , HalflingHealing
-  , HalflingHospitality
-  , Hobgoblin
-  , HumanStandard
-  , HumanVariantStrDex
-  , HumanVariantStrCon
-  , HumanVariantStrInt
-  , HumanVariantStrWis
-  , HumanVariantStrCha
-  , HumanVariantDexCon
-  , HumanVariantDexInt
-  , HumanVariantDexWis
-  , HumanVariantDexCha
-  , HumanVariantConInt
-  , HumanVariantConWis
-  , HumanVariantConCha
-  , HumanVariantIntWis
-  , HumanVariantIntCha
-  , HumanVariantWisCha
-  , HumanFinding
-  , HumanHandlingStr
-  , HumanHandlingDex
-  , HumanHandlingCon
-  , HumanHandlingInt
-  , HumanHandlingCha
-  , HumanMakingStr
-  , HumanMakingDex
-  , HumanMakingCon
-  , HumanMakingWis
-  , HumanMakingCha
-  , HumanPassageStr
-  , HumanPassageCon
-  , HumanPassageInt
-  , HumanPassageWis
-  , HumanPassageCha
-  , HumanSentinel
-  , Kalashtar
-  , Kenku
-  , Kobold
-  , Leonin
-  , Lizardfolk
-  , Locathah
-  , Loxodon
-  , Minotaur
-  , OrcStandard
-  , OrcEberron
-  , Satyr
-  , ShifterBeasthide
-  , ShifterLongtooth
-  , ShifterSwiftstride
-  , ShifterWildhunt
-  , SimicStr
-  , SimicDex
-  , SimicInt
-  , SimicWis
-  , SimicCha
-  , Tabaxi
-  , TieflingNormalDevilsTongue
-  , TieflingNormalHellfire
-  , TieflingNormalWinged
-  , TieflingNormalAsmodeus
-  , TieflingNormalBaalzebul
-  , TieflingNormalDispater
-  , TieflingNormalFierna
-  , TieflingNormalGlasya
-  , TieflingNormalLevistus
-  , TieflingNormalMammon
-  , TieflingNormalMephistopheles
-  , TieflingNormalZariel
-  , TieflingFeralDevilsTongue
-  , TieflingFeralHellfire
-  , TieflingFeralWinged
-  , Tortle
-  , Triton
-  , Vedalken
-  , WarforgedStr
-  , WarforgedDex
-  , WarforgedInt
-  , WarforgedWis
-  , WarforgedCha
-  , YuanTiPureblood
-  ]
+allRaces = [minBound..maxBound]
 
 defaultRacialBonuses :: Race -> StatBlock
 defaultRacialBonuses CustomRace = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 0, _wis = 0, _cha = 0 }
@@ -634,6 +485,7 @@ defaultRacialBonuses SimicCha = StatBlock { _str = 0, _dex = 0, _con = 2, _int =
 
 defaultRacialBonuses Tabaxi = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 0, _wis = 0, _cha = 1 }
 
+defaultRacialBonuses Tiefling = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 1, _wis = 0, _cha = 2 }
 defaultRacialBonuses TieflingNormalDevilsTongue = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 1, _wis = 0, _cha = 2 }
 defaultRacialBonuses TieflingNormalHellfire = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 1, _wis = 0, _cha = 2 }
 defaultRacialBonuses TieflingNormalWinged = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 1, _wis = 0, _cha = 2 }
@@ -647,6 +499,7 @@ defaultRacialBonuses TieflingNormalMammon = StatBlock { _str = 0, _dex = 0, _con
 defaultRacialBonuses TieflingNormalMephistopheles = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 1, _wis = 0, _cha = 2 }
 defaultRacialBonuses TieflingNormalZariel = StatBlock { _str = 1, _dex = 0, _con = 0, _int = 0, _wis = 0, _cha = 2 }
 
+defaultRacialBonuses TieflingFeral = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 1, _wis = 0, _cha = 0 }
 defaultRacialBonuses TieflingFeralDevilsTongue = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 1, _wis = 0, _cha = 0 }
 defaultRacialBonuses TieflingFeralHellfire = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 1, _wis = 0, _cha = 0 }
 defaultRacialBonuses TieflingFeralWinged = StatBlock { _str = 0, _dex = 2, _con = 0, _int = 1, _wis = 0, _cha = 0 }
@@ -1450,92 +1303,382 @@ racialData Hobgoblin =
   , ( "Languages", [ "You can speak, read, and write Common and Goblin." ] )
   ]
 
-racialData HumanStandard = []
-racialData HumanVariantStrDex = []
-racialData HumanVariantStrCon = []
-racialData HumanVariantStrInt = []
-racialData HumanVariantStrWis = []
-racialData HumanVariantStrCha = []
-racialData HumanVariantDexCon = []
-racialData HumanVariantDexInt = []
-racialData HumanVariantDexWis = []
-racialData HumanVariantDexCha = []
-racialData HumanVariantConInt = []
-racialData HumanVariantConWis = []
-racialData HumanVariantConCha = []
-racialData HumanVariantIntWis = []
-racialData HumanVariantIntCha = []
-racialData HumanVariantWisCha = []
-racialData HumanFinding = []
-racialData HumanHandlingStr = []
-racialData HumanHandlingDex = []
-racialData HumanHandlingCon = []
-racialData HumanHandlingInt = []
-racialData HumanHandlingCha = []
-racialData HumanMakingStr = []
-racialData HumanMakingDex = []
-racialData HumanMakingCon = []
-racialData HumanMakingWis = []
-racialData HumanMakingCha = []
-racialData HumanPassageStr = []
-racialData HumanPassageCon = []
-racialData HumanPassageInt = []
-racialData HumanPassageWis = []
-racialData HumanPassageCha = []
-racialData HumanSentinel = []
+racialData HumanStandard = 
+  [ ( "Ability Score Increase", [ "Your ability scores each increase by 1." ] )
+  , ( "Age", [ "Humans reach adulthood in their late teens and live less than a century." ] )
+  , ( "Alignment", [ "Humans tend toward no particular alignment. The best and the worst are found among them." ] )
+  , ( "Size", [ "Humans vary widely in height and build, from barely 5 feet to well over 6 feet tall. Regardless of your position in that range, your size is Medium." ] )
+  , ( "Speed", [ "Your base walking speed is 30 feet." ] )
+  , ( "Languages", [ "You can speak, read, and write Common and one extra language of your choice. Humans typically learn the languages of other peoples they deal with, including obscure dialects. They are fond of sprinkling their speech with words borrowed from other tongues: Orc curses, Elvish musical expressions, Dwarvish military phrases, and so on." ] )
 
-racialData Kalashtar = []
+  ]
+racialData HumanVariantStrDex = humanVariant "Strength and Dexterity"
+racialData HumanVariantStrCon = humanVariant "Strength and Constitution"
+racialData HumanVariantStrInt = humanVariant "Strength and Intelligence"
+racialData HumanVariantStrWis = humanVariant "Strength and Wisdom"
+racialData HumanVariantStrCha = humanVariant "Strength and Charisma"
+racialData HumanVariantDexCon = humanVariant "Dexterity and Constitution"
+racialData HumanVariantDexInt = humanVariant "Dexterity and Intelligence"
+racialData HumanVariantDexWis = humanVariant "Dexterity and Wisdom"
+racialData HumanVariantDexCha = humanVariant "Dexterity and Charisma"
+racialData HumanVariantConInt = humanVariant "Constitution and Intelligence"
+racialData HumanVariantConWis = humanVariant "Constitution and Wisdom"
+racialData HumanVariantConCha = humanVariant "Constitution and Charisma"
+racialData HumanVariantIntWis = humanVariant "Intelligence and Wisdom"
+racialData HumanVariantIntCha = humanVariant "Intelligence and Charisma"
+racialData HumanVariantWisCha = humanVariant "Wisdom and Charisma"
+racialData HumanFinding = 
+  [ ( "Ability Score Increase", [ "Your Wisdom score increases by 2, and your Constitution score increases by 1." ] )
+  , ( "Age", [ "Humans reach adulthood in their late teens and live less than a century." ] )
+  , ( "Alignment", [ "Humans tend toward no particular alignment. The best and the worst are found among them." ] )
+  , ( "Size", [ "Humans vary widely in height and build, from barely 5 feet to well over 6 feet tall. Regardless of your position in that range, your size is Medium." ] )
+  , ( "Speed", [ "Your base walking speed is 30 feet." ] )
+  , ( "Languages", [ "You can speak, read, and write Common and Goblin." ] )
+  , ( "Darkvision", [ "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray." ] )
+  , ( "Hunter's Intuition", [ "When you make a Wisdom (Perception) or Wisdom (Survival) check, you can roll a d4 and add the number rolled to the ability check." ] )
+  , ( "Finder's Magic", [ "You can cast the Hunter's Mark spell with this trait. Starting at 3rd level, you can also cast the Locate Object spell with it. Once you cast either spell with this trait, you can't cast that spell with it again until you finish a long rest. Wisdom is your spellcasting ability for these spells." ] )
+  , ( "Languages", [ "You can speak, read, and write Common and Goblin." ] )
+  , ( "Spells of the Mark", 
+    [ "If you have the Spellcasting or the Pact Magic class feature, the spells on the Mark of Finding Spells table are added to the spell list of your spellcasting class."
+    , "1st level: Faerie Fire, Longstrider"
+    , "2nd level: Locate Animals or Plants, Locate Object"
+    , "3rd level: Clairvoyance, Speak with Plants"
+    , "4th level: Divination, Locate Creature"
+    , "5th level: Commune with Nature"
+    ])
+  ]
+racialData HumanHandlingStr = humanHandling Strength
+racialData HumanHandlingDex = humanHandling Dexterity
+racialData HumanHandlingCon = humanHandling Constitution
+racialData HumanHandlingInt = humanHandling Intelligence
+racialData HumanHandlingCha = humanHandling Charisma
+racialData HumanMakingStr = humanMaking Strength
+racialData HumanMakingDex = humanMaking Dexterity
+racialData HumanMakingCon = humanMaking Constitution
+racialData HumanMakingWis = humanMaking Wisdom
+racialData HumanMakingCha = humanMaking Charisma
+racialData HumanPassageStr = humanPassage Strength
+racialData HumanPassageCon = humanPassage Constitution
+racialData HumanPassageInt = humanPassage Intelligence
+racialData HumanPassageWis = humanPassage Wisdom
+racialData HumanPassageCha = humanPassage Charisma
+racialData HumanSentinel = 
+  [ ( "Ability Score Increase", [ "Your Consitution score increases by 2, and your Wisdom score increases by 1." ] )
+  , ( "Age", [ "Humans reach adulthood in their late teens and live less than a century." ] )
+  , ( "Alignment", [ "Humans tend toward no particular alignment. The best and the worst are found among them." ] )
+  , ( "Size", [ "Humans vary widely in height and build, from barely 5 feet to well over 6 feet tall. Regardless of your position in that range, your size is Medium." ] )
+  , ( "Speed", [ "Your base walking speed is 30 feet." ] )
+  , ( "Languages", [ "You can speak, read, and write Common and one extra language of your choice. Humans typically learn the languages of other peoples they deal with, including obscure dialects. They are fond of sprinkling their speech with words borrowed from other tongues: Orc curses, Elvish musical expressions, Dwarvish military phrases, and so on." ] )
+  , ( "Sentinel's Intuition", [ "When you make a Wisdom (Insight) or Wisdom (Perception) check, you can roll a d4 and add the number rolled to the ability check." ] )
+  , ( "Guardian's Shield", [ "You can cast the Shield spell once with this trait, and you regain the ability to cast it after you finish a long rest. Wisdom is your spellcasting ability for this spell." ] )
+  , ( "Vigilant Guardian", [ "When a creature you can see within 5 feet of you is hit by an attack roll, you can use your reaction to swap places with that creature, and you are hit by the attack instead. Once you use this trait, you can't do so again until you finish a long rest." ] )
+  , ( "Spells of the Mark", 
+    [ "If you have the Spellcasting or the Pact Magic class feature, the spells on the Mark of Sentinel Spells table are added to the spell list of your spellcasting class."
+    , "1st level: Compelled Duel, Shield of Faith"
+    , "2nd level: Warding Bond, Zone of Truth"
+    , "3rd level: Counterspell, Protection from Energy"
+    , "4th level: Death Ward, Guardian of Faith"
+    , "5th level: Bigby's Hand"
+    ])
+  ]
 
-racialData Kenku = []
+racialData Kalashtar = 
+  [ ( "Ability Score Increase", [ "Your Wisdom score increases by 2, and your Charisma score increases by 1." ] )
+  , ( "Age", [ "Kalashtar mature and age at the same rate as humans." ] )
+  , ( "Alignment", [ "The noble spirit tied to a kalashtar drives it toward lawful and good behavior. Most kalashtar combine strong self-disipline with compassion for all beings, but some kalashtar resist the virtuous influence of their spirit." ] )
+  , ( "Size", 
+    [ "Your size is Medium. To set your height and weight randomly, start with rolling a size modifier:"
+    , "Size modifier = 2d6"
+    , "Height = 5 feet + 4 inches + your size modifier in inches"
+    , "Weight in pounds = 110 + (1d6 x your size modifier)"
+    ])
+  , ( "Speed", [ "Your base walking speed is 30 feet." ] )
+  , ( "Dual Mind", [ "You have advantage on all Wisdom saving throws." ] )
+  , ( "Mental Discipline", [ "You have resistance to psychic damage." ] )
+  , ( "Mind Link", 
+    [ "You can speak telepathically to any creature you can see, provided the creature is within a number of feet of you equal to 10 times your level. You don't need to share a language with the creature for it to understand your telepathic utterances, but the creature must be able to understand at least one language."
+    , "When you're using this trait to speak telepathically to a creature, you can use your action to give that creature the ability to speak telepathically with you for 1 hour or until you end this effect as an action. To use this ability, the creature must be able to see you and must be within this trait's range. You can give this ability to only one creature at a time; giving it to a creature takes it away from another creature who has it."
+    ])
+  , ( "Severed from Dreams", [ "Kalashtar sleep, but they don't connect to the plane of dreams as other creatures do. Instead, their minds draw from the memories of their otherwordly spirit while they sleep. As such, you are immune to spells and other magical effects that require you to dream, like Dream, but not to spells and other magical effects that put you to sleep, like Sleep." ] )
+  , ( "Languages", [ "You can speak, read, and write Common, Quori, and one other language of your choice." ] )
 
-racialData Kobold = []
+  ]
 
-racialData Leonin = []
+racialData Kenku = 
+  [ ( "Ability Score Increase", [ "Your Dexterity score increases by 2, and your Wisdom score increases by 1." ] )
+  , ( "Age", [ "Kenku have shorter lifespans than humans. They reach maturity at about 12 years old and can live to 60." ] )
+  , ( "Alignment", [ "Kenku are chaotic creatures, rarely making enduring commitments, and they care mostly for preserving their own hides. They are generally chaotic neutral in outlook." ] )
+  , ( "Size", [ "Kenku are around 5 feet tall and weight between 90 and 120 pounds. Your size is Medium." ] )
+  , ( "Speed", [ "Your base walking speed is 30 feet." ] )
+  , ( "Expert Forgery", [ "You can duplicate other creatures' handwriting and craftwork. You have advantage on all checks made to produce forgeries or duplicates of existing objects." ] )
+  , ( "Kenku Training", [ "You are proficient in your choice of two of the following skills: Acrobatics, Deception, Stealth, and Sleight of Hand." ] )
+  , ( "Mimicry", [ "You can mimic sounds you have heard, including voices. A creature that hears the sound you make can tell they are imitations with a successful Wisdom (Insight) check opposed to your Charisma (Deception) check." ] )
+  , ( "Languages", [ "You can read, and write Common and Auran, but you can only speak by using your mimicry trait." ] )
+  ]
 
-racialData Lizardfolk = []
+racialData Kobold = 
+  [ ( "Ability Score Increase", [ "Your Dexterity score increases by 2. (Errata: Removed -2 to Strength)" ] )
+  , ( "Age", [ "Kobolds reach adulthood at age 6 and can live up to 120 years but rarely do so." ] )
+  , ( "Alignment", [ "Kobolds are fundamentally selfish, making them evil, but their reliance on the strength of their group makes them trend toward law." ] )
+  , ( "Size", [ "Kobolds are between 2 and 3 feet tall and weigh between 25 and 35 pounds. Your size is Small." ] )
+  , ( "Speed", [ "Your base walking speed is 30 feet." ] )
+  , ( "Darkvision", [ "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray." ] )
+  , ( "Grovel, Cower, and Beg", [ "As an action on your turn, you can cower pathetically to distract nearby foes. Until the end of your next turn, your allies gain advantage against all enemies within 10 feet of you that can see you. Once you use this trait, you can't use it again until you finish a short or long rest." ] )
+  , ( "Pack Tactics", [ "You have advantage on an attack roll against a creature if at least one of your allies is within 5 feet of the creature and the ally isn't incapacitated." ] )
+  , ( "Sunlight Sensitivity", [ "You have disadvantage on attack rolls and on Wisdom (Perception) checks that rely on sight when you, the target of your attack, or whatever you are trying to perceive is in direct sunlight." ] )
+  , ( "Languages", [ "You can speak, read, and write Common and Draconic." ] )
+  ]
 
-racialData Locathah = []
+racialData Leonin = 
+  [ ( "Ability Score Increase", [ "Your Constitution score increases by 2, and your Strength score increases by 1." ] )
+  , ( "Age", [ "Leonin mature and age at about the same rate as humans." ] )
+  , ( "Alignment", [ "Leonin tend toward good alignments. Leonin who are focused on the pride lean toward lawful good." ] )
+  , ( "Size", 
+    [ "Leonin are typically over 6 feet tall, with some standing over 7 feet. Your size is Medium. Here's how to determine your height and weight randomly, starting with rolling a size modifier:"
+    , "Size modifier = 2d10"
+    , "Height = 5 feet + 6 inches + your size modifier in inches"
+    , "Weight in pounds = 180 + (2d6 x your size modifier)"
+    ])
+  , ( "Speed", [ "Your base walking speed is 35 feet." ] )
+  , ( "Darkvision", [ "You can see in dim light within 60 feet of you as if it were bright light and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray." ] )
+  , ( "Claws", [ "Your claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you can deal slashing damage equal to 1d4 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike." ] )
+  , ( "Hunter's Instincts", [ "You have proficiency in one of the following skills of your choice: Athletics, Intimidation, Perception, or Survival." ] )
+  , ( "Daunting Roar", [ "As a bonus action, you can let out an especially menacing roar. Creatures of your choice within 10 feet of you that can hear you must succeed on a Wisdom saving throw or become frightened of you until the end of your next turn. The DC of the save equals 8 + your proficiency bonus + your Constitution modifier. Once you use this trait, you can't use it again until you finish a short or long rest." ] )
+  , ( "Languages", [ "You can speak, read, and write Common and Leonin." ] )
+  ]
 
-racialData Loxodon = []
+racialData Lizardfolk = 
+  [ ( "Ability Score Increase", [ "Your Constitution score increases by 2, and your Wisdom score increases by 1." ] )
+  , ( "Age", [ "Lizardfolk reach maturity around age 14 and rarely live longer than 60 years." ] )
+  , ( "Alignment", [ "Most lizardfolk are neutral. They see the world as a place of predators and prey, where life and death are natural processes. They wish only to survive, and prefer to leave other creatures to their own devices." ] )
+  , ( "Size", [ "Lizardfolk are a little bulkier and taller than humans, and their colorful frills make them appear even larger. Your size is Medium." ] )
+  , ( "Speed", [ "Your base walking speed is 30 feet, and you have a swimming speed of 30 feet." ] )
+  , ( "Bite", [ "Your fanged maw is a natural weapon, which you can use to make unarmed strikes. If you hit with it, you can deal piercing damage equal to 1d6 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike." ] )
+  , ( "Cunning Artisan", [ "As part of a short rest, you can harvest bone and hide from a slain beast, construct, dragon, monstrosity, or plant creature of size Small or larger to create one of the following items: a shield, a club, a javelin, or 1d4 darts or blowgun needles. To use this trait, you need a blade, such as a dagger, or appropriate artisan's tools, such as the leatherworker's tools." ] )
+  , ( "Hold Breath", [ "You can hold your breath for up to 15 minutes at a time." ] )
+  , ( "Hunter's Lore", [ "You gain proficiency with two of the following skills of your choice: Animal Handling, Nature, Perception, Stealth, and Survival." ] )
+  , ( "Natural Armor", [ "You have a tough scaly skin. When you aren't wearing armor, your AC is 13 + your Dexterity modifier. You can use your natural armor to determine your AC if the armor you wear would leave you with a lower AC. A shield's benefits apply as normal while you use your natural armor." ] )
+  , ( "Hungry Jaws", [ "In battle, you can throw yourself into a vicious feeding frenzy. As a bonus action, you can make a special attack with your bite. If the attack hits, it deals its normal damage, and you gain temporary hit points (minimum of 1) equal to your Constitution modifier, and you can't use this trait again until you finish a short or a long rest." ] )
+  , ( "Languages", [ "You can speak, read, and write Common and Draconic." ] )
+  ]
 
-racialData Minotaur = []
+racialData Locathah = 
+  [ ( "Ability Score Increase", [ "Your Strength score increases by 2 and your Dexterity score increases by 1." ] )
+  , ( "Age", [ "Locathah mature to adulthood by the age of 10 but have been known to live up to 80 years." ] )
+  , ( "Alignment", [ "Most locathah are true neutral or have some aspect of neutrality in their alignment. They tend toward good, coming from a culture where compassion for the downtrodden is a commonality." ] )
+  , ( "Size", [ "Locathah stand between 5 and 6 feet tall and average about 150 pounds. Your size is Medium." ] )
+  , ( "Speed", [ "Your base walking speed is 30 feet, and you have a swim speed of 30 feet." ] )
+  , ( "Natural Armor", [ "You have tough, scaly skin. When you aren’t wearing armor, your AC is 12 + your Dexterity modifier. You can use your natural armor to determine your AC if the armor you wear would leave you with a lower AC. A shield’s benefits apply as normal while you use your natural armor." ] )
+  , ( "Observant and Athletic", [ "You have proficiency in the Athletics and Perception skills." ] )
+  , ( "Leviathan Will", [ "You have advantage on saving throws against being charmed, frightened, paralyzed, poisoned, stunned, or put to sleep." ] )
+  , ( "Limited Amphibiousness", [ "You can breathe air and water, but you need to be submerged at least once every 4 hours to avoid suffocating." ] )
+  , ( "Languages", [ "You can speak, read, and write Aquan and Common." ] )
+  ]
 
-racialData OrcStandard = []
-racialData OrcEberron = []
+racialData Loxodon = 
+  [ ( "Ability Score Increase", [ "Your Constitution score increases by 2, and your Wisdom score increases by 1." ] )
+  , ( "Age", [ "Loxodons physically mature at the same rate as humans, but they live about 450 years. They highly value the weight of wisdom and experience and are considered young until they reach athe age of 60." ] )
+  , ( "Alignment", [ "Most loxodons are lawful, believing in the value of a peaceful, ordered life. They also tend toward good." ] )
+  , ( "Size", [ "Loxodons stand between 7 and 8 feet tall. Their massive bodies weigh between 300 and 400 pounds. Your size is Medium." ] )
+  , ( "Speed", [ "Your base walking speed is 30 feet." ] )
+  , ( "Powerful Build", [ "You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift." ] )
+  , ( "Loxodon Serenity", [ "You have advantage on saving throws against being charmed or frightened." ] )
+  , ( "Natural Armor", [ "You have thick, leathery skin. When you aren't wearing armor, your AC is 12 + your Constitution modifier. You can use your natural armor to determine your AC if the armor you wear would leave you with a lower AC. A shield's benefits apply as normal while you use your natural armor." ] )
+  , ( "Trunk", 
+    [ "You can grasp things with your trunk, and you can use it as a snorkel. It has a reach of 5 feet, and it can lift a number of pounds equal to five times your Strength score. You can use it to do the following simple tasks: lift, drop, hold, push, or pull an object or a creature; open or close a door or container; grapple someone; or make an unarmed strike. Your DM might allow other simple tasks to be added to that list of options."
+    , "Your trunk can't wield weapons or shields or do anything that requires manual precision, such as using tools or magic items or performing the somatic components of a spell."
+    ])
+  , ( "Keen Smell", [ "Thanks to your sensitive trunk, you have advantage on Wisdom (Perception), Wisdom (Survival), and Intelligence (Investigation) checks that involve smell." ] )
+  , ( "Languages", [ "You can speak, read, and write Common and Loxodon." ] )
+  ]
 
-racialData Satyr = []
+racialData Minotaur = 
+  [ ( "Ability Score Increase", [ "Your Strength score increases by 2, and your Constitution score increases by 1." ] )
+  , ( "Alignment", [ "Most minotaurs who join the Boros Legion lean toward lawful alignments, while those associated with the Cult of Rakdos or the Gruul Clans tend toward chaotic alignments." ] )
+  , ( "Size", [ "Minotaurs average over 6 feet in height, and they have stocky builds. Your size is Medium." ] )
+  , ( "Speed", [ "Your base walking speed is 30 feet." ] )
+  , ( "Horns", [ "Your horns are natural melee weapons, which you can use to make unarmed strikes. If you hit with them, you deal piercing damage equal to 1d6 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike." ] )
+  , ( "Goring Rush", [ "Immediately after you use the Dash action on your turn and move at least 20 feet, you can make one melee attack with your horns as a bonus action." ] )
+  , ( "Hammering Horns", [ "Immediately after you hit a creature with a melee attack as part of the Attack action on your turn, you can use a bonus action to attempt to shove that target with your horns. The target must be no more than one size larger than you and within 5 feet of you. Unless it succeeds on a Strength saving throw against a DC equal to 8 + your proficency bonus + your Strength modifier, you push it up to 10 feet away from you." ] )
+  , ( "Imposing Presence", [ "You have proficiency in one of the following skills of your choice: Intimidation or Persuasion." ] )
+  , ( "Languages", [ "You can speak, read, and write Common and Minotaur." ] )
+  ]
 
-racialData ShifterBeasthide = []
-racialData ShifterLongtooth = []
-racialData ShifterSwiftstride = []
-racialData ShifterWildhunt = []
+racialData OrcStandard = 
+  [ ( "Ability Score Increase", [ "Your Strength score increases by 2, and your Constitution score increases by 1. (Errata: Removed -2 to Intelligence)" ] )
+  , ( "Age", [ "Orcs reach adulthood at age 12 and live up to 50 years." ] )
+  , ( "Alignment", [ "Orcs are vicious raiders, who believe that the world should be theirs. They also respect strength above all else and believe the strong must bully the weak to ensure that weakness does not spread like a disease. They are usually chaotic evil." ] )
+  , ( "Size", [ "Orcs are usually over 6 feet tall and weigh between 230 and 280 pounds. Your size is Medium." ] )
+  , ( "Speed", [ "Your base walking speed is 30 feet." ] )
+  , ( "Darkvision", [ "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray." ] )
+  , ( "Aggressive", [ "As a bonus action, you can move up to your speed toward an enemy of your choice that you can see or hear. You must end this move closer to the enemy than you started." ] )
+  , ( "Primal Intuition", [ "You have proficiency in two of the following skills of your choice: Animal Handling, Insight, Intimidation, Medicine, Nature, Perception, and Survival. (Errata: Replaced Menacing trait)" ] )
+  , ( "Powerful Build", [ "You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift." ] )
+  , ( "Languages", [ "You can speak, read, and write Common and Orc." ] )
+  ]
+racialData OrcEberron = 
+  [ ( "Ability Score Increase", [ "Your Strength score increases by 2, and your Constitution score increases by 1. (Errata: Removed -2 to Intelligence)" ] )
+  , ( "Age", [ "Orcs reach adulthood at age 12 and live up to 50 years." ] )
+  , ( "Alignment", [ "The orcs of Eberron are a passionate people, given to powerful emotion and deep faith. They are generally chaotic, but can be any alignment." ] )
+  , ( "Size", 
+      [ "Your size is Medium. To set your height and weight randomly, start with rolling a size modifier:"
+      , "Size modifier = 2d8"
+      , "Height = 5 feet + 4 inches + your size modifier in inches"
+      , "Weight in pounds = 175 + (2d6 x your size modifier)"
+      ] )
+  , ( "Speed", [ "Your base walking speed is 30 feet." ] )
+  , ( "Darkvision", [ "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray." ] )
+  , ( "Aggressive", [ "As a bonus action, you can move up to your speed toward an enemy of your choice that you can see or hear. You must end this move closer to the enemy than you started." ] )
+  , ( "Primal Intuition", [ "You have proficiency in two of the following skills of your choice: Animal Handling, Insight, Intimidation, Medicine, Nature, Perception, and Survival. (Errata: Replaced Menacing trait)" ] )
+  , ( "Powerful Build", [ "You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift." ] )
+  , ( "Languages", [ "You can speak, read, and write Common and Orc." ] )
+  ]
 
-racialData SimicStr = []
-racialData SimicDex = []
-racialData SimicInt = []
-racialData SimicWis = []
-racialData SimicCha = []
+racialData Satyr = 
+  [ ( "Ability Score Increase", [ "Your Charisma score increases by 2, and your Dexterity score increases by 1." ] )
+  , ( "Age", [ "Satyrs mature and age at about the same rate as humans." ] )
+  , ( "Alignment", [ "Satyrs delight in living a life free of the mantle of law. They gravitate toward being good, but some have devious streaks and enjoy causing dismay." ] )
+  , ( "Size", 
+    [ "Satyrs range from just under 5 feet to about 6 feet in height, with generally slender builds. Your size is Medium. Here's how to determine your height and weight randomly, starting with rolling a size modifier:"
+    , "Size modifier = 2d8"
+    , "Height = 4 feet + 8 inches + your size modifier in inches"
+    , "Weight in pounds = 100 + (2d4 x your size modifier)"
+    ])
+  , ( "Speed", [ "Your base walking speed is 35 feet." ] )
+  , ( "Fey", [ "Your creature type is fey, rather than humanoid." ] )
+  , ( "Ram", [ "You can use your head and horns to make unarmed strikes. If you hit with them, you deal bludgeoning damage equal to 1d4 + your Strength modifier." ] )
+  , ( "Magic Resistance", [ "You have advantage on saving throws against spells and other magical effects." ] )
+  , ( "Mirthful Leaps", [ "Whenever you make a long or high jump, you can roll a d8 and add the number rolled to the number of feet you cover, even when making a standing jump. This extra distance costs movement as normal." ] )
+  , ( "Reveler", [ "You have proficiency in the Performance and Persuasion skills, and you have proficiency with one musical instrument of your choice." ] )
+  , ( "Languages", [ "You can speak, read, and write Common and Sylvan." ] )
+  ]
 
-racialData Tabaxi = []
+racialData ShifterBeasthide = shifter <>
+  [ ( "Beasthide", [ "Stoic and solid, a beasthide shifter draws strength and stability from the beast within. Beasthide shifters are typically tied to the bear or the boar, but this subrace could embody any creature known for its toughness." ] )
+  , ( "Ability Score Increase", [ "Your Constitution score increases by 2, and your Strength score increases by 1." ] )
+  , ( "Natural Athelete", [ "You have proficiency in the Athletics skill." ] )
+  , ( "Shifting Feature", [ "Whenever you shift, you gain 1d6 additional temporary hit points. While shifted, you have a +1 bonus to your Armor Class." ] )
+  ]
+racialData ShifterLongtooth = shifter <> 
+  [ ( "Longtooth", [ "Longtooth shifters are fierce and aggressive, but they form deep bonds with their friends. Many longtooth shifters have canine traits that become more pronounced as they shift, but they might instead draw on tigers, hyenas, or other predators." ] )
+  , ( "Ability Score Increase", [ "Your Strength score increases by 2, and your Dexterity score increases by 1." ] )
+  , ( "Fierce", [ "You have proficiency in the Intimidation skill." ] )
+  , ( "Shifting Feature", [ "While shifted, you can use your enlongated fangs to make an unarmed strike as a bonus action. If you hit with your fangs, you can deal piercing damage equal to 1d6 + your Strength modifier instead of the bludgeoning damage normal for an unarmed strike." ] )
+  ]
+racialData ShifterSwiftstride = shifter <>
+  [ ( "Swiftstride", [ "Swiftstride shifters are graceful and quick. Typically feline in nature, swiftstride shifters are often aloof and difficult to pin down physically or socially." ] )
+  , ( "Ability Score Increase", [ "Your Dexterity score increases by 2, and your Charisma score increases by 1." ] )
+  , ( "Graceful", [ "You have proficiency in the Acrobatics skill." ] )
+  , ( "Shifting Feature", [ "While shifted, your walking speed increases by 10 feet. Additionally, you can move up to 10 feet as a reaction when a creature ends its turn within 5 feet of you. This reaction movement doesn't provoke opportunity attacks." ] )
+  ]
+racialData ShifterWildhunt = shifter <>
+  [ ( "Wildhunt", [ "Wildhunt shifters are sharp and insightful. Many are constantly alert, ever wary for possible threats. Others focus on their intuition, searching within. Wildhunt shifters are excellent hunters, and they also tend to become the spiritual leaders of shifter communities." ] )
+  , ( "Ability Score Increase", [ "Your Wisdom score increases by 2, and your Dexterity score increases by 1." ] )
+  , ( "Natural Tracker", [ "You have proficiency in the Survival skill." ] )
+  , ( "Shifting Feature", [ "While shifted, you have advantage on Wisdom checks, and no creature within 30 feet of you can make an attack roll with advantage against you unless you're incapacitated." ] )
+  ]
 
-racialData TieflingNormalDevilsTongue = []
-racialData TieflingNormalHellfire = []
-racialData TieflingNormalWinged = []
-racialData TieflingNormalAsmodeus = []
-racialData TieflingNormalBaalzebul = []
-racialData TieflingNormalDispater = []
-racialData TieflingNormalFierna = []
-racialData TieflingNormalGlasya = []
-racialData TieflingNormalLevistus = []
-racialData TieflingNormalMammon = []
-racialData TieflingNormalMephistopheles = []
-racialData TieflingNormalZariel = []
+racialData SimicStr = simic Strength
+racialData SimicDex = simic Dexterity
+racialData SimicInt = simic Intelligence
+racialData SimicWis = simic Wisdom
+racialData SimicCha = simic Charisma
 
-racialData TieflingFeralDevilsTongue = []
-racialData TieflingFeralHellfire = []
-racialData TieflingFeralWinged = []
+racialData Tabaxi = 
+  [ ( "Ability Score Increase", [ "Your Dexterity score increases by 2, and your Charisma score increases by 1." ] )
+  , ( "Age", [ "Tabaxi have lifespans equivalent to humans." ] )
+  , ( "Alignment", [ "Tabaxi tend toward chaotic alignments, as they let impulse and fancy guide their decisions. They are rarely evil, with most of them driven by curiosity rather than greed or other dark impulses." ] )
+  , ( "Size", [ "Tabaxi are taller on average than humans and relatively slender. Your size is Medium." ] )
+  , ( "Speed", [ "Your base walking speed is 30 feet." ] )
+  , ( "Darkvision", [ "You have a cat's keen senses, especially in the dark. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray." ] )
+  , ( "Feline Agility", [ "Your reflexes and agility allow you to move with a burst of speed. When you move on your turn in combat, you can double your speed until the end of the turn. Once you use this trait, you can't use it again until you move 0 feet on one of your turns." ] )
+  , ( "Cat's Claws", [ "Because of your claws, you have a climbing speed of 20 feet. In addition, your claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to 1d4 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike." ] )
+  , ( "Cat's Talent", [ "You have proficiency in the Perception and Stealth skills." ] )
+  , ( "Languages", [ "You can speak, read, and write Common and one other language of your choice." ] )
+  ]
 
-racialData Tortle = []
+racialData Tiefling = tiefling Intelligence <>
+  [ ( "Infernal Legacy", [ "You know the Thaumaturgy cantrip. Once you reach 3rd level, you can cast the Hellish Rebuke spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. Once you reach 5th level, you can also cast the Darkness spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells." ] )
+  ]
+racialData TieflingNormalDevilsTongue = tiefling Intelligence <>
+  [ ( "Appearance", [ " Your tiefling might not look like other tieflings. Rather than having the physical characteristics described in the Player's handbook, choose 1d4 + 1 of the following features: small horns; fangs or sharp teeth; a forked tongue; catlike eyes; six fingers on each hand; goat like legs; cloven hoofs; a forked tail; leathery or scaly skin; red or dark blue skin; cast no shadow or reflection; exude a smell of brimstone." ] )
+  , ( "Devil's Tongue", [ " You know the Vicious Mockery cantrip. When you reach 3rd level, you can cast the Charm Person spell as a 2nd-level spell once with this trait. When you reach 5th level, you can cast the Enthrall spell once with this trait. You must finish a long rest to cast these spells once again with this trait. Charisma is your spellcasting ability for them. This Trait replaces the Infernal Legacy Trait." ] )
+  ]
+racialData TieflingNormalHellfire = tiefling Intelligence <>
+  [ ( "Appearance", [ "Your tiefling might not look like other tieflings. Rather than having the physical characteristics described in the Player's handbook, choose 1d4 + 1 of the following features: small horns; fangs or sharp teeth; a forked tongue; catlike eyes; six fingers on each hand; goat like legs; cloven hoofs; a forked tail; leathery or scaly skin; red or dark blue skin; cast no shadow or reflection; exude a smell of brimstone." ] )
+  , ( "Hellfire", [ "You know the Thaumaturgy cantrip. Once you reach 3rd level, you can cast the Burning Hands spell once per day as a 2nd-level spell. Once you reach 5th level, you can also cast the Darkness spell once per day. Charisma is your spellcasting ability for these spells. This trait replaces the Infernal Legacy Trait." ] )
+  ]
+racialData TieflingNormalWinged = tiefling Intelligence <>
+  [ ( "Appearance", [ "Your tiefling might not look like other tieflings. Rather than having the physical characteristics described in the Player's handbook, choose 1d4 + 1 of the following features: small horns; fangs or sharp teeth; a forked tongue; catlike eyes; six fingers on each hand; goat like legs; cloven hoofs; a forked tail; leathery or scaly skin; red or dark blue skin; cast no shadow or reflection; exude a smell of brimstone." ] )
+  , ( "Winged", [ "You have bat-like wings sprouting from your shoulder blades. You have a flying speed of 30 feet while you aren't wearing heavy armor. This trait replaces the Infernal Legacy trait." ] )
+  ]
+racialData TieflingNormalAsmodeus = tiefling Intelligence <>
+  [ ( "Infernal Legacy", [ "You know the Thaumaturgy cantrip. Once you reach 3rd level, you can cast the Hellish Rebuke spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. Once you reach 5th level, you can also cast the Darkness spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells." ] )
+  , ( "Asmodeus", [ "The tieflings connected to Nessus command the power of fire and darkness, guided by a keener than normal intellect, as befits those linked to Asmodeus himself. Such tieflings use the Ability Score Increase and Infernal Legacy traits in the Player's Handbook." ] )
+  ]
+racialData TieflingNormalBaalzebul = tiefling Intelligence <>
+  [ ( "Baalzebul", [ "The crumbling realm of Maladomini is ruled by Baalzebul, who excels at corrupting those whose minor sins can be transformed into acts of damnation. Tieflings linked to this archdevil can corrupt others both physically and psychically." ] )
+  , ( "Legacy of Maladomini", [ "You know the Thaumaturgy cantrip. When you reach 3rd level, you can cast the Ray of Sickness spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the Crown of Madness spell once with this trait and regain the ability to so do when you finish a long rest. Charisma is your spellcasting ability for these spells." ] )
+  ]
+racialData TieflingNormalDispater = tiefling Dexterity <>
+  [ ( "Dispater", [ "The great city of Dis occupies most of Hell's second layer. It is a place where secrets are uncovered and shared with the highest bidder, making tieflings tied to Dispater excellent spies and infiltrators." ] )
+  , ( "Legacy of Dis", [ "You know the Thaumaturgy cantrip. When you reach 3rd level, you can cast the Disguise Self spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the Detect Thoughts spell once with this trait and regain the ability to so do when you finish a long rest. Charisma is your spellcasting ability for these spells." ])
+  ]
+racialData TieflingNormalFierna = tiefling Wisdom <>
+  [ ( "Fierna", [ "A master manipulator, Fierna grants tieflings tied to her forceful personalities." ] )
+  , ( "Legacy of Phlegethos", [ "You know the Friends cantrip. When you reach 3rd level, you can cast the Charm Person spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the Suggestion spell once with this trait and regain the ability to so do when you finish a long rest. Charisma is your spellcasting ability for these spells." ] )
+  ]
+racialData TieflingNormalGlasya = tiefling Dexterity <>
+  [ ( "Glasya", [ "Glasya, Hell's criminal mastermind, grants her tieflings magic that is useful for committing heists." ] )
+  , ( "Legacy of Malbolge", [ "You know the Minor Illusion cantrip. When you reach 3rd level, you can cast the Disguise Self spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the Invisibility spell once with this trait and regain the ability to so do when you finish a long rest. Charisma is your spellcasting ability for these spells.]" ] )
+  ]
+racialData TieflingNormalLevistus = tiefling Constitution <>
+  [ ( "Levistus", [ "Frozen Stygia is ruled by Levistus, an archdevil known for offering bargains to those who face an inescapable doom." ] )
+  , ( "Legacy of Stygia", [ "You know the Ray of Frost cantrip. When you reach 3rd level, you can cast the Armor of Agathys spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the Darkness spell once with this trait and regain the ability to so do when you finish a long rest. Charisma is your spellcasting ability for these spells." ] )
+  ]
+racialData TieflingNormalMammon = tiefling Intelligence <>
+  [ ( "Mammon", [ "The great miser Mammon loves coins above all else. Tieflings tied to him excel at gathering and safeguarding wealth." ] )
+  , ( "Legacy of Minauros", [ "You know the Mage Hand cantrip. When you reach 3rd level, you can cast the Tenser's Floating Disk spell once with this trait and regain the ability to do so when you finish a short or long rest. When you reach 5th level, you can cast the Arcane Lock spell once with this trait, requiring no material component, and regain the ability to so do when you finish a long rest. Charisma is your spellcasting ability for these spells." ] )
+  ]
+racialData TieflingNormalMephistopheles = tiefling Intelligence <>
+  [ ( "Mephistopheles", [ "In the frozen realm of Cania, Mephistopheles offers arcane power to those who entreat with him. Tieflings linked to him master some arcane magic." ] )
+  , ( "Legacy of Cania", [ "You know the Mage Hand cantrip. When you reach 3rd level, you can cast the Burning Hands spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the Flame Blade spell once with this trait and regain the ability to so do when you finish a long rest. Charisma is your spellcasting ability for these spells." ] )
+  ]
+racialData TieflingNormalZariel = tiefling Strength <>
+  [ ( "Zariel", [ "Tieflings with a blood tie to Zariel are stronger than the typical tiefling and receive magical abilities that aid them in battle." ] )
+  , ( "Legacy of Avernus", [ "You know the Thaumaturgy cantrip. When you reach 3rd level, you can cast the Searing Smite spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the Branding Smite spell once with this trait and regain the ability to so do when you finish a long rest. Charisma is your spellcasting ability for these spells." ] )
+  ]
+
+racialData TieflingFeral = tieflingFeral <>
+  [ ( "Appearance", [ "Your tiefling might not look like other tieflings. Rather than having the physical characteristics described in the Player's handbook, choose 1d4 + 1 of the following features: small horns; fangs or sharp teeth; a forked tongue; catlike eyes; six fingers on each hand; goat like legs; cloven hoofs; a forked tail; leathery or scaly skin; red or dark blue skin; cast no shadow or reflection; exude a smell of brimstone.]" ] )
+  , ( "Infernal Legacy", [ "You know the Thaumaturgy cantrip. Once you reach 3rd level, you can cast the Hellish Rebuke spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. Once you reach 5th level, you can also cast the Darkness spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.  " ] )
+  ]
+racialData TieflingFeralDevilsTongue = tieflingFeral <>
+  [ ( "Appearance", [ "Your tiefling might not look like other tieflings. Rather than having the physical characteristics described in the Player's handbook, choose 1d4 + 1 of the following features: small horns; fangs or sharp teeth; a forked tongue; catlike eyes; six fingers on each hand; goat like legs; cloven hoofs; a forked tail; leathery or scaly skin; red or dark blue skin; cast no shadow or reflection; exude a smell of brimstone." ] )
+  , ( "Devil's Tongue", [ "You know the Vicious Mockery cantrip. When you reach 3rd level, you can cast the Charm Person spell as a 2nd-level spell once with this trait. When you reach 5th level, you can cast the Enthrall spell once with this trait. You must finish a long rest to cast these spells once again with this trait. Charisma is your spellcasting ability for them. This Trait replaces the Infernal Legacy Trait." ] )
+  ]
+racialData TieflingFeralHellfire = tieflingFeral <>
+  [ ( "Appearance", [ "Your tiefling might not look like other tieflings. Rather than having the physical characteristics described in the Player's handbook, choose 1d4 + 1 of the following features: small horns; fangs or sharp teeth; a forked tongue; catlike eyes; six fingers on each hand; goat like legs; cloven hoofs; a forked tail; leathery or scaly skin; red or dark blue skin; cast no shadow or reflection; exude a smell of brimstone." ] )
+  , ( "Hellfire", [ "You know the Thaumaturgy cantrip. Once you reach 3rd level, you can cast the Burning Hands spell once per day as a 2nd-level spell. Once you reach 5th level, you can also cast the Darkness spell once per day. Charisma is your spellcasting ability for these spells. This trait replaces the Infernal Legacy Trait." ] )
+  ]
+racialData TieflingFeralWinged = tieflingFeral <>
+  [ ( "Appearance", [ "Your tiefling might not look like other tieflings. Rather than having the physical characteristics described in the Player's handbook, choose 1d4 + 1 of the following features: small horns; fangs or sharp teeth; a forked tongue; catlike eyes; six fingers on each hand; goat like legs; cloven hoofs; a forked tail; leathery or scaly skin; red or dark blue skin; cast no shadow or reflection; exude a smell of brimstone." ] )
+  , ( "Winged", [ "You have bat-like wings sprouting from your shoulder blades. You have a flying speed of 30 feet while you aren't wearing heavy armor. This trait replaces the Infernal Legacy trait." ] )
+  ]
+
+racialData Tortle = 
+  [ ( "Ability Score Increase.", [ "Your Strength score increases by 2, and your Wisdom score increases by 1." ] )
+  , ( "Age.", [ "Young tortles crawl for a few weeks after birth before learning to walk on two legs. They reach adulthood by the age of 15 and live an average of 50 years." ] )
+  , ( "Alignment.", [ "Tortles tend to lead orderly, ritualistic lives. They develop customs and routines, becoming more set in their ways as they age. Most are lawful good. A few can be selfish and greedy, tending more toward evil, but it's unusual for a tortle to shuck off order in favor of chaos." ] )
+  , ( "Size.", [ "Tortle adults stand 5 to 6 feet tall and average 450 pounds. Their shells account for roughly one-third of their weight. Your size is Medium." ] )
+  , ( "Speed.", [ "Your base walking speed is 30 feet." ] )
+  , ( "Claws.", [ "Your claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to 1d4 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike." ] )
+  , ( "Hold Breath.", [ "You can hold your breath for up to 1 hour at a time. Tortles aren't natural swimmers, but they can remain underwater for some time before needing to come up for air." ] )
+  , ( "Natural Armor.", [ "Due to your shell and the shape of your body, you are ill-suited to wearing armor. Your shell provides ample protection, however; it gives you a base AC of 17 (your Dexterity modifier doesn't affect this number). You gain no benefit from wearing armor, but if you are using a shield, you can apply the shield's bonus as normal." ] )
+  , ( "Shell Defense.", [ "You can withdraw into your shell as an action. Until you emerge, you gain a +4 bonus to AC, and you have advantage on Strength and Constitution saving throws. While in your shell, you are prone, your speed is 0 and can't increase, you have disadvantage on Dexterity saving throws, you can't take reactions, and the only action you can take is a bonus action to emerge from your shell." ] )
+  , ( "Survival Instinct.", [ "You gain proficiency in the Survival skill. Tortles have finely honed survival instincts." ] )
+  , ( "Languages.", [ "You can speak, read, and write Common and Aquan." ] )
+  ]
 
 racialData Triton = 
   [ ( "Ability Score Increase", [ "Your Strength, Constitution, and Charisma scores each increase by 1." ] )
@@ -1615,4 +1758,146 @@ racialData YuanTiPureblood =
   , ( "Poison Immunity", [ "You are immune to poison damage and the poisoned condition." ] )
   , ( "Languages", [ "You can speak, read, and write Common, Abyssal, and Draconic." ] )
 
+  ]
+
+humanVariant :: String -> [(String, [String])]
+humanVariant s = 
+  [ ( "Ability Score Increase", [ "Your " <> s <> " ability scores each increase by 1." ] )
+  , ( "Age", [ "Humans reach adulthood in their late teens and live less than a century." ] )
+  , ( "Alignment", [ "Humans tend toward no particular alignment. The best and the worst are found among them." ] )
+  , ( "Size", [ "Humans vary widely in height and build, from barely 5 feet to well over 6 feet tall. Regardless of your position in that range, your size is Medium." ] )
+  , ( "Speed", [ "Your base walking speed is 30 feet." ] )
+  , ( "Languages", [ "You can speak, read, and write Common and one extra language of your choice. Humans typically learn the languages of other peoples they deal with, including obscure dialects. They are fond of sprinkling their speech with words borrowed from other tongues: Orc curses, Elvish musical expressions, Dwarvish military phrases, and so on." ] )
+  , ( "Skills", [ "You gain proficiency in one skill of your choice." ] )
+  , ( "Feat", [ "You gain one feat of your choice." ] )
+  ]
+
+humanHandling :: Stat -> [(String, [String])]
+humanHandling stat =
+  [ ( "Ability Score Increase", [ "Your Wisdom score increases by 2, and your " <> show stat <> " ability score of your choice increases by 1." ] )
+  , ( "Age", [ "Humans reach adulthood in their late teens and live less than a century." ] )
+  , ( "Alignment", [ "Humans tend toward no particular alignment. The best and the worst are found among them." ] )
+  , ( "Size", [ "Humans vary widely in height and build, from barely 5 feet to well over 6 feet tall. Regardless of your position in that range, your size is Medium." ] )
+  , ( "Speed", [ "Your base walking speed is 30 feet." ] )
+  , ( "Languages", [ "You can speak, read, and write Common and one extra language of your choice. Humans typically learn the languages of other peoples they deal with, including obscure dialects. They are fond of sprinkling their speech with words borrowed from other tongues: Orc curses, Elvish musical expressions, Dwarvish military phrases, and so on." ] )
+  , ( "Wild Intuition", [ "When you make a Wisdom (Animal Handling) or Intelligence (Nature) check, you can roll a d4 and add the number rolled to the ability check." ] )
+  , ( "Primal Connection", [ "You can cast the Animal Friendship and Speak with Animals spells once with this trait, requiring no material component. Once you cast either spell with this trait, you can't cast that spell again until you finish a short or long rest. Wisdom is the spellcasting ability for these spells." ] )
+  , ( "The Bigger They Are", [ "Starting at 3rd level, you can target a beast or monstrosity when you canst Animal Friendship or Speak with Animals provided the creature's Intelligence score is 3 or lower." ] )
+  , ( "Spells of the Mark",
+    [ "If you have the Spellcasting or the Pact Magic class feature, the spells on the Mark of Handling Spells table are added to the spell list of your spellcasting class."
+    , "1st level: Animal Friendship, Speak with Animals"
+    , "2nd level: Beast Sense, Calm Emotions"
+    , "3rd level: Beacon of Hope, Conjure Animals"
+    , "4th level: Aura of Life, Dominate Beast"
+    , "5th level: Awaken"
+    ])
+  ]
+
+humanMaking :: Stat -> [(String, [String])]
+humanMaking stat =
+  [ ( "Ability Score Increase", [ "Your Intelligence score increases by 2, and your " <> show stat <> " ability score of your choice increases by 1." ] )
+  , ( "Age", [ "Humans reach adulthood in their late teens and live less than a century." ] )
+  , ( "Alignment", [ "Humans tend toward no particular alignment. The best and the worst are found among them." ] )
+  , ( "Size", [ "Humans vary widely in height and build, from barely 5 feet to well over 6 feet tall. Regardless of your position in that range, your size is Medium." ] )
+  , ( "Speed", [ "Your base walking speed is 30 feet." ] )
+  , ( "Languages", [ "You can speak, read, and write Common and one extra language of your choice. Humans typically learn the languages of other peoples they deal with, including obscure dialects. They are fond of sprinkling their speech with words borrowed from other tongues: Orc curses, Elvish musical expressions, Dwarvish military phrases, and so on." ] )
+  , ( "Artisan's Intuition", [ " When you make an Arcana check or an ability check involving artisan's tools, you can roll a d4 and add the number rolled to the ability check." ] )
+  , ( "Maker's Gift", [ " You gain proficiency with one type of artisan's tools of your choice." ] )
+  , ( "Spellsmith", [ " You know the Mending cantrip. You can also cast the Magic Weapon spell with this trait. When you do so, the spell lasts for 1 hour and doesn't require concentration. Once you cast the spell with this trait, you can't do so again until you finish a long rest. Intelligence is your spellcasting ability for these spells." ] )
+  , ( "Spells of the Mark", 
+    [ "If you have the Spellcasting or the Pact Magic class feature, the spells on the Mark of Making Spells table are added to the spell list of your spellcasting class."
+    , "1st level: Identify, Tenser's Floating Disk" 
+    , "2nd level: Continual Flame, Magic Weapon" 
+    , "3rd level: Conjure Barrage, Elemental Weapon" 
+    , "4th level: Fabricate, Stone Shape" 
+    , "5th level: Creation" 
+    ])
+  ]
+
+humanPassage :: Stat -> [(String, [String])]
+humanPassage stat =
+  [ ( "Ability Score Increase", [ "Your Dexterity score increases by 2, and your " <> show stat <> " score increases by 1." ] )
+  , ( "Age", [ "Humans reach adulthood in their late teens and live less than a century." ] )
+  , ( "Alignment", [ "Humans tend toward no particular alignment. The best and the worst are found among them." ] )
+  , ( "Size", [ "Humans vary widely in height and build, from barely 5 feet to well over 6 feet tall. Regardless of your position in that range, your size is Medium." ] )
+  , ( "Speed", [ "Your base walking speed is 30 feet." ] )
+  , ( "Languages", [ "You can speak, read, and write Common and one extra language of your choice. Humans typically learn the languages of other peoples they deal with, including obscure dialects. They are fond of sprinkling their speech with words borrowed from other tongues: Orc curses, Elvish musical expressions, Dwarvish military phrases, and so on." ] )
+  , ( "Courier's Speed", [ "Your base walking speed increases to 35 feet." ] )
+  , ( "Intuitive Motion", [ "When you make a Dexterity (Acrobatics) check or any ability check to operate or maintain a land behicle, you can roll a d4 and add the number rolled to the ability check." ] )
+  , ( "Magical Passage", [ "You can cast the Misty Step spell once with this trait, and you regain the ability to cast it when you finish a long rest. Dexterity is your spellcasting ability for this spell." ] )
+  , ( "Spells of the Mark", 
+    [ "If you have the Spellcasting or the Pact Magic class feature, the spells on the Mark of Passage Spells table are added to the spell list of your spellcasting class."
+    , "1st level: Expeditious Retreat, Jump"
+    , "2nd level: Misty Step, Pass Without Trace"
+    , "3rd level: Blink, Phantom Steed"
+    , "4th level: Dimension Door, Freedom of Movement"
+    , "5th level: Teleportation Circle"
+    ])
+  ]
+
+shifter :: [(String, [String])]
+shifter =
+  [ ( "Age", [ "Shifters are quick to mature both physically and emotionally, reaching young adulthood at age 10. They rarely live to be more than 70 years old." ] )
+  , ( "Alignment", [ "Shifters tend toward neutrality, being more focused on survival than concepts of good and evil. A love of personal freedom can drive shifters toward chaotic alignments." ] )
+  , ( "Size", 
+    [ "Your size is Medium. To set your height and weight randomly, start with rolling a size modifier:"
+    , "Size modifier = 2d8"
+    , "Height = 4 feet + 6 inches + your size modifier in inches"
+    , "Weight in pounds = 90 + (2d4 x your size modifier)"
+    ])
+  , ( "Speed", [ "Your base walking speed is 30 feet." ] )
+  , ( "Darkvision", [ "You have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't descern color in darkness, only shades of gray." ] )
+  , ( "Shifting", 
+    [ "As a bonus action, you can assume a more bestial apperance. This transformation lasts for 1 minute, until you die, or until you revert to your normal appearance as a bonus action. When you shift, you gain temporary hit points equal to your level + your Constitution modifier (minimum of 1 temporary hit point). You also gain additional benefits that depend on your shifter subrace, described below."
+    , "Once you shift, you can't do so again until you finish a short or long rest."
+    ])
+  , ( "Languages", [ "You can speak, read, and write Common." ] )
+  , ( "Subrace", [ "The beast within shapes each shifter physically and mentally. The four major subraces of shifter include: beasthide, longtooth, swiftstride, and wildhunt. Choose a subrace for your shifter." ] )
+  ]
+
+simic :: Stat -> [(String, [String])]
+simic stat =
+  [ ( "Ability Score Increase", [ "Your Constitution score increases by 2, and your " <> show stat <> " ability score increases by 1." ] )
+  , ( "Age", [ "Hybrids begin their lives as adult humans, elves, or vedalken. They age at a slightly accelerated rate, so their maximum life spans are probably reduced somewhat. The Guardian Project has not been operating long enough to observe the full effect of this phenomenon." ] )
+  , ( "Alignment", [ "Most hybrids share the generally neutral outlook of the Simic Combine. They are more interested in scientific research and the standing of their guild than in moral or ethical questions. Those who leave the Combine, however, often do so because their philosophical outlook and alignment are more in line with a different guild's. " ] )
+  , ( "Size", [ "Your size is Medium, within the normal range of your humanoid base race." ] )
+  , ( "Speed", [ "Your base walking speed is 30 feet." ] )
+  , ( "Darkvision", [ "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray." ] )
+  , ( "Languages", [ "You can speak, read, and write Common and your choice of Elvish or Vedalken." ] )
+  , ( "Animal Enhancement", 
+    [ "Your body has been altered to incorporate certain animal characteristics. You choose one animal enhancement now and a second enhancement at 5th level."
+    , "At 1st level, choose one of the following options:"
+    , "Manta Glide: You have ray-like fins that you can use as wings to slow your fall or allow you to glide. When you fall and aren't incapacitated, you can subtract up to 100 feet from the fall when calculating falling damage, and you can move up to 2 feet horizontally for every 1 foot you descend."
+    , "Nimble Climber: You have a climbing speed equal to your walking speed."
+    , "Underwater Adaptation: You can breathe air and water, and you have a swimming speed equal to your walking speed."
+    , "At 5th level, your body evolves further, developing new characteristics. Choose one of the options you didn't take at 1st level, or one of the following options:"
+    , "Grappling Appendages: You have two special appendages growing alongside your arms. Choose whether they're both claws or tentacles. As an action, you can use one of them to try to grapple a creature. Each one is also a natural weapon, which you can use to make an unarmed strike. If you hit with it, the target takes bludgeoning damage equal to ld6 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike. Immediately after hitting, you can try to grapple the target as a bonus action. These appendages can't precisely manipulate anything and can't wield weapons, magic items. or other specialized equipment."
+    , "Carapace: Your skin in places is covered by a thick shell. You gain a +1 bonus to AC when you're not wearing heavy armor."
+    , "Acid Spit: As an action, you can spray acid from glands in your mouth, targeting one creature or object you can see within 30 feet of you. The target takes 2d10 acid damage unless it succeeds on a Dexterity saving throw against a DC equal to 8 + your Constitution modifier + your proficiency bonus. This damage increases by ldl0 when you reach 11th level (3dl0) and 17th level (4d10). You can use this trait a number of times equal to your Consitution modifier (minimum of once), and you regain all expended uses of it when you finish a long rest."
+    ])
+  ]
+
+tiefling :: Stat -> [(String, [String])]
+tiefling stat = 
+  [ ( "Ability Score Increase", [ "Your " <> show stat <> " score increases by 1, and your Charisma score increases by 2." ] )
+  , ( "Age", [ "Tieflings mature at the same rate as humans but live a few years longer." ] )
+  , ( "Alignment", [ "Tieflings might not have an innate tendency toward evil, but many of them end up there. Evil or not, an independent nature inclines many tieflings toward a chaotic alignment." ] )
+  , ( "Size", [ "Tieflings are about the same size and build as humans. Your size is Medium." ] )
+  , ( "Speed", [ "Your base walking speed is 30 feet." ] )
+  , ( "Darkvision", [ "Thanks to your infernal heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray." ] )
+  , ( "Hellish Resistance", [ "You have resistance to fire damage." ] )
+  , ( "Languages", [ "You can speak, read, and write Common and Infernal." ] )
+  ]
+
+tieflingFeral :: [(String, [String])]
+tieflingFeral =
+  [ ( "Ability Score Increase", [ "Your Intelligence score increases by 1, and your Dexterity by 2." ] )
+  , ( "Age", [ "Tieflings mature at the same rate as humans but live a few years longer." ] )
+  , ( "Alignment", [ "Tieflings might not have an innate tendency toward evil, but many of them end up there. Evil or not, an independent nature inclines many tieflings toward a chaotic alignment." ] )
+  , ( "Size", [ "Tieflings are about the same size and build as humans. Your size is Medium." ] )
+  , ( "Speed", [ "Your base walking speed is 30 feet." ] )
+  , ( "Darkvision", [ "Thanks to your infernal heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray." ] )
+  , ( "Hellish Resistance", [ "You have resistance to fire damage." ] )
+  , ( "Infernal Legacy", [ "You know the Thaumaturgy cantrip. Once you reach 3rd level, you can cast the Hellish Rebuke spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. Once you reach 5th level, you can also cast the Darkness spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells." ] )
+  , ( "Languages", [ "You can speak, read, and write Common and Infernal." ] )
   ]
