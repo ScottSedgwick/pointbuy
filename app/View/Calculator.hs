@@ -70,8 +70,9 @@ rl s = racialBonuses . (statLens s)
 
 totalRow :: Model -> [View Model Action]
 totalRow x =
-  [ H.div_ [ P.className "s2" ] [ H.button_ [ E.onClick Reset ] [ text "Reset" ] ]
-  , H.div_ [ P.className "s6" ] []
+  [ H.div_ [ P.className "s2" ] [ H.button_ [ E.onClick SaveModel ] [ text "Persist" ] ]
+  , H.div_ [ P.className "s2" ] [ H.button_ [ E.onClick LoadModel ] [ text "Load" ] ]
+  , H.div_ [ P.className "s4" ] []
   , H.div_ [ P.className "s2" ] [ H.p_ [ P.className "center-align" ] [ H.b_ [] [ text "Total Points" ] ] ]
   , H.div_ [ P.className "s2" ] [ H.p_ [ P.className "center-align" ] [ text $ ms (show totalCost <> " / " <> show (x ^. availablePoints)) ] ]
   ]

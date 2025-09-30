@@ -1,10 +1,12 @@
-{-# LANGUAGE TemplateHaskell, RankNTypes #-}
+{-# LANGUAGE TemplateHaskell, RankNTypes, DeriveGeneric #-}
 module Types where
 
 import           Control.Lens    ( Lens', lens )
 import           Control.Lens.TH ( makeLenses )
 import           Data.Default    ( Default, def )
 import qualified Data.IntMap     as IM
+import           Data.Serialize  ( Serialize )
+import           GHC.Generics    ( Generic )
 import           Miso            ( MisoString )
 
 import           Types.Races     ( Race )
@@ -15,14 +17,19 @@ data Action
   | ChangeTab (Lens' Model Tab) Tab
   | ChangeInt (Lens' Model Int) MisoString
   | ChangeRace MisoString
+  | LoadModel
   | Reset
+  | SaveModel
+  | SetModel Model
+  | Test
+  | Log String
 
 data Tab 
   = Calculator
   | Custom
   | Raw
-  deriving (Eq, Enum, Bounded)
-
+  deriving (Eq, Enum, Bounded, Generic)
+instance Serialize Tab where
 instance Show Tab where
   show Calculator = "Calculator"
   show Custom     = "Custom Rules"
@@ -58,7 +65,8 @@ data Model
   , _stats :: StatBlock
   , _race :: Race
   , _racialBonuses :: StatBlock
-  } deriving (Show, Eq)
+  } deriving (Show, Eq, Generic)
+instance Serialize Model where
 
 instance Default Model where
   def = Model { _tab = Calculator

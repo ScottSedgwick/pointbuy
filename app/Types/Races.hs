@@ -1,7 +1,10 @@
+{-# LANGUAGE DeriveGeneric #-}
 module Types.Races where
 
-import Data.Default ( Default, def )
-import Types.Stats  ( StatBlock(..), Stat(..) )
+import Data.Default   ( Default, def )
+import Data.Serialize ( Serialize )
+import GHC.Generics   ( Generic )
+import Types.Stats    ( StatBlock(..), Stat(..) )
   
 data Race
   = CustomRace
@@ -158,8 +161,8 @@ data Race
   | WarforgedWis
   | WarforgedCha
   | YuanTiPureblood
-  deriving (Eq, Ord, Show, Read, Enum, Bounded)
-
+  deriving (Eq, Ord, Show, Read, Enum, Bounded, Generic)
+instance Serialize Race where
 instance Default Race where
   def = CustomRace
 

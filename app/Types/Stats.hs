@@ -1,7 +1,9 @@
-{-# LANGUAGE TemplateHaskell, RankNTypes #-}
+{-# LANGUAGE TemplateHaskell, RankNTypes, DeriveGeneric #-}
 module Types.Stats where
 
-import           Control.Lens.TH ( makeLenses )
+import Control.Lens.TH ( makeLenses )
+import Data.Serialize  ( Serialize )
+import GHC.Generics    ( Generic )
 
 data Stat
   = Strength
@@ -27,6 +29,7 @@ data StatBlock = StatBlock
   , _int :: Int
   , _wis :: Int
   , _cha:: Int
-  } deriving (Show, Eq)
+  } deriving (Show, Eq, Generic)
+instance Serialize StatBlock where
 
 makeLenses ''StatBlock
