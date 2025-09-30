@@ -21,7 +21,6 @@ data Action
   | Reset
   | SaveModel
   | SetModel Model
-  | Test
   | Log String
 
 data Tab 

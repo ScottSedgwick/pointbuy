@@ -8,7 +8,7 @@ import Data.Either                 ( either )
 import Data.Maybe                  ( maybe )
 import Data.List                   ( drop, find )
 import Language.Javascript.JSaddle ( JSString, eval )
-import Miso                        ( App, JSM, MisoString, Transition, (<#), component, fromMisoString, io, io_, run, startApp )
+import Miso                        ( App, JSM, MisoString, Transition, (<#), component, fromMisoString, io, io_, issue, run, startApp )
 import Miso.FFI                    ( consoleLog )
 import Miso.State                  ( get, modify, put )
 import Miso.String                 ( fromMisoStringEither, ms )
@@ -42,26 +42,15 @@ app = (component def updateModel viewModel) { initialAction = Just LoadModel }
 ----------------------------------------------------------------------------
 -- | Updates model, optionally introduces side effects
 updateModel :: Action -> Transition Model Action
-updateModel Reset           = def <# pure (ChangeTitle "D&D 5e Point Buy Calculator")    -- example of chaining events
+updateModel Reset           = def <# (pure $ ChangeTitle "D&D 5e Point Buy Calculator")
 updateModel (ChangeTitle s) = runJS $ "document.title = '" <> s <> "';"
-updateModel (ChangeTab l a) = l .= a
-updateModel (ChangeInt l a) = l .= (getIntDef 0 a)
-updateModel (ChangeRace s)  = setRace (readMaybe (fromMisoString s))
+updateModel (ChangeTab l a) = l .= a                                 >> issue (Log "What?")
+updateModel (ChangeInt l a) = l .= (getIntDef 0 a)                   >> issue SaveModel
+updateModel (ChangeRace s)  = setRace (readMaybe (fromMisoString s)) >> issue SaveModel
 updateModel LoadModel       = loadModel
 updateModel (Log s)         = io_ $ consoleLog (ms s)
 updateModel SaveModel       = saveModel
 updateModel (SetModel m)    = put m
-updateModel Test            = do
-    m <- get
-    io_ $ do
-        consoleLog (ms $ show m)
-        let mstr = encode m
-        consoleLog (mstr)
-        case (decode (fromMisoString mstr) :: Maybe Model) of
-            Nothing -> consoleLog "Failed to decode"
-            Just m2 -> consoleLog (ms $ show m2)
-        uri <- getURI
-        pushURI $ uri { uriQueryString = M.insert "data" (Just mstr) (uriQueryString uri) }
 
 getIntDef :: Int -> MisoString -> Int
 getIntDef d a = either (const d) id (fromMisoStringEither a)
