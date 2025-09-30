@@ -42,13 +42,13 @@ app = (component def updateModel viewModel) { initialAction = Just LoadModel }
 ----------------------------------------------------------------------------
 -- | Updates model, optionally introduces side effects
 updateModel :: Action -> Transition Model Action
-updateModel Reset           = def <# (pure $ ChangeTitle "D&D 5e Point Buy Calculator")
-updateModel (ChangeTitle s) = runJS $ "document.title = '" <> s <> "';"
-updateModel (ChangeTab l a) = l .= a                                 >> issue (Log "What?")
 updateModel (ChangeInt l a) = l .= (getIntDef 0 a)                   >> issue SaveModel
 updateModel (ChangeRace s)  = setRace (readMaybe (fromMisoString s)) >> issue SaveModel
+updateModel (ChangeTab l a) = l .= a                                 >> issue SaveModel
+updateModel (ChangeTitle s) = runJS $ "document.title = '" <> s <> "';"
 updateModel LoadModel       = loadModel
 updateModel (Log s)         = io_ $ consoleLog (ms s)
+updateModel Reset           = def <# (pure $ ChangeTitle "D&D 5e Point Buy Calculator")
 updateModel SaveModel       = saveModel
 updateModel (SetModel m)    = put m
 
