@@ -55,24 +55,26 @@ updateModel (SetModel m)    = put m
 getIntDef :: Int -> MisoString -> Int
 getIntDef d a = either (const d) id (fromMisoStringEither a)
 
+-- This next function's hack job is because the Miso.Subscription.History module does not correctly decode parameters.
+-- It stores the key *and* the data in the key, and Nothing in the data.
 loadModel :: Transition Model Action
-loadModel = io $ do
-    uri <- getURI
-    -- This next line hack job is because the Miso.Subscription.History module does not correctly decode parameters.
-    -- It stores the key *and* the data in the key, and Nothing in the data.
-    case (find (startsWith "data=") (map fromMisoString $ M.keys (uriQueryString uri))) of
-        Nothing -> pure $ Log "Could not locate data parameter"
+loadModel = io $ getURI >>= \uri -> 
+    pure $ case (find (startsWith "data=") (map fromMisoString $ M.keys (uriQueryString uri))) of
+        Nothing -> Log "Could not locate data parameter"
         Just s  -> 
             case (decode (drop 5 s) :: Maybe Model) of
-                Nothing -> pure $ Log "Failed to decode data"
-                Just m  -> pure $ SetModel m
+                Nothing -> Log "Failed to decode data"
+                Just m  -> SetModel m
 
 saveModel :: Transition Model Action
-saveModel = get >>= \m -> io_ $ getURI >>= \uri -> pushURI $ uri { uriQueryString = M.fromList [ ("data", (Just $ encode m)) ] }
+saveModel = get >>= \m -> 
+                io_ $ getURI >>= \uri -> 
+                    pushURI $ uri { uriQueryString = M.fromList [ ("data", (Just $ encode m)) ] }
 
 setRace :: Maybe Race -> Transition Model Action
-setRace Nothing  = pure ()
-setRace (Just r) = modify $ \m -> m & race .~ r & racialBonuses .~ (defaultRacialBonuses r)
+setRace = maybe 
+            (pure ()) 
+            (\r -> modify $ \m -> m & race .~ r & racialBonuses .~ (defaultRacialBonuses r))
 
 startsWith :: Eq a => [a] -> [a] -> Bool
 startsWith []     _      = True
