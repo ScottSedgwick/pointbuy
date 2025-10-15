@@ -22,6 +22,38 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  build:
+    runs-on: ubuntu;latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: install dependancies, build and test stack project.
+        uses: freckle/stack-action@v5
+        with:
+          stack-build-arguments: --ghc-options="-fno-warn-unused-imports -fno-warn-unused-matches -fno-warn-type-defaults -fno-warn-missing-export-lists"
+          stack-build-arguments-test: --ghc-options="-fno-warn-unused-imports -fno-warn-unused-matches -fno-warn-type-defaults -fno-warn-missing-export-lists"
+
+      - name: Set up environment variable
+        run: echo "FLAVOUR=9.8" >> $GITHUB_ENV
+
+      - name: Download wasm32-wasi-cabal
+        run: |
+            curl https://gitlab.haskell.org/ghc/ghc-wasm-meta/-/raw/master/bootstrap.sh | sh
+            source ~/.ghc-wasm/add_to_github_path.sh
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3' # Specify your desired Ruby version
+          bundler-cache: true # Caches Bundler dependencies
+
+      - name: Building wasm
+        run: rake deploy
+
   # Single deploy job since we're just deploying
   deploy:
     environment:
@@ -29,8 +61,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact

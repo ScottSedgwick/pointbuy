@@ -40,6 +40,6 @@ task :serve => :deploy do
 end
 
 desc "Generate freeze file for dependencies"
-task :serve => :deploy do
+task :freeze => :deploy do
     sh "wasm32-wasi-cabal freeze --allow-newer"
 end
