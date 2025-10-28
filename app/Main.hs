@@ -19,7 +19,7 @@ import Text.Read                   ( readMaybe )
 
 import qualified Data.Map.Strict   as M
 
-import Types                       ( Action(..), Model(..), race, racialBonuses, stateData )
+import Types                       ( Action(..), Model(..), StateData, race, racialBonuses, stateData )
 import Types.Encoding              ( decode, encode )
 import Types.Races                 ( Race, defaultRacialBonuses )
 import View.Main                   ( viewModel )
@@ -62,13 +62,16 @@ getIntDef d a = either (const d) id (fromMisoStringEither a)
 -- This next function's hack job is because the Miso.Subscription.History module does not correctly decode parameters.
 -- It stores the key *and* the data in the key, and Nothing in the data.
 loadModel :: Transition Model Action
-loadModel = io $ getURI >>= \uri -> 
-    pure $ case (find (startsWith "data=") (map fromMisoString $ M.keys (uriQueryString uri))) of
-        Nothing -> Log "Could not locate data parameter"
-        Just s  -> 
-            case (decode (drop 5 s) :: Maybe Model) of
-                Nothing -> Log "Failed to decode data"
-                Just m  -> SetModel m
+loadModel = do
+    m <- get
+    io $ do
+        uri <- getURI 
+        pure $ case (find (startsWith "data=") (map fromMisoString $ M.keys (uriQueryString uri))) of
+            Nothing -> Log "Could not locate data parameter"
+            Just s  -> 
+                case (decode (drop 5 s) :: Maybe StateData) of
+                    Nothing -> Log "Failed to decode data"
+                    Just sd -> SetModel (m { _stateData = sd } )
 
 saveModel :: Transition Model Action
 saveModel = do
