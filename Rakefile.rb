@@ -26,13 +26,19 @@ end
 task :static => [DEPLOY_FOLDER] do
     Dir.foreach(STATIC_SRC_FOLDER) do |f|
         if !f.start_with?(".") then
-            FileUtils.cp "#{STATIC_SRC_FOLDER}/#{f}", "#{DEPLOY_FOLDER}/#{f}"
+            if File.directory?(File.join(STATIC_SRC_FOLDER,f))
+                puts "It's a folder: #{f}"
+                FileUtils.cp_r "#{STATIC_SRC_FOLDER}/#{f}", "#{DEPLOY_FOLDER}/#{f}"
+            else
+                puts "Supposedly a file: #{f}"
+                FileUtils.cp "#{STATIC_SRC_FOLDER}/#{f}", "#{DEPLOY_FOLDER}/#{f}"
+            end
         end
     end
 end
 
 desc "Deploy app"
-task :deploy => [:static, :build, :wasm]
+task :deploy => [:clean, :static, :build, :wasm]
 
 desc "Deploy and serve app"
 task :serve => :deploy do

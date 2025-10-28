@@ -8,7 +8,7 @@ import qualified Miso.Html.Event      as E
 import qualified Miso.Html.Property   as P
 import qualified Miso.Property        as MP
 
-import           Types                ( Action(..), Model, allStats, availablePoints, maxPurchasableAttribute, minPurchasableAttribute, pointBuyCostValue, race, racialBonuses, statLens, stats )
+import           Types                ( Action(..), Model(..), allStats, availablePoints, maxPurchasableAttribute, minPurchasableAttribute, pointBuyCostValue, race, racialBonuses, stateData, statLens, stats )
 import           Types.Stats          ( Stat, showPretty )
 import           View.Calculator.Race ( raceSelector, racialTraits )
 
@@ -31,15 +31,21 @@ viewCalculator x =
           ] 
           <> (map (mkAttributeRow x) allStats) 
           <> totalRow x
+          <> getRow x
         )
       ]
     ]
   , H.div_ [ P.className "s12 m6" ] 
     [ H.article_ [ P.className "s12 fill" ] 
       [ H.h4_ [] [ text "Racial Traits"]
-      , H.article_ [] ( racialTraits (x ^. race) ) 
+      , H.article_ [] ( racialTraits (x ^. (stateData . race)) ) 
       ]
     ]
+  ]
+
+getRow :: Model -> [View Model Action]
+getRow x = 
+  [ H.div_ [ P.className "s12" ] [ H.button_ [ E.onClick FetchData ] [ text "Get data" ]]
   ]
 
 mkAttributeRow :: Model -> Stat -> View Model Action
@@ -48,8 +54,8 @@ mkAttributeRow x s =
     total = (x ^. (sl s)) + (x ^. (rl s))
     mod = modifier total
     cost = x ^. (pointBuyCostValue (x ^. (sl s)))
-    max = x ^. maxPurchasableAttribute
-    min = x ^. minPurchasableAttribute
+    max = x ^. (stateData . maxPurchasableAttribute)
+    min = x ^. (stateData . minPurchasableAttribute)
   in
     H.div_ [ P.className "s12 grid fill", MP.textProp "style" "padding-left: 10px; padding-bottom: 0px; padding-top: 10px;" ]
     [ H.div_ [ P.className "s1 small" ] [ H.p_ [ P.className "small" ] [ H.b_ [] [ text (ms $ showPretty s) ] ] ]
@@ -63,19 +69,19 @@ mkAttributeRow x s =
     ]
 
 sl :: Stat -> Lens' Model Int
-sl s = stats . (statLens s)
+sl s = stateData . stats . (statLens s)
 
 rl :: Stat -> Lens' Model Int
-rl s = racialBonuses . (statLens s)
+rl s = stateData . racialBonuses . (statLens s)
 
 totalRow :: Model -> [View Model Action]
 totalRow x =
   [ H.div_ [ P.className "s8" ] []
   , H.div_ [ P.className "s2" ] [ H.p_ [ P.className "center-align" ] [ H.b_ [] [ text "Total Points" ] ] ]
-  , H.div_ [ P.className "s2" ] [ H.p_ [ P.className "center-align" ] [ text $ ms (show totalCost <> " / " <> show (x ^. availablePoints)) ] ]
+  , H.div_ [ P.className "s2" ] [ H.p_ [ P.className "center-align" ] [ text $ ms (show totalCost <> " / " <> show (x ^. (stateData . availablePoints))) ] ]
   ]
   where
-    totalCost = sum (map (\s -> x ^. (pointBuyCostValue (x ^. (stats . (statLens s))))) allStats)
+    totalCost = sum (map (\s -> x ^. (pointBuyCostValue (x ^. (stateData . stats . (statLens s))))) allStats)
 
 numberField :: Model -> Lens' Model Int -> (Int, Int) -> (MisoString -> Action) -> View Model Action
 numberField x l (minv, maxv) a =

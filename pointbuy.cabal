@@ -35,6 +35,7 @@ executable pointbuy
                     , View.Main
                     , View.Raw
     build-depends:    base ^>= 4.22
+                    , aeson ^>= 2.2
                     , base64-bytestring
                     , bytestring
                     , cereal ^>= 0.5

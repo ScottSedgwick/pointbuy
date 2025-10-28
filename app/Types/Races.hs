@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveGeneric #-}
 module Types.Races where
 
+import Data.Aeson     ( FromJSON, FromJSONKey(..), ToJSON, ToJSONKey, defaultJSONKeyOptions, defaultOptions, genericFromJSONKey, genericToEncoding, toEncoding )
 import Data.Default   ( Default, def )
 import Data.Serialize ( Serialize )
 import GHC.Generics   ( Generic )
@@ -165,6 +166,12 @@ data Race
 instance Serialize Race where
 instance Default Race where
   def = CustomRace
+instance ToJSON Race where
+  toEncoding = genericToEncoding defaultOptions
+instance FromJSON Race
+instance ToJSONKey Race
+instance FromJSONKey Race where
+  fromJSONKey = genericFromJSONKey defaultJSONKeyOptions
 
 showPretty :: Race -> String
 showPretty CustomRace = "Custom"

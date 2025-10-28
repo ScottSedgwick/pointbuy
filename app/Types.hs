@@ -3,36 +3,37 @@ module Types where
 
 import           Control.Lens    ( Lens', lens )
 import           Control.Lens.TH ( makeLenses )
+import           Data.Aeson      ( FromJSON, ToJSON, defaultOptions, genericToEncoding, toEncoding )
 import           Data.Default    ( Default, def )
 import qualified Data.IntMap     as IM
+import qualified Data.Map        as M
 import           Data.Serialize  ( Serialize )
 import           GHC.Generics    ( Generic )
-import           Miso            ( MisoString )
+import           Miso            ( MisoString, Response )
 
 import           Types.Races     ( Race )
 import           Types.Stats     ( Stat(..), StatBlock(..), str, con, dex, int, wis, cha )
-
-data Action
-  = ChangeTitle MisoString
-  | ChangeTab (Lens' Model Tab) Tab
-  | ChangeInt (Lens' Model Int) MisoString
-  | ChangeRace MisoString
-  | LoadModel
-  | Reset
-  | SaveModel
-  | SetModel Model
-  | Log String
 
 data Tab 
   = Calculator
   | Custom
   | Raw
+  | Races
   deriving (Eq, Enum, Bounded, Generic)
 instance Serialize Tab where
 instance Show Tab where
   show Calculator = "Calculator"
   show Custom     = "Custom Rules"
   show Raw        = "Rules as Written"
+  show Races      = "Racial Information"
+instance ToJSON Tab where
+  toEncoding = genericToEncoding defaultOptions
+instance FromJSON Tab
+tabClass :: Tab -> String
+tabClass Calculator = "Calculator"
+tabClass Custom = "Custom"
+tabClass Raw = "Raw"
+tabClass Races = "Races"
 
 statLens :: Stat -> Lens' StatBlock Int
 statLens Strength = str
@@ -54,9 +55,9 @@ defaultStats = StatBlock { _str = 8, _dex = 8, _con = 8, _int = 8, _wis = 8, _ch
 defaultBonuses :: StatBlock
 defaultBonuses = StatBlock { _str = 0, _dex = 0, _con = 0, _int = 0, _wis = 0, _cha = 0 }
 
-data Model
-  = Model
-  { _tab :: Tab
+data StateData 
+  = StateData
+  {_tab :: Tab
   , _availablePoints :: Int
   , _maxPurchasableAttribute :: Int
   , _minPurchasableAttribute :: Int
@@ -65,10 +66,13 @@ data Model
   , _race :: Race
   , _racialBonuses :: StatBlock
   } deriving (Show, Eq, Generic)
-instance Serialize Model where
+instance Serialize StateData where
+instance ToJSON StateData where
+  toEncoding = genericToEncoding defaultOptions
+instance FromJSON StateData
 
-instance Default Model where
-  def = Model { _tab = Calculator
+instance Default StateData where
+  def = StateData { _tab = Calculator
               , _availablePoints = 27
               , _maxPurchasableAttribute = 15
               , _minPurchasableAttribute = 8
@@ -78,7 +82,52 @@ instance Default Model where
               , _racialBonuses = defaultBonuses
               }
 
+makeLenses ''StateData
+
+data Model
+  = Model
+  { _stateData :: StateData
+  , _defaultRacialBonuses :: M.Map Race StatBlock
+  } deriving (Show, Eq, Generic)
+instance Serialize Model where
+instance ToJSON Model where
+  toEncoding = genericToEncoding defaultOptions
+instance FromJSON Model
+
+instance Default Model where
+  def = Model { _stateData = def
+              , _defaultRacialBonuses = M.empty
+              }
+
 makeLenses ''Model
 
 pointBuyCostValue :: Int -> Lens' Model Int
-pointBuyCostValue k = lens (\record -> IM.findWithDefault 0 k (_pointBuyCosts record)) (\record field -> record { _pointBuyCosts = IM.insert k field (_pointBuyCosts record) } )
+pointBuyCostValue k = 
+  let
+    getter record =
+      let
+        pbc = _pointBuyCosts (_stateData record)
+      in 
+        IM.findWithDefault 0 k pbc
+    setter record field =
+      let
+        sd  = _stateData record
+        pbc = _pointBuyCosts sd
+      in
+        record { _stateData = sd { _pointBuyCosts = IM.insert k field pbc } }
+  in
+    lens getter setter
+
+data Action
+  = ChangeTitle MisoString
+  | ChangeTab (Lens' Model Tab) Tab
+  | ChangeInt (Lens' Model Int) MisoString
+  | ChangeRace MisoString
+  | LoadModel
+  | Reset
+  | SaveModel
+  | SetModel Model
+  | FetchData
+  | SetData (Response Model)
+  | ErrorHandler (Response MisoString)
+  | Log String

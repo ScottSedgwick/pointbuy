@@ -2,14 +2,15 @@
 {-# LANGUAGE CPP               #-}
 module Main where
 
-import Control.Lens                ( (&), (.~), (.=) )
+import Control.Lens                ( (&), (.~), (.=), (?=) )
 import Data.Default                ( def )
 import Data.Either                 ( either )
 import Data.Maybe                  ( maybe )
 import Data.List                   ( drop, find )
 import Language.Javascript.JSaddle ( JSString, eval )
 import Miso                        ( App, JSM, MisoString, Transition, (<#), component, fromMisoString, io, io_, issue, run, startApp )
-import Miso.FFI                    ( consoleLog )
+import Miso.Fetch                  ( Response(..), getJSON )
+import Miso.FFI                    ( consoleError, consoleLog )
 import Miso.State                  ( get, modify, put )
 import Miso.String                 ( fromMisoStringEither, ms )
 import Miso.Subscription.History   ( URI(..), getURI, pushURI )
@@ -18,7 +19,7 @@ import Text.Read                   ( readMaybe )
 
 import qualified Data.Map.Strict   as M
 
-import Types                       ( Action(..), Model, race, racialBonuses )
+import Types                       ( Action(..), Model(..), race, racialBonuses, stateData )
 import Types.Encoding              ( decode, encode )
 import Types.Races                 ( Race, defaultRacialBonuses )
 import View.Main                   ( viewModel )
@@ -42,15 +43,18 @@ app = (component def updateModel viewModel) { initialAction = Just LoadModel }
 ----------------------------------------------------------------------------
 -- | Updates model, optionally introduces side effects
 updateModel :: Action -> Transition Model Action
-updateModel (ChangeInt l a) = l .= (getIntDef 0 a)                   >> issue SaveModel
-updateModel (ChangeRace s)  = setRace (readMaybe (fromMisoString s)) >> issue SaveModel
-updateModel (ChangeTab l a) = l .= a                                 >> issue SaveModel
-updateModel (ChangeTitle s) = runJS $ "document.title = '" <> s <> "';"
-updateModel LoadModel       = loadModel
-updateModel (Log s)         = io_ $ consoleLog (ms s)
-updateModel Reset           = def <# (pure $ ChangeTitle "D&D 5e Point Buy Calculator")
-updateModel SaveModel       = saveModel
-updateModel (SetModel m)    = put m
+updateModel (ChangeInt l a)  = l .= (getIntDef 0 a)                   >> issue SaveModel
+updateModel (ChangeRace s)   = setRace (readMaybe (fromMisoString s)) >> issue SaveModel
+updateModel (ChangeTab l a)  = l .= a                                 >> issue SaveModel
+updateModel (ChangeTitle s)  = runJS $ "document.title = '" <> s <> "';"
+updateModel LoadModel        = loadModel
+updateModel (Log s)          = io_ $ consoleLog (ms s)
+updateModel Reset            = def <# (pure $ ChangeTitle "D&D 5e Point Buy Calculator")
+updateModel SaveModel        = saveModel
+updateModel (SetModel m)     = put m
+updateModel FetchData        = getJSON "data/data.json" [] SetData ErrorHandler
+updateModel (SetData r)      = put (body r)
+updateModel (ErrorHandler r) = io_ $ consoleError (maybe "" id (errorMessage r))
 
 getIntDef :: Int -> MisoString -> Int
 getIntDef d a = either (const d) id (fromMisoStringEither a)
@@ -67,14 +71,16 @@ loadModel = io $ getURI >>= \uri ->
                 Just m  -> SetModel m
 
 saveModel :: Transition Model Action
-saveModel = get >>= \m -> 
-                io_ $ getURI >>= \uri -> 
-                    pushURI $ uri { uriQueryString = M.fromList [ ("data", (Just $ encode m)) ] }
+saveModel = do
+    m <- get  
+    io_ $ do
+        uri <- getURI 
+        pushURI $ uri { uriQueryString = M.fromList [ ("data", (Just $ encode (_stateData m))) ] }
 
 setRace :: Maybe Race -> Transition Model Action
 setRace = maybe 
             (pure ()) 
-            (\r -> modify $ \m -> m & race .~ r & racialBonuses .~ (defaultRacialBonuses r))
+            (\r -> modify $ \m -> m & (stateData . race) .~ r & (stateData . racialBonuses) .~ (defaultRacialBonuses r))
 
 startsWith :: Eq a => [a] -> [a] -> Bool
 startsWith []     _      = True

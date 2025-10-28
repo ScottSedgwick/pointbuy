@@ -8,12 +8,12 @@ import qualified Miso.Html          as H
 import qualified Miso.Html.Event    as E
 import qualified Miso.Html.Property as P
 
-import           Types              ( Action(..), Model, race )
+import           Types              ( Action(..), Model, race, stateData )
 import           Types.Races        ( Race, allRaces, racialData, showPretty )
 
 raceSelector :: Model -> View Model Action
 raceSelector x =
-  case x ^. race of
+  case x ^. (stateData . race) of
     _ -> standardSelector x
 
 standardSelector :: Model -> View Model Action
@@ -25,7 +25,7 @@ standardSelector x =
 raceSelect :: Model -> View Model Action
 raceSelect x =
   H.div_ [ P.className "field label suffix border s12"] 
-  [ H.select_ [ E.onInput ChangeRace ] ( map (mkRaceOption (x ^. race)) allRaces )
+  [ H.select_ [ E.onInput ChangeRace ] ( map (mkRaceOption (x ^. (stateData . race))) allRaces )
   , H.label_ [] [ text"Select Race" ]
   , H.i_ [] [ text "arrow_drop_down" ]
   ]

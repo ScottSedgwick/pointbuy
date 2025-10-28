@@ -7,7 +7,7 @@ import           Miso               ( View, ms, text )
 import qualified Miso.Html          as H
 import qualified Miso.Html.Property as P
 
-import           Types              ( Action(..), Model, availablePoints, maxPurchasableAttribute, minPurchasableAttribute, pointBuyCosts, pointBuyCostValue )
+import           Types              ( Action(..), Model, availablePoints, maxPurchasableAttribute, minPurchasableAttribute, pointBuyCosts, pointBuyCostValue, stateData )
 
 viewCustom :: Model -> View Model Action
 viewCustom x =
@@ -19,26 +19,26 @@ viewCustom x =
     , H.div_ [ P.className "s12" ]
       [ H.div_ [ P.className "field border small" ] 
         [ H.label_ [] [ text "Points" ]
-        , H.input_ [ P.type_ "number", P.value_ ((ms . show) (x ^. availablePoints)), P.min_ "0", P.max_ "100", P.step_ "1", H.onInput (ChangeInt availablePoints) ]
+        , H.input_ [ P.type_ "number", P.value_ ((ms . show) (x ^. (stateData . availablePoints))), P.min_ "0", P.max_ "100", P.step_ "1", H.onInput (ChangeInt (stateData . availablePoints)) ]
         ]
       ]
     , H.div_ [ P.className "s12" ]
       [ H.div_ [ P.className "field border small" ] 
         [ H.label_ [] [ text "Max Stat" ]
-        , H.input_ [ P.type_ "number", P.value_ ((ms . show) (x ^. maxPurchasableAttribute)), P.min_ ((ms . show) (x ^. minPurchasableAttribute)), P.max_ "18", P.step_ "1", H.onInput (ChangeInt maxPurchasableAttribute) ] 
+        , H.input_ [ P.type_ "number", P.value_ ((ms . show) (x ^. (stateData . maxPurchasableAttribute))), P.min_ ((ms . show) (x ^. (stateData . minPurchasableAttribute))), P.max_ "18", P.step_ "1", H.onInput (ChangeInt (stateData . maxPurchasableAttribute)) ] 
         ]
       ]
     , H.div_ [ P.className "s12" ]
       [ H.div_ [ P.className "field border small" ] 
         [ H.label_ [] [ text "Min Stat" ]
-        , H.input_ [ P.type_ "number", P.value_ ((ms . show) (x ^. minPurchasableAttribute)), P.min_ "3", P.max_ ((ms . show) (x ^. maxPurchasableAttribute)), P.step_ "1", H.onInput (ChangeInt minPurchasableAttribute) ] 
+        , H.input_ [ P.type_ "number", P.value_ ((ms . show) (x ^. (stateData . minPurchasableAttribute))), P.min_ "3", P.max_ ((ms . show) (x ^. (stateData . maxPurchasableAttribute))), P.step_ "1", H.onInput (ChangeInt (stateData . minPurchasableAttribute)) ] 
         ]
       ]
     , H.div_ [ P.className "s12" ]
       [ H.div_ [ P.className "field border small" ] [ H.button_ [ P.className "responsive", H.onClick Reset ] [ text "Reset" ] ] ]
     ]
   , H.article_ [ P.className "s12 m8 grid" ] 
-    ( (H.div_ [ P.className "s12" ] [ H.h6_ [] [text "Costs" ]]) : map (viewPointBuyCost x) (reverse $ IM.keys (x ^. pointBuyCosts)))
+    ( (H.div_ [ P.className "s12" ] [ H.h6_ [] [text "Costs" ]]) : map (viewPointBuyCost x) (reverse $ IM.keys (x ^. (stateData . pointBuyCosts))))
   ]
 
 viewPointBuyCost :: Model -> Int -> View Model Action

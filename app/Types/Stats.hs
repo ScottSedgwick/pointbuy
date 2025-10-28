@@ -2,6 +2,7 @@
 module Types.Stats where
 
 import Control.Lens.TH ( makeLenses )
+import Data.Aeson      ( FromJSON, ToJSON, defaultOptions, genericToEncoding, toEncoding )
 import Data.Serialize  ( Serialize )
 import GHC.Generics    ( Generic )
 
@@ -31,5 +32,8 @@ data StatBlock = StatBlock
   , _cha:: Int
   } deriving (Show, Eq, Generic)
 instance Serialize StatBlock where
+instance ToJSON StatBlock where
+  toEncoding = genericToEncoding defaultOptions
+instance FromJSON StatBlock
 
 makeLenses ''StatBlock

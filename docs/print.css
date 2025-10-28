@@ -1,0 +1,59 @@
+div.tabs {
+    display: none;
+}
+
+div.Calculator {
+    display: inherit;
+}
+
+div.Custom {
+    display: inherit;
+}
+
+div.Raw {
+    display: none;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(20px, auto);
+}
+
+.s1 {
+    grid-area: auto/span 1;
+}
+.s2 {
+    grid-area: auto/span 2;
+}
+.s3 {
+    grid-area: auto/span 3;
+}
+.s4 {
+    grid-area: auto/span 4;
+}
+.s5 {
+    grid-area: auto/span 5;
+}
+.s6 {
+    grid-area: auto/span 6;
+}
+.s7 {
+    grid-area: auto/span 7;
+}
+.s8 {
+    grid-area: auto/span 8;
+}
+.s9 {
+    grid-area: auto/span 9;
+}
+.s10 {
+    grid-area: auto/span 10;
+}
+.s11 {
+    grid-area: auto/span 11;
+}
+.s12 {
+    grid-area: auto/span 12;
+}
