@@ -27,10 +27,8 @@ task :static => [DEPLOY_FOLDER] do
     Dir.foreach(STATIC_SRC_FOLDER) do |f|
         if !f.start_with?(".") then
             if File.directory?(File.join(STATIC_SRC_FOLDER,f))
-                puts "It's a folder: #{f}"
                 FileUtils.cp_r "#{STATIC_SRC_FOLDER}/#{f}", "#{DEPLOY_FOLDER}/#{f}"
             else
-                puts "Supposedly a file: #{f}"
                 FileUtils.cp "#{STATIC_SRC_FOLDER}/#{f}", "#{DEPLOY_FOLDER}/#{f}"
             end
         end
