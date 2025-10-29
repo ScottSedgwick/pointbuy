@@ -33,12 +33,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: install dependancies, build and test stack project.
-        uses: freckle/stack-action@v5
-        with:
-          stack-build-arguments: --ghc-options="-fno-warn-unused-imports -fno-warn-unused-matches -fno-warn-type-defaults -fno-warn-missing-export-lists"
-          stack-build-arguments-test: --ghc-options="-fno-warn-unused-imports -fno-warn-unused-matches -fno-warn-type-defaults -fno-warn-missing-export-lists"
-
       - name: Set up environment variable
         run: echo "FLAVOUR=9.8" >> $GITHUB_ENV
 
