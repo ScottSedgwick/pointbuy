@@ -34,17 +34,17 @@ executable pointbuy
                     , View.Custom
                     , View.Main
                     , View.Raw
-    build-depends:    base ^>= 4.20
-                    , aeson ^>= 2.2
+    build-depends:    base
+                    , aeson
                     , base64-bytestring
                     , bytestring
-                    , cereal ^>= 0.5
-                    , containers ^>= 0.8
-                    , data-default ^>= 0.8
-                    , jsaddle ^>= 0.9
-                    , jsaddle-wasm ^>= 0.1
-                    , lens ^>= 5.3
-                    , miso ^>= 1.9
+                    , cereal
+                    , containers
+                    , data-default
+                    , jsaddle
+                    , jsaddle-wasm
+                    , lens
+                    , miso
                     , text
                     , uri-encode
                     , zlib
