@@ -44,7 +44,7 @@ executable pointbuy
                     , jsaddle
                     , jsaddle-wasm
                     , lens
-                    , miso ^>= 1.8
+                    , miso == 1.8
                     , text
                     , uri-encode
                     , zlib
