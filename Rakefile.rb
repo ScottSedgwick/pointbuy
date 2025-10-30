@@ -11,6 +11,8 @@ CLOBBER.include(BUILD_FOLDER)
 
 desc 'Build app'
 task :build do
+    sh 'wasm32-wasi-cabal --version'
+    sh 'wasm32-wasi-ghc --version'
     sh 'wasm32-wasi-cabal build --allow-newer'
 end
 
