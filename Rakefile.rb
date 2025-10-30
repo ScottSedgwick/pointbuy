@@ -22,7 +22,7 @@ task :wasm => [:build, DEPLOY_FOLDER] do
     puts "libdir = [#{libdir}]"
     postlink = "#{libdir}/post-link.mjs"
     puts "postlink = [#{postlink}]"
-    wasmexe = `wasm32-wasi-cabal list-bin pointbuy --allow-newer`.strip
+    wasmexe = `wasm32-wasi-cabal list-bin pointbuy --allow-newer`.strip.split.last
     puts "wasmexe = [#{wasmexe}]"
     sh "#{postlink} --input #{wasmexe} --output #{DEPLOY_FOLDER}/ghc_wasm_jsffi.js"
     FileUtils.cp wasmexe, "#{DEPLOY_FOLDER}/app.wasm"
