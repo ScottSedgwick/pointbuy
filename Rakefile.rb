@@ -19,8 +19,11 @@ end
 desc 'Generate the JS files WASM needs to work in the browser'
 task :wasm => [:build, DEPLOY_FOLDER] do
     libdir = `wasm32-wasi-ghc --print-libdir`.strip
+    puts "libdir = [#{libdir}]"
     postlink = "#{libdir}/post-link.mjs"
+    puts "postlink = [#{postlink}]"
     wasmexe = `wasm32-wasi-cabal list-bin pointbuy --allow-newer`.strip
+    puts "wasmexe = [#{wasmexe}]"
     sh "#{postlink} --input #{wasmexe} --output #{DEPLOY_FOLDER}/ghc_wasm_jsffi.js"
     FileUtils.cp wasmexe, "#{DEPLOY_FOLDER}/app.wasm"
 end
