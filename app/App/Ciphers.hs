@@ -196,5 +196,6 @@ cipherSelected (RailFence _) (RailFence _) = True
 cipherSelected (Scytale _) (Scytale _) = True
 cipherSelected _ _ = False
 
+-- Component constructor ---------------------------------
 page :: Model -> Component a Model Action
 page model = component model updateModel viewModel

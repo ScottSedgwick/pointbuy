@@ -43,7 +43,7 @@ data Model = Model
 makeLenses ''Model
 instance Default Model where
   def = Model 
-        { _selectedAppl = Ciphers
+        { _selectedAppl = Insults
         , _background = def
         , _crafting = def
         , _dice = def
@@ -89,7 +89,7 @@ isApplEnabled Backgrounds = False
 isApplEnabled Crafting    = False
 isApplEnabled DiceRoller  = False
 isApplEnabled Feats       = False
-isApplEnabled Insults     = False
+isApplEnabled Insults     = True
 isApplEnabled Lineages    = False
 isApplEnabled MagicItems  = False
 isApplEnabled PointBuy    = False
