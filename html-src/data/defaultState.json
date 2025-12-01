@@ -1,0 +1,41 @@
+{
+    "_tab" : "Calculator",
+    "_availablePoints" : 27,
+    "_maxPurchasableAttribute" : 15,
+    "_minPurchasableAttribute" : 8,
+    "_pointBuyCosts" : [
+        [3,  -9],
+        [4,  -6],
+        [5,  -4],
+        [6,  -2],
+        [7,  -1],
+        [8,   0],
+        [9,   1],
+        [10,  2],
+        [11,  3],
+        [12,  4],
+        [13,  5],
+        [14,  7],
+        [15,  9],
+        [16, 12],
+        [17, 15],
+        [18, 19]
+    ],
+    "_stats" : {
+        "_str" : 8,
+        "_dex" : 8,
+        "_con" : 8,
+        "_int" : 8,
+        "_wis" : 8,
+        "_cha" : 8
+    },
+    "_race" : "CustomRace",
+    "_racialBonuses" : {
+        "_str" : 0,
+        "_dex" : 0,
+        "_con" : 0,
+        "_int" : 0,
+        "_wis" : 0,
+        "_cha" : 0
+    }
+}

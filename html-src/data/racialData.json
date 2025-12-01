@@ -1,44 +1,6 @@
 {
-    "_tab" : "Calculator",
-    "_availablePoints" : 27,
-    "_maxPurchasableAttribute" : 15,
-    "_minPurchasableAttribute" : 8,
-    "_pointBuyCosts" : [
-        [3,  -9],
-        [4,  -6],
-        [5,  -4],
-        [6,  -2],
-        [7,  -1],
-        [8,   0],
-        [9,   1],
-        [10,  2],
-        [11,  3],
-        [12,  4],
-        [13,  5],
-        [14,  7],
-        [15,  9],
-        [16, 12],
-        [17, 15],
-        [18, 19]
-    ],
-    "_stats" : {
-        "_str" : 8,
-        "_dex" : 8,
-        "_con" : 8,
-        "_int" : 8,
-        "_wis" : 8,
-        "_cha" : 8
-    },
-    "_race" : "CustomRace",
-    "_racialBonuses" : {
-        "_str" : 0,
-        "_dex" : 0,
-        "_con" : 0,
-        "_int" : 0,
-        "_wis" : 0,
-        "_cha" : 0
-    },
-    "_defaultRacialBonuses" : {
+    "_defaultRacialBonuses":
+    {
         "CustomRace"                   : { "_str" : 0, "_dex" : 0, "_con" : 0, "_int" : 0, "_wis" : 0, "_cha" : 0 },
 
         "Aarakocra"                    : { "_str" : 0, "_dex" : 2, "_con" : 0, "_int" : 0, "_wis" : 1, "_cha" : 0 },
@@ -49,7 +11,7 @@
         "AasimarFallen"                : { "_str" : 1, "_dex" : 0, "_con" : 0, "_int" : 0, "_wis" : 0, "_cha" : 2 },
 
         "Bugbear"                      : { "_str" : 2, "_dex" : 1, "_con" : 0, "_int" : 0, "_wis" : 0, "_cha" : 0 },
-  
+
         "Centaur"                      : { "_str" : 2, "_dex" : 0, "_con" : 0, "_int" : 0, "_wis" : 1, "_cha" : 0 },
 
         "ChangelingStr"                : { "_str" : 1, "_dex" : 0, "_con" : 0, "_int" : 0, "_wis" : 0, "_cha" : 2 },
@@ -80,7 +42,7 @@
         "GenasiEarth"                  : { "_str" : 1, "_dex" : 0, "_con" : 2, "_int" : 0, "_wis" : 0, "_cha" : 0 },
         "GenasiFire"                   : { "_str" : 0, "_dex" : 0, "_con" : 2, "_int" : 1, "_wis" : 0, "_cha" : 0 },
         "GenasiWater"                  : { "_str" : 0, "_dex" : 0, "_con" : 2, "_int" : 0, "_wis" : 1, "_cha" : 0 },
-  
+
         "Githyanki"                    : { "_str" : 2, "_dex" : 0, "_con" : 0, "_int" : 1, "_wis" : 0, "_cha" : 0 },
         "Githzerai"                    : { "_str" : 0, "_dex" : 1, "_con" : 0, "_int" : 1, "_wis" : 2, "_cha" : 0 },
 
@@ -223,9 +185,9 @@
         "Tortle"                       : { "_str" : 2, "_dex" : 0, "_con" : 0, "_int" : 0, "_wis" : 1, "_cha" : 0 },
 
         "Triton"                       : { "_str" : 1, "_dex" : 0, "_con" : 1, "_int" : 0, "_wis" : 0, "_cha" : 1 },
-  
+
         "Vedalken"                     : { "_str" : 0, "_dex" : 0, "_con" : 0, "_int" : 2, "_wis" : 1, "_cha" : 0 },
-  
+
         "WarforgedStr"                 : { "_str" : 1, "_dex" : 0, "_con" : 2, "_int" : 0, "_wis" : 0, "_cha" : 0 },
         "WarforgedDex"                 : { "_str" : 0, "_dex" : 1, "_con" : 2, "_int" : 0, "_wis" : 0, "_cha" : 0 },
         "WarforgedInt"                 : { "_str" : 0, "_dex" : 0, "_con" : 2, "_int" : 1, "_wis" : 0, "_cha" : 0 },
@@ -233,5 +195,6 @@
         "WarforgedCha"                 : { "_str" : 0, "_dex" : 0, "_con" : 2, "_int" : 0, "_wis" : 0, "_cha" : 1 },
 
         "YuanTiPureblood"              : { "_str" : 0, "_dex" : 0, "_con" : 0, "_int" : 1, "_wis" : 0, "_cha" : 2 }
-    }
+    },
+    "_defaultRacialDescriptions" : {}
 }

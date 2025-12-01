@@ -15,3 +15,8 @@ td.centertext {
 th.centertext {
     text-align: center;
 }
+
+div.banner {
+    background-color:darkslateblue;
+    color:antiquewhite;
+}

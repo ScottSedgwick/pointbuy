@@ -22,7 +22,7 @@ task :wasm => [:build, DEPLOY_FOLDER] do
     puts "libdir = [#{libdir}]"
     postlink = "#{libdir}/post-link.mjs"
     puts "postlink = [#{postlink}]"
-    wasmexe = `wasm32-wasi-cabal list-bin pointbuy --allow-newer`.strip.split.last
+    wasmexe = `wasm32-wasi-cabal list-bin dndapp --allow-newer`.strip.split.last
     puts "wasmexe = [#{wasmexe}]"
     sh "#{postlink} --input #{wasmexe} --output #{DEPLOY_FOLDER}/ghc_wasm_jsffi.js"
     FileUtils.cp wasmexe, "#{DEPLOY_FOLDER}/app.wasm"
@@ -51,4 +51,9 @@ end
 desc "Generate freeze file for dependencies"
 task :freeze => :deploy do
     sh "wasm32-wasi-cabal freeze --allow-newer"
+end
+
+desc "Update Cabal"
+task :update do
+    sh 'wasm32-wasi-cabal update'
 end
