@@ -58,8 +58,6 @@ viewModel m =
   H.div_ [] 
   [ banner Backgrounds
   , H.div_ [] (map backgroundView (filteredBackgrounds m))
-  , H.button_ [ ] [ text "Do nothing" ]
-  , H.button_ [ ] [ text "Decrement" ]
   , H.div_ [] [ H.p_ [] [ text ( maybe "" id (m ^. errMessage) ) ] ]
   ]
 
@@ -123,8 +121,9 @@ suggestedView xs = ( H.h4_ [] [ text "Suggested Characteristics"] ) : map f xs
   where
     f x = H.p_ [] [ text ( ms $ x ) ]   
 
-traitsView :: BackgroundTraits -> [View Model Action]
-traitsView t = 
+traitsView :: Maybe BackgroundTraits -> [View Model Action]
+traitsView Nothing  = []
+traitsView (Just t) = 
   [ H.div_ [ P.class_ "grid" ]
     [ traitTable "Personality Trait" ( t ^. personality )
     , traitTable "Ideal" ( t ^. ideals )

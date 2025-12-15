@@ -20,7 +20,8 @@
       "A pouch containing 15gp"
     ],
     "features":
-    [ { "title": "Shelter of the Faithful",
+    [ 
+      { "title": "Shelter of the Faithful",
         "description":
         [ { "p": "As an acolyte, you command the respect of those who share your faith, and you can perform the religious ceremonies of your deity. You and your adventuring companions can expect to receive free healing and care at a temple, shrine, or other established presence of your faith, though you must provide any material components needed for spells. Those who share your religion will support you (but only you) at a modest lifestyle."},
           { "p": "You might also have ties to a specific temple dedicated to your chosen deity or pantheon, and you have a residence there. This could be the temple where you used to serve, if you remain on good terms with it, or a temple where you have found a new home. While near your temple, you can call upon the priests for assistance, provided the assistance you ask for is not hazardous and you remain in good standing with your temple."}
@@ -83,7 +84,8 @@
       "A pouch containing 10gp"
     ],
     "features":
-    [ { "title": "Cultural Chameleon",
+    [ 
+      { "title": "Cultural Chameleon",
         "description": 
         [ { "p": "Before becoming an adventurer, you spent much of your adult life away from your homeland, living among people different from your kin. You came to understand these foreign cultures and the ways of their people, who eventually treated you as one of their own. One culture had more of an influence on you than any other, shaping your beliefs and customs. Choose a race whose culture you've adopted." }
         ]
@@ -150,7 +152,8 @@
       "A pouch containing 25gp"
     ],
     "features":
-    [ { "title": "Dust Digger",
+    [ 
+      { "title": "Dust Digger",
         "description": 
         [ { "p": "Prior to becoming an adventurer, you spent most of your young life crawling around in the dust, pilfering relics of questionable value from crypts and ruins. Though you managed to sell a few of your discoveries and earn enough coin to buy proper adventuring gear, you have held onto an item that has great emotional value to you. Roll on the Signature Item table to see what you have, or choose an item from the table." }, { "br": "" },
           { "p": "1: 10-foot pole" }, { "br": "" },
@@ -231,7 +234,8 @@
       "A belt pouch containing 10 gp."
     ],
     "features":
-    [ { "title": "Elemental Harmony",
+    [ 
+      { "title": "Elemental Harmony",
         "description": 
         [ { "p": "Growing up surrounded by wild elemental magics has attuned your senses to those chaotic forces, enabling you to subtly bend them to your will. As an action, you channel minor magic involving the element of your chosen Ashari order, giving you one of the following abilities:" }, { "br": "" },
           { "b": "Pyrah."}, { "p": "You instantaneously create and control a burst of flame small enough to light a candle, a torch, or a small campfire. Alternatively, you snuff out a flame of the same size." }, { "br": "" },
@@ -276,6 +280,374 @@
         "I think the mission of my people is a fool's errand. They should abandon isolation, let the elements be, and enjoy the pleasures of the world!",
         "I can't stand it when people say one thing and mean another! Just say what you mean!",
         "Ugh, I know it's not right, but I can't help but look down on people who can't manipulate the elements. It's not like it's hard!"
+      ]
+    }
+  },
+  { "title": "Astral Drifter",
+    "description": 
+    [ "For longer than you can remember, you have traversed the Astral Sea. There, you experienced firsthand the wonders of the Silver Void: you stopped aging and no longer felt hunger or thirst. Driven by wanderlust, you drifted from one part of the Astral Sea to another, like a mote of dust on the wind. You have lost count of the decades that have passed since you arrived here.",
+      "In your travels, you have camped on the petrified hulks of dead gods and narrowly escaped the psychic winds that sweep across the Astral Sea while also avoiding prolonged contact with the plane's most dangerous denizens."
+    ],
+    "source": "Spelljamer: Adventures in Space - Astral Adventurer's Guide",
+    "sourceurl": "http://dnd5e.wikidot.com/background:astral-drifter",
+    "proficiencies":
+    { "skills": [ "Insight", "Religion" ],
+        "tools": [ "None" ],
+        "languages": [ "Two of your choice (Celestial or Gith recommended)" ]
+    },
+    "equipment": [ "A set of traveler's clothes", "A diary", "An ink pen", "A bottle of ink", "A pouch containing 10gp" ],
+    "features":
+    [ 
+      { "title": "Longevity",
+        "description": [ {"p": "You are 20d6 years older than you look, because you have spent that much time in the Astral Sea without aging."} ]
+      },
+      { "title": "Divine Contact",
+        "description": 
+        [ { "p": "You gain the feat and must choose cleric for the feat." }, { "br": "" },
+          { "p": "In the Astral Sea, you crossed paths with a wandering deity. The encounter was brief and nonviolent, yet it made a lasting impression on you. This deity saw fit to share one secret or obscure bit of cosmic lore with you. Work with your DM to determine the details of this knowledge and its impact on the campaign." }, { "br": "" },
+          { "p": "Roll on the Divine Contact table to determine which deity you encountered, or work with your DM to identify a more suitable choice." }, { "br": "" },
+          { "b": "Divine Contact." }, { "br": "" },
+          { "p": "1. Corellon, god of art and magic (chaotic good)" }, { "br": "" },
+          { "p": "2. Tymora, god of good fortune (chaotic good)" }, { "br": "" },
+          { "p": "3. Fharlanghn, god of horizons and travel (neutral good)" }, { "br": "" },
+          { "p": "4. Istus, god of fate and destiny (neutral)" }, { "br": "" },
+          { "p": "5. Nuada, god of war and warriors (neutral)" }, { "br": "" },
+          { "p": "6. Zivilyn, god of wisdom (neutral)" }, { "br": "" },
+          { "p": "7. Arawn, god of life and death (neutral evil)" }, { "br": "" },
+          { "p": "8. Hecate, god of magic and moons (chaotic evil)" }, { "br": "" },
+          { "p": "9. Celestian, god of stars and wanderers (neutral)" }, { "br": "" },
+          { "p": "10. Ptah, god of knowledge and secrets (lawful neutral)" }
+        ]
+      }
+    ],
+    "suggested": []
+  }, 
+  { "title": "Athlete",
+    "sourceurl": "http://dnd5e.wikidot.com/background:athlete",
+    "source": "Mythic Odysseys Of Theros",
+    "description": 
+    [ "You strive to perfect yourself physically and in execution of everything you do. The thrill of competition lights fire in your blood, and the roar of the crowd drives you forward. Tales of your exploits precede you and might open doors or loosen tongues."
+    , "Whether in one of the poleis, between them, or among the nonhuman peoples of Theros, physical contests and those who pursue them command respect bordering on reverence. Athletes arise from all walks of life and all cultures and quite often cross paths with one another."
+    ],
+    "proficiencies":
+    { "skills": [ "Acrobatics", "Athletics" ],
+        "tools": [ "Vehicles (Land)" ],
+        "languages": [ "One of your choice" ]
+    },
+    "equipment": [ "A bronze discus or leather ball", "A lucky charm or past trophy", "A set of traveler's clothes", "A pouch containing 10 gp" ],
+    "features":
+    [ 
+      { "title": "Favored Event",
+        "description": 
+        [ {"p": "While many athletes practice various games and events, most excel at a single form of competition. Roll or choose from the options in the Favored Events table to determine the athletic event in which you excel."}, {"br":""},
+          {"p": "1: Marathon" }, {"br":""},
+          {"p": "2: Long-distance running" }, {"br":""},
+          {"p": "3: Wrestling" }, {"br":""},
+          {"p": "4: Boxing" }, {"br":""},
+          {"p": "5: Chariot or horse race" }, {"br":""},
+          {"p": "6: Pankration (mixed unarmed combat)" }, {"br":""},
+          {"p": "7: Hoplite race (racing in full armor with a unit)" }, {"br":""},
+          {"p": "8: Pentathlon (running, long jump, discus, javelin, wrestling)" }, {"br":""}
+        ]
+      },
+      { "title": "Echoes of Victory",
+        "description":
+        [ {"p": "You have attracted admiration among spectators, fellow athletes, and trainers in the region that hosted your past athletic victories. When visiting any settlement within 100 miles of where you grew up, there is a 50 percent chance you can find someone there who admires you and is willing to provide information and temporary shelter."}, {"br":""},
+          {"p": "Between adventures, you might compete in athletic events sufficient enough to maintain a comfortable lifestyle, as per the \"Practicing a Profession\" downtime activity in chapter 8 of the Players Handbook."}, {"br":""}
+        ]
+      }
+    ],
+    "suggested": [ "Competition can forge strong bonds between teammates and rivals or ignite bitter feuds that burn outside the arena. Athletes often apply lessons from their training to their lives in general." ],
+    "traits":
+    { "personality":
+      [ "I feel most at peace during physical exertion, whether exercise or battle.",
+        "I don't like to sit idle.",
+        "I have a daily exercise routine I refuse to break.",
+        "Obstacles exist to be overcome.",
+        "When I see others struggling, I offer to help.",
+        "I love to trade banter and gibes.",
+        "Anything worth doing is worth doing best.",
+        "I get irritated if people praise someone else and not me."
+      ],
+      "ideals":
+      [ "Competition. I strive to test myself in all things. (Chaotic)",
+        "Triumph. The best part of winning is seeing my rivals brought low. (Evil)",
+        "Camaraderie. The strongest bonds are forged through struggle. (Good)",
+        "People. I strive to inspire my spectators. (Neutral)",
+        "Tradition. Every game has rules, and the playing field must be level. (Lawful)",
+        "Growth. Lessons hide in victory and defeat. (Any)"
+      ],
+      "bonds":
+      [
+        "My teammates are my family.",
+        "I will overcome a rival and prove myself their better.",
+        "My mistake got someone hurt. Ill never make that mistake again.",
+        "I will be the best for the honor and glory of my home.",
+        "The person who trained me is the most important person in my world.",
+        "I strive to live up to a specific hero's example."
+      ],
+      "flaws":
+      [
+        "I indulge in a habit that threatens my reputation or health.",
+        "I'll do absolutely anything to win.",
+        "I ignore anyone who doesn't compete and anyone who loses to me.",
+        "I have lingering pain of old injuries.",
+        "Any defeat or failure on my part is because my opponents cheated.",
+        "I must be the captain of any group I join."
+      ]
+    }
+  }, 
+  { "title": "Charlatan",
+    "sourceurl": "http://dnd5e.wikidot.com/background:charlatan",
+    "source": "Players Handbook",
+    "description": 
+    [ "You have always had a way with people. You know what makes them tick, you can tease out their hearts' desires after a few minutes of conversation, and with a few leading questions you can read them like they were children's books. It's a useful talent, and one that you're perfectly willing to use for your advantage.",
+      "You know what people want and you deliver, or rather, you promise to deliver. Common sense should steer people away from things that sound too good to be true, but common sense seems to be in short supply when you're around. The bottle of pink colored liquid will surely cure that unseemly rash, this ointment - nothing more than a bit of fat with a sprinkle of silver dust can restore youth and vigor, and there's a bridge in the city that just happens to be for sale. These marvels sound implausible, but you make them sound like the real deal."
+    ], 
+    "proficiencies":
+    { "skills": [ " Deception", "Sleight of Hand" ],
+        "tools": [ "Disguise kit", "Forgery kit" ],
+        "languages": [ "None" ]
+    },
+    "equipment": [ "A set of fine clothes", "A disguise kit", "Tools of the con of your choice (ten stoppered bottles filled with colored liquid, a set of weighted dice, a deck of marked cards, or a signet ring of an imaginary duke)", "A pouch containing 15gp" ],
+    "features":
+    [ 
+      { "title": "Favorite Schemes",
+        "description": 
+        [ { "p": "Every charlatan has an angle they use in preference to other schemes. Choose a favorite scam or roll on the table below." }, {"br":""},
+          { "p": "1: I cheat at games of chance." }, {"br":""},
+          { "p": "2: I shave coins or forge documents." }, {"br":""},
+          { "p": "3: I insinuate myself into people's lives to prey on their weakness and secure their fortunes." }, {"br":""},
+          { "p": "4: I put on new identities like clothes." }, {"br":""},
+          { "p": "5: I run sleight-of-hand cons on street corners." }, {"br":""},
+          { "p": "6: I convince people that worthless junk is worth their hard-earned money." }
+        ]
+      },
+      { "title": "False Identity",
+        "description": 
+        [ { "p": "You have created a second identity that includes documentation, established acquaintances, and disguises that allow you to assume that persona. Additionally, you can forge documents including official papers and personal letters, as long as you have seen an example of the kind of document or the handwriting you are trying to copy." }
+        ]
+      }
+    ],
+    "suggested": [ "Charlatans are colorful characters who conceal their true selves behind the masks they construct. They reflect what people want to see, what they want to believe, and how they see the world. But their true selves are sometimes plagued by an uneasy conscience, an old enemy, or deep-seated trust issues." ],
+    "traits":
+    { "personality":
+      [ 
+        "I fall in and out of love easily, and am always pursuing someone.",
+        "I have a joke for every occasion, especially occasions where humor is inappropriate.",
+        "Flattery is my preferred trick for getting what I want.",
+        "I'm a born gambler who can't resist taking a risk for a potential payoff.",
+        "I lie about almost everything, even when there's no good reason to.",
+        "Sarcasm and insults are my weapons of choice.",
+        "I keep multiple holy symbols on me and invoke whatever deity might come in useful at any given moment.",
+        "I pocket anything I see that might have some value."
+      ],
+      "ideals":
+      [ 
+        "Independence. I am a free spirit - no one tells me what to do. (Chaotic)",
+        "Fairness. I never target people who can't afford to lose a few coins. (Lawful)",
+        "Charity. I distribute the money I acquire to the people who really need it. (Good)",
+        "Creativity. I never run the same con twice. (Chaotic)",
+        "Friendship. Material goods come and go. Bonds of friendship last forever. (Good)",
+        "Aspiration. I'm determined to make something of myself. (Any)"
+      ],
+      "bonds":
+      [ 
+        "I fleeced the wrong person and must work to ensure that this individual never crosses paths with me or those I care about.",
+        "I owe everything to my mentor - a horrible person who's probably rotting in jail somewhere.",
+        "Somewhere out there, I have a child who doesn't know me. I'm making the world better for him or her.",
+        "I come from a noble family, and one day I'll reclaim my lands and title from those who stole them from me.",
+        "A powerful person killed someone I love. Some day soon, I'll have my revenge.",
+        "I swindled and ruined a person who didn't deserve it. I seek to atone for my misdeeds but might never be able to forgive myself."
+      ],
+      "flaws":
+      [ 
+        "I can't resist a pretty face.",
+        "I'm always in debt. I spend my ill-gotten gains on decadent luxuries faster than I bring them in.",
+        "I'm convinced that no one could ever fool me the way I fool others.",
+        "I'm too greedy for my own good. I can't resist taking a risk if there's money involved.",
+        "I can't resist swindling people who are more powerful than me.",
+        "I hate to admit it and will hate myself for it, but I'll run and preserve my own hide if the going gets tough."
+      ]
+    }
+  },
+  { "title": "City Watch",
+    "sourceurl": "http://dnd5e.wikidot.com/background:city-watch",
+    "source": "Sword Coast Adventurers Guide",
+    "description": 
+    [ "You have served the community where you grew up, standing as its first line of defense against crime. You aren't a soldier, directing your gaze outward at possible enemies. Instead, your service to your hometown was to help police its populace, protecting the citizenry from lawbreakers and malefactors of every stripe.",
+      "You might have been part of the City Watch of Waterdeep, the baton-wielding police force of the City of Splendors, protecting the common folk from thieves and rowdy nobility alike. Or you might have been one of the valiant defenders of Silverymoon, a member of the Silverwatch or even one of the magic-wielding Spellguard.",
+      "Perhaps you hail from Neverwinter and have served as one of its Wintershield watchmen, the newly founded branch of guards who vow to keep safe the City of Skilled Hands.",
+      "Even if you're not city-born or city-bred, this background can describe your early years as a member of law enforcement. Most settlements of any size have their own constables and police forces, and even smaller communities have sheriffs and bailiffs who stand ready to protect their community.",
+      "Variant: Investigator",
+      "Rarer than watch or patrol members are a community's investigators, who are responsible for solving crimes after the fact. Though such folk are seldom found in rural areas, nearly every settlement of decent size has at least one or two watch members who have the skill to investigate crime scenes and track down criminals. If your prior experience is as an investigator, you have proficiency in Investigation rather than Athletics."
+    ], 
+    "proficiencies":
+    { "skills": [ " Athletics", "Sleight of Insight" ],
+        "tools": [ "None" ],
+        "languages": [ "Two of your choice" ]
+    },
+    "equipment": [ "A uniform in the style of your unit and indicative of your rank", "A horn with which to summon help", "A set of manacles", "A pouch containing 10gp" ],
+    "features":
+    [ 
+      { "title": "Watcher's Eye",
+        "description": 
+        [ { "p": "Your experience in enforcing the law, and dealing with lawbreakers, gives you a feel for local laws and criminals. You can easily find the local outpost of the watch or a similar organization, and just as easily pick out the dens of criminal activity in a community, although you're more likely to be welcome in the former locations rather than the latter." }
+        ]
+      }
+    ],
+    "suggested": 
+    [ "Use the tables for the as the basis for your traits and motivations, modifying the entries when appropriate to suit your identity.",
+      "Your bond is likely associated with your fellow watch members or the watch organization itself and almost certainly concerns your community. Your ideal probably involves the fostering of peace and safety. An investigator is likely to have an ideal connected to achieving justice by successfully solving crimes."
+    ]
+  },
+  { "title": "Clan Crafter",
+    "sourceurl": "http://dnd5e.wikidot.com/background:clan-crafter",
+    "source": "Sword Coast Adventurers Guide",
+    "description": 
+    [ "The Stout Folk are well known for their artisanship and the worth of their handiworks, and you have been trained in that ancient tradition. For years you labored under a dwarf master of the craft, enduring long hours and dismissive, sour-tempered treatment in order to gain the fine skills you possess today.",
+      "You are most likely a dwarf, but not necessarily- particularly in the North, the shield dwarf clans learned long ago that only proud fools who are more concerned for their egos than their craft turn away promising apprentices, even those of other races. If you aren't a dwarf, however, you have taken a solemn oath never to take on an apprentice in the craft: it is not for non-dwarves to pass on the skills of Moradin's favored children. You would have no difficulty, however, finding a dwarf master who was willing to receive potential apprentices who came with your recommendation."
+    ], 
+    "proficiencies":
+    { "skills": [ " History", "Insight" ],
+      "tools": [ "One type of artisan's tools" ],
+      "languages": [ "Dwarvish or one other of your choice if you already speak Dwarvish" ]
+    },
+    "equipment": [ "A set of artisan's tools with which you are proficient", "A maker's mark chisel used to mark your handiwork with the symbol of the clan of crafters you learned your skill from", " set of traveller's clothes", " pouch containing 5gp and a gem worth 10gp" ],
+    "features":
+    [ 
+      { "title": "Respect of the Stout Folk",
+        "description": [ { "p": "As well respected as clan crafters are among outsiders, no one esteems them quite so highly as dwarves do. You always have free room and board in any place where shield dwarves or gold dwarves dwell, and the individuals in such a settlement might vie among themselves to determine who can offer you (and possibly your compatriots) the finest accommodations and assistance." } ]
+      }
+    ],
+    "suggested": 
+    [ "Use the tables for the guild artisan background as the basis for your traits and motivations, modifying the entries when appropriate to suit your identity. (For instance, consider the words \"guild\" and \"clan\" to be interchangeable.)",
+      "Your bond is almost certainly related to the master or the clan that taught you, or else to the work that you produce. Your ideal might have to do with maintaining the high quality of your work or preserving the dwarven traditions of craftsmanship."
+    ]
+  }, 
+  { "title": "Cloistered Scholar",
+    "sourceurl": "http://dnd5e.wikidot.com/background:cloistered-scholar",
+    "source": "Sword Coast Adventurers Guide",
+    "description": 
+    [ "As a child, you were inquisitive when your playmates were possessive or raucous. In your formative years, you found your way to one of Faerun's great institutes of learning, where you were apprenticed and taught that knowledge is a more valuable treasure than gold or gems. Now you are ready to leave your home - not to abandon it, but to quest for new lore to add to its storehouse of knowledge.",
+      "The most well-known of Faerun's fonts of knowledge is Candlekeep. The great library is always in need of workers and attendants, some of whom rise through the ranks to assume roles of greater responsibility and prominence. You might be one of Candlekeep's own, dedicated to the curatorship of what is likely the most complete body of lore and history in all the world.",
+      "Perhaps instead you were taken in by the scholars of the Vault of the Sages or the Map House in Silverymoon, and now you have struck out to increase your knowledge and to make yourself available to help those in other places who seek your expertise. You might be one of the few who aid Herald's Holdfast, helping to catalogue and maintain records of the information that arrives daily from across Faerun."
+    ],  
+    "proficiencies":
+    { "skills": [ " History", "One of your choice from Arcana, Nature and Religion" ],
+      "tools": [ "None" ],
+      "languages": [ "Two of youe choice" ]
+    },
+    "equipment": [ " The scholar's robes of your cloister", "A writing kit (small pouch with a quill, a bottle of ink, folded parchment, and a small penknife)", "A borrowed book on the subject of your current study", "A pouch containing 10gp" ],
+    "features":
+    [
+      { "title": "Library Access",
+        "description": 
+        [ { "p": "Though others must often endure extensive interviews and significant fees to gain access to even the most common archives in your library, you have free and easy access to the majority of the library, though it might also have repositories of lore that are too valuable, magical, or secret to permit anyone immediate access." }, {"br":""},
+          { "p": "You have a working knowledge of your cloister's personnel and bureaucracy, and you know how to navigate those connections with some ease."}, {"br":""},
+          { "p": "Additionally, you are likely to gain preferential treatment at other libraries across the Realms, as professional courtesy shown to a fellow scholar."}
+        ]
+      }
+    ]
+    , "suggested": 
+    [ "Use the tables for the sage background as the basis for your traits and motivations, modifying the entries when appropriate to suit your identity.",
+      "Your bond is almost certainly associated either with the place where you grew up or with the knowledge you hope to acquire through adventuring. Your ideal is no doubt related to how you view the quest for knowledge and truth - perhaps as a worthy goal in itself, or maybe as a means to a desirable end."
+    ]
+  }, 
+  { "title": "Courtier",
+    "sourceurl": "http://dnd5e.wikidot.com/background:courtier",
+    "source": "Sword Coast Adventurers Guide",
+    "description": 
+    [ "In your earlier days, you were a personage of some significance in a noble court or a bureaucratic organization. You might or might not come from an upper-class family; your talents, rather than the circumstances of your birth, could have secured you this position.",
+      "You might have been one of the many functionaries, attendants, and other hangers-on in the Court of Silverymoon, or perhaps you traveled in Waterdeep's baroque and sometimes cutthroat conglomeration of guilds, nobles, adventurers, and secret societies. You might have been one of the behind-the-scenes law-keepers or functionaries in Baldur's Gate or Neverwinter, or you might have grown up in and around the castle of Daggerford.",
+      "Even if you are no longer a full-fledged member of the group that gave you your start in life, your relationships with your former fellows can be an advantage for you and your adventuring comrades. You might undertake missions with your new companions that further the interest of the organization that gave you your start in life. In any event, the abilities that you honed while serving as a courtier will stand you in good stead as an adventurer."
+    ],
+    "proficiencies":
+    { "skills": [ " Insight", "Insight" ],
+      "tools": [ "None" ],
+      "languages": [ "Two of youe choice" ]
+    },
+    "equipment": ["A set of fine clothes", "A pouch containing 5gp" ],
+    "features": [
+      { "title": "Court Functionary",
+        "description": [ {"p": "Your knowledge of how bureaucracies function lets you gain access to the records and inner workings of any noble court or government you encounter. You know who the movers and shakers are, whom to go to for the favors you seek, and what the current intrigues of interest in the group are."}]
+      }
+    ],
+    "suggested": 
+    [ "Use the tables for the guild artisan background as the basis for your traits and motivations, modifying the entries when appropriate to suit your identity.",
+      "The noble court or bureaucratic organization where you got your start is directly or indirectly associated with your bond (which could pertain to certain individuals in the group, such as your sponsor or mentor). Your ideal might be concerned with the prevailing philosophy of your court or organization."
+    ]
+  }, 
+  { "title": "Criminal",
+    "sourceurl": "http://dnd5e.wikidot.com/background:criminal",
+    "source": "Players Handbook",
+    "description": 
+    [ "You are an experienced criminal with a history of breaking the law. You have spent a lot of time among other criminals and still have contacts within the criminal underworld. You're far closer than most people to the world of murder, theft, and violence that pervades the underbelly of civilization, and you have survived up to this point by flouting the rules and regulations of society.",
+      "Variants:",
+      "Spy. Although your capabilities are not much different from those of a burglar or smuggler, you learned and practiced them in a very different context: as an espionage agent. You might have been an officially sanctioned agent of the crown, or perhaps you sold the secrets you uncovered to the highest bidder."
+    ],
+    "proficiencies":
+    { "skills": [ " Deception", "Stealth" ],
+      "tools": [ "One type of gaming set, thieves' tools" ],
+      "languages": [ "None" ]
+    },
+    "equipment": [ "A crowbar", "A set of dark common clothes including a hood", "A pouch containing 15gp" ],
+    "features": [
+      { "title": "Criminal Specialty",
+        "description": [
+          { "p": "There are many kinds of criminals, and within a thieves' guild or similar criminal organization, individual members have particular specialties. Even criminals who operate outside of such organizations have strong preferences for certain kinds of crimes over others. Choose the role you played in your criminal life, or roll on the table below." }, {"br":""},
+          { "p": "Blackmailer"},{"br":""},
+          { "p": "Burglar"},{"br":""},
+          { "p": "Enforcer"},{"br":""},
+          { "p": "Fence"},{"br":""},
+          { "p": "Highway robber"},{"br":""},
+          { "p": "Hired killer"},{"br":""},
+          { "p": "Pickpocket"},{"br":""},
+          { "p": "Smuggler"},{"br":""}
+        ]
+      },
+      { "title": "Criminal Contact",
+        "description": [{"p": "You have a reliable and trustworthy contact who acts as your liaison to a network of other criminals. You know how to get messages to and from your contact, even over great distances; specifically, you know the local messengers, corrupt caravan masters, and seedy sailors who can deliver messages for you."}]
+      }
+    ],
+    "suggested": [ "Criminals might seem like villains on the surface, and many of them are villainous to the core. But some have an abundance of endearing, if not redeeming, characteristics. There might be honor among thieves, but criminals rarely show any respect for law or authority." ],
+    "traits":
+    { "personality":
+      [ "I always have a plan for what to do when things go wrong.",
+        "I am always calm, no matter what the situation. I never raise my voice or let my emotions control me.",
+        "The first thing I do in a new place is note the locations of everything valuable - or where such things could be hidden.",
+        "I would rather make a new friend than a new enemy.",
+        "I am incredibly slow to trust. Those who seem the fairest often have the most to hide.",
+        "I don't pay attention to the risks in a situation. Never tell me the odds.",
+        "The best way to get me to do something is to tell me I can't do it.",
+        "I blow up at the slightest insult."
+      ],
+      "ideals":
+      [ 
+        "Honor. I don't steal from others in the trade. (Lawful)",
+        "Freedom. Chains are meant to be broken, as are those who would forge them. (Chaotic)",
+        "Charity. I steal from the wealthy so that I can help people in need. (Good)",
+        "Greed. I will do whatever it takes to become wealthy. (Evil)",
+        "People. I'm loyal to my friends, not to any ideals, and everyone else can take a trip down the Styx for all I care. (Neutral)",
+        "Redemption. There's a spark of good in everyone. (Good)"
+      ],
+      "bonds":
+      [ 
+        "I'm trying to pay off an old debt I owe to a generous benefactor.",
+        "My ill-gotten gains go to support my family.",
+        "Something important was taken from me, and I aim to steal it back.",
+        "I will become the greatest thief that ever lived.",
+        "I'm guilty of a terrible crime. I hope I can redeem myself for it.",
+        "Someone I loved died because of I mistake I made. That will never happen again."
+      ],
+      "flaws":
+      [ 
+        "When I see something valuable, I can't think about anything but how to steal it.",
+        "When faced with a choice between money and my friends, I usually choose the money.",
+        "If there's a plan, I'll forget it. If I don't forget it, I'll ignore it.",
+        "I have a \"tell\" that reveals when I'm lying.",
+        "I turn tail and run when things look bad.",
+        "An innocent person is in prison for a crime that I committed. I'm okay with that."
       ]
     }
   }

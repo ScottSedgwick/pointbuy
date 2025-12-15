@@ -1,7 +1,7 @@
 module Common.DataTypes.Background where
 
 import           Control.Lens.TH    ( makeLenses )
-import           Data.Aeson         ( FromJSON, Value(..), (.:), parseJSON, withObject )
+import           Data.Aeson         ( FromJSON, Value(..), (.:), (.:?), parseJSON, withObject )
 import           Data.Aeson.KeyMap  ( Key(..), (!?), keys )
 import qualified Data.Text          as T
 import           GHC.Generics       ( Generic )
@@ -82,7 +82,7 @@ data Background = Background
   , _equipment :: [String]
   , _features :: [BackgroundFeature]
   , _suggested :: [String]
-  , _traits :: BackgroundTraits
+  , _traits :: Maybe BackgroundTraits
   } deriving (Show, Eq, Generic)
 makeLenses ''Background
 
@@ -96,4 +96,4 @@ instance FromJSON Background where
     <*> v .: "equipment"
     <*> v .: "features"
     <*> v .: "suggested"
-    <*> v .: "traits"
+    <*> v .:? "traits"
