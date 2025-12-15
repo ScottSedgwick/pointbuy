@@ -1,0 +1,282 @@
+[
+  { "title": "Acolyte",
+    "description":
+    [ "You have spent your life in the service of a temple to a specific god or pantheon of gods. You act as an intermediary between the realm of the holy and the mortal world, performing sacred rites and offering sacrifices in order to conduct worshipers into the presence of the divine. You are not necessarily a cleric - performing sacred rites is not the same thing as channeling divine power.",
+      "Choose a god, a pantheon of gods, or some other quasi-divine being, and work with your DM to detail the nature of your religious service. Were you a lesser functionary in a temple, raised from childhood to assist the priests in the sacred rites? Or were you a high priest who suddenly experienced a call to serve your god in a different way? Perhaps you were the leader of a small cult outside of any established temple structure, or even an occult group that served a fiendish master that you now deny."
+    ],
+    "source": "Players Handbook",
+    "sourceurl": "http://dnd5e.wikidot.com/background:acolyte",
+    "proficiencies":
+    { "skills": [ "Insight", "Religion" ],
+      "tools": [ "None" ],
+      "languages": [ "Two of your choice" ]
+    },
+    "equipment":
+    [ "A holy symbol (a gift to you when you entered the priesthood)",
+      "A prayer book or prayer wheel",
+      "5 sticks of incense",
+      "Vestments",
+      "A set of common clothes",
+      "A pouch containing 15gp"
+    ],
+    "features":
+    [ { "title": "Shelter of the Faithful",
+        "description":
+        [ { "p": "As an acolyte, you command the respect of those who share your faith, and you can perform the religious ceremonies of your deity. You and your adventuring companions can expect to receive free healing and care at a temple, shrine, or other established presence of your faith, though you must provide any material components needed for spells. Those who share your religion will support you (but only you) at a modest lifestyle."},
+          { "p": "You might also have ties to a specific temple dedicated to your chosen deity or pantheon, and you have a residence there. This could be the temple where you used to serve, if you remain on good terms with it, or a temple where you have found a new home. While near your temple, you can call upon the priests for assistance, provided the assistance you ask for is not hazardous and you remain in good standing with your temple."}
+        ]
+      }
+    ],
+    "suggested": [ "Acolytes are shaped by their experience in temples or other religious communities. Their study of the history and tenets of their faith and their relationships to temples, shrines, or hierarchies affect their mannerisms and ideals. Their flaws might be some hidden hypocrisy or heretical idea, or an ideal or bond taken to an extreme." ],
+    "traits":
+    { "personality":
+      [ "I idolize a particular hero of my faith, and constantly refer to that person's deeds and example.",
+        "I can find common ground between the fiercest enemies, empathizing with them and always working toward peace.",
+        "I see omens in every event and action. The gods try to speak to us, we just need to listen.",
+        "Nothing can shake my optimistic attitude.",
+        "I quote (or misquote) sacred texts and proverbs in almost every situation.",
+        "I am tolerant (or intolerant) of other faiths and respect (or condemn) the worship of other gods.",
+        "I've enjoyed fine food, drink, and high society among my temple's elite. Rough living grates on me.",
+        "I've spent so long in the temple that I have little practical experience dealing with people in the outside world."
+      ],
+      "ideals":
+      [ "Tradition. The ancient traditions of worship and sacrifice must be preserved and upheld. (Lawful)",
+        "Charity. I always try to help those in need, no matter what the personal cost. (Good)",
+        "Change. We must help bring about the changes the gods are constantly working in the world. (Chaotic)",
+        "Power. I hope to one day rise to the top of my faith's religious hierarchy. (Lawful)",
+        "Faith. I trust that my deity will guide my actions. I have faith that if I work hard, things will go well. (Lawful)",
+        "Aspiration. I seek to prove myself worthy of my god's favor by matching my actions against their teachings. (Any)"
+      ],
+      "bonds":
+      [ "I would die to recover an ancient relic of my faith that was lost long ago.",
+        "I will someday get revenge on the corrupt temple hierarchy who branded me a heretic.",
+        "I owe my life to the priest who took me in when my parents died.",
+        "Everything I do is for the common people.",
+        "I will do anything to protect the temple where I served.",
+        "I seek to preserve a sacred text that my enemies consider heretical and seek to destroy."
+      ],
+      "flaws":
+      [ "I judge others harshly, and myself even more severely.",
+        "I put too much trust in those who wield power within my temple's hierarchy.",
+        "My piety sometimes leads me to blindly trust those that profess faith in my god.",
+        "I am inflexible in my thinking.",
+        "I am suspicious of strangers and expect the worst of them.",
+        "Once I pick a goal, I become obsessed with it to the detriment of everything else in my life."
+      ]
+    }
+  },
+  { "title": "Anthropologist",
+    "description": [ "You have always been fascinated by other cultures, from the most ancient and primeval lost lands to the most modern civilizations. By studying other cultures' customs, philosophies, laws, rituals, religious beliefs, languages, and art, you have learned how tribes, empires, and all forms of society in between craft their own destinies and doom. This knowledge came to you not only through books and scrolls, but also through firsthand observation - by visiting far-flung settlements and exploring local histories and customs." ],
+    "source": "Tomb of Annihilation",
+    "sourceurl": "http://dnd5e.wikidot.com/background:anthropologist",
+    "proficiencies":
+    { "skills": [ "Insight", "Religion" ],
+      "tools": [ "None" ],
+      "languages": [ "Two of your choice" ]
+    },
+    "equipment": 
+    [ "A leather-bound diary", 
+      "A bottle of ink", 
+      "An ink pen", 
+      "A set of traveler's clothes", 
+      "One trinket of special significance", 
+      "A pouch containing 10gp"
+    ],
+    "features":
+    [ { "title": "Cultural Chameleon",
+        "description": 
+        [ { "p": "Before becoming an adventurer, you spent much of your adult life away from your homeland, living among people different from your kin. You came to understand these foreign cultures and the ways of their people, who eventually treated you as one of their own. One culture had more of an influence on you than any other, shaping your beliefs and customs. Choose a race whose culture you've adopted." }
+        ]
+      },
+      { "title": "Adept Linguist",
+        "description": 
+        [ { "p": "You can communicate with humanoids who don't speak any language you know. You must observe the humanoids interacting with one another for at least 1 day, after which you learn a handful of important words, expressions, and gestures - enough to communicate on a rudimentary level." }
+        ]
+      }
+    ],
+    "suggested": [ "Anthropologists leave behind the societies into which they were born to discover what life ls like in other parts of the world. They seek to see how other races and civilizations survive - or why they did not. Some anthropologists are driven by intellectual curiosity, while others want the fame and recognition that comes with being the first to discover a new people, a lost tribe, or the truth about an ancient empire's downfall." ],
+    "traits":
+    { "personality":
+      [ "I prefer the company of those who aren't like me, including people of other races.",
+        "I'm a stickler when it comes to observing proper etiquette and local customs.",
+        "I would rather observe than meddle.",
+        "By living among violent people, I have become desensitized to violence.",
+        "I would risk life and limb to discover a new culture or unravel the secrets of a dead one.",
+        "When I arrive at a new settlement for the first time, I must learn all its customs."
+      ],
+      "ideals":
+      [ "Discovery. I want to be the first person to discover a lost culture. (Any)",
+        "Distance. One must not interfere with the affairs of another culture - even one in need of aid. (Lawful)",
+        "Knowledge. By understanding other races and cultures, we learn to understand ourselves. (Any)",
+        "Power. Common people crave strong leadership, and I do my utmost to provide it. (Lawful)",
+        "Protection. I must do everything possible to save a society facing extinction. (Good)",
+        "Indifferent. Life is cruel. What's the point in saving people if they're going to die anyway? (Chaotic)"
+      ],
+      "bonds":
+      [ "My mentor gave me a journal filled with lore and wisdom. Losing it would devastate me.",
+        "Having lived among the people of a primeval tribe or clan, I long to return and see how they are faring.",
+        "Years ago, tragedy struck the members of an isolated society I befriended, and I will honor them.",
+        "I want to learn more about a particular humanoid culture that fascinates me.",
+        "I seek to avenge a clan, tribe, kingdom, or empire that was wiped out.",
+        "I have a trinket that I believe is the key to finding a long-lost society."
+      ],
+      "flaws":
+      [ "Boats make me seasick.",
+        "I talk to myself, and I don't make friends easily.",
+        "I believe that I'm intellectually superior to people from other cultures and have much to teach them.",
+        "I've picked up some unpleasant habits living among races such as goblins, lizardfolk, or orcs.",
+        "I complain about everything.",
+        "I wear a tribal mask and never take it off."
+      ]
+    }
+  },
+  { "title": "Archaeologist",
+    "description": [ "An archaeologist learns about the long-lost and fallen cultures of the past by studying their remains - their bones, their ruins, their surviving masterworks, and their tombs. Those who practice archaeology travel to the far corners of the world to root through crumbled cities and lost dungeons, digging in search of artifacts that might tell the stories of monarchs and high priests, wars and cataclysms." ],
+    "source": "Tomb of Annihilation",
+    "sourceurl": "http://dnd5e.wikidot.com/background:archaeologist",
+    "proficiencies":
+    { "skills": [ "History", "Survival" ],
+      "tools": [ "Cartographer's tools or navigator's tools" ],
+      "languages": [ "One of your choice" ]
+    },
+    "equipment": 
+    [ "A wooden case containing a map to a ruin or dungeon", 
+      "A bullseye lantern", 
+      "A miner's pick", 
+      "A set of traveller's clothes", 
+      "A shovel", 
+      "A two-person tent", 
+      "A trinket recovered from a dig site", 
+      "A pouch containing 25gp"
+    ],
+    "features":
+    [ { "title": "Dust Digger",
+        "description": 
+        [ { "p": "Prior to becoming an adventurer, you spent most of your young life crawling around in the dust, pilfering relics of questionable value from crypts and ruins. Though you managed to sell a few of your discoveries and earn enough coin to buy proper adventuring gear, you have held onto an item that has great emotional value to you. Roll on the Signature Item table to see what you have, or choose an item from the table." }, { "br": "" },
+          { "p": "1: 10-foot pole" }, { "br": "" },
+          { "p": "2: Medallion" }, { "br": "" },
+          { "p": "3: Crowbar" }, { "br": "" },
+          { "p": "4: Shovel" }, { "br": "" },
+          { "p": "5: Hat" }, { "br": "" },
+          { "p": "6: Sledgehammer" }, { "br": "" },
+          { "p": "7: Hooded lantern" }, { "br": "" },
+          { "p": "8: Whip" }
+        ]
+      }, 
+      { "title": "Historical Knowledge",
+        "description": 
+        [ { "p": "When you enter a ruin or dungeon, you can correctly ascertain its original purpose and determine its builders, whether those were dwarves, elves, humans, yuan-ti, or some other known race. In addition, you can determine the monetary value of art objects more than a century old." }
+        ]
+      }
+    ],
+    "suggested": [ "Few archaeologists can resist the lure of an unexplored ruin or dungeon, particularly if such a site is the source of legends or is rumored to contain the treasures and relics of wizards, warlords, or royalty. Some archaeologists plunder for wealth or fame, while others consider it their calling to illuminate the past or keep the world's greatest treasures from falling into the wrong hands. Whatever their motivations, archaeologists combine the qualities of a scrappy historian with the self-made heroism of a treasure-hunting scoundrel." ],    
+    "traits":
+    { "personality":
+      [ "I love a good puzzle or mystery.",
+        "I'm a pack rat who never throws anything away.",
+        "Fame is more important to me than money.",
+        "I have no qualms about stealing from the dead.",
+        "I'm happier in a dusty old tomb than I am in the centers of civilization.",
+        "Traps don't make me nervous. Idiots who trigger traps make me nervous.",
+        "I might fail, but I will never give up.",
+        "You might think I'm a scholar, but I love a good brawl. These fists were made for punching."
+      ],
+      "ideals":
+      [ "Preservation. That artifact belongs in a museum. (Good)",
+        "Greed. I won't risk my life for nothing. I expect some kind of payment. (Any)",
+        "Death Wish. Nothing is more exhilarating than a narrow escape from the jaws of death. (Chaotic)",
+        "Dignity. The dead and their belongings deserve to be treated with respect. (Lawful)",
+        "Immortality. All my exploring is part of a plan to find the secret of everlasting life. (Any)",
+        "Danger. With every great discovery comes grave danger. The two walk hand in hand. (Any)"
+      ],
+      "bonds":
+      [ "Ever since I was a child, I've heard stories about a lost city. I aim to find it, learn its secrets, and earn my place in the history books.",
+        "I want to find my mentor, who disappeared on an expedition some time ago.",
+        "I have a friendly rival. Only one of us can be the best, and I aim to prove it's me.",
+        "I won't sell an art object or other treasure that has historical significance or is one of a kind.",
+        "I'm secretly in love with the wealthy patron who sponsors my archaeological exploits.",
+        "I hope to bring prestige to a library, a museum, or a university."
+      ],
+      "flaws":
+      [ "I have a secret fear of some common wild animal - and in my work, I see them everywhere.",
+        "I can't leave a room without searching it for secret doors.",
+        "When I'm not exploring dungeons or ruins, I get jittery and impatient.",
+        "I have no time for friends or family. I spend every waking moment thinking about and preparing for my next expedition.",
+        "When given the choice of going left or right, I always go left.",
+        "I can't sleep except in total darkness."
+      ]
+    }
+  },
+  { "title": "Ashari",
+    "description": 
+    [ "Isolated from the political struggles of urban Tal'Dorei, you are a member of the Ashari people - a society bound to an ancient covenant protecting the Material Plane from the chaos of the primordial elements. You've been raised to revere and protect the natural world, and to shepherd the tumultuous elemental forces that give it life. When the elements threaten to overwhelm the delicate balance of nature, it is the role of the Ashari to restore harmony.",
+      "You grew up in a tight-knit society, bound to a leader who successfully returned from the traditional journey to the Elemental Planes known as an Aramante. By contrast, you might well have never traveled more than a few days from your home, and thus have closer bonds with your family and neighbors than many people of Tal'Dorei.",
+      "In your early life, you likely took up one of the many roles that make up your society, whether homemaker, hunter, explorer, or protector. If you have the ability to use elemental magic, you might have had one of the most important duties of all: protecting and soothing the elemental rift at the heart of your home. And even as an adventurer now traveling far beyond that home, your loyalties still lie with the continued safety of your order. Whatever else you do as you learn about the new world around you, you're conscious of the need to gather allies to your cause.",
+      "Each Ashari is tethered to one of the four elemental orders and their settlements. You must select Pyrah (fire), Vesrah (water), Terrah (earth), or Zephrah (wind). The rifts of earth and air are both in Tal'Dorei. If you live or lived among your people, then you are familiar with the remarkable sights of Air Ashari on Skysails above the Summit Peaks, or Earth Ashari erupting from the solid stone of the Cliffkeep Mountains on their Earthboards"
+    ],    
+    "source": "Tal'Dorei Campaign Setting Reborn",
+    "sourceurl": "http://dnd5e.wikidot.com/background:ashari",
+    "proficiencies":
+    { "skills": 
+      [ "Nature"
+      , "Your choice of Arcana or Survival" 
+      ],
+      "tools": [ "Herbalism kit" ],
+      "languages": [ "Primordial (Aquan, Auran, Ignan, or Terran, depending on the elemental affinity of your tribe)" ]
+    },
+    "equipment": 
+    [ "A set of traveler's clothes", 
+      "A staff carved with symbols of your tribe", 
+      "An herbalism kit", 
+      "A belt pouch containing 10 gp."
+    ],
+    "features":
+    [ { "title": "Elemental Harmony",
+        "description": 
+        [ { "p": "Growing up surrounded by wild elemental magics has attuned your senses to those chaotic forces, enabling you to subtly bend them to your will. As an action, you channel minor magic involving the element of your chosen Ashari order, giving you one of the following abilities:" }, { "br": "" },
+          { "b": "Pyrah."}, { "p": "You instantaneously create and control a burst of flame small enough to light a candle, a torch, or a small campfire. Alternatively, you snuff out a flame of the same size." }, { "br": "" },
+          { "b": "Terrah."}, { "p": "You instantaneously create a small rock no larger than a gold coin. The rock appears in your hand, then turns to dust after 1 minute." }, { "br": "" },
+          { "b": "Vesrah."}, { "p": "You instantaneously create enough hot or cold water to fill a small drinking vessel." }, { "br": "" },
+          { "b": "Zephrah."}, { "p": "You create an instantaneous puff of wind strong enough to blow papers off a desk or mess up someone's hair." }
+        ]
+      }
+    ],
+    "suggested": [ "The Ashari hold themselves removed from the rest of Tal'Dorei by their own choice. This makes many Ashari naive to the ways of the world beyond their homes - but it can also make them determined, steadfast, and tightly focused on their goals. Ever since Keyleth, Voice of the Tempest and leader of the Zephrah, became a world-renowned hero, the Air Ashari at least have become more familiar to Tal'Dorei's other peoples. They are known to welcome outsiders to their mountaintop enclave, and to take on quests that force them to leave their isolated home." ],
+    "traits":
+    { "personality":
+      [ "I like to keep my hands busy, no matter where I am.",
+        "I love to explore new places and meet new people.",
+        "I meditate at dawn each day - and I can't stand it when my routine is interrupted.",
+        "I like noticing patterns in the world around me, whether or not they mean anything.",
+        "I don't let anything - or anyone - stand in the way of my mission.",
+        "I'm a plain talker, even with people who outrank me.",
+        "I've always got some of my native element with me in some form. (This might be modeling clay, pure water, special burning incense, or a bottled cloud.",
+        "I talk with everyone like I've known them all my life. Because most people I know, I have known all my life!"
+      ],
+      "ideals":
+      [ "Destiny. I believe that everyone has a role to play. Now I just have to find mine. (Neutral)",
+        "Community. It's important to surround yourself with people you can count on, and who will support you. (Good)",
+        "Knowledge. I want to learn everything I can about the Elemental Planes - and maybe even visit them myself. (Neutral)",
+        "Freedom. I don't care what anyone says. Even if it causes problems, the elements must be free. And so should I. (Chaotic)",
+        "Structure. The elements are in harmony when they are free to act as they will, within the safe boundaries set by the Ashari. People are much the same. (Lawful)",
+        "Virtuous Cycle. If I see someone who needs help, I feel compelled to assist them. Surely they'll return the favor someday! (Good)"
+      ],
+      "bonds":
+      [ "I have a cousin in another Ashari tribe whom I've never met, but someday I want to visit my extended family.",
+        "The leader of my tribe thinks I could be their successor, but I worry that I don't have enough experience to lead my people.",
+        "A mysterious person killed a member of my family. I've left home to discover who the killer was - and to seek vengeance.",
+        "My older sibling set out on their Aramante a year ago, and I haven't seen them since.",
+        "When I was a baby, a giant eagle brought me to Zephrah. I love my family, but I often wonder who my birth parents are.",
+        "I trust my animal friends more than any humanoid ally."
+      ],
+      "flaws":
+      [ "Big cities are overwhelming. I get nervous when surrounded by people I don't know.",
+        "I know all too well that elemental power is dangerous - but I like playing around with it anyway.",
+        "I get surly if I go too long without being in contact with my native element.",
+        "I think the mission of my people is a fool's errand. They should abandon isolation, let the elements be, and enjoy the pleasures of the world!",
+        "I can't stand it when people say one thing and mean another! Just say what you mean!",
+        "Ugh, I know it's not right, but I can't help but look down on people who can't manipulate the elements. It's not like it's hard!"
+      ]
+    }
+  }
+]

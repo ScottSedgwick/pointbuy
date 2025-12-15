@@ -32,7 +32,6 @@ data Action
   | SetCurrent String
   | ErrorHandler (Response InsultJSON)
   | SetInsults (Response InsultJSON)
-  -- deriving (Show, Eq)
 
 data Model = Model
   { _current :: String

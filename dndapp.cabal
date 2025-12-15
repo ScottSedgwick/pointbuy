@@ -3,15 +3,12 @@ name:               dndapp
 version:            0.1.0.0
 synopsis:           All-in-one collection of D&D 5e helper applications
 category:           Web
-
-
 license:            BSD-3-Clause
 license-file:       LICENSE
 author:             ssedgwick
 maintainer:         ssedgwick@cochlear.com
 build-type:         Simple
 extra-doc-files:    CHANGELOG.md
-
 
 common wasm
   if arch(wasm32)
@@ -45,6 +42,7 @@ executable dndapp
                       , Common.Ciphers.Scytale
                       , Common.Ciphers.Utils
                       , Common.Components
+                      , Common.DataTypes.Background
                       , Common.Sources
                       , Common.Unshow
     build-depends:      base == 4.21.0.0

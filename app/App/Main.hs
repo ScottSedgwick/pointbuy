@@ -43,7 +43,7 @@ data Model = Model
 makeLenses ''Model
 instance Default Model where
   def = Model 
-        { _selectedAppl = Insults
+        { _selectedAppl = Backgrounds
         , _background = def
         , _crafting = def
         , _dice = def
@@ -85,7 +85,7 @@ viewAppl m Spells      = H.div_ [ P.hidden_ (m ^. selectedAppl /= Spells     ) ]
 viewAppl m Ciphers     = H.div_ [ P.hidden_ (m ^. selectedAppl /= Ciphers    ) ] +> AE.page (m ^. ciphers)
 
 isApplEnabled :: Appl -> Bool
-isApplEnabled Backgrounds = False
+isApplEnabled Backgrounds = True
 isApplEnabled Crafting    = False
 isApplEnabled DiceRoller  = False
 isApplEnabled Feats       = False
