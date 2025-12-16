@@ -5,7 +5,7 @@ import           Control.Lens.TH     ( makeLenses )
 import           Data.Bifunctor      ( bimap, second )
 import           Data.Default        ( Default, def )
 import           GHC.Generics        ( Generic )
-import           Miso                ( MisoString, Transition, View, (+>), get, ms, text )
+import           Miso                ( MisoString, Transition, View, get, mount, ms, text )
 import qualified Miso.Html           as H
 import qualified Miso.Html.Event     as E
 import qualified Miso.Html.Property  as P
@@ -73,16 +73,16 @@ viewApplOption a =
   else H.div_ [] []
 
 viewAppl :: Model -> Appl -> View Model Action
-viewAppl m Backgrounds = H.div_ [ P.hidden_ (m ^. selectedAppl /= Backgrounds) ] +> AB.page (m ^. background)
-viewAppl m Crafting    = H.div_ [ P.hidden_ (m ^. selectedAppl /= Crafting   ) ] +> AC.page (m ^. crafting)
-viewAppl m DiceRoller  = H.div_ [ P.hidden_ (m ^. selectedAppl /= DiceRoller ) ] +> AD.page (m ^. dice)
-viewAppl m Feats       = H.div_ [ P.hidden_ (m ^. selectedAppl /= Feats      ) ] +> AF.page (m ^. feat)
-viewAppl m Insults     = H.div_ [ P.hidden_ (m ^. selectedAppl /= Insults    ) ] +> AI.page (m ^. insult)
-viewAppl m Lineages    = H.div_ [ P.hidden_ (m ^. selectedAppl /= Lineages   ) ] +> AL.page (m ^. lineage)
-viewAppl m MagicItems  = H.div_ [ P.hidden_ (m ^. selectedAppl /= MagicItems ) ] +> AM.page (m ^. magic)
-viewAppl m PointBuy    = H.div_ [ P.hidden_ (m ^. selectedAppl /= PointBuy   ) ] +> AP.page (m ^. pointbuy)
-viewAppl m Spells      = H.div_ [ P.hidden_ (m ^. selectedAppl /= Spells     ) ] +> AS.page (m ^. spell)
-viewAppl m Ciphers     = H.div_ [ P.hidden_ (m ^. selectedAppl /= Ciphers    ) ] +> AE.page (m ^. ciphers)
+viewAppl m Backgrounds = H.div_ [ P.hidden_ (m ^. selectedAppl /= Backgrounds) ] [ mount ( AB.page m (m ^. background) ) ]
+viewAppl m Crafting    = H.div_ [ P.hidden_ (m ^. selectedAppl /= Crafting   ) ] [ mount ( AC.page (m ^. crafting) ) ]
+viewAppl m DiceRoller  = H.div_ [ P.hidden_ (m ^. selectedAppl /= DiceRoller ) ] [ mount ( AD.page (m ^. dice) ) ]
+viewAppl m Feats       = H.div_ [ P.hidden_ (m ^. selectedAppl /= Feats      ) ] [ mount ( AF.page (m ^. feat) ) ]
+viewAppl m Insults     = H.div_ [ P.hidden_ (m ^. selectedAppl /= Insults    ) ] [ mount ( AI.page (m ^. insult) ) ]
+viewAppl m Lineages    = H.div_ [ P.hidden_ (m ^. selectedAppl /= Lineages   ) ] [ mount ( AL.page (m ^. lineage) ) ]
+viewAppl m MagicItems  = H.div_ [ P.hidden_ (m ^. selectedAppl /= MagicItems ) ] [ mount ( AM.page (m ^. magic) ) ]
+viewAppl m PointBuy    = H.div_ [ P.hidden_ (m ^. selectedAppl /= PointBuy   ) ] [ mount ( AP.page (m ^. pointbuy) ) ]
+viewAppl m Spells      = H.div_ [ P.hidden_ (m ^. selectedAppl /= Spells     ) ] [ mount ( AS.page (m ^. spell) ) ]
+viewAppl m Ciphers     = H.div_ [ P.hidden_ (m ^. selectedAppl /= Ciphers    ) ] [ mount ( AE.page (m ^. ciphers) ) ]
 
 isApplEnabled :: Appl -> Bool
 isApplEnabled Backgrounds = True

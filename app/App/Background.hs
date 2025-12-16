@@ -158,7 +158,7 @@ traitTable tableName xs =
   , stripeTable tableName xs
   ]
 
-page :: Model -> Component a Model Action
-page model = p { initialAction = Just GetBackgrounds }
+page :: a -> Model -> Component a Model Action
+page parent model = p { initialAction = Just GetBackgrounds }
   where
     p = component model updateModel viewModel
