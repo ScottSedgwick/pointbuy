@@ -1,38 +1,11 @@
 module Common.DataTypes.Background where
 
+import           Common.DataTypes.Inline
 import           Control.Lens.TH    ( makeLenses )
 import           Data.Aeson         ( FromJSON, Value(..), (.:), (.:?), parseJSON, withObject )
 import           Data.Aeson.KeyMap  ( Key(..), (!?), keys )
 import qualified Data.Text          as T
 import           GHC.Generics       ( Generic )
-
-maybeHead :: [a] -> Maybe a
-maybeHead []    = Nothing
-maybeHead (x:_) = Just x
-
-data Inline 
-  = Plain String
-  | Bold String
-  | Italic String
-  | BR
-  deriving (Show, Eq, Generic)
-instance FromJSON Inline where
-  parseJSON = withObject "Inline" $ \v -> do
-    let ks = keys v
-    case maybeHead ks of
-      Nothing -> error "No data in Inline JSON structure"
-      Just k  -> do
-        let kn = show k
-        if kn == "\"br\"" then pure BR
-        else
-          case v !? k of
-            Nothing    -> error "No value in Inline JSON structure"
-            Just (String value) -> do
-              pure $ if     kn == "\"p\"" then Plain (T.unpack value)
-                    else if kn == "\"b\"" then Bold (T.unpack value)
-                    else if kn == "\"i\"" then Italic (T.unpack value)
-                    else error ("Inline JSON Structure type invalid: " <> kn)
-            Just _ -> error "Invalid data type for Inline"
 
 data BackgroundProficiency = BackgroundProficiency
   { _skill :: [String]

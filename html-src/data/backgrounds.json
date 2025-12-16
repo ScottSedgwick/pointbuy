@@ -156,14 +156,7 @@
       { "title": "Dust Digger",
         "description": 
         [ { "p": "Prior to becoming an adventurer, you spent most of your young life crawling around in the dust, pilfering relics of questionable value from crypts and ruins. Though you managed to sell a few of your discoveries and earn enough coin to buy proper adventuring gear, you have held onto an item that has great emotional value to you. Roll on the Signature Item table to see what you have, or choose an item from the table." }, { "br": "" },
-          { "p": "1: 10-foot pole" }, { "br": "" },
-          { "p": "2: Medallion" }, { "br": "" },
-          { "p": "3: Crowbar" }, { "br": "" },
-          { "p": "4: Shovel" }, { "br": "" },
-          { "p": "5: Hat" }, { "br": "" },
-          { "p": "6: Sledgehammer" }, { "br": "" },
-          { "p": "7: Hooded lantern" }, { "br": "" },
-          { "p": "8: Whip" }
+          { "rt": [ "10-foot pole", "Medallion", "Crowbar", "Shovel", "Hat", "Sledgehammer", "Hooded lantern", "Whip" ] }
         ]
       }, 
       { "title": "Historical Knowledge",
@@ -288,7 +281,7 @@
     [ "For longer than you can remember, you have traversed the Astral Sea. There, you experienced firsthand the wonders of the Silver Void: you stopped aging and no longer felt hunger or thirst. Driven by wanderlust, you drifted from one part of the Astral Sea to another, like a mote of dust on the wind. You have lost count of the decades that have passed since you arrived here.",
       "In your travels, you have camped on the petrified hulks of dead gods and narrowly escaped the psychic winds that sweep across the Astral Sea while also avoiding prolonged contact with the plane's most dangerous denizens."
     ],
-    "source": "Spelljamer: Adventures in Space - Astral Adventurer's Guide",
+    "source": "Spelljammer: Adventures in Space - Astral Adventurer's Guide",
     "sourceurl": "http://dnd5e.wikidot.com/background:astral-drifter",
     "proficiencies":
     { "skills": [ "Insight", "Religion" ],
@@ -307,16 +300,7 @@
           { "p": "In the Astral Sea, you crossed paths with a wandering deity. The encounter was brief and nonviolent, yet it made a lasting impression on you. This deity saw fit to share one secret or obscure bit of cosmic lore with you. Work with your DM to determine the details of this knowledge and its impact on the campaign." }, { "br": "" },
           { "p": "Roll on the Divine Contact table to determine which deity you encountered, or work with your DM to identify a more suitable choice." }, { "br": "" },
           { "b": "Divine Contact." }, { "br": "" },
-          { "p": "1. Corellon, god of art and magic (chaotic good)" }, { "br": "" },
-          { "p": "2. Tymora, god of good fortune (chaotic good)" }, { "br": "" },
-          { "p": "3. Fharlanghn, god of horizons and travel (neutral good)" }, { "br": "" },
-          { "p": "4. Istus, god of fate and destiny (neutral)" }, { "br": "" },
-          { "p": "5. Nuada, god of war and warriors (neutral)" }, { "br": "" },
-          { "p": "6. Zivilyn, god of wisdom (neutral)" }, { "br": "" },
-          { "p": "7. Arawn, god of life and death (neutral evil)" }, { "br": "" },
-          { "p": "8. Hecate, god of magic and moons (chaotic evil)" }, { "br": "" },
-          { "p": "9. Celestian, god of stars and wanderers (neutral)" }, { "br": "" },
-          { "p": "10. Ptah, god of knowledge and secrets (lawful neutral)" }
+          { "rt": [ "Corellon, god of art and magic (chaotic good)", "Tymora, god of good fortune (chaotic good)", "Fharlanghn, god of horizons and travel (neutral good)", "Istus, god of fate and destiny (neutral)", "Nuada, god of war and warriors (neutral)", "Zivilyn, god of wisdom (neutral)", "Arawn, god of life and death (neutral evil)", "Hecate, god of magic and moons (chaotic evil)", "Celestian, god of stars and wanderers (neutral)", "Ptah, god of knowledge and secrets (lawful neutral)" ] }
         ]
       }
     ],
@@ -340,14 +324,7 @@
       { "title": "Favored Event",
         "description": 
         [ {"p": "While many athletes practice various games and events, most excel at a single form of competition. Roll or choose from the options in the Favored Events table to determine the athletic event in which you excel."}, {"br":""},
-          {"p": "1: Marathon" }, {"br":""},
-          {"p": "2: Long-distance running" }, {"br":""},
-          {"p": "3: Wrestling" }, {"br":""},
-          {"p": "4: Boxing" }, {"br":""},
-          {"p": "5: Chariot or horse race" }, {"br":""},
-          {"p": "6: Pankration (mixed unarmed combat)" }, {"br":""},
-          {"p": "7: Hoplite race (racing in full armor with a unit)" }, {"br":""},
-          {"p": "8: Pentathlon (running, long jump, discus, javelin, wrestling)" }, {"br":""}
+          {"rt": [ "Marathon", "Long-distance running", "Wrestling", "Boxing", "Chariot or horse race", "Pankration (mixed unarmed combat)", "Hoplite race (racing in full armor with a unit)", "Pentathlon (running, long jump, discus, javelin, wrestling)" ] }
         ]
       },
       { "title": "Echoes of Victory",
@@ -415,12 +392,7 @@
       { "title": "Favorite Schemes",
         "description": 
         [ { "p": "Every charlatan has an angle they use in preference to other schemes. Choose a favorite scam or roll on the table below." }, {"br":""},
-          { "p": "1: I cheat at games of chance." }, {"br":""},
-          { "p": "2: I shave coins or forge documents." }, {"br":""},
-          { "p": "3: I insinuate myself into people's lives to prey on their weakness and secure their fortunes." }, {"br":""},
-          { "p": "4: I put on new identities like clothes." }, {"br":""},
-          { "p": "5: I run sleight-of-hand cons on street corners." }, {"br":""},
-          { "p": "6: I convince people that worthless junk is worth their hard-earned money." }
+          { "rt": [ "I cheat at games of chance.", "I shave coins or forge documents.", "I insinuate myself into people's lives to prey on their weakness and secure their fortunes.", "I put on new identities like clothes.", "I run sleight-of-hand cons on street corners.", "I convince people that worthless junk is worth their hard-earned money." ] }
         ]
       },
       { "title": "False Identity",
@@ -596,14 +568,7 @@
       { "title": "Criminal Specialty",
         "description": [
           { "p": "There are many kinds of criminals, and within a thieves' guild or similar criminal organization, individual members have particular specialties. Even criminals who operate outside of such organizations have strong preferences for certain kinds of crimes over others. Choose the role you played in your criminal life, or roll on the table below." }, {"br":""},
-          { "p": "Blackmailer"},{"br":""},
-          { "p": "Burglar"},{"br":""},
-          { "p": "Enforcer"},{"br":""},
-          { "p": "Fence"},{"br":""},
-          { "p": "Highway robber"},{"br":""},
-          { "p": "Hired killer"},{"br":""},
-          { "p": "Pickpocket"},{"br":""},
-          { "p": "Smuggler"},{"br":""}
+          { "rt": [ "Blackmailer", "Burglar", "Enforcer", "Fence", "Highway robber", "Hired killer", "Pickpocket", "Smuggler" ] }
         ]
       },
       { "title": "Criminal Contact",

@@ -11,7 +11,7 @@ import qualified Data.Map           as M
 import           Data.Default       ( Default, def )
 import           GHC.Generics       ( Generic )
 import           GHCJS.Marshal      ( FromJSVal )
-import           Miso               ( Attribute, Component, Effect, MisoString, Transition, View, component, initialAction, ms, text )
+import           Miso               ( Attribute, Component, Effect, MisoString, Transition, View, component, fromMisoString, initialAction, ms, text )
 import           Miso.Fetch         ( Response(body, errorMessage), getJSON )
 import qualified Miso.Html          as H
 import qualified Miso.Html.Event    as E
@@ -21,13 +21,16 @@ import           Common.Applications ( Appl( Backgrounds ) )
 import           Common.Classes
 import           Common.Components   ( banner )
 import           Common.DataTypes.Background 
+import           Common.DataTypes.Inline
 import           Common.Sources      ( Source, allSources )
 import           Common.Unshow       ( unshow )
+import           Common.Utils        ( maybeHead, toLower )
 
 data Action
   = GetBackgrounds
   | SetBackgrounds (Response [Background])
   | ErrorHandler (Response MisoString)
+  | UpdateFilter MisoString
   | SetPage String
 
 data Model = Model
@@ -51,19 +54,35 @@ updateModel :: Action -> Effect a Model Action
 updateModel (GetBackgrounds)     = getJSON "data/backgrounds.json" [] SetBackgrounds ErrorHandler
 updateModel (SetBackgrounds r)   = backgrounds .= (body r)
 updateModel (ErrorHandler s)     = errMessage .= (errorMessage s)
+updateModel (UpdateFilter s)     = filterTitle .= (fromMisoString s)
 updateModel (SetPage s)          = selecteddata .= Just s
 
 viewModel :: Model -> View Model Action
 viewModel m = 
   H.div_ [] 
   [ banner Backgrounds
-  , H.div_ [] (map backgroundView (filteredBackgrounds m))
+  , H.div_ [] (filterView : (map backgroundView (filteredBackgrounds m)))
   , H.div_ [] [ H.p_ [] [ text ( maybe "" id (m ^. errMessage) ) ] ]
   ]
 
--- TODO: Implement filter
+filterView :: View Model Action
+filterView =
+  H.header_ [ P.class_ "fixed" ]
+  [ H.article_ [ P.class_ "white" ]
+    [ H.div_ [ P.class_ "grid" ]
+      [ H.div_ [ P.class_ "s12" ]
+        [ H.div_ [ P.class_ "field label prefix border" ]
+          [ H.input_ [ P.type_ "text", E.onInput UpdateFilter ]
+          , H.label_ [] [ text "Background" ]
+          , H.i_ [ P.class_ "front" ] [ text "search" ]
+          ]
+        ]
+      ]
+    ]
+  ]
+
 filteredBackgrounds :: Model -> [Background]
-filteredBackgrounds m = m ^. backgrounds
+filteredBackgrounds m = filter (\b -> (toLower $ m ^. filterTitle) `L.isInfixOf` (toLower $ b ^. title)) (m ^. backgrounds)
 
 backgroundView :: Background -> View Model Action
 backgroundView b = 
@@ -136,29 +155,8 @@ traitTable :: String -> [String] -> View Model Action
 traitTable tableName xs =
   H.div_ [ P.class_ "s6" ]
   [ H.h4_ [] [ text $ ms (tableName <> "s") ]
-  , H.table_ [ P.class_ "stripes" ]
-    [ H.thead_ []
-      [ H.tr_ [] 
-        [ H.th_ [] [ text (ms $ "d" <> show (length xs)) ]
-        , H.th_ [] [ text (ms $ tableName) ]
-        ]
-      ]
-    , H.tbody_ [] (map mkTraitRow (zip [1..] xs))
-    ]
+  , stripeTable tableName xs
   ]
-
-mkTraitRow :: (Int, String) -> View Model Action
-mkTraitRow (x,s) = 
-  H.tr_ []
-  [ H.td_ [] [ text (ms $ show x)]
-  , H.td_ [] [ text (ms s)]
-  ]
-
-renderInline :: Inline -> View Model Action
-renderInline (Plain s)  = text (ms s)
-renderInline (Bold s)   = H.b_ [] [ text (ms s) ]
-renderInline (Italic s) = H.i_ [] [ text (ms s) ]
-renderInline BR         = H.br_ []
 
 page :: Model -> Component a Model Action
 page model = p { initialAction = Just GetBackgrounds }
