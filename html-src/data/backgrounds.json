@@ -155,7 +155,7 @@
     [ 
       { "title": "Dust Digger",
         "description": 
-        [ { "p": "Prior to becoming an adventurer, you spent most of your young life crawling around in the dust, pilfering relics of questionable value from crypts and ruins. Though you managed to sell a few of your discoveries and earn enough coin to buy proper adventuring gear, you have held onto an item that has great emotional value to you. Roll on the Signature Item table to see what you have, or choose an item from the table." }, { "br": "" },
+        [ { "p": "Prior to becoming an adventurer, you spent most of your young life crawling around in the dust, pilfering relics of questionable value from crypts and ruins. Though you managed to sell a few of your discoveries and earn enough coin to buy proper adventuring gear, you have held onto an item that has great emotional value to you. Roll on the Signature Item table to see what you have, or choose an item from the table." },
           { "rt": [ "10-foot pole", "Medallion", "Crowbar", "Shovel", "Hat", "Sledgehammer", "Hooded lantern", "Whip" ] }
         ]
       }, 
@@ -230,10 +230,10 @@
     [ 
       { "title": "Elemental Harmony",
         "description": 
-        [ { "p": "Growing up surrounded by wild elemental magics has attuned your senses to those chaotic forces, enabling you to subtly bend them to your will. As an action, you channel minor magic involving the element of your chosen Ashari order, giving you one of the following abilities:" }, { "br": "" },
-          { "b": "Pyrah."}, { "p": "You instantaneously create and control a burst of flame small enough to light a candle, a torch, or a small campfire. Alternatively, you snuff out a flame of the same size." }, { "br": "" },
-          { "b": "Terrah."}, { "p": "You instantaneously create a small rock no larger than a gold coin. The rock appears in your hand, then turns to dust after 1 minute." }, { "br": "" },
-          { "b": "Vesrah."}, { "p": "You instantaneously create enough hot or cold water to fill a small drinking vessel." }, { "br": "" },
+        [ { "p": "Growing up surrounded by wild elemental magics has attuned your senses to those chaotic forces, enabling you to subtly bend them to your will. As an action, you channel minor magic involving the element of your chosen Ashari order, giving you one of the following abilities:" },
+          { "b": "Pyrah."}, { "p": "You instantaneously create and control a burst of flame small enough to light a candle, a torch, or a small campfire. Alternatively, you snuff out a flame of the same size." },
+          { "b": "Terrah."}, { "p": "You instantaneously create a small rock no larger than a gold coin. The rock appears in your hand, then turns to dust after 1 minute." },
+          { "b": "Vesrah."}, { "p": "You instantaneously create enough hot or cold water to fill a small drinking vessel." },
           { "b": "Zephrah."}, { "p": "You create an instantaneous puff of wind strong enough to blow papers off a desk or mess up someone's hair." }
         ]
       }
@@ -296,10 +296,10 @@
       },
       { "title": "Divine Contact",
         "description": 
-        [ { "p": "You gain the feat and must choose cleric for the feat." }, { "br": "" },
-          { "p": "In the Astral Sea, you crossed paths with a wandering deity. The encounter was brief and nonviolent, yet it made a lasting impression on you. This deity saw fit to share one secret or obscure bit of cosmic lore with you. Work with your DM to determine the details of this knowledge and its impact on the campaign." }, { "br": "" },
-          { "p": "Roll on the Divine Contact table to determine which deity you encountered, or work with your DM to identify a more suitable choice." }, { "br": "" },
-          { "b": "Divine Contact." }, { "br": "" },
+        [ { "p": "You gain the feat and must choose cleric for the feat." },
+          { "p": "In the Astral Sea, you crossed paths with a wandering deity. The encounter was brief and nonviolent, yet it made a lasting impression on you. This deity saw fit to share one secret or obscure bit of cosmic lore with you. Work with your DM to determine the details of this knowledge and its impact on the campaign." },
+          { "p": "Roll on the Divine Contact table to determine which deity you encountered, or work with your DM to identify a more suitable choice." },
+          { "b": "Divine Contact." },
           { "rt": [ "Corellon, god of art and magic (chaotic good)", "Tymora, god of good fortune (chaotic good)", "Fharlanghn, god of horizons and travel (neutral good)", "Istus, god of fate and destiny (neutral)", "Nuada, god of war and warriors (neutral)", "Zivilyn, god of wisdom (neutral)", "Arawn, god of life and death (neutral evil)", "Hecate, god of magic and moons (chaotic evil)", "Celestian, god of stars and wanderers (neutral)", "Ptah, god of knowledge and secrets (lawful neutral)" ] }
         ]
       }
@@ -323,14 +323,14 @@
     [ 
       { "title": "Favored Event",
         "description": 
-        [ {"p": "While many athletes practice various games and events, most excel at a single form of competition. Roll or choose from the options in the Favored Events table to determine the athletic event in which you excel."}, {"br":""},
+        [ {"p": "While many athletes practice various games and events, most excel at a single form of competition. Roll or choose from the options in the Favored Events table to determine the athletic event in which you excel."},
           {"rt": [ "Marathon", "Long-distance running", "Wrestling", "Boxing", "Chariot or horse race", "Pankration (mixed unarmed combat)", "Hoplite race (racing in full armor with a unit)", "Pentathlon (running, long jump, discus, javelin, wrestling)" ] }
         ]
       },
       { "title": "Echoes of Victory",
         "description":
-        [ {"p": "You have attracted admiration among spectators, fellow athletes, and trainers in the region that hosted your past athletic victories. When visiting any settlement within 100 miles of where you grew up, there is a 50 percent chance you can find someone there who admires you and is willing to provide information and temporary shelter."}, {"br":""},
-          {"p": "Between adventures, you might compete in athletic events sufficient enough to maintain a comfortable lifestyle, as per the \"Practicing a Profession\" downtime activity in chapter 8 of the Players Handbook."}, {"br":""}
+        [ {"p": "You have attracted admiration among spectators, fellow athletes, and trainers in the region that hosted your past athletic victories. When visiting any settlement within 100 miles of where you grew up, there is a 50 percent chance you can find someone there who admires you and is willing to provide information and temporary shelter."},
+          {"p": "Between adventures, you might compete in athletic events sufficient enough to maintain a comfortable lifestyle, as per the \"Practicing a Profession\" downtime activity in chapter 8 of the Players Handbook."}
         ]
       }
     ],
@@ -374,6 +374,370 @@
       ]
     }
   }, 
+  { "title": "Azorius Functionary",
+    "sourceurl": "http://dnd5e.wikidot.com/background:azorius-functionary",
+    "source": "Guildmaster's Guide to Ravnica",
+    "description": 
+    [ "The brutes are at the gate, chaos is looming, and the only thing standing in the way of disaster is the foundation of law and order - as embodied in the Azorius Senate. You're a proud member of the Azorius guild, which both enacts and enforces the laws that make Ravnican society function smoothly and safely."
+    ],
+    "proficiencies":
+    { "skills": [ " Insight", "Intimidation" ],
+      "tools": [ "None" ],
+      "languages": [ "Two of your choice" ]
+    },
+    "equipment": [ "An Azorius insignia", "A scroll containing the text of a law important to you", "A bottle of blue ink", "An ink pen", "A set of fine clothes", "A pouch containing 10gp (Azorius-minted 1-zino coins)" ],
+    "features": [
+      { "title": "Legal Authority",
+        "description": [
+          { "p": "You have the authority to enforce the laws of Ravnica, and that status inspires a certain amount of respect and even fear in the populace. People mind their manners in your presence and avoid drawing your attention: they assume you have the right to be wherever you are. Showing your Azorius insignia gets you an audience with anyone you want to talk to (though it might cause more problems than it solves when you're dealing with incorrigible lawbreakers). If you abuse this privilege, though, you can get in serious trouble with your superiors and even be stripped of your position." }
+        ]
+      },
+      { "title": "Azorius Guild Spells",
+        "description": [
+          {"i": "Prerequisite: Spellcasting or Pact Magic class feature"},
+          {"p": "For you, the spells on the Azorius Guild Spells table are added to the spell list of your spellcasting class. (If you are a multiclass character with multiple spell lists, these spells are added to all of them.)"},
+          {"st": ["Friends, Message", "Command, Ensnaring Strike", "Arcane Lock, Calm Emotions, Hold Person", "Clairvoyance, Counterspell", "Compulsion, Divination", "Dominate Person" ] },
+          {"p": "Your magic often takes the form of blue or golden runes floating and glowing in the air in circular patterns or of shimmering azure barriers of magical energy. If you cast , for example, the vines created by the spell might appear as rune-inscribed glowing bands that wrap around the target and hold it in place."}
+        ]
+      },
+      { "title": "Contacts",
+        "description": [
+          {"p": "The Azorius Senate is a sprawling bureaucracy, and people in a variety of positions throughout the guild can pull strings to make things happen. Because of the guild's role in making and enforcing laws for the entire city, your place in the Azorius can easily bring you into contact with members of other guilds, for good or ill."},
+          {"p": "Roll twice on the Azorius Contacts table (for an ally and a rival) and once on the Non-Azorius Contacts table."},
+          {"b": "Azorius Contacts"},
+          {"rt": 
+            [
+              "As a teenager, I was a page for a prominent judge.",
+              "One of my childhood friends is now a precognitive mage in service of the guild.",
+              "I joined the Azorius hoping to impress an arrester whom I admire.",
+              "My former mentor is now a warden at Udzec, the new Azorius prison.",
+              "I was second best at everything in my legal training, and now I work with the person who was always just a little bit better.",
+              "A good friend was promoted into work they can't tell me about.",
+              "I know a homunculus in the halls of New Prahv who can get things done behind the scenes.",
+              "I was once summoned to the presence of Supreme Judge Isperia, the guildmaster of the Azorius, who complimented me on my work."
+            ]
+          },
+          {"b": "Non-Azorius Contacts"},
+          {"rt": 
+            [
+              "Roll an additional Azorius contact; you can decide if the contact is an ally or a rival.",
+              "The person who recruited me into the Azorius left and joined the Boros.",
+              "I have a friendship with a Dimir agent who sometimes funnels me secrets about Azorius activities.",
+              "A Golgari spore druid would love to see me slip up and break the law.",
+              "A lesser Gruul chieftain seems to think I could be useful.",
+              "The black sheep of my family is putting their maniacal genius to use in the Izzet.",
+              "I'm friends with an Orzhov advokist; we compare notes on different forms of law magic.",
+              "I was ridiculed once in a Rakdos performance; the performer was impressed with my good humor about it and now does me occasional favors.",
+              "I have a fanatical Selesnya cousin who keeps trying to recruit me and everyone else in the family.",
+              "While growing up, I was bullied by a brat who's now a hybrid in the Simic Combine."
+            ]
+          }
+        ]
+      }
+    ],
+    "suggested": [ "Members of the Azorius Senate tend toward a demeanor of cold dignity and a pragmatic, orderly nature. Steeped in the law as they are, their ideals and priorities revolve around legal issues." ],
+    "traits":
+    { "personality":
+      [ 
+        "I try never to let my judgement become clouded by emotion.",
+        "I have infinite patience with the dolts and boors I'm forced to deal with every day.",
+        "When I give an order, I expect it to be obeyed.",
+        "I just want things the way I like them: neat, orderly, and clean.",
+        "No wrongdoing can escape my watchful gaze.",
+        "I always say exactly what I mean, no matter how many words it takes to communicate the particular nuance I am attempting to convey.",
+        "I'm very literal and don't appreciate metaphor or sarcasm.",
+        "I never change my mind once it's made up."
+      ],
+      "ideals":
+      [ 
+        "Guild. My guild is all that really matters. (Any)",
+        "Order. The law is meant to ensure that the gears of society turn smoothly and quietly. (Lawful)",
+        "Peace. The ultimate object of the law is to remove violence from society. (Good)",
+        "Compliance. Coercion is a fine way of ensuring that the laws are obeyed. (Lawful)",
+        "Legislation. The law embodies excellence in its precision and detail. (Lawful)",
+        "Punishment. A public display of consequences is an excellent deterrent for other criminals. (Evil)"
+      ],
+      "bonds":
+      [ 
+        "I am beholden to an Azorius arrester who captured the criminal who killed my parents, saving me from the same fate.",
+        "I hope one day to write the laws, not just enforce them.",
+        "I tried and failed to prevent murder, and I have sworn to find and arrest the perpetrator.",
+        "I successfully prevented a murder, and the would-be perpetrator wants me dead.",
+        "One of my parents was prominent in the guild, and I resent constantly being compared to that standard.",
+        "I've modeled my career after a highly respected law-mage or arrester, but I fear that my role model might be involved in something illegal."
+      ],
+      "flaws":
+      [ 
+        "I'm unable to distinguish between the letter and the spirit of the law.",
+        "I seem like a harsh judge to others, but I judge myself most harshly of all.",
+        "I have a secret, illegal vice.",
+        "I was traumatized by witnessing a crime as a child.",
+        "I'm incapable of deception.",
+        "I wish I had joined the Boros, but I fear they'd never accept me."
+      ]
+    }
+  }, 
+  { "title": "Black Fist Double Agent",
+    "sourceurl": "http://dnd5e.wikidot.com/background:black-fist-double-agent",
+    "source": "Curse of Strahd",
+    "description": 
+    [ "You are an informant for the Tears of Virulence who now lord over Phlan, but are also a double agent for the original town guard of Phlan, the Black Fist. For the Tears you've been tasked with ferreting out the secrets of Phlan's criminal underworld, insurgency, and the common peoples of Phlan. In exchange for reporting on the activities of dissenters, criminals, and other rebel elements, the Tears of Virulence leave you alone to conduct your affairs in peace.",
+      "In reality you work for the deposed Black Fists, sharing misinformation with the Tears of Virulence that often helps the Black Fists and other Phlan insurgents.",
+      "Since the evacuation of Phlan, you are even busier today than you ever were previously, as the number of dissenters among the refugees grows daily, while you are afforded many opportunities to spy on the peoples of Mulmaster and Elventree, to the pleasure of your contact(s) within the Tears of Virulence." 
+    ], 
+    "proficiencies":
+    { "skills": [ " Deception", "Insight" ],
+        "tools": [ "Disguise kit", "One type of artisan's tools or gaming set" ],
+        "languages": [ "None" ]
+    },
+    "equipment": [ "Disguise kit", "Common clothes", "A Tears of Virulence emblem", "A writ of free agency signed by the Lord Regent", "A set of artisan's tools or gaming set you are proficient with", "A pouch with 15gp (payment for services rendered)." ],
+    "features":
+    [ 
+      { "title": "Double Agent",
+        "description": 
+        [ { "p": "You have a reliable and trusty contact within the Tears of Virulence garrison in Phlan to whom you pass information and secrets. In exchange, you can get away with minor criminal offenses within the town of Phlan. In addition, your Black Fist contacts can help you secure an audience with the Lord Regent, the Lord Sage, members of the Black Fist, or deposed nobles and authority figures who are sympathetic to the Phlan refugees and insurgents." },
+          { "i": "Note: This feature is a variant of the Noble feature." }
+        ]
+      }
+    ],
+    "traits":
+    { "personality":
+      [ 
+        "People are only as trustworthy as you are valuable to them. Always strive to be the most valuable person around.",
+        "My eloquence and sophistication are tools I use to avoid arousing suspicion myself.",
+        "I am a thrill-seeker, excited by covert and dangerous missions.",
+        "I live by my wits and always check every lock twice, just to be certain.",
+        "I never admit to my mistakes lest they be used against me.",
+        "I take every effort to be unnoticeable and blend into the crowd. Passersby rarely give me a second look.",
+        "I am prepared for any eventuality; including the day my usefulness as a spy comes to an end.",
+        "I always make certain to know my enemy before acting, lest I bite off more than I can chew."
+      ],
+      "ideals":
+      [ 
+        "Suspicious. In my experience, everybody has something to hide, and what they hide can usually hurt me. (Any)",
+        "Secretive. I trade in secrets, and am not about to let any of mine slip. (Any)",
+        "Hedonist. Life is short. I live my life to the fullest, as I know any day could be my last. (Chaotic)",
+        "Selfless. I use my position to help the downtrodden avoid persecution from the authorities. (Good)",
+        "Patriotic. I am a loyal supporter of Phlan and its leaders, and see my role as a solemn duty and necessary evil to prevent anarchy. (Lawful)",
+        "Manipulative. I use my knowledge to blackmail and manipulate others to my own benefit. (Evil)"
+      ],
+      "bonds":
+      [ 
+        "I was framed for a crime I did not commit, and seek to bring the true culprit to justice.",
+        "I am a part of an underground network that smuggles innocent civilians out of the city prior to being raided by the authorities.",
+        "I miss the glory days of Phlan, before the coming of the dragon.",
+        "I seek to prove myself worthy of joining the Black Fist as a member of their order.",
+        "My sibling was killed by a Tear of Virulence, and now I feed them false information whenever possible.",
+        "My family was wrongly imprisoned, and I act as an informant in order to secure their release."
+      ],
+      "flaws":
+      [ 
+        "I think too highly of myself, and have an exaggerated sense of self-importance.",
+        "I have difficulty trusting strangers. I see spies and informants everywhere.",
+        "Years of getting away with minor crimes has left me believing that I am above the law, and have diplomatic immunity above my station.",
+        "Years of seeing innocent people suffer have left me despondent and pessimistic for the future.",
+        "My desire for vengeance often gets me into trouble.",
+        "I am a spendthrift, and share my wealth with the patrons of my favorite tavern."
+      ]
+    }
+  },
+  { "title": "Boros Legionnaire",
+    "sourceurl": "http://dnd5e.wikidot.com/background:boros-legionnaire",
+    "source": "Guildmaster's Guide to Ravnica",
+    "description": 
+    [ "As a member of the Boros Legion, your life is devoted to the service of angels and consecrated to the work of establishing justice and peace on the streets of Ravnica. You might be a true believer, inspired by the example of the angels, moved by the plight of the downtrodden, and devoted to the cause of justice. Or you could be a cynic in the ranks, perhaps because you reluctantly followed in the footsteps of a Boros parent, succumbed to the persuasion of a charismatic recruiter's lofty promises, or were drawn in by the prospect of a life of action." 
+    ], 
+    "proficiencies":
+    { "skills": [ " Athletics", "Intimidation" ],
+        "tools": [ "One type of gaming set" ],
+        "languages": [ "Choose one of Celestial, Draconic, Goblin, or Minotaur" ]
+    },
+    "equipment": [ "A Boros insignia", "A feather from an angel's wing", "A tattered piece of a Boros banner (a souvenir from a famous battle)", "A set of common clothes", "A pouch containing 2gp (Boros-minted 1-zino coins)" ],
+    "features":
+    [ 
+      { "title": "Legion Station",
+        "description": 
+        [ { "p": "You have an established place in the hierarchy of the Boros Legion. You can requisition simple equipment for temporary use, and you can gain access to any Boros garrison in Ravnica, where you can rest in safety and receive the attention of medics. You are also paid a salary of 1 gp (a Boros-minted 1 zino coin) per week, which (combined with free lodging in your garrison) enables you to maintain a poor lifestyle between adventures." }
+        ]
+      },
+      { "title": "Boros Guid Spells",
+        "description": 
+        [ {"i": "Prerequisite: Spellcasting or Pact Magic class feature"},
+          {"p": "For you, the spells on the Boros Guild Spells table are added to the spell list of your spellcasting class. (If you are a multiclass character with multiple spell lists, these spells are added to all of them.)"},
+          {"b": "Boros Guild Spells"},
+          {"st": ["Fire Bolt, Sacred Flame", "Guiding Bolt, Heroism", "Aid, Scorching Ray", "Beacon of Hope, Blinding Smite", "Death Ward, Wall of Fire", "Flame Strike"]},
+          {"p": "Your magic often features dramatic bursts of flame or radiance. When you cast beneficial spells on your allies, they appear momentarily surrounded with halos of bright fire."}
+        ]
+      }
+    ],
+    "suggested": ["The Boros Legion is a zealous army, full of righteous energy tempered with military discipline. Its members share its leadership's devotion to the ideals of justice, or they find satisfaction in the more warfare-oriented aspects of the legion's work."],
+    "traits":
+    { "personality":
+      [ 
+        "I approach every task with the same high degree of military precision.",
+        "I am always the first into the fray.",
+        "I bear any injury or indignity with stoic discipline.",
+        "My righteous wrath is easily inflamed by the slightest iniquity.",
+        "My honor is more important to me than my life.",
+        "Dangerous work is best accomplished by an orderly group working with common purpose.",
+        "I treat my weapon, uniform, and insignia with reverence, for they are gifts of the angels.",
+        "I pace when standing and fidget incessantly when forced to sit."
+      ],
+      "ideals":
+      [ 
+        "Guild. My guild is all that really matters. (Any)",
+        "Justice. Achieving justice requires establishing fair, equitable, and compassionate relationships within a community. (Good)",
+        "Protection. It isn't right for innocents to suffer because of the arrogance of the powerful. (Good)",
+        "Solidarity. It is most crucial to act with a single will, marching side by side in perfect accord. (Lawful)",
+        "Order. Society functions only if people do their duty and respect the chain of command. (Lawful)",
+        "Conviction. Anything worth doing is worth doing with your whole heart. (Lawful)"
+      ],
+      "bonds":
+      [ 
+        "I would lay down my life for Aurelia and the angels.",
+        "I owe my life to the Boros captain who took me in when I was living on the streets.",
+        "My fellow legionnaires are my family.",
+        "I wield the same Boros weapon my grandparent did, for the honor of our family.",
+        "I ran with the Rakdos in my youth, and I'm striving to atone for my past misdeeds.",
+        "I do what I can to help out the spouse of a comrade who died in battle."
+      ],
+      "flaws":
+      [ 
+        "I act bravely when I'm in a group, but I'm a coward when I'm alone.",
+        "I see everything in clear-cut black and white.",
+        "I'm just a little fascinated by the ways of the Gruul.",
+        "I trust the chain of command more than anything - more even than my closest friends.",
+        "I'm slow to trust members of other guilds.",
+        "I've been known to turn a blind eye to injustice, with the help of a modest bribe."
+      ]
+    }
+  },
+  { "title": "Caravan Specialist",
+    "sourceurl": "http://dnd5e.wikidot.com/background:caravan-specialist",
+    "source": "Mulmaster Bonds and Backgrounds",
+    "description": 
+    [ "You are used to life on the road. You pride yourself at having traveled every major tradeway in the Moonsea region, including the best back roads and shortcuts. When traveling these roads, you know where the best inns, campsites, and water sources are located, as well as potential locations of danger such as ambush. Having worked the roads as long as you have, you have made many acquaintances and find it easy to pick up information and rumors floating from town to town. You are skilled with beasts of burden and handling and repairing wagons of all kinds."
+    ], 
+    "proficiencies":
+    { "skills": [ " Animal Handling", "Survival" ],
+        "tools": [ "Land Vehicles" ],
+        "languages": [ "One of your choice" ]
+    },
+    "equipment": [ "A whip, a tent", "A regional map", "A set of traveler's clothes", "A pouch containing 10gp" ],
+    "features":
+    [ 
+      { "title": "Wagonmaster",
+        "description": 
+        [ { "p": "You are used to being in charge of the operation and your reputation for reliability has you on a short list when the job is critical. Experience has taught you to rely on your gut. Others recognize this and look to you for direction when a situation gets serious. You are able to identify the most defensible locations for camping. If you are part of a caravan outfit, you are able to attract two additional workers who are loyal to you based on your reputation. You have an excellent memory for maps and geography and can always determine your cardinal directions while traveling." }
+        ]
+      }
+    ],
+    "traits":
+    { "personality":
+      [ 
+        "Any group is only as strong as its weakest link. Everyone has to pull their own weight.",
+        "There's always someone out there trying to take what I've got. Always be vigilant.",
+        "Anything can be learned if you have the right teacher. Most folks just need a chance.",
+        "Early to bed and early to rise; this much at least is under my control.",
+        "You can listen to me or don't and wish you had. Everyone ends up on one side of that fence.",
+        "Eventually my hard work will be rewarded. Maybe that time has finally come.",
+        "A strong ox or horse is more reliable than most people I've met.",
+        "I never had time for books, but wish I had. I admire folks who have taken the time to learn."
+      ],
+      "ideals":
+      [ 
+        "Service. Using my talents to help others is the best way of helping myself. (Good)",
+        "Selfish. What people don't know WILL hurt them, but why is that my problem? (Evil)",
+        "Wanderer. I go where the road takes me. Sometimes that's a good thing… (Chaotic)",
+        "Fittest. On the open road, the law of nature wins. Victims are the unprepared. (Lawful)",
+        "Focused. I simply have a job to do, and I'm going to do it. (Neutral)",
+        "Motivated. There's a reason I'm good at what I do, I pay attention to the details. (Any)"
+      ],
+      "bonds":
+      [ 
+        "My brother has a farm in Elmwood and I've helped him and his neighbors move their goods to Mulmaster and other surrounding towns. Those are good people.",
+        "A caravan I led was attacked by bandits and many innocents died. I swear that I will avenge them by killing any bandits I encounter.",
+        "The Soldiery are mostly good guys who understand the importance of protecting the roads. The City Watch is who you have to look out for. If they are inspecting your goods, get ready to pay a fine.",
+        "The new commander of Southroad Tower, Capt. Holke, understands the importance of safe roads. He's hired me for several jobs and I'm grateful.",
+        "There's always a road I haven't traveled before. I'm always looking for new places to explore.",
+        "Wealth and power mean little without the freedom to go where and when you want."
+      ],
+      "flaws":
+      [ 
+        "I have trouble trusting people I've just met.",
+        "I enjoy the open road. Underground and tight spaces make me very nervous.",
+        "I expect others to heed my orders and have little respect or sympathy if they don't.",
+        "I am very prideful and have trouble admitting when I'm wrong.",
+        "Once I decide on a course of action, I do not waiver.",
+        "I like to explore, and my curiosity will sometimes get me into trouble."
+      ]
+    }
+  },
+  { "title": "Celebrity Adventurer's Scion",
+    "sourceurl": "http://dnd5e.wikidot.com/background:celebrity-adventurers-scion",
+    "source": "Acquisitions Incorporated",
+    "description": 
+    [ 
+      "Your family name strikes fear and admiration in the hearts of the common folk - but that's got nothing to do with you. Songs and stories celebrating the adventuring exploits of your famous parent are widely known. Kids across the land grew up wishing they were you. But being the child of a famous adventurer wasn't all hugs and kisses.",
+      "You seldom saw your celebrity-adventurer parent, and when they were around, it was all about them and tales of slaying this demon or vanquishing that dragon. All too often, you'd be woken out of a sound sleep by someone standing outside your home screaming about the latest threat to the town, the region, or the world.",
+      "In the end, all you have to show for your lineage is your name. Most of the family's money went for consumables, from potions of healing and spell scrolls to copious amounts of dwarven ale. And everyone expects you to swing a sword or sling spells like your famous forebear, making it doubly hard for you to prove yourself."
+    ], 
+    "proficiencies":
+    { "skills": [ " Perception", "Performance" ],
+        "tools": [ "Disguise kit" ],
+        "languages": [ "Two of your choice" ]
+    },
+    "equipment": [ "A disguise kit", "A set of fine clothes", "A belt pouch containing 30 gp." ],
+    "features":
+    [ 
+      { "title": "Name Dropping",
+        "description": 
+        [ { "p": "You know and have met any number of powerful people across the land - and some of them might even remember you. You might be able to wrangle minor assistance from a major figure in the campaign, at the DM's discretion. Additionally, the common folk treat you with deference, and your heritage and the stories you tell might be good for a free meal or a place to sleep." }
+        ]
+      }
+    ],
+    "suggested": [ "Scions of celebrity adventurers must deal with fame that's not theirs, wealth they didn't earn. and expectations they can never hope to meet. These hardships can have adverse effects, but those who cope with them can arrive at a decent attitude and a grounded worldview. Those who fail become bitter - or worse." ],
+    "traits":
+    { "personality":
+      [ 
+        "I will never get out of my famous parent's shadow, and no one else will ever understand this burden.",
+        "I've seen enough of the adventuring life to have realistic expectations and empathy for my peers.",
+        "Living up to my legacy will be difficult, but I'm going to do it.",
+        "I'm used to the very best in life, and that's a hard habit to break.",
+        "My parent taught me a sense of duty. I strive to uphold it, even when the odds are against me.",
+        "No one can fake a smile, a handshake, or an interested nod like I can.",
+        "I've been part of the adventuring life since I was old enough to walk. Let me explain a few things to you.",
+        "No risk is too great for the rewards of defeating my enemies ... and taking their stuff."
+      ],
+      "ideals":
+      [ 
+        "Power. The only way to get ahead in this world is to attain power and hold onto it with all your might. (Evil)",
+        "Peace. Those who can find or make peace in the chaotic world around them have everything. (Lawful)",
+        "Fame. I've seen what fame can bring. And I'll do anything to get all that for myself. (Neutral)",
+        "Training. Hard work, sacrifice, and training lead to success - and eventually to perfection. (Any)",
+        "Anonymity. I want to be successful. And alone. With lots of guards and wards between me and everyone else in the world. (Any)",
+        "Wisdom. Material wealth is an illusion. Wisdom is the real treasure. (Good)"
+      ],
+      "bonds":
+      [ 
+        "While my parent was out adventuring, a servant raised me, and I care about that person more than anyone.",
+        "I consider every member of my parent's former adventuring party to be family.",
+        "Despite their absences, my famous parent was kind and generous. I love them and want to make them proud.",
+        "My parent once brought a cursed magic item home. It is my obsession.",
+        "My childhood home holds all my best memories, and its upkeep is my primary concern.",
+        "Growing up, I had an imaginary friend I could always count on. That friend is still with me."
+      ],
+      "flaws":
+      [ 
+        "You don't know what I'm going through. You never can.",
+        "You. Fetch my cloak. And maybe rub my feet for a while.",
+        "My comrades are brave, but I must defeat this threat alone to prove my worth.",
+        "Oh, yeah, that spell? Named after my parent's best friend. Let me tell you about them.",
+        "My best days are behind me. Ahead lies only toil, pain, and death.",
+        "You have to look out for yourself. No one else will."
+      ]
+    }
+  },
   { "title": "Charlatan",
     "sourceurl": "http://dnd5e.wikidot.com/background:charlatan",
     "source": "Players Handbook",
@@ -391,7 +755,7 @@
     [ 
       { "title": "Favorite Schemes",
         "description": 
-        [ { "p": "Every charlatan has an angle they use in preference to other schemes. Choose a favorite scam or roll on the table below." }, {"br":""},
+        [ { "p": "Every charlatan has an angle they use in preference to other schemes. Choose a favorite scam or roll on the table below." },
           { "rt": [ "I cheat at games of chance.", "I shave coins or forge documents.", "I insinuate myself into people's lives to prey on their weakness and secure their fortunes.", "I put on new identities like clothes.", "I run sleight-of-hand cons on street corners.", "I convince people that worthless junk is worth their hard-earned money." ] }
         ]
       },
@@ -515,8 +879,8 @@
     [
       { "title": "Library Access",
         "description": 
-        [ { "p": "Though others must often endure extensive interviews and significant fees to gain access to even the most common archives in your library, you have free and easy access to the majority of the library, though it might also have repositories of lore that are too valuable, magical, or secret to permit anyone immediate access." }, {"br":""},
-          { "p": "You have a working knowledge of your cloister's personnel and bureaucracy, and you know how to navigate those connections with some ease."}, {"br":""},
+        [ { "p": "Though others must often endure extensive interviews and significant fees to gain access to even the most common archives in your library, you have free and easy access to the majority of the library, though it might also have repositories of lore that are too valuable, magical, or secret to permit anyone immediate access." },
+          { "p": "You have a working knowledge of your cloister's personnel and bureaucracy, and you know how to navigate those connections with some ease."},
           { "p": "Additionally, you are likely to gain preferential treatment at other libraries across the Realms, as professional courtesy shown to a fellow scholar."}
         ]
       }
@@ -525,6 +889,64 @@
     [ "Use the tables for the sage background as the basis for your traits and motivations, modifying the entries when appropriate to suit your identity.",
       "Your bond is almost certainly associated either with the place where you grew up or with the knowledge you hope to acquire through adventuring. Your ideal is no doubt related to how you view the quest for knowledge and truth - perhaps as a worthy goal in itself, or maybe as a means to a desirable end."
     ]
+  }, 
+  { "title": "Cormanthor Refugee",
+    "sourceurl": "http://dnd5e.wikidot.com/background:cormanthor-refugee",
+    "source": "State of Hillsfar",
+    "description": 
+    [ "You are one of hundreds of refugees who were driven from Hillsfar or who fled the destruction of Myth Drannor and who now shelter in hidden camps under the northern eaves of the Cormanthor Forest. If you grew up in the camps, you have never been to a settlement other than the village of Elventree. As a guest of the elves, you have learned their ways and the ways of the forest. You are also traumatized, as residual wild magic, energies released by the fall of Thultanar upon Myth Drannor, and the constant fear of raids hunting for non-humans to fight in Hillsfar's Arena, have taken their toll on you, as they have on everyone in the camps."
+    ],
+    "proficiencies":
+    { "skills": [ " Nature", "Survival" ],
+      "tools": [ "One type of artisan's tools" ],
+      "languages": [ "Elven" ]
+    },
+    "equipment": ["A two-person tent", "Artisan's tools", "A holy symbol", "A set of traveller's clothes", "A pouch containing 5gp" ],
+    "features": [
+      { "title": "Shelter of the Elven Clergy",
+        "description": [ {"p": "The clerics of Elventree have vowed to care for the Cormanthor refugees. They will help you when they can, including providing you and your companions with free healing and care at temples, shrines, and other established presences in Elventree. They will also provide you (but only you) with a poor lifestyle."}]
+      }
+    ],
+    "traits":
+    { "personality":
+      [ 
+        "I long for a home that never really existed, whether in the camps, Hillsfar, or Myth Drannor.",
+        "Though I am not an elf, I am a fervent, radical worshipper of the elven gods.",
+        "I live in the moment, knowing my life could be turned upside down any day.",
+        "I appreciate beauty in all of its forms.",
+        "I hate the dark elves and the Netherese for each driving the elves out of Cormanthyr in the past.",
+        "I am a forest bumpkin who grew up in a tent in the woods and is wholly ignorant of city life.",
+        "I was raised alongside children of many other races. I harbor no racial prejudices at all.",
+        "The elves have just the right word for so many things that cannot be expressed as well in other languages. I pepper my speech with elven words, phrases, and sayings."
+      ],
+      "ideals":
+      [ 
+        "Patient. The elves have taught me to think and plan for the long-term. (Lawful)",
+        "Rebellious. Governments and politicians drove my family to the camps. I subtly defy authority whenever I think I can get away with it. (Chaotic)",
+        "Self-Absorbed. I've had to look out for number one so long that it has become second nature. (Any)",
+        "Wanderlust. I want to see as much of the world beyond the camps as I can. (Any)",
+        "Generous. I give everything I can to help those in need, regardless of who they are. (Good)",
+        "To the Abyss with Them. The people of Hillsfar cast me out. I won't risk my hide to help them. (Evil)"
+      ],
+      "bonds":
+      [ 
+        "The elves took me in when I had nowhere else to go. In return, I do what I can to help elves in need.",
+        "I seek revenge against the people of Hillsfar for driving my family into the forest.",
+        "My family lost everything when they were driven from Hillsfar. I strive to rebuild that fortune.",
+        "The forest has provided me with food and shelter. In return, I protect forests and those who dwell within.",
+        "I am deeply, tragically in love with someone whose racial lifespan is far longer or shorter than mine.",
+        "Members of my extended family did not make it to the camps or have been kidnapped to fight in the Arena. I search for them tirelessly."
+      ],
+      "flaws":
+      [ 
+        "I am very uncomfortable indoors and underground.",
+        "I am haughty. I grew up among the elves and emulate them. Other races are crude in comparison.",
+        "Elf this, elf that. I am sick and tired of the elves.",
+        "I am a miser. Having lost everything once before, I clutch my possessions and wealth very tightly.",
+        "I am a moocher. I am so used to others providing for me that I have come to expect everyone to do it.",
+        "I believe the gods have cursed me, my family, and all of the Cormanthor refugees. We are all doomed, doomed I tell you!"
+      ]
+    }
   }, 
   { "title": "Courtier",
     "sourceurl": "http://dnd5e.wikidot.com/background:courtier",
@@ -567,7 +989,7 @@
     "features": [
       { "title": "Criminal Specialty",
         "description": [
-          { "p": "There are many kinds of criminals, and within a thieves' guild or similar criminal organization, individual members have particular specialties. Even criminals who operate outside of such organizations have strong preferences for certain kinds of crimes over others. Choose the role you played in your criminal life, or roll on the table below." }, {"br":""},
+          { "p": "There are many kinds of criminals, and within a thieves' guild or similar criminal organization, individual members have particular specialties. Even criminals who operate outside of such organizations have strong preferences for certain kinds of crimes over others. Choose the role you played in your criminal life, or roll on the table below." },
           { "rt": [ "Blackmailer", "Burglar", "Enforcer", "Fence", "Highway robber", "Hired killer", "Pickpocket", "Smuggler" ] }
         ]
       },
@@ -613,6 +1035,212 @@
         "I have a \"tell\" that reveals when I'm lying.",
         "I turn tail and run when things look bad.",
         "An innocent person is in prison for a crime that I committed. I'm okay with that."
+      ]
+    }
+  }, 
+  { "title": "Dimir Operative",
+    "sourceurl": "http://dnd5e.wikidot.com/background:dimir-operative",
+    "source": "Guildmaster's Guide to Ravnica",
+    "description": 
+    [ "You're a spy. Secrets and misinformation are your stock in trade. You skulk in the shadows, infiltrate other guilds, and steal the most precious secrets, whether they're written in locked journals or hidden away in someone's mind. Even you might not be aware of all the reasons behind the missions you carry out. Sometimes a mission's sole purpose is to conceal the motivation behind another strike performed in a different part of the city, or simply to spread fear.",
+      "As part of your covert work for House Dimir, you maintain a false identity as a member of another guild. You can choose your secondary guild or roll to determine it randomly. This secondary guild membership determines a portion of your starting equipment and is also where most of your contacts come from. You infiltrate your secondary guild to learn its secrets, keep tabs on its activities, or perhaps undermine it from within."
+    ],
+    "proficiencies":
+    { "skills": [ " Deception", "Stealth" ],
+      "tools": [ "Disguise kit" ],
+      "languages": [ "One of your choice" ]
+    },
+    "equipment": [ "A Dimir insignia, three small knives, a set of dark-colored common clothes, and the starting equipment of the background described in this chapter for your secondary guild" ],
+    "features": [
+      { "title": "False Identity",
+        "description": [
+          { "p": "You have more than one identity. The one you wear most of the time makes you appear to be a member of a guild other than House Dimir. You have documentation, established acquaintances, and disguises that allow you to assume that persona and fit into the secondary guild."},
+          { "p": "Whenever you choose, you can drop this identity and blend into the guildless masses of the city."},
+          { "p": "Consider why you're embedded in the secondary guild. Create a story with your DM, inspired by rolling on the following table or choosing a reason that suits you." },
+          { "rt": 
+            [ 
+              "My parents belong to this guild, and I let them think I'm following in their footsteps.",
+              "I've been assigned to track this guild's activities.",
+              "I've been assigned to get close to an individual in this guild and learn their secrets.",
+              "I've been assigned to recruit a new Dimir spy from the ranks of this guild.",
+              "I was a member of this guild before the Dimir recruited me.",
+              "I don't like what this guild stands for and want to destroy it from within.",
+              "I secretly wish I could leave the Dimir and join this guild, but there is no escaping the Dimir.",
+              "I chose this guild at random or on a lark."
+            ] 
+          }
+        ]
+      },
+      { "title": "Dimir Guild Spells",
+        "description": 
+          [
+            {"i": "Prerequisite: Spellcasting or Pact Magic class feature"},
+            {"p": "For you, the spells on the Dimir Guild Spells table are added to the spell list of your spellcasting class. (If you are a multiclass character with multiple spell lists, these spells are added to all of them.)"},
+            {"b": "Dimir Guild Spells"},
+            {"st": 
+              [
+                "Encode Thoughts, Mage Hand",
+                "Disguise Self, Sleep",
+                "Detect Thoughts, Pass Without Trace",
+                "Gaseous Form, Meld Into Stone, Nondetection",
+                "Arcane Eye, Freedom of Movement",
+                "Modify Memory"
+              ]
+            },
+            { "p": "Your magic is meant to be subtle and undetectable, but it might pull shadows or clouds of mist around you as you cast your spells. Using the cantrip, you can turn a creature's thoughts (including your own) into a thought strand that others can potentially read, share, or steal. These thought strands are treated as valuable currency among the Dimir." }
+          ]
+      }
+    ],
+    "suggested": [ "Skilled at infiltration, disguise, and deception, members of House Dimir appear inscrutable. Your true personality and ideals might never manifest, or they might mark you as a quirky member of your secondary guild." ],
+    "traits":
+    { "personality":
+      [
+        "I'm good at hiding my true thoughts and feelings.",
+        "When I'm in doubt about revealing something, I assume it's a secret, and I don't share it.",
+        "I like to sound mysterious, because wisdom hidden grows deeper with time.",
+        "I have no patience with people who get in my way.",
+        "I love hearing about other people's nightmares.",
+        "Combat is meant to be quick, clean, and one-sided.",
+        "I like to stick to the shadows.",
+        "I never show my anger. I just plot my revenge."
+      ],
+      "ideals":
+      [ 
+        "Guild. My guild is all that really matters. (Any)",
+        "Control. I like pulling the strings. (Lawful)",
+        "Secrets. I collect secrets and never reveal them. (Any)",
+        "Knowledge. I want to know as much as I can about this city and how it works. (Any)",
+        "Independence. I value the freedom to pursue my own goals without interference. (Chaotic)",
+        "Nihilism. I don't believe in anything, and anyone who does is a fool. (Neutral)"
+      ],
+      "bonds":
+      [ 
+        "I discovered a secret I can't let anyone else uncover - including my guild superiors.",
+        "I formed a close friendship or romance with someone in the guild I'm infiltrating.",
+        "The Dimir agent who recruited me was unmasked and killed. My revenge on the killers will be thorough and painful.",
+        "I spend as much time as I can in the Ismeri Library because I'm certain an information hub operates behind its facade. I want its secrets!",
+        "I'm utterly loyal to my superior in the guild, more than to the guild or its guildmaster.",
+        "Someone has discovered my true identity."
+      ],
+      "flaws":
+      [ 
+        "I like secrets so much that I'm reluctant to share details of a plan even with those who need to know.",
+        "I would let my friends die rather than reveal my true identity.",
+        "I have trouble trusting anyone but myself.",
+        "I have a particular vice that puts all my secrets at risk if I'm not careful.",
+        "I'm pretty sure I've done something horrible that I can't remember because of the guild's mind magic.",
+        "I put too much trust in the people who give me orders."
+      ]
+    }
+  },
+  { "title": "Dissenter",
+    "sourceurl": "http://dnd5e.wikidot.com/background:dissenter",
+    "source": "Plane Shift: Amonket",
+    "description": 
+    [ "Even in the carefully constructed and curated city-state of Naktamun, and in the presence of the five gods, some people rebel against the doctrines of the God-Pharaoh. They don't challenge the existence of the gods, of course, for those gods are visible nearly every day in the streets of the city. Nor do they question the fact of life after death, which is plain to see in the anointed mummies that surround them, as well as the marauding mummies outside the Hekma. Rather, these dissenters simply refuse to follow the ordained course of life that leads to the glorious afterlife.",
+      "Some dissenters are spurred by fear, not wanting to subject themselves to a violent death in the trials (or in training for the trials). Some are moved by conscience, unwilling to kill their crop-mates in the trials. For while they cannot deny that the gods exist, they can deny that the gods are just-and can fight to prove that the dictates of an unjust god need not be obeyed. Some believe that one god (probably Bontu) has corrupted the process of the trials and the path to the afterlife. Others correctly intuit that the God-Pharaoh did not actually have the people's best interests in mind when he ordered their society.",
+      "A character who is identified as a dissenter loses the benefit of the initiate's or vizier's background feature. In its place, the character gains the following feature:"  
+    ],
+    "features": [
+      { "title": "Shelter of Dissenters",
+        "description": [
+          { "p": "If they wish to have any hope of survival, whether hiding within the city or cast out into the desert, dissenters must help each other. You can find a place to hide, rest, or recuperate among other dissenters. They will help shield you from those who hunt you, possibly even risking their lives for you."}
+        ]
+      }
+    ]
+  },
+  { "title": "Dragon Casualty",
+    "sourceurl": "http://dnd5e.wikidot.com/background:dragon-casualty",
+    "source": "Curse of Strahd",
+    "description": 
+    [ 
+      "When the Maimed Virulence descended upon Phlan, you were one of the unfortunate casualties of war. Captured during the initial assault, you have spent the last year of your life as a plaything of a capricious and malevolent overlord.",
+      "While many of your fellow prisoners fell to the dragon's insatiable fury over the coming months, you and your fellow \"survivors\" were spared only for a worse fate as one of the dragon's magical experiments, leaving you and those who survived the torture scarred and disfigured.",
+      "What reasons the dragon had for releasing you few survivors, nobody knows. You only fear that those who died under his terrible claw were the lucky ones, and you and your fellow Dragon scarred are doomed for a fate worse than death."
+    ],
+    "proficiencies":
+    { "skills": [ "Intimidation", "Survival" ],
+      "tools": [ "Special (see origin below)" ],
+      "languages": [ "Draconic" ]
+    },
+    "equipment": [ "A dagger tattered rags, a loaf of moldy bread, a small cast-off scale belonging to Vorgansharax - the Maimed Virulence, and a pouch with 5gp of various coins (salvaged during your escape from Phlan)." ],
+    "features": [
+      { "title": "Origin",
+        "description": [
+          { "p": "Prior to the coordinated attack by the Maimed Virulence and his rebel Black Fist supporters, you were once a citizen or visitor to Phlan. While the trauma of your recent ordeal has greatly altered your motivations and perception of the world, your former life still clings to you and colors your mannerisms, behaviors, and outlook on life. Choose one entry on the following table (or roll randomly) to determine your former occupation prior to your incarceration and torture. Your choice determines your tool proficiency from this background."},
+          { "rt": 
+            [ 
+              "Dockworker/Fisherman (Vehicles, water)",
+              "Tradesperson/Merchant (Artisan's Tools)",
+              "Black Fist Soldier (Gaming Set or Vehicles, land)",
+              "Adventurer/Visitor (Vehicles, land)",
+              "Entertainer (Musical Instrument)",
+              "Scholar/Healer (Alchemist's Supplies or Herbalism Kit)",
+              "Criminal (Thieves' Tools, Forgery Kit, or Disguise Kit)",
+              "Unskilled Laborer (Gaming Set)"
+            ] 
+          }
+        ]
+      },
+      { "title": "Dragonscarred",
+        "description": 
+          [
+            {"p": "Over a period of several months you were subject to magical and mundane torture at the claws of Vorgansharax and his minions. These experiments have left you horribly disfigured but mark you as a survivor of the Maimed Virulence." },
+            {"p": "This affords you a measure of fame and notoriety, for those who know of your harrowing ordeal are keen to hear the tale personally, but makes it difficult to disguise your appearance and hide from prying eyes. You can parley this attention into access to people and places you might not otherwise have for you and your companions. Nobles, scholars, mages, and those who seek to ferret out the secrets of the Maimed Virulence would all be keen to hear your tale of survival, and learn what secrets (if any) you might possess, and/or study your affliction with great interest." },
+            {"p": "However, you fear that your afflictions are not completely mundane and that the Maimed Virulence may as yet have some nefarious reason for allowing your escape, as your scars burn with acidic fury and seem to writhe beneath your skin at times." },
+            {"b": "Disfigurement"},
+            {"p": "In addition to extensive scarring, you may choose one of the following options to represent your disfigurement. This disfigurement is purely cosmetic, misshapen, and horrific to look upon."},
+            {"rt": 
+              [
+                "Small non-functional wing(s) or alternately-misshapen, wing-like membranes along one or both arms",
+                "Elongated, claw-like hand(s) and/or feet",
+                "Painful green scales randomly embedded in skin",
+                "Bulbous, reptilian eye(s)",
+                "Enlarged dorsal spines",
+                "Hair replaced with small irregular spines"
+              ]
+            }
+          ]
+      }
+    ],
+    "traits":
+    { "personality":
+      [
+        "I am driven to escape my past, and rarely stay in one place long.",
+        "I know secrets of the Maimed Virulence, but fear the harm that may befall me should others learn them.",
+        "Speaking of my ordeal helps soothe the still open wounds in my soul.",
+        "My former life is meaningless, and was ripped to shreds by the claws of Vorgansharax. All that matters now is what I do with the future.",
+        "I have faced the worst a dragon can deliver and survived. I am fearless, and my resolve unshakable.",
+        "I am haunted by my tortured past, and wake at night screaming at half-remembered horrors.",
+        "I sleep with my back to a wall or tree, and a weapon within arm's reach.",
+        "I am slow to trust, but incredibly loyal to those who have earned it."
+      ],
+      "ideals":
+      [ 
+        "Survivor. No matter the cost, I will take any action necessary to survive. (Any)",
+        "Independence. When in trouble, the only person I can rely on is myself. (Chaotic)",
+        "Compassionate. I have suffered long at the hands of a Dragon, and take pity and compassion on the suffering of others. (Good)",
+        "Secretive. I am withdrawn, and hide my monstrous appearance for fear of drawing unwanted attention. (Chaotic)",
+        "Justice. I have been wronged, and will not allow the same fate to befall others. (Lawful)",
+        "Sycophant. During my ordeal, I became a willing servant of the Maimed Virulence, and spy on his behalf. (Evil)"
+      ],
+      "bonds":
+      [ 
+        "I have sworn vengeance on the Maimed Virulence and those that follow him.",
+        "I long to reunite with friends and family who may dwell among the Phlan Refugees, and protect them.",
+        "While a prisoner of the Maimed Virulence, I overheard rumors of an item or treasure the Dragon seeks. I will have that treasure for myself!",
+        "I seek to reclaim and rebuild my former life to the best of my ability.",
+        "I have been reborn as a child of Vorgansharax. I will claim my birthright as his chosen heir and successor.",
+        "I attribute my survival to the work of the divine, and seek to prove myself worthy of the honor."
+      ],
+      "flaws":
+      [ 
+        "I have been touched with dragon-greed, and have a lust for wealth which can never be satisfied.",
+        "I secretly believe others are plotting to harm me.",
+        "I no longer enjoy the simple pleasures in life. Food is but ashes and bile in my throat.",
+        "Anyone who refuses to celebrate my celebrity does not deserve my company.",
+        "I am paranoid and overly suspicious of others. Anyone may be an agent of the Maimed Virulence.",
+        "Once I make up my mind, I follow my chosen course of action regardless of the consequences."
       ]
     }
   }

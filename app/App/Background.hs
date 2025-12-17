@@ -118,25 +118,35 @@ sourceView b =
 
 proficienciesView :: Background -> [View Model Action]
 proficienciesView b = 
-  [ H.h4_ [] [ text "Proficiencies" ] 
-  , H.p_ [] 
-    [ H.strong_ [] [ text "Skill Proficiencies: " ], text (ms $ L.intercalate ", " $ b ^. (proficiencies . skill)), H.br_ []
-    , H.strong_ [] [ text "Tool Proficiencies: " ], text (ms $ L.intercalate ", " $ b ^. (proficiencies . tool)), H.br_ []
-    , H.strong_ [] [ text "Languages: " ], text (ms $ L.intercalate ", " $ b ^. (proficiencies . languages)), H.br_ []
-    , H.strong_ [] [ text "Equipment: " ], text (ms $ L.intercalate ", " $ b ^. equipment)
-    ]
-  ]
+  case ( b ^. proficiencies ) of
+    Nothing -> equipmentView (b ^. equipment)
+    Just ps ->
+      [ H.h4_ [] [ text "Proficiencies" ] 
+      , H.p_ [] (
+        [ H.strong_ [] [ text "Skill Proficiencies: " ], text (ms $ L.intercalate ", " $ ps ^. skill), H.br_ []
+        , H.strong_ [] [ text "Tool Proficiencies: " ], text (ms $ L.intercalate ", " $ ps ^. tool), H.br_ []
+        , H.strong_ [] [ text "Languages: " ], text (ms $ L.intercalate ", " $ ps ^. languages)
+        ] <> equipmentView (b ^. equipment)
+        )
+      ]
 
-featuresView :: [BackgroundFeature] -> [View Model Action]
-featuresView [] = []
-featuresView xs = ( H.h4_ [] [ text "Features" ] ) : (concatMap featureView xs)
+equipmentView :: Maybe [String] -> [ View Model Action ]
+equipmentView Nothing   = []
+equipmentView (Just []) = []
+equipmentView (Just xs) = [ H.br_ [], H.strong_ [] [ text "Equipment: " ], text (ms $ L.intercalate ", " xs) ]
+
+featuresView :: Maybe [BackgroundFeature] -> [View Model Action]
+featuresView Nothing   = []
+featuresView (Just []) = []
+featuresView (Just xs) = ( H.h4_ [] [ text "Features" ] ) : (concatMap featureView xs)
 
 featureView :: BackgroundFeature -> [View Model Action]
 featureView f = ( H.h6_ [] [ text (ms $ f ^. featureTitle) ] ) : (map renderInline (f ^. featureDescription))
 
-suggestedView :: [String] -> [View Model Action]
-suggestedView [] = []
-suggestedView xs = ( H.h4_ [] [ text "Suggested Characteristics"] ) : map f xs
+suggestedView :: Maybe [String] -> [View Model Action]
+suggestedView Nothing   = []
+suggestedView (Just []) = []
+suggestedView (Just xs) = ( H.h4_ [] [ text "Suggested Characteristics"] ) : map f xs
   where
     f x = H.p_ [] [ text ( ms $ x ) ]   
 
@@ -155,7 +165,7 @@ traitTable :: String -> [String] -> View Model Action
 traitTable tableName xs =
   H.div_ [ P.class_ "s6" ]
   [ H.h4_ [] [ text $ ms (tableName <> "s") ]
-  , stripeTable tableName xs
+  , rollTable tableName xs
   ]
 
 page :: a -> Model -> Component a Model Action

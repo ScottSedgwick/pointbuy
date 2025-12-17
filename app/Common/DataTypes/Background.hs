@@ -51,10 +51,10 @@ data Background = Background
   , _description :: [String]
   , _source :: String
   , _sourceurl :: String
-  , _proficiencies :: BackgroundProficiency
-  , _equipment :: [String]
-  , _features :: [BackgroundFeature]
-  , _suggested :: [String]
+  , _proficiencies :: Maybe BackgroundProficiency
+  , _equipment :: Maybe [String]
+  , _features :: Maybe [BackgroundFeature]
+  , _suggested :: Maybe [String]
   , _traits :: Maybe BackgroundTraits
   } deriving (Show, Eq, Generic)
 makeLenses ''Background
@@ -65,8 +65,8 @@ instance FromJSON Background where
     <*> v .: "description"
     <*> v .: "source"
     <*> v .: "sourceurl"
-    <*> v .: "proficiencies"
-    <*> v .: "equipment"
-    <*> v .: "features"
-    <*> v .: "suggested"
+    <*> v .:? "proficiencies"
+    <*> v .:? "equipment"
+    <*> v .:? "features"
+    <*> v .:? "suggested"
     <*> v .:? "traits"
