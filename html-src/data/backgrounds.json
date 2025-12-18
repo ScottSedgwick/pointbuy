@@ -1243,5 +1243,1477 @@
         "Once I make up my mind, I follow my chosen course of action regardless of the consequences."
       ]
     }
+  },
+  { "title": "Earthspur Miner",
+    "sourceurl": "http://dnd5e.wikidot.com/background:earthspur-miner",
+    "source": "Mulmaster Bonds and Backgrounds",
+    "description": 
+    [ 
+      "You are a down-on-your-luck miner from the Earthspur Mountains who is no stranger to hardship. You have spent a great deal of time living among the dwarves, goliaths, and denizens of the Underdark who also work mines in the area. At this point, you're just as comfortable working underground as above. You know how to read a seam, dicker for supplies with the deep gnomes, party with dwarves, and find your way back to the surface afterward. Unfortunately, you haven't struck it rich... yet. Although you've come to Mulmaster looking for work, the tall peaks and deep mines of the Earthspurs still call to you."
+    ],
+    "proficiencies":
+    { "skills": [ "Athletics", "Survival" ],
+      "tools": [ "None" ],
+      "languages": [ "Dwarven", "Undercommon" ]
+    },
+    "equipment": [ "A shovel or a miner's pick, a block and tackle, a climber's kit, a set of common clothes, and a pouch containing 5gp" ],
+    "features": [
+      { "title": "Deep Miner",
+        "description": [
+          { "p": "You are used to navigating the deep places of the earth. You never get lost in caves or mines if you have either seen an accurate map of them or have been through them before. Furthermore, you are able to scrounge fresh water and food for yourself and as many as five other people each day if you are in a mine or natural caves."}
+        ]
+      }
+    ],
+    "traits":
+    { "personality":
+      [
+        "Nothing bothers me for long.",
+        "I hate the horrors of the Underdark with a passion. They took my friends and family and almost got me.",
+        "Anything worth doing takes time and patience. I have learned to plan and wait for the things I want and to be patient to achieve my goals.",
+        "I can party with everyone. Whether with dwarves, or goliaths, or deep gnomes, I can find a way to have a good time.",
+        "I'd rather be mining. This is okay; mining is better.",
+        "I think that I will stumble upon great riches if I just keep looking.",
+        "People who don't work with their hands and who live in houses are soft and weak.",
+        "I wish I were more educated. I look up to people who are."
+      ],
+      "ideals":
+      [ 
+        "Generosity. The riches of the earth are to be shared by all. (Good)",
+        "Greed. Gems and precious metals, I want them all for myself. (Evil)",
+        "Mooch. Property, schmoperty. If I need it, I take and use it. If I don't, I leave it for someone else. (Chaotic)",
+        "Boundaries. Everything and everyone has its prescribed place; I respect that and expect others to do the same. (Lawful)",
+        "Let it Be. I don't meddle in the affairs of others if I can avoid it. They're none of my business. (Neutral)",
+        "Materialist. I want riches to improve my life. (Any)"
+      ],
+      "bonds":
+      [ 
+        "The people of the Earthspur mines are my family. I will do anything to protect them.",
+        "A deep gnome saved my life when I was injured and alone. I owe his people a great debt.",
+        "I must behold and preserve the natural beauty of places below the earth.",
+        "Gems hold a special fascination for me, more than gold, land, magic, or power.",
+        "I want to explore new depths and scale new heights.",
+        "Someday I'm going to find the motherlode, then I'll spend the rest of my life in luxury."
+      ],
+      "flaws":
+      [ 
+        "I'm uncomfortable spending time under the open sky. I'd rather be indoors or underground.",
+        "I'm not used to being around other people much and sometimes get grouchy about it.",
+        "Good tools are more reliable than people. In a cave-in, I would save a sturdy pick before a stranger.",
+        "I jealously guard my secrets, because I think others will take advantage of me if they learn what I know.",
+        "I am obsessed with getting rich. I always have a scheme brewing for making it big.",
+        "I'm afraid of the dark."
+      ]
+    }
+  },
+  { "title": "Entertainer",
+    "sourceurl": "http://dnd5e.wikidot.com/background:entertainer",
+    "source": "Players Handbook",
+    "description": 
+    [ 
+      "You thrive in front of an audience. You know how to entrance them, entertain them, and even inspire them. Your poetics can stir the hearts of those who hear you, awakening grief or joy, laughter or anger. Your music raises their spirits or captures their sorrow. Your dance steps captivate, your humor cuts to the quick. Whatever techniques you use, your art is your life."
+    ],
+    "proficiencies":
+    { "skills": [ "Acrobatics", "Performance" ],
+      "tools": [ "Disguise kit, one type of musical instrument" ],
+      "languages": [ "None" ]
+    },
+    "equipment": [ "A musical instrument (one of your choice), the favor of an admirer (love letter, lock of hair, or trinket), a costume, and a pouch containing 15gp" ],
+    "features": [
+      { "title": "Variant: Gladiator",
+        "description": [
+          { "p": "A gladiator is as much an entertainer as any minstrel or circus performer trained to make the arts of combat into a spectacle the crowd can enjoy. This kind of flashy combat is your entertainer routine, though you might also have some skills as a tumbler or actor. Using your By Popular Demand feature, you can find a place to perform in any place that features combat for entertainment-perhaps a gladiatorial arena or secret pit fighting club. You can replace the musical instrument in your equipment package with an inexpensive but unusual weapon, such as a trident or net."}
+        ]
+      },
+      { "title": "Entertainer Routines",
+        "description": [
+          {"p": "A good entertainer is versatile, spicing up every performance with a variety of different routines. Choose one to three routines or roll on the table below to define your expertise as an entertainer."},
+          {"rt": ["Actor", "Dancer", "Fire-eater", "Jester", "Juggler", "Instrumentalist", "Poet", "Singer", "Storyteller", "Tumbler" ] }
+        ]
+      },
+      { "title": "By Popular Demand",
+        "description": [
+          {"p": "You can always find a place to perform, usually in an inn or tavern but possibly with a circus, at a theater, or even in a noble's court. At such a place, you receive free lodging and food of a modest or comfortable standard (depending on the quality of the establishment), as long as you perform each night. In addition, your performance makes you something of a local figure. When strangers recognize you in a town where you have performed, they typically take a liking to you."}
+        ]
+      }
+    ],
+    "suggested": ["Successful entertainers have to be able to capture and hold an audience's attention, so they tend to have flamboyant or forceful personalities. They're inclined toward the romantic and often cling to high-minded ideals about the practice of art and the appreciation of beauty."],
+    "traits":
+    { "personality":
+      [
+        "I know a story relevant to almost every situation.",
+        "Whenever I come to a new place, I collect local rumors and spread gossip.",
+        "I'm a hopeless romantic, always searching for that 'special someone.'",
+        "Nobody stays angry at me or around me for long, since I can defuse any amount of tension.",
+        "I love a good insult, even one directed at me.",
+        "I get bitter if I'm not the center of attention.",
+        "I'll settle for nothing less than perfection.",
+        "I change my mood or my mind as quickly as I change key in a song."
+      ],
+      "ideals":
+      [ 
+        "Beauty. When I perform, I make the world better than it was. (Good)",
+        "Tradition. The stories, legends, and songs of the past must never be forgotten, for they teach us who we are. (Lawful)",
+        "Creativity. The world is in need of new ideas and bold action. (Chaotic)",
+        "Greed. I'm only in it for the money and fame. (Evil)",
+        "People. I like seeing the smiles on people's faces when I perform. That's all that matters. (Neutral)",
+        "Honesty. Art should reflect the soul; it should come from within and reveal who we really are. (Any)"
+      ],
+      "bonds":
+      [ 
+        "My instrument is my most treasured possession, and it reminds me of someone I love.",
+        "Someone stole my precious instrument, and someday I'll get it back.",
+        "I want to be famous, whatever it takes.",
+        "I idolize a hero of the old tales and measure my deeds against that person's.",
+        "I will do anything to prove myself superior to my hated rival.",
+        "I would do anything for the other members of my old troupe."
+      ],
+      "flaws":
+      [ 
+        "I'll do anything to win fame and renown.",
+        "I'm a sucker for a pretty face.",
+        "A scandal prevents me from ever going home again. That kind of trouble seems to follow me around.",
+        "I once satirized a noble who still wants my head. It was a mistake that I will likely repeat.",
+        "I have trouble keeping my true feelings hidden. My sharp tongue lands me in trouble.",
+        "Despite my best efforts, I am unreliable to my friends."
+      ]
+    }
+  },
+  { "title": "Faceless",
+    "sourceurl": "http://dnd5e.wikidot.com/background:faceless",
+    "source": "Baldur's Gate: Descent into Avernus",
+    "description": 
+    [ 
+      "Being who you are, you could never be a hero. Whether due to your class, your people, your family, or your sins, something about you prevents you from effectively pursuing the path you've chosen. Even so, that doesn't stop you. You've left your old face behind, taking on a new persona, becoming something more.",
+      "Characters with the faceless background don a disguise-literally or otherwise-as they adventure. This persona might be dramatic or subtle. In a way, though, many characters have such larger than life personalities. Therefore, this background largely focuses on detailing the hero behind the mask."
+    ],
+    "proficiencies":
+    { "skills": [ "Deception", "Intimidation" ],
+      "tools": [ "Disguise kit" ],
+      "languages": [ "One of your choice" ]
+    },
+    "equipment": [ "A disguise kit, a costume, and a pouch containing 10gp" ],
+    "features": [
+      { "title": "Faceless Persona",
+        "description": [
+          { "p": "A faceless character adventures behind a mask of a public persona. This persona is as natural to them as their hidden, true face, but it disguises their identity. Roll on the Faceless Persona table to determine your persona, or work with the DM to create a persona that's unique to your character and suits the tone of your game."},
+          { "rt": [ "A flamboyant spy or brigand", "The incarnation of a nation or people", "A scoundrel with a masked guise", "A vengeful spirit", "The manifestation of a deity or your faith", "One whose beauty is greatly accented using makeup", "An impersonation of another hero", "The embodiment of a school of magic", "A warrior with distinctive armor", "A disguise with animalistic or monstrous characteristics, meant to inspire fear" ]}
+        ]
+      },
+      { "title": "Dual Personalities",
+        "description": [
+          {"p": "Most of your fellow adventurers and the world know you as your persona. Those who seek to learn more about you-your weakness, your origins, your purpose-find themselves stymied by your disguise. Upon donning a disguise and behaving as your persona, you are unidentifiable as your true self. By removing your disguise and revealing your true face, you are no longer identifiable as your persona. This allows you to change appearances between your two personalities as often as you wish, using one to hide the other or serve as convenient camouflage. However, should someone realize the connection between your persona and your true self, your deception might lose its effectiveness."}
+        ]
+      }
+    ],
+    "suggested": ["A faceless character usually plays their persona-the hero or extraordinary person they are every day. That's all a facade, though, or a part of them expressed to an extreme. To define a persona, feel free to choose characteristics from other backgrounds, particularly folk hero, hermit, or noble. For the person behind the persona, the one who truly strives to be faceless, consider a distinct set of faceless characteristics. As a result, those with this background have two sets of characteristics, one for their persona, and one for their faceless selves."],
+    "traits":
+    { "personality":
+      [
+        "I'm earnest and uncommonly direct.",
+        "I strive to have no personality-it's easier to forget what's hardly there.",
+        "I treasure a memento of a person or instance that set me upon my path.",
+        "I sleep just as much as I need to and on an unusual schedule.",
+        "I think far ahead, a detachedness often mistaken for daydreaming.",
+        "I cultivate a single obscure hobby or study and eagerly discuss it at length.",
+        "I am ever learning how to be among others-when to stay quiet, when to laugh.",
+        "I behave like an extreme opposite of my persona."
+      ],
+      "ideals":
+      [ 
+        "Justice. Place in society shouldn't determine one's access to what is right. (Good)",
+        "Security. Doing what must be done can't bring the innocent to harm. (Lawful)",
+        "Confusion. Deception is a weapon. Strike from where your foes won't expect. (Chaotic)",
+        "Infamy. My name will be a malediction, a curse that fulfills my will. (Evil)",
+        "Incorruptibility. Be a symbol, and leave your flawed being behind. (Any)",
+        "Anonymity. It's my deeds that should be remembered, not their instrument. (Any)"
+      ],
+      "bonds":
+      [ 
+        "I do everything for my family. My first thought is keeping them safe.",
+        "What I do, I do for the world. The people don't realize how much they need me.",
+        "I've seen too many in need. I must not fail them as everyone else has.",
+        "I stand in opposition, lest the wicked go unopposed.",
+        "I am exceptional. I do this because no one else can, and no one can stop me.",
+        "I do everything for those who were taken from me."
+      ],
+      "flaws":
+      [ 
+        "I an callous about death. It comes to us all eventually.",
+        "I never make eye contact or hold it unflinchingly.",
+        "I have no sense of humor. Laughing is uncomfortable and embarrassing.",
+        "I overexert myself, sometimes needing to recuperate for a day or more.",
+        "I think far ahead, a detachedness often mistaken for daydreaming.",
+        "I see morality entirely in black and white."
+      ]
+    }
+  },
+  { "title": "Faction Agent",
+    "sourceurl": "http://dnd5e.wikidot.com/background:faction-agent",
+    "source": "Sword Coast Adventurer's Guide",
+    "description": 
+    [ 
+      "Many organizations active in the North and across the face of Faerun aren't bound by strictures of geography. These factions pursue their agendas without regard for political boundaries, and their members operate anywhere the organization deems necessary. These groups employ listeners, rumormongers, smugglers, sellswords, cache-holders (people who guard caches of wealth or magic for use by the faction's operatives), haven keepers, and message drop minders, to name a few. At the core of every faction are those who don't merely fulfill a small function for that organization, but who serve as its hands, head, and heart.",
+      "As a prelude to your adventuring career (and in preparation for it), you served as an agent of a particular faction in Faerun. You might have operated openly or secretly, depending on the faction and its goals, as well as how those goals mesh with your own. Becoming an adventurer doesn't necessarily require you to relinquish membership in your faction (though you can choose to do so), and it might enhance your status in the faction."
+    ],
+    "proficiencies":
+    { "skills": [ "Insight", "One Intelligence, Wisdom, or Charisma skill of your choice, as appropriate to your faction" ],
+      "tools": [ "None" ],
+      "languages": [ "Two of your choice" ]
+    },
+    "equipment": [ "The badge or emblem of your faction, a copy of a seminal faction text (or a code-book for a covert faction), a set of common clothes, and a pouch containing 15gp" ],
+    "features": [
+      { "title": "Factions of the Sword Coast",
+        "description": [
+          { "p": "The lack of large, centralized governments in the North and along the Sword Coast is likely directly responsible for the proliferation of secret societies and conspiracies in those lands. If your background is as an agent for one of the main factions of the North and Sword Coast, here are some possibilities."}
+        ]
+      },
+      { "title": "The Harpers",
+        "description": [
+          {"p": "Founded more than a millennium ago, disbanded and reorganized several times, the Harpers remain a powerful, behind-the-scenes agency, which acts to thwart evil and promote fairness through knowledge, rather than brute force. Harper agents are often proficient in Investigation, enabling them to be adept at snooping and spying. They often seek aid from other Harpers, sympathetic bards and innkeepers, rangers, and the clergy of gods that are aligned with the Harpers' ideals."}
+        ]
+      },
+      { "title": "The Order of the Gauntlet",
+        "description": [
+          {"p": "One of the newest power groups in Faerun, the Order of the Gauntlet has an agenda similar to that of the Harpers. Its methods are vastly different, however: bearers of the gauntlet are holy warriors on a righteous quest to crush evil and promote justice, and they never hide in the shadows. Order agents tend to be proficient in Religion, and frequently seek aid from law enforcement friendly to the order's ideals, and the clergy of the order's patron gods."}
+        ]
+      },
+      { "title": "The Emerald Enclave",
+        "description": [
+          {"p": "Maintaining balance in the natural order and combating the forces that threaten that balance is the twofold goal of the Emerald Enclave. Those who serve the faction are masters of survival and living off the land. They are often proficient in Nature, and can seek assistance from woodsmen, hunters, rangers, barbarian tribes, druid circles, and priests who revere the gods of nature."}
+        ]
+      },
+      { "title": "The Lords' Alliance",
+        "description": [
+          {"p": "On one level, the agents of the Lords' Alliance are representatives of the cities and other governments that constitute the alliance. But, as a faction with interests and concerns that transcend local politics and geography, the Alliance has its own cadre of individuals who work on behalf of the organizations, wider agenda. Alliance agents are required to be knowledgeable in History, and can always rely on the aid of the governments that are part of the Alliance, plus other leaders and groups who uphold the Alliance's ideals."}
+        ]
+      },
+      { "title": "The Zhentarim",
+        "description": [
+          {"p": "In recent years, the Zhentarim have become more visible in the world at large, as the group works to improve its reputation among the common people. The faction draws employees and associates from many walks of life, setting them to tasks that serve the goals of the Black Network but aren't necessarily criminal in nature. Agents of the Black Network must often work in secret, and are frequently proficient in Deception. They seek aid from the wizards, mercenaries, merchants and priesthoods allied with the Zhentarim."}
+        ]
+      },
+      { "title": "Safe Haven",
+        "description": [
+          {"p": "As a faction agent, you have access to a secret network of supporters and operatives who can provide assistance on your adventures. You know a set of secret signs and passwords you can use to identify such operatives, who can provide you with access to a hidden safe house, free room and board, or assistance in finding information. These agents never risk their lives for you or risk revealing their true identities."}
+        ]
+      }
+    ],
+    "suggested": 
+    [ "Use the tables for the Acolyte background as the basis for your traits and motivations, modifying the entries when appropriate to suit your identity. (For instance, consider the words 'faith' and 'faction' to be interchangeable.)",
+      "Your bond might be associated with other members of your faction, or a location or an object that is important to your faction. The ideal you strive for is probably in keeping with the tenets and principles of your faction, but might be more personal in nature."
+    ]
+  },
+  { "title": "Failed Merchant",
+    "sourceurl": "http://dnd5e.wikidot.com/background:failed-merchant",
+    "source": "Acquisitions Incorporated",
+    "description": 
+    [
+      "Maybe you come from a long line of merchants. Perhaps you were an entrepreneur. Regardless. your ventures ended poorly. Whether it was because of outside influences, bad luck, or simply because your business acumen was weak, you lost everything.",
+      "With failure, however. comes experience. You're free of that old life, having made some connections and learned your lessons. Prepared to pursue the life of an adventurer, your insight into the world of commerce brought you into the sphere of Acquisitions Incorporated - and a franchise just might be in your future."
+    ],
+    "proficiencies":
+    { "skills": [ "Investigation", "Persuasion" ],
+      "tools": [ "One type of artisan's tools" ],
+      "languages": [ "Any one of your choice" ]
+    },
+    "equipment": [ "One set of artisan's tools, merchant's scale, a set of fine clothes, and a belt pouch containing 10 gp." ],
+    "features": [
+      { "title": "Supply Chain",
+        "description": [
+          {"p": "From your time as a merchant, you retain connections with wholesalers, suppliers, and other merchants and entrepreneurs. You can call upon these connections when looking for items or information."}
+        ]
+      }
+    ],
+    "suggested": ["Being a merchant involved having a head for numbers, a strong personality. the ability to make deals with hostile adversaries, a strong sword arm to fight off bandits, and the intuition for knowing what people want and need. The art of business is the art of finding the best path to profit, and that path might be different with each transaction. It takes a strong mind and a stronger stomach to succeed. So why did you fail?"],
+    "traits":
+    { "personality":
+      [
+        "I didn't have the cutthroat attitude necessary to succeed. I won't make that mistake again.",
+        "Even my competitors said I was affable and talented. Those traits should serve me well.",
+        "To prosper, you have to be in control.",
+        "The customer is always right.",
+        "I was cutting corners and breaking deals to maximize profit. That's why I failed.",
+        "When I get an idea, I am single-minded in its execution - even if it's a terrible idea.",
+        "If I can be everyone's friend, I'll always have support.",
+        "My heart wasn't in being a merchant, so I failed. I'm not all that keen on adventuring either, but I need the money."
+      ],
+      "ideals":
+      [ 
+        "Survival. Where there's life, there's hope. If I remain alive and flexible, I can succeed. (Any)",
+        "Generosity. People helped me when I was down. Now that I'm back on my feet, I'll pay it forward. (Good)",
+        "Excitement. Caution got me nowhere in my previous business. I'm not going to let it hold me back now. (Chaotic)",
+        "Wealth. With enough coin, I can buy comfort, power, knowledge, and even eternal life. Nothing will stand between me and money. (Evil)",
+        "Stability. The mercantile trade was too chaotic for me. I need a nice stable profession, like adventuring. (Lawful)",
+        "Redemption. Too many people consider me a failure. So I need to prove them wrong. (Any)"
+      ],
+      "bonds":
+      [ 
+        "My family means everything to me. I failed them before, and I must not do so again.",
+        "My church provides a connection to my god, so I must ensure that it is protected and funded.",
+        "My former business partner fell ill, and then our business failed. Part of my new venture involves earning enough to take care of their family.",
+        "If I take care of my possessions, they'll take care of me. People come and go, but a weapon or a wand is something you can always rely on.",
+        "Although my business failed, the people of my community were kind to me. I'll do everything in my power to protect them.",
+        "I owe a dangerous person a lot of money. As long as they're happy, they let my debt rest unpaid."
+      ],
+      "flaws":
+      [ 
+        "Why spend gold here when you can buy the same thing for copper in the next town?",
+        "I must have the best of everything. Like, right now.",
+        "You haven't heard of me? I'm sure that's because of your ignorance and low breeding.",
+        "I failed, but I'm awesome. So when anyone else is successful, it must be because of nepotism, dishonesty, or dumb luck.",
+        "I find that most people are trustworthy. Hey, where's my belt pouch?",
+        "Nothing gets between me and danger except my fellow adventurers. So I'll be sure to put them there."
+      ]
+    }
+  },
+  { "title": "Far Traveler",
+    "sourceurl": "http://dnd5e.wikidot.com/far-traveler:",
+    "source": "Sword Coast Adventurer's Guide",
+    "description": 
+    [
+      "Almost all of the common people and other folk that one might encounter along the Sword Coast or in the North have one thing in common: they live out their lives without ever traveling more than a few miles from where they were born.",
+      "You aren't one of those folk.",
+      "You are from a distant place, one so remote that few of the common folk in the North realize that it exists, and chances are good that even if some people you meet have heard of your homeland, they know merely the name and perhaps a few outrageous stories. You have come to this part of Faerun for your own reasons, which you might or might not choose to share.",
+      "Although you will undoubtedly find some of this land's ways to be strange and discomfiting, you can also be sure that some things its people take for granted will be to you new wonders that you've never laid eyes on before. By the same token, you're a person of interest, for good or ill, to those around you almost anywhere you go."
+    ],
+    "proficiencies":
+    { "skills": [ "Insight", "Persuasion" ],
+      "tools": [ "Any one musical instrument or gaming set of your choice, likely something native to your homeland" ],
+      "languages": [ "Any one of your choice" ]
+    },
+    "equipment": [ "One set of traveller's clothes, any one musical instrument or gaming set you are proficient with, poorly wrought maps from your homeland that depict where you are in Faerun, a small piece of jewelry worth 10gp in the style of your homeland's craftsmanship, and a pouch containing 5gp" ],
+    "features": [
+      { "title": "Why Are You Here?",
+        "description": [
+          {"p": "A far traveler might have set out on a journey for one of a number of reasons, and the departure from his or her homeland could have been voluntary or involuntary. To determine why you are so far from home, roll on the table below or choose from the options provided. The following section, discussing possible homelands, includes some suggested reasons that are appropriate for each location."},
+          {"rt": [ "Emissary", "Exile", "Fugitive", "Pilgrim", "Sightseer", "Wanderer" ] }
+        ]
+      },
+      { "title": "Where Are You From?",
+        "description": [
+          {"p": "The most important decision in creating a far traveler background is determining your homeland. The places discussed here are all sufficiently distant from the North and the Sword Coast to justify the use of this background." },
+          {"p": "Evermeet. The fabled elven islands far to the west are home to elves who have never been to Faerun. They often find it a harsher place than they expected when they do make the trip. If you are an elf, Evermeet is a logical (though not mandatory) choice for your homeland." },
+          {"p": "Most of those who emigrate from Evermeet are either exiles, forced out for committing some infraction of elven law, or emissaries who come to Faerun for a purpose that benefits elven culture or society." },
+          {"p": "Halruaa. Located on the southern edges of the Shining South, and hemmed in by mountains all around, the magocracy of Halruaa is a bizarre land to most in Faerun who know about it. Many folk have heard of the strange skyships the Halruaans sail, and a few know of the tales that even the least of their people can work magic." },
+          {"p": "Halruaans usually make their journeys into Faerun for personal reasons, since their government has a strict stance against unauthorized involvement with other nations and organizations. You might have been exiled for breaking one of Halruaa's many byzantine laws, or you could be a pilgrim who seeks the shrines of the gods of magic." },
+          {"p": "Kara-Tur. The continent of Kara-Tur, far to the east of Faerun, is home to people whose customs are unfamiliar to the folk of the Sword Coast. If you come from Kara-Tur, the people of Faerun likely refer to you as Shou, even if that isn't your true ethnicity, because that's the blanket term they use for everyone who shares your origin." },
+          {"p": "The folk of Kara-Tur occasionally travel to Faerun as diplomats or to forge trade relations with prosperous merchant cartels. You might have come here as part of some such delegation, then decided to stay when the mission was over." },
+          {"p": "Mulhorand. From the terrain to the architecture to the god-kings who rule over these lands, nearly everything about Mulhorand is a lien to someone from the Sword Coast. You likely experienced the same sort of culture shock when you left your desert home and traveled to the unfamiliar climes of northern Faerun. Recent events in your homeland have led to the abolition of slavery, and a corresponding increase in the traffic between Mulhorand and the distant parts of Faerun." },
+          {"p": "Those who leave behind Mulhorand's sweltering deserts and ancient pyramids for a glimpse at a different life do so for many reasons. You might be in the North simply to see the strangeness this wet land has to offer, or because you have made too many enemies among the desert communities of your home." },
+          {"p": "Sossal. Few have heard of your homeland, but many have questions about it upon seeing you. Humans from Sossal seem crafted from snow, with alabaster skin and white hair, and typically dressed in white." },
+          {"p": "Sossal exists far to the northeast, hard up against the endless ice to the north and bounded on its other sides by hundreds of miles of the Great Glacier and the Great Ice Sea. No one from your nation makes the effort to cross such colossal barriers without a convincing reason. You must fear something truly terrible or seek something incredibly important." },
+          {"p": "Zakhara. As the saying goes among those in Faerun who know of the place, 'To get to Zakhara, go south. Then go south some more.' Of course, you followed an equally long route when you came north from your place of birth. Though it isn't unusual for Zakharans to visit the southern extremes of Faerun for trading purposes, few of them stray as far from home as you have." },
+          {"p": "You might be traveling to discover what wonders are to be found outside the deserts and sword-like mountains of your homeland, or perhaps you are on a pilgrimage to understand the gods that others worship, so that you might better appreciate your own deities." },
+          {"p": "The Underdark. Though your home is physically closer to the Sword Coast than the other locations discussed here, it is far more unnatural. You hail from one of the settlements in the Underdark, each of which has its own strange customs and laws. If you are a native of one of the great subterranean cities or settlements, you are probably a member of the race that occupies the place but you might also have grown up there after being captured and brought below when you were a child." },
+          {"p": "If you are a true Underdark native, you might have come to the surface as an emissary of your people, or perhaps to escape accusations of criminal behavior (whether warranted or not). If you aren't a native, your reason for leaving 'home' probably has something to do with getting away from a bad situation."}
+        ]
+      },
+      { "title": "All Eyes on You",
+        "description": [
+          {"p": "Your accent, mannerisms, figures of speech, and perhaps even your appearance all mark you as foreign. Curious glances are directed your way wherever you go, which can be a nuisance, but you also gain the friendly interest of scholars and others intrigued by far-off lands, to say nothing of everyday folk who are eager to hear stories of your homeland."},
+          {"p": "You can parley this attention into access to people and places you might not otherwise have, for you and your traveling companions. Noble lords, scholars, and merchant princes, to name a few, might be interested in hearing about your distant homeland and people."}
+        ]
+      }
+    ],
+    "traits":
+    { "personality":
+      [
+        "I have different assumptions from those around me concerning personal space, blithely invading others' space in innocence, or reacting to ignorant invasion of my own.",
+        "I have my own ideas about what is and is not food, and I find the eating habits of those around me fascinating, confusing, or revolting.",
+        "I have a strong code of honor or sense of propriety that others don't comprehend.",
+        "I express affection or contempt in ways that are unfamiliar to others.",
+        "I honor my deities through practices that are foreign to this land.",
+        "I begin or end my day with small traditional rituals that are unfamiliar to those around me."
+      ],
+      "ideals":
+      [ 
+        "Open. I have much to learn from the kindly folk I meet along my way. (Good)",
+        "Reserved. As someone new to these strange lands, I am cautious and respectful in my dealings. (Lawful)",
+        "Adventure. I'm far from home, and everything is strange and wonderful! (Chaotic)",
+        "Cunning. Though I may not know their ways, neither do they know mine, which can be to my advantage. (Evil)",
+        "Inquisitive. Everything is new, but I have a thirst to learn. (Neutral)",
+        "Suspicious. I must be careful, for I have no way of telling friend from foe here. (Any)"
+      ],
+      "bonds":
+      [ 
+        "So long as I have this token from my homeland, I can face any adversity in this strange land.",
+        "The gods of my people are a comfort to me so far from home.",
+        "I hold no greater cause than my service to my people.",
+        "My freedom is my most precious possession. I'll never let anyone take it from me again.",
+        "I'm fascinated by the beauty and wonder of this new land.",
+        "Though I had no choice, I lament having to leave my loved ones behind. I hope to see them again one day."
+      ],
+      "flaws":
+      [ 
+        "I am secretly (or not so secretly) convinced of the superiority of my own culture over that of this foreign land.",
+        "I pretend not to understand the local language in order to avoid interactions I would rather not have.",
+        "I have a weakness for the new intoxicants and other pleasures of this land.",
+        "I don't take kindly to some of the actions and motivations of the people of this land, because these folk are different from me.",
+        "I consider the adherents of other gods to be deluded innocents at best, or ignorant fools at worst.",
+        "I have a weakness for the exotic beauty of the people of these lands."
+      ]
+    }
+  },
+  { "title": "Feylost",
+    "sourceurl": "http://dnd5e.wikidot.com/background:feylost",
+    "source": "The Wild Beyond the Witchlight",
+    "description": 
+    [
+      "You grew up in the Feywild after disappearing from your home plane as a child. Perhaps you were spirited away by kindly Fey who thought you were destined for great things. Perhaps you stumbled through a Fey crossing by chance during a twilight stroll in the woods. Perhaps you were kidnapped by evil Fey but escaped from their clutches. Whatever the manner of your disappearance, you gradually fell under the Feywild's spell and learned a little about the nature of the mercurial tricksters that dwell there.",
+      "When you finally returned to your home plane, you did not come back unchanged. You are haunted by the fact the Feywild-a mirror world hidden behind a mere twist of perception-is only a hair's breadth away. Although your memories of the Feywild grow fainter with each passing day, your heart swells with a mixture of fear and joy at the prospect of one day venturing back to the Plane of Faerie-your home away from home."
+    ],
+    "proficiencies":
+    { "skills": [ "Deception", "Survival" ],
+      "tools": [ "One type of musical instrument" ],
+      "languages": [ "One of your choice of Elvish, Gnomish, Goblin, or Sylvan." ]
+    },
+    "equipment": [ "A musical instrument (one of your choice), a set of traveller's clothes, three trinkets (each determind by rolling on the Feywild Trinkets table), and a pouch containing 8gp" ],
+    "features": [
+      { "title": "Fey Mark",
+        "description": [
+          {"p": "You were transformed in some small way by your stay in the Feywild and gained a fey mark, determined by rolling on the Fey Mark table."},
+          {"rt": [
+            "Your eyes swirl with iridescent colors.",
+            "You have a sweet scent, like that of nectar or honey",
+            "You have long whiskers like those of a cat.",
+            "Your ears are covered with soft tufts of fur.",
+            "Your skin sparkles in moonlight.",
+            "Flowers either bloom or wilt (your choice) in your presence.",
+            "Your hair is made of vines or brambles and grows back to normal length within 1 hour of being cut",
+            "You have a tail like that of a dog or another animal."
+          ]}
+        ]
+      },
+      { "title": "Feywild Visitor",
+        "description": [
+          {"p": "Whenever you're sound asleep or in a deep trance during a long rest, a spirit of the Feywild might pay you a visit, if the DM wishes it. Determine the spirit's form by rolling on the Feywild Visitor table. No harm ever comes to you as a result of such visits, which can last for minutes or hours, and you remember each visit when you wake up. Conversations that occur with a visitor can contain any number of things, from messages and insights to nonsense and red herrings, at the DM's discretion. Such conversations are always conducted in a language you can understand, even if the Feywild visitor can't speak that language normally."},
+          {"rt":[
+            "Awakened creature (a Beast or an ordinary plant that has had the Awaken spell cast on it)",
+            "Centaur",
+            "Dryad",
+            "Faerie Dragon",
+            "Pixie",
+            "Satyr",
+            "Sprite",
+            "Unicorn"
+          ]}
+        ]
+      },
+      { "title": "Feywild Connection",
+        "description": [
+          {"p": "Your mannerisms and knowledge of fey customs are recognized by natives of the Feywild, who see you as one of their own. Because of this, friendly Fey creatures are inclined to come to your aid if you are lost or need help in the Feywild."}
+        ]
+      }
+    ],
+    "suggested": ["These tables, while optional, are well suited to Feywild-themed adventurers and are ideal for any character who has the Feylost background."],
+    "traits":
+    { "personality":
+      [
+        "I'm haunted by fey laughter that only I can hear, though I know it's just my mind playing tricks on me.",
+        "Like a nomad, I can't settle down in one place for very long.",
+        "Good music makes me weep like a baby.",
+        "Wherever I go, I try to bring a little of the warmth and tranquility of home with me.",
+        "I have never lost my childlike sense of wonder.",
+        "When I have a new idea, I get wildly excited about it until I come up with another, better idea.",
+        "I live by my own set of weird and wonderful rules.",
+        "I can't bring myself to trust most adults."
+      ],
+      "ideals":
+      [ 
+        "Friendship. I never leave a friend behind. (Good)",
+        "Empathy. No creature should be made to suffer. (Good)",
+        "Wanderlust. I prefer to take the less traveled path. (Chaotic)",
+        "Changeability. Change is good, which is why I live by an ever-changing set of rules. (Chaotic)",
+        "Honor. A deal is a deal, and I would never break one. (Lawful)",
+        "Rule of Three. Everything in the multiverse happens in threes. I see the 'rule of three' everywhere. (Lawful)",
+        "Obsession. I won't let go of a grudge. (Evil)",
+        "Greed. I will do whatever it takes to get what I want, regardless of the harm it might cause. (Evil)"
+      ],
+      "bonds":
+      [ 
+        "I would never break my word.",
+        "I find magic in all its forms to be compelling. The more magical a place, the more I am drawn to it.",
+        "I do what I can to protect the natural world.",
+        "A trusted friend is the most important thing in the multiverse to me.",
+        "I can't bring myself to harm a Fey creature, either because I consider myself one or because I fear the repercussions.",
+        "The Witchlight Carnival feels like home to me.",
+        "I'm drawn to the Feywild and long to return there, if only for a short while.",
+        "I feel indebted to Mister Witch and Mister Light for giving me a home and a purpose."
+      ],
+      "flaws":
+      [ 
+        "I easily lose track of time. My poor sense of time means I'm always late.",
+        "I think the whole multiverse is out to get me.",
+        "I'm always operating under a tight timeline, and I'm obsessed with keeping everything on schedule.",
+        "I'm a kleptomaniac who covets shiny, sparkling treasure.",
+        "I'm forgetful. Sometimes I can't remember even the simplest things.",
+        "I never give away anything for free and always expect something in return.",
+        "I have many vices and tend to indulge them.",
+        "I'm always changing my mind-well, almost always."
+      ]
+    }
+  },
+  { "title": "Fisher",
+    "sourceurl": "http://dnd5e.wikidot.com/background:fisher",
+    "source": "Ghosts of Saltmarch",
+    "description": 
+    [
+      "You have spent your life aboard fishing vessels or combing the shallows for the bounty of the ocean. Perhaps you were born into a family of fisher folk, working with your kin to feed your village. Maybe the job was a means to an end - a way out of an undesirable circumstance that forced you to take up life aboard a ship. Regardless of how you began, you soon fell in love with the sea, the art of fishing, and the promise of the eternal horizon."
+    ],
+    "proficiencies":
+    { "skills": [ "History", "Survival" ],
+      "tools": [ "None" ],
+      "languages": [ "One of your choice" ]
+    },
+    "equipment": [ "Fishing tackle, a net, a favorite fishing lure or oiled leather wading boots, a set of traveler's clothes, and a belt pouch containing 10 gp" ],
+    "features": [
+      { "title": "Harvest the Water",
+        "description": [
+          {"p": "You gain advantage on ability checks made using fishing tackle. If you have access to a body of water that sustains marine life, you can maintain a moderate lifestyle while working as a fisher, and you can catch enough food to feed yourself and up to ten other people each day."}
+        ]
+      },
+      { "title": "Fishing Tale",
+        "description": [
+          {"p": "You can tell a compelling tale, whether tall or true, to impress and entertain others. Once a day, you can tell your story to willing listeners. At the DM's discretion, a number of those listeners become friendly toward you; this is not a magical effect, and continued amicability on their part depends on your actions. You can roll on the following table to help determine the theme of your tale or choose one that best fits your character. Alternatively, work with your DM to create your own fishing tale."},
+          {"rt": [
+            "Lobster Wrestling. You fought in hand-to-hand combat with an immense lobster.",
+            "It Dragged the Boat. You nearly caught a fish of monstrous size that pulled your boat for miles.",
+            "Fins of Pure Gold. You caught a sea animal whose fins were made of pure gold, but another fisher stole it.",
+            "Ghost Fish. You are haunted by a ghostly fish that only you can see.",
+            "Nemesis Clam. A large clam containing a pearl the size of your head claimed one of your fingers before jetting away; one day, you'll find that clam.",
+            "It Swallowed the Sun. You once saw a fish leap from the water and turn day into night.",
+            "Dive into the Abyss. You found yourself in an underwater cave leading to the Abyss, and your luck has been sour ever since.",
+            "Love Story. You fell in love with a creature of pure water, but your brief romance ended tragically."
+          ]}
+        ]
+      }
+    ],
+    "suggested": ["Fishers succeed only if they spend time at their jobs. As such, most fishers have a strong work ethic, and they admire others who earn their living honestly. Fishers tend to be superstitious, forming attachments to particular fishing lures or special fishing spots. They have a connection to the bodies of water in which they fish, and they think poorly of those whose actions adversely affect their livelihood."],
+    "traits":
+    { "personality":
+      [
+        "I am unmoved by the wrath of nature.",
+        "My friends are my crew; we sink or float together.",
+        "I need long stretches of quiet to clear my head.",
+        "Rich folk don't know the satisfaction of hard work.",
+        "I laugh heartily, feel deeply, and fear nothing.",
+        "I work hard; nature offers no handouts.",
+        "I dislike bargaining; state your price and mean it.",
+        "Luck favors me, and I take risks others might not."
+      ],
+      "ideals":
+      [ 
+        "Camaraderie. Good people make even the longest voyage bearable. (Good)",
+        "Luck. Our luck depends on respecting its rules-now throw this salt over your shoulder. (Lawful)",
+        "Daring. The richest bounty goes to those who risk everything. (Chaotic)",
+        "Plunder. Take all that you can and leave nothing for the scavengers. (Evil)",
+        "Balance. Do not fish the same spot twice in a row; suppress your greed, and nature will reward you. (Neutral)",
+        "Hard Work. No wave can move a soul hard at work. (Any)"
+      ],
+      "bonds":
+      [ 
+        "I lost something important in the deep sea, and I intend to find it.",
+        "Someone else's greed destroyed my livelihood, and I will be compensated.",
+        "I will fish the many famous waters of this land.",
+        "The gods saved me during a terrible storm, and I will honor their gift.",
+        "My destiny awaits me at the bottom of a particular pond in the Feywild.",
+        "I must repay my village's debt."
+      ],
+      "flaws":
+      [ 
+        "I am judgmental, especially of those I deem homebodies or otherwise lazy.",
+        "I become depressed and anxious if I'm away from the sea too long.",
+        "I have lived a hard life and find it difficult to empathize with others.",
+        "I am inclined to tell long-winded stories at inopportune times.",
+        "I work hard, but I play harder.",
+        "I am obsessed with catching an elusive aquatic beast, often to the detriment of other pursuits."
+      ]
+    }
+  },
+  { "title": "Folk Hero",
+    "sourceurl": "http://dnd5e.wikidot.com/background:folk-hero",
+    "source": "Player's Handbook",
+    "description": 
+    [
+      "You come from a humble social rank, but you are destined for so much more. Already the people of your home village regard you as their champion, and your destiny calls you to stand against the tyrants and monsters that threaten the common folk everywhere."
+    ],
+    "proficiencies":
+    { "skills": [ "Animal Handling", "Survival" ],
+      "tools": [ "One type of artisan's tools", "Vehicles (land)" ],
+      "languages": [ "None" ]
+    },
+    "equipment": [ "A set of artisan's tools (one of your choice), a shovel, an iron pot, a set of common clothes, and a pouch containing 10gp" ],
+    "features": [
+      { "title": "Defining Event",
+        "description": [
+          {"p": "You previously pursued a simple profession among the peasantry, perhaps as a farmer, miner, servant, shepherd, woodcutter, or gravedigger. But something happened that set you on a different path and marked you for greater things. Choose or randomly determine a defining event that marked you as a hero of the people."},
+          {"rt": [
+            "I stood up to a tyrant's agents.",
+            "I saved people during a natural disaster.",
+            "I stood alone against a terrible monster.",
+            "I stole from a corrupt merchant to help the poor.",
+            "I led a militia to fight off an invading army.",
+            "I broke into a tyrant's castle and stole weapons to arm the people.",
+            "I trained the peasantry to use farm implements as weapons against a tyrant's soldiers.",
+            "A lord rescinded an unpopular decree after I led a symbolic act of protest against it.",
+            "A celestial, fey, or similar creature gave me a blessing or revealed my secret origin.",
+            "Recruited into a lord's army, I rose to leadership and was commended for my heroism."
+          ]}
+        ]
+      },
+      { "title": "Rustic Hospitality",
+        "description": [
+          {"p": "Since you come from the ranks of the common folk, you fit in among them with ease. You can find a place to hide, rest, or recuperate among other commoners, unless you have shown yourself to be a danger to them. They will shield you from the law or anyone else searching for you, though they will not risk their lives for you."}
+        ]
+      }
+    ],
+    "suggested": ["A folk hero is one of the common people, for better or for worse. Most folk heroes look on their humble origins as a virtue, not a shortcoming, and their home communities remain very important to them."],
+    "traits":
+    { "personality":
+      [
+        "I judge people by their actions, not their words.",
+        "If someone is in trouble, I'm always ready to lend help.",
+        "When I set my mind to something, I follow through no matter what gets in my way.",
+        "I have a strong sense of fair play and always try to find the most equitable solution to arguments.",
+        "I'm confident in my own abilities and do what I can to instill confidence in others.",
+        "Thinking is for other people. I prefer action.",
+        "I misuse long words in an attempt to sound smarter.",
+        "I get bored easily. When am I going to get on with my destiny?"
+      ],
+      "ideals":
+      [ 
+        "Respect. People deserve to be treated with dignity and respect. (Good)",
+        "Fairness. No one should get preferential treatment before the law, and no one is above the law. (Lawful)",
+        "Freedom. Tyrants must not be allowed to oppress the people. (Chaotic)",
+        "Might. If I become strong, I can take what I want - what I deserve. (Evil)",
+        "Sincerity. There's no good in pretending to be something I'm not. (Neutral)",
+        "Destiny. Nothing and no one can steer me away from my higher calling. (Any)"
+      ],
+      "bonds":
+      [ 
+        "I have a family, but I have no idea where they are. One day, I hope to see them again.",
+        "I worked the land, I love the land, and I will protect the land.",
+        "A proud noble once gave me a horrible beating, and I will take my revenge on any bully I encounter.",
+        "My tools are symbols of my past life, and I carry them so that I will never forget my roots.",
+        "I protect those who cannot protect themselves.",
+        "I wish my childhood sweetheart had come with me to pursue my destiny."
+      ],
+      "flaws":
+      [ 
+        "The tyrant who rules my land will stop at nothing to see me killed.",
+        "I'm convinced of the significance of my destiny, and blind to my shortcomings and the risk of failure.",
+        "The people who knew me when I was young know my shameful secret, so I can never go home again.",
+        "I have a weakness for the vices of the city, especially hard drink.",
+        "Secretly, I believe that things would be better if I were a tyrant lording over the land.",
+        "I have trouble trusting in my allies."
+      ]
+    }
+  },
+  { "title": "Gambler",
+    "sourceurl": "http://dnd5e.wikidot.com/background:gambler",
+    "source": "Acquisitions Incorporated",
+    "description": 
+    [
+      "All you need to make a lot of gold is a little gold. Except at those times when all you need to have no gold at all is a little gold. Whether you're a good gambler or a bad one rarely matters, because no one can divine the whims of Lady Luck. Sometimes you're up, sometimes you're down. But the thing about gambling is that someone is always willing to take a bet."
+    ],
+    "proficiencies":
+    { "skills": [ "Deception", "Insight" ],
+      "tools": [ "One gaming set" ],
+      "languages": [ "One of your choice" ]
+    },
+    "equipment": [ "One gaming set, a lucky charm, a set of fine clothes, and a belt pouch containing 15 gp." ],
+    "features": [
+      { "title": "Never Tell Me the Odds",
+        "description": [
+          {"p": "Odds and probability are your bread and butter. During downtime activities that involve games of chance or figuring odds on the best plan, you can get a solid sense of which choice is likely the best one and which opportunities seem too good to be true, at the DM's determination."}
+        ]
+      }
+    ],
+    "suggested": ["Some gamble out of necessity. Others do so out of boredom. Still others become addicted to the thrill of winning or losing everything on a turn of fortune. For some, gambling is less a matter of chance and more a matter of seeking every advantage to ensure the outcome. The best gamblers can lose everything, and the worst gamblers sometimes win. Regardless, you can always tell gamblers by the look in their eyes. Lady Luck haunts them."],
+    "traits":
+    { "personality":
+      [
+        "I plan for every contingency. Leave nothing to chance!",
+        "Every copper wants to be a silver. Each bet is an opportunity.",
+        "I'm one of Lady Luck's favored. Anything I try is destined to succeed.",
+        "I've lost so much to gambling that I refuse to spend money on anything anymore.",
+        "Nothing is certain. Planning is a coward's act.",
+        "I can't be sure who I've swindled, cheated, or defeated, so I keep a low profile in public.",
+        "The perfect bet is out there somewhere. I just have to keep my eyes open.",
+        "I have beaten my addiction, but all it takes is one weak moment and I'll be back at the card table."
+      ],
+      "ideals":
+      [ 
+        "Knowledge. Knowledge is power, and knowing which horse to back is the key to success. (Any)",
+        "Fate. Whatever happens is fated, regardless of any planning or striving. (Lawful)",
+        "Bravery. If you want to succeed, you have to take risks. (Chaotic)",
+        "Survival. You can't win if you're dead. Live to fight another day - when the odds might be more in your favor. (Any)",
+        "Reliability. When I was in need, I was able to rely on others. Now I want to be the one others rely on. (Good)",
+        "Victory. Winning is the real measure of a person. In the end, the only thing that matters is the scoreboard. (Evil)"
+      ],
+      "bonds":
+      [ 
+        "One person in particular owes me a lot of money, and I need to keep them alive if I want to be repaid.",
+        "I'm loyal to the friend or family member who taught me how to gamble.",
+        "The person who saved me from my gambling addiction is the only reason I'm alive today.",
+        "A patron once fronted me money in exchange for a percentage of my winnings. I owe them a debt of gratitude. And a lot of cash.",
+        "A criminal syndicate I once played for isn't happy I left the game, and its enforcers are looking for me.",
+        "Urchins once helped me find marks for my games. Now I'm driven to help them escape the streets."
+      ],
+      "flaws":
+      [ 
+        "I don't know when to quit. Especially when everyone else is telling me to.",
+        "I save my sympathy for my friends, and I have no friends.",
+        "You think we're in trouble now? Let me tell you how bad things are likely to get!",
+        "You can loan me a little, right? I've got a sure thing. I'll double your money, guaranteed.",
+        "I was once a terribly flawed person, like you. Let me tell you how you can save yourself.",
+        "I'm a great gambler. I'm just bad at math and logic."
+      ]
+    }
+  },
+  { "title": "Gate Urchin",
+    "sourceurl": "http://dnd5e.wikidot.com/background:gate-urchin",
+    "source": "State of Hillsfar",
+    "description": 
+    [
+      "All traffic into and out of the City of Trade passes through the Hillsfar Gate, making it the ideal place for the destitute to gather to panhandle, busk, gossip, and pick pockets. You grew up on the streets in the shadow of that great steel edifice, which houses both Red Plumes and Guild Mages. Though you may have moved on, you still have friends among them, and that life has had a lasting impact on you."
+    ],
+    "proficiencies":
+    { "skills": [ "Deception", "Sleight of Hand" ],
+      "tools": [ "Thieves' tools", "One type of musical instrument" ],
+      "languages": [ "None" ]
+    },
+    "equipment": [ "A battered alms box, a musical instrument, a cast-off military jacket, cap, or scarf, a set of common clothes, and a pouch containing 10gp" ],
+    "features": [
+      { "title": "Red Plume and Mage Guild Contacts",
+        "description": [
+          {"p": "You made a number of friends among the Red Plumes and the Mage's Guild when you lived at the Hillsfar Gate. They remember you fondly and help you in little ways when they can. You can invoke their assistance in and around Hillsfar to obtain food, as well as simple equipment for temporary use. You can also invoke it to gain access to the low-security areas of their garrisons, halls, and encampments."}
+        ]
+      }
+    ],
+    "traits":
+    { "personality":
+      [
+        "I appreciate the simple things in life: a song, a warm meal, a sunny day. I don't need any more.",
+        "My problems are always caused by others. I'm never to blame.",
+        "I am afraid I could wind up back on the streets any day.",
+        "I get along with everyone.",
+        "I see people as marks for a con and have difficulty feeling true empathy for them.",
+        "I have a real flair for matchmaking. I can find anyone a spouse!",
+        "I think money is the true measure of appreciation and affection. Everything else is talk or an act.",
+        "I don't like having a lot of stuff, just a few simple things I need. I don't like being tied down and tend to leave things behind when I don't need them anymore."
+      ],
+      "ideals":
+      [ 
+        "Loyal. I never rat out any of my friends, even when the Red Plumes or the Rogues' Guild ask. (Lawful)",
+        "Adventurous. I don't like doing the same thing every day. I crave variety. (Chaotic)",
+        "Strong. Only the strong survive. I respect those who are strong and powerful. (Any)",
+        "Witty. Brains are better than brawn. I rely on my wits and respect others who do the same. (Any)",
+        "Honest. Others can do what they want, but I won't lie or steal, even to feed my family. (Good)",
+        "Ungrateful. Those who give only do it to make themselves feel better. I steal from them. (Evil)"
+      ],
+      "bonds":
+      [ 
+        "The Joydancers of Lliira gave me my instrument when I really needed food. I hate them for that.",
+        "Busking has taught me to love music above all else.",
+        "The Rogues' Guild spared me when I did a job without cutting them in. I owe them a great debt.",
+        "I know people hate the Red Plumes, but some of them were really good to me. I help Red Plumes whenever I can, and I respect them. They're just doing what they have to do to get by in this world.",
+        "I will be wealthy some day. My descendants will live in comfort and style.",
+        "I know how hard life on the streets is. I do everything I can for those who have less than me."
+      ],
+      "flaws":
+      [ 
+        "Though I no longer live at the Gate, I am still always concerned about where I will get my next meal.",
+        "Years of thieving have become habit. I sometimes steal from strangers without thinking about it.",
+        "I am ashamed of my origins. I pretend I am higher-born and fear others will find out the truth.",
+        "I think people who grew up in houses are soft, spoiled, and ungrateful. I frequently tell them so.",
+        "I am still very uncomfortable wearing nice clothes, sleeping in a warm bed, and eating fine food.",
+        "I do not trust anyone who has not had a hard life."
+      ]
+    }
+  },
+  { "title": "Gate Warden",
+    "sourceurl": "http://dnd5e.wikidot.com/background:gate-warden",
+    "source": "Planescape: Adventures in the Multiverse",
+    "description": 
+    [
+      "You spent a significant amount of time somewhere influenced by intense planar forces or a portal to another plane of existence, such as one of the gate-towns in the Outlands. You're accustomed to experiences that would leave others reeling in terror or enraptured by otherworldly beauty, and you're as comfortable dealing with Celestials and Fiends as you are with vendors in town (who might be one and the same)."
+    ],
+    "proficiencies":
+    { "skills": [ "Persuasion", "Survival" ],
+      "tools": [ "None" ],
+      "languages": [ "Two of your choice (Abyssal, Celestial, or Infernal recommended)" ]
+    },
+    "equipment": [ "A ring of keys to unknown locks, a blank book, an ink pen or quill, a bottle of black ink, a set of traveller's clothes, and a pouch containing 10 gp." ],
+    "features": [
+      { "title": "Planar Infusion",
+        "description": [
+          {"p": "Living in a gate-town or similar location steeped you in planar energy. You gain the Scion of the Outer Planes feat. In addition, you know where to find free, modest lodging and food in the community you grew up in."}
+        ]
+      },
+      { "title": "Gate Warden Trinkets",
+        "description": [
+          {"p": "When you make your character, you may roll once on the Gate Warden Trinkets table, instead of on the Trinkets table in the Player's Handbook, for your starting trinket."},
+          {"rt": 
+            [
+              "A tiny vial pendant, filled with a drip of honey that glows faintly",
+              "A small lead ingot with a strange thumbprint pressed into it that whispers when held tightly",
+              "Two lodestone spheres that chime when they attract each other",
+              "A smoldering pebble of coal that, while always hot, doesn't burn skin, fur, scales, or clothing",
+              "A feather that sheds dim light in a 5-foot radius.",
+              "A ring made from a chain link that, once donned, won't come off without pulling painfully hard"
+            ]
+          }
+        ]
+      }
+    ],
+    "suggested": 
+    [ "Those who dwell for an extended time near a permanent portal to another plane absorb the essence radiating from the realm beyond. Those influenced by the same plane share similarities in behavior and even physical appearance.",
+      "The influence of an Outer Plane shapes your perspective. The Gate Warden Personality Traits table suggests traits you might adopt for your character."
+    ],
+    "traits":
+    { "personality":
+      [
+        "Strange events and otherworldly creatures don't faze me.",
+        "I think in terms of exchange; something for something, nothing for nothing.",
+        "I speak with an unusual cadence.",
+        "I pepper my speech with borrowed words or curses from planar languages.",
+        "I've seen enough to know that you can't take anyone at face value, so I scrutinize everyone.",
+        "I have a superstitious habit I picked up, such as touching iron when I'm nervous or arranging objects in a specific order."
+      ],
+      "ideals": [ ],
+      "bonds":  [ ],
+      "flaws":  [ ]
+    }
+  },
+  { "title": "Giant Foundling",
+    "sourceurl": "http://dnd5e.wikidot.com/background:giant-foundling",
+    "source": "Bigby Presents - Glory of the Giants",
+    "description": 
+    [
+      "Though you aren't a Giant, you grew up among giants. Maybe you were an orphan taken in by a sympathetic family of stone giants who raised you as one of their own. Or perhaps you lived in a lost prehistoric pocket of the world, surrounded by giants and fearsome behemoths or hulking dinosaurs.",
+      "Something about your environment—perhaps the food or water that sustained you, elemental magic inherent in the site of your home, or some verdant blessing of growth placed on you—caused you to grow to a remarkable size for your kind. With the aid of this magic, you have learned how to embody the might of giants. You are used to moving through a world much bigger than you, and that is reflected in your skills, attitude, and perspective on life."
+    ],
+    "proficiencies":
+    { "skills": [ "Intimidation", "Survival" ],
+      "tools": [ "None" ],
+      "languages": [ "Giant", "One other language of your choice" ]
+    },
+    "equipment": [ "A backpack, a set of traveler's clothes, a small stone or sprig that reminds you of home, and a pouch containing 10 gp." ],
+    "features": [
+      { "title": "Origin Stories",
+        "description": [
+          {"p": "How you came to live among colossal creatures is up to you to determine, but the Foundling Origin table suggests a variety of possibilities."},
+          {"rt": 
+            [
+              "You were found as a baby by a family of nomadic giants who raised you as one of their own.",
+              "A family of stone giants rescued you when you fell into a mountain chasm, and you have lived with them underground ever since.",
+              "You were lost or abandoned as a child in a jungle that teemed with ravenous dinosaurs. There, you found an equally lost frost giant; together, you survived.",
+              "Your farm was crushed and your family killed in a battle between warring groups of giants. Racked with guilt over the destruction, a sympathetic giant soldier promised to care for you.",
+              "After you had a series of strange dreams as a child, your superstitious parents sent you to study with a powerful but aloof storm giant oracle.",
+              "While playing hide-and-seek with your friends, you stumbled into the castle of a cloud giant, who immediately adopted you."
+            ]
+          }
+        ]
+      },
+      { "title": "Strike of the Giants",
+        "description": [
+          {"p": "You gain the Strike of the Giants feat."}
+        ]
+      }
+    ],
+    "suggested": 
+    [ "Your life among giants has given you a unique perspective. Though you are unusually large for your kind, you're no larger than a giant child, so you might be very mindful of your size.",
+      "The Giant Foundling Personality Traits table suggests a variety of traits you might adopt for your character."
+    ],
+    "traits":
+    { "personality":
+      [
+        "What I lack in stature, I make up for with sheer spite.",
+        "I insist on being taken seriously as a full-grown adult. Nobody talks down to me!",
+        "Crowded spaces make me uncomfortable. I'd much rather be in a wide-open field than a bustling tavern.",
+        "I embrace my shorter stature. It helps me stay unnoticed—and underestimated.",
+        "Every avalanche begins as a single pebble.",
+        "The world always feels too big, and I'm afraid I'll never find my place in it."
+      ],
+      "ideals": [],
+      "bonds": [],
+      "flaws": []
+    }
+  },
+  { "title": "Golgari Agent",
+    "sourceurl": "http://dnd5e.wikidot.com/background:golgari-agent",
+    "source": "Guildmaster's Guide to Ravnica",
+    "description": 
+    [
+      "You are a member of a teeming horde - one small part of a sprawling organism. Just as you are part of the swarm, the swarm is part of a larger ecosystem, a never-ending cycle of life, death, rot, and rebirth. You have spent your life in the slow churn of that ecosystem, in the dark places of the city where the messy parts of existence are on display. There is little squeamishness among the Golgari, no fear of death or taboo about the dead, just a fierce affirmation of the cycle."
+    ],
+    "proficiencies":
+    { "skills": [ "Nature", "Survival" ],
+      "tools": [ "Poisoner's Kit" ],
+      "languages": [ "Choose one of Elvish, Giant or Kraul" ]
+    },
+    "equipment": [ "A Golgari insignia, a poisoner's kit, a pet beetle or spider, a set of common clothes, and a pouch containing 10gp worth of mixed coins." ],
+    "features": [
+      { "title": "Undercity Paths",
+        "description": [
+          {"p": "You know hidden, underground pathways that you can use to bypass crowds, obstacles, and observation as you move through the city. When you aren't in combat, you and companions you lead can travel between any two locations in the city twice as fast as your speed would normally allow. The paths of the undercity are haunted by dangers that rarely brave the light of the surface world, so your journey isn't guaranteed to be safe."}
+        ]
+      },
+      { "title": "Golgari Guild Spells",
+        "description": [
+          {"i": "Prerequisite: Spellcasting or Pact Magic class feature"},
+          {"p": "For you, the spells on the Golgari Guild Spells table are added to the spell list of your spellcasting class. (If you are a multiclass character with multiple spell lists, these spells are added to all of them.)"},
+          {"st": 
+            [
+              "Dancing Lights, Spare the Dying",
+              "Entangle, Ray of Sickness",
+              "Protection from Poison, Ray of Enfeeblement, Spider Climb",
+              "Animate Dead, Plant Growth",
+              "Giant Insect, Grasping Vine",
+              "Cloudkill, Insect Plague"
+            ]
+          },
+          {"p": "Golgari magic is often accompanied by a sickly green glow and a rotting stench."}
+        ]
+      },
+      { "title": "Contacts",
+        "description": [
+          {"p": "To the extent that the Golgari Swarm acts like a single organism, you are connected to every other member in some way or another. Convinced that the rest of the world is out to get you, you find it easy to form close bonds with your guild mates, and harder to make meaningful connections with others."},
+          {"p": "Roll twice on the Golgari Contacts table (for an ally and a rival) and once on the Non-Golgari Contacts table."},
+          {"b": "Golgari Contacts"},
+          {"rt": [
+              "One of my parents is an elite assassin, a member of the Ochran.",
+              "I learned combat from a kraul.",
+              "I know a medusa who is stationed in the guildhall.",
+              "I had a torrid romance with a spore druid responsible for a large rot farm.",
+              "There's a troll in a remote area of the undercity who seems to find me interesting - and who knows more than you'd think.",
+              "An elf lich is determined to see me become a lich someday, too.",
+              "A medusa decided it would be more fun to recruit me into the guild than to kill me.",
+              "I know a findbroker who can locate just about anything, for the right price."
+            ]
+          },
+          {"b": "Non-Golgari Contacts"},
+          {"rt": [
+              "An Azorius arrester I literally pulled out of the gutter will do anything for me.",
+              "Someone joined the Gruul in a battle against the Boros once, and the sergeant of that Boros squad would love to prove that it was me.",
+              "I had a romance with a Dimir agent whom I still feed secrets to.",
+              "Roll an additional Golgari contact; you can decide if the contact is an ally or a rival.",
+              "I joined the Gruul in a battle against the Boros once, and the chief of that small clan thanks me for turning the tide.",
+              "An Izzet scientist resents that I sold a scrapped invention I found in the sewer.",
+              "My undercity explorations led me into an Orzhov vault, and a spirit thinks I stole something valuable.",
+              "I found a baby beast and sold it to a Rakdos wrangler who remains grateful to me.",
+              "A Selesnya druid and I share an interest in the same garden, and we have enjoyable arguments there.",
+              "I regularly pick up refuse from beneath a Simic laboratory, and sometimes I talk to the researcher who dumps it there."
+            ]
+          }
+        ]
+      }
+    ],
+    "suggested": ["Members of the Golgari Swarm are unmistakably products of the undercity, ill at ease amid the comforts of civilization. They bring about the same discomfort in others by reminding them of death's inevitable approach."],
+    "traits":
+    { "personality":
+      [
+        "Remember, I could kill you in your sleep. Or put centipedes in your bedroll.",
+        "I like to remind people of their inevitable demise.",
+        "Sometimes I give voice to the whispers of the rot, which I hear but no one else does.",
+        "I do my best to discourage anyone from approaching or talking to me.",
+        "I have accepted my death. Hence, I don't fear it.",
+        "Like roots growing through stone, I am relentless and determined in my action.",
+        "I put my knowledge of anatomy to use by narrating the injuries my enemies suffer in grisly detail.",
+        "Like a wild animal, I lash out viciously when I'm provoked - and I'm easily provoked."
+      ],
+      "ideals":
+      [ 
+        "Guild. My guild is all that really matters. (Any)",
+        "Stoicism. All of us are part of the cyclical march of nature, which will continue with or without us. (Neutral)",
+        "Nature. The natural world is more important than the edifices of the city and civilization. (Neutral)",
+        "Interdependence. We are all part of nature's web. (Lawful)",
+        "Ambition. The time of Golgari ascendance is at hand, and I intend to have a prominent place in the new world order. (Evil)",
+        "Live and Let Live. Meddling in the affairs of other guilds is a great way to get squashed like a bug. (Neutral)"
+      ],
+      "bonds":
+      [ 
+        "Guild. My guild is all that really matters. (Any)",
+        "Stoicism. All of us are part of the cyclical march of nature, which will continue with or without us. (Neutral)",
+        "Nature. The natural world is more important than the edifices of the city and civilization. (Neutral)",
+        "Interdependence. We are all part of nature's web. (Lawful)",
+        "Ambition. The time of Golgari ascendance is at hand, and I intend to have a prominent place in the new world order. (Evil)",
+        "Live and Let Live. Meddling in the affairs of other guilds is a great way to get squashed like a bug. (Neutral)"
+      ],
+      "flaws":
+      [ 
+        "Death comes for us all, so you can't expect me to take care of someone who can't fight it off.",
+        "I assume that anyone outside the Golgari looks down on me.",
+        "I feel a need for revenge against those who enjoy the privilege of living above ground.",
+        "I don't bother to couch my opinions in flattering words.",
+        "I can't help but pocket any trinket or coin I come across, no matter how worthless.",
+        "I'm convinced that I'm better and stronger than members of other guilds, isolated as they are from the realities of life and death."
+      ]
+    }
+  },
+  { "title": "Grinner",
+    "sourceurl": "http://dnd5e.wikidot.com/background:grinner",
+    "source": "Explorer's Guide to Wildemount",
+    "description": 
+    [
+      "The Golden Grin began in the far-off land of Tal'Dorei trading secret messages through a network of bards and minstrels to undermine an iron-fisted king's authoritarian rule. Today, Tal'Dorei is a relatively peaceful republic, and some Grinners have grown restless while waiting for tyranny to raise its ugly head again. A contingent of such Grinners traveled to the Menagerie Coast and set up a network of secret bases in the cities of the Clovis Concord, from which they are presently working their way into the highest echelons of the Dwendalian Empire.",
+      "You are a Grinner. Your goals are to spread freedom and inspire hope - or, in time, revolution - in the hearts of the oppressed."
+    ],
+    "proficiencies":
+    { "skills": [ "Deception", "Performance" ],
+      "tools": [ "One type of musical instrument", "Thieve's tools" ],
+      "languages": [ "None" ]
+    },
+    "equipment": [ "A set of fine clothes, a disguise kit, a musical instrument of your choice, a gold-plated ring depicting a smiling face, and a pouch containing 15gp." ],
+    "features": [
+      { "title": "Code-Songs",
+        "description": [
+          {"p": "All members of the Golden Grin have learned a handful of folk songs in their travels, and use those songs to send secret codes and alert fellow Grinners to danger. Choose a favorite song or roll on the Favorite Code-Songs table."},
+          {"rt": [
+            "Zan's Comin' Back. This hopeful Tal'Dorei folk song declares the inevitable return of a just ruler. Use it to seek out potential allies.",
+            "Blow Fire Down the Coast. A rowdy fighting song from the Clovis Concord, this ditty talks of blasting up pirate ships. Use it to encourage battle.",
+            "Hush! Onward Come the Dragons. This Tal'Dorei folk song recounts the terror in the days after the invasion of the red dragon called the Cinder King. Use it to encourage caution in speech and deed.",
+            "Let the Sword Grow Rust. An antiwar anthem from Marquet, this song has uncertain origins. Use it to help quell violent encounters.",
+            "Drink Deep, Li'l Hummingbird. A drinking rondo from the Menagerie Coast, this song tells the tale of a young person who drinks so heavily that they awaken to find they've stowed away on a ship. Use it to encourage alertness in social situations.",
+            "Dirge for the Emerald Fire. This elven song supposedly has thousands of obscure verses. Use the first two verses to spread news of death or defeat."
+          ]}
+        ]
+      },
+      { "title": "Ballad of the Grinning Fool",
+        "description": [
+          {"p": "Like every Grinner, you know how to find a hideout. In any city of 10,000 people or more on the Menagerie Coast or in the lands of the Dwendalian Empire, you can play the 'Ballad of the Grinning Fool' in a major tavern or inn. A member of the Golden Grin will find you and give shelter to you and any companions you vouch for. This shelter might be discontinued if it becomes too dangerous to hide you, at the DM's discretion."},
+          {"p": "This feature must be used with caution, for not all who know the ballad are your friends. Some are traitors, counterspies, or agents of tyranny."}
+        ]
+      }
+    ],
+    "suggested": ["Grinners are trained in the art of secrecy and innuendo, and are skilled at hiding in plain sight by being the loudest and brightest person in the room. Their skills in subterfuge and combat lend themselves well to an adventuring lifestyle, and traveling with mercenaries and treasure hunters creates a convenient excuse to journey through lands bent under tyranny."],
+    "traits":
+    { "personality":
+      [
+        "I love the spotlight. Everyone, look at me!",
+        "Give me a drink and I'm your friend.",
+        "Talk to me about yourself. I'm a hell of a listener.",
+        "I hate to start fights, but I love to finish them.",
+        "I can't sit still.",
+        "I'm always humming an old tune from my past.",
+        "When I don't have a reason to smile, I'm miserable.",
+        "I'm lucky like you wouldn't believe."
+      ],
+      "ideals":
+      [ 
+        "Revolution. Tyrants must fall, no matter the cost. (Chaotic)",
+        "Compassion. The only way to make a better world is to perform small kindnesses. (Good)",
+        "Justice. A nation built upon just foundations will uphold freedom for all. (Law)",
+        "Expression. Music, joy, and laughter are the keys to freedom. (Good)",
+        "Self-Determination. People should be free to do as they please. (Chaotic)",
+        "Vigilance. A free people must be carefully taught, lest they be misled. (Neutral)"
+      ],
+      "bonds":
+      [ 
+        "I lost someone important to an agent of the Dwendalian Empire. That regime will fall.",
+        "The first people to be hurt by this war will be the common folk. I need to protect them.",
+        "Music helped me through a dark time in my life. Now, I'll use music to change the world.",
+        "I will be known as the greatest spy who ever lived.",
+        "All life is precious to me. I know I can change the world without taking a humanoid life.",
+        "The elite in their ivory towers don't understand how we suffer. I intend to show them."
+      ],
+      "flaws":
+      [ 
+        "I've never lied once in my life. What? No, I'm not crossing my fingers!",
+        "I do everything big! Subtlety? I don't know the meaning of subtlety! Oh, that's a problem?",
+        "Being a spy in wartime is painful. I've seen so much suffering, I think I'm losing my mind.",
+        "I can't focus on my mission. I just want to carouse and sing and play!",
+        "Yeah, that's my name. Yeah, I'm a Grinner spy. Who cares about staying undercover?",
+        "I can't afford to trust anyone. Not. Anyone."
+      ]
+    }
+  },
+  { "title": "Gruul Anarch",
+    "sourceurl": "http://dnd5e.wikidot.com/background:gruul-anarch",
+    "source": "Guildmaster's Guide to Ravnica",
+    "description": 
+    [
+      "The entire world of Ravnica is a sprawling metropolis, but you are a native of the wild areas that still exist - the abandoned districts, the rubblebelts, the overgrown parks, and the crumbling ruins. You are part of a savage society that clings desperately to the Old Ways - attuned to nature, full of primal rage, and given short shrift by a world consumed with continuing civilization's march of progress."
+    ],
+    "proficiencies":
+    { "skills": [ "Animal Handling", "Athletics" ],
+      "tools": [ "Herbalism kit" ],
+      "languages": [ "Choose on of Draconic, Giant, Goblin or Sylvan" ]
+    },
+    "equipment": [ "A Gruul insignia, a hunting trap, an herbalism kit, the skull of a boar, a beast-hide cloak, a set of traveller's clothes, and a pouch containing 10gp (Azorius 1-zino coins)" ],
+    "features": [
+      { "title": "Rubblebelt Refuge",
+        "description": [
+          {"p": "You are intimately familiar with areas of the city that most people shun: ruined neighborhoods where wurms rampaged, overgrown parks that no hand has tended in decades, and the vast, sprawling rubblebelts of broken terrain that civilized folk have long abandoned. You can find a suitable place for you and your allies to hide or rest in these areas. In addition, you can find food and fresh water in these areas for yourself and up to five other people each day."}
+        ]
+      },
+      { "title": "Gruul Guild Spells",
+        "description": [
+          {"i": "Prerequisite: Spellcasting or Pact Magic class feature"},
+          {"p": "For you, the spells on the Gruul Guild Spells table are added to the spell list of your spellcasting class. (If you are a multiclass character with multiple spell lists, these spells are added to all of them.)"},
+          {"rt": [
+            "Fire Bolt, Produce Flame",
+            "Compelled Duel, Speak With Animals, Thunderwave",
+            "Beast Sense, Shatter",
+            "Conjure Animals, Conjure Barrage",
+            "Dominate Beast, Stoneskin",
+            "Destructive Wave"
+          ]},
+          {"p": "Fueled by the fire of rage burning in your heart, your magic is almost always accompanied by fiery effects, such as flames smoldering behind your eyes or dancing over your hands."}
+        ]
+      },
+      { "title": "Contacts",
+        "description": [
+          {"p": "The members of the Gruul Clans rely on each other even as they vie for territory and glory. Their encounters with members of other guilds are more often violent than friendly, but occasional bonds do form."},
+          {"p": "Roll twice on the Gruul Contacts table (for an ally and a rival) and once on the Non-Gruul Contacts table."},
+          {"b": "Gruul Contacts"},
+          {"rt": [
+            "One of my parents is a renowned warrior in my clan.",
+            "My sibling has the ear of the clan chief.",
+            "I have cousins in a different clan.",
+            "When we were younger, I was romantically involved with a prominent warrior in my clan.",
+            "A druid in my clan believes I have a destiny to fulfill.",
+            "The warrior who trained me remembers me for my exceptional potential.",
+            "My clan chief killed one of my parents, who had challenged the chief for leadership of the clan. Some combination of resentment and remorse stirs the clan chief to help me sometimes.",
+            "I made a strong impression on Borborygmos."
+          ]},
+          {"b": "Non-Gruul Contacts"},
+          {"rt": [
+            "An Azorius arrester thinks I can be reformed.",
+            "A Boros soldier gives me gifts in exchange for information about other clans' movements.",
+            "I once caught and released a Dimir spy.",
+            "I consult with a Golgari shaman for spiritual guidance at times.",
+            "Roll an additional Gruul contact; you can decide if the contact is an ally or a rival.",
+            "An Izzet scientist blames the Gruul for the destruction of his life's work in a raid, but seems to think that I'm not like other Gruul.",
+            "I foolishly borrowed money from an Orzhov syndic to indulge a shameful vice.",
+            "A close friend left our clan and joined the Cult of Rakdos.",
+            "A distant relative is trying to recruit me into the Selesnya Conclave.",
+            "I stopped a Simic biomancer from trapping wild beasts to perform vile experiments on them."
+          ]}
+        ]
+      }
+    ],
+    "suggested": ["Gruul ways aren't the ways of civilized folk, and the Gruul have little patience for social niceties. But they do have cherished traditions and values, just as important to them as the different values held by the urban, cosmopolitan culture of Ravnica."],
+    "traits":
+    { "personality":
+      [
+        "Unlike people, the beasts of the wild are friends who won't stab me in the back.",
+        "Go ahead and insult me - I dare you.",
+        "I scorn those who can't survive away from the comforts of the city.",
+        "Don't tell me I'm not allowed to do something.",
+        "Laws are for people who are afraid to face their inner beasts.",
+        "I smear the blood of my enemies over my skin.",
+        "I was, in fact, raised by maaka.",
+        "HarrRRAAGGHH! [I rarely form a coherent sentence and prefer to express myself by breaking things.]"
+      ],
+      "ideals":
+      [ 
+        "Clan. My clan is all that really matters. (Any)",
+        "Anarchy. No person or law or custom can tell another what to do. (Chaotic)",
+        "Nature. We weren't born tame or domesticated, so we shouldn't have to live that way. (Neutral)",
+        "Might. The strongest are meant to dominate the weak. (Evil)",
+        "Rage. AAAAAARRRRggggh! [To live is to feel and express the rage burning in your belly.] (Chaotic)",
+        "Tradition. The Old Ways must be preserved and upheld. (Any)"
+      ],
+      "bonds":
+      [ 
+        "I am determined that one day I will lead my clan - or a new one.",
+        "I would give my life for my clan chieftain.",
+        "The chieftain of another clan has a grudge against me.",
+        "I am devoted to a sacred site in the midst of the rubblebelt.",
+        "My weapon is made from the first raktusk I ever hunted.",
+        "GrrrRRAAAAGGHH! [I will do anything to prove myself greater than my siblings or ancestors.]"
+      ],
+      "flaws":
+      [ 
+        "If you question my courage, I will never back down.",
+        "HrrrGGGAAAARRuuuh! [My anger in battle led to the death of a loved one.]",
+        "I'm as stubborn as a batterboar.",
+        "I'm so convinced of my superiority over soft, civilized people that I'll take great risks to prove it.",
+        "I'm easily manipulated by people I find attractive.",
+        "I'm not actually all that angry."
+      ]
+    }
+  },
+  { "title": "",
+    "sourceurl": "http://dnd5e.wikidot.com/background:",
+    "source": "",
+    "description": 
+    [
+      ""
+    ],
+    "proficiencies":
+    { "skills": [ "" ],
+      "tools": [ "" ],
+      "languages": [ "" ]
+    },
+    "equipment": [ "" ],
+    "features": [
+      { "title": "",
+        "description": [
+          {"p": ""}
+        ]
+      }
+    ],
+    "suggested": [""],
+    "traits":
+    { "personality":
+      [
+
+      ],
+      "ideals":
+      [ 
+
+      ],
+      "bonds":
+      [ 
+
+      ],
+      "flaws":
+      [ 
+
+      ]
+    }
+  },
+  { "title": "",
+    "sourceurl": "http://dnd5e.wikidot.com/background:",
+    "source": "",
+    "description": 
+    [
+      ""
+    ],
+    "proficiencies":
+    { "skills": [ "" ],
+      "tools": [ "" ],
+      "languages": [ "" ]
+    },
+    "equipment": [ "" ],
+    "features": [
+      { "title": "",
+        "description": [
+          {"p": ""}
+        ]
+      }
+    ],
+    "suggested": [""],
+    "traits":
+    { "personality":
+      [
+
+      ],
+      "ideals":
+      [ 
+
+      ],
+      "bonds":
+      [ 
+
+      ],
+      "flaws":
+      [ 
+
+      ]
+    }
+  },
+  { "title": "",
+    "sourceurl": "http://dnd5e.wikidot.com/background:",
+    "source": "",
+    "description": 
+    [
+      ""
+    ],
+    "proficiencies":
+    { "skills": [ "" ],
+      "tools": [ "" ],
+      "languages": [ "" ]
+    },
+    "equipment": [ "" ],
+    "features": [
+      { "title": "",
+        "description": [
+          {"p": ""}
+        ]
+      }
+    ],
+    "suggested": [""],
+    "traits":
+    { "personality":
+      [
+
+      ],
+      "ideals":
+      [ 
+
+      ],
+      "bonds":
+      [ 
+
+      ],
+      "flaws":
+      [ 
+
+      ]
+    }
+  },
+  { "title": "",
+    "sourceurl": "http://dnd5e.wikidot.com/background:",
+    "source": "",
+    "description": 
+    [
+      ""
+    ],
+    "proficiencies":
+    { "skills": [ "" ],
+      "tools": [ "" ],
+      "languages": [ "" ]
+    },
+    "equipment": [ "" ],
+    "features": [
+      { "title": "",
+        "description": [
+          {"p": ""}
+        ]
+      }
+    ],
+    "suggested": [""],
+    "traits":
+    { "personality":
+      [
+
+      ],
+      "ideals":
+      [ 
+
+      ],
+      "bonds":
+      [ 
+
+      ],
+      "flaws":
+      [ 
+
+      ]
+    }
+  },
+  { "title": "",
+    "sourceurl": "http://dnd5e.wikidot.com/background:",
+    "source": "",
+    "description": 
+    [
+      ""
+    ],
+    "proficiencies":
+    { "skills": [ "" ],
+      "tools": [ "" ],
+      "languages": [ "" ]
+    },
+    "equipment": [ "" ],
+    "features": [
+      { "title": "",
+        "description": [
+          {"p": ""}
+        ]
+      }
+    ],
+    "suggested": [""],
+    "traits":
+    { "personality":
+      [
+
+      ],
+      "ideals":
+      [ 
+
+      ],
+      "bonds":
+      [ 
+
+      ],
+      "flaws":
+      [ 
+
+      ]
+    }
+  },
+  { "title": "",
+    "sourceurl": "http://dnd5e.wikidot.com/background:",
+    "source": "",
+    "description": 
+    [
+      ""
+    ],
+    "proficiencies":
+    { "skills": [ "" ],
+      "tools": [ "" ],
+      "languages": [ "" ]
+    },
+    "equipment": [ "" ],
+    "features": [
+      { "title": "",
+        "description": [
+          {"p": ""}
+        ]
+      }
+    ],
+    "suggested": [""],
+    "traits":
+    { "personality":
+      [
+
+      ],
+      "ideals":
+      [ 
+
+      ],
+      "bonds":
+      [ 
+
+      ],
+      "flaws":
+      [ 
+
+      ]
+    }
+  },
+  { "title": "",
+    "sourceurl": "http://dnd5e.wikidot.com/background:",
+    "source": "",
+    "description": 
+    [
+      ""
+    ],
+    "proficiencies":
+    { "skills": [ "" ],
+      "tools": [ "" ],
+      "languages": [ "" ]
+    },
+    "equipment": [ "" ],
+    "features": [
+      { "title": "",
+        "description": [
+          {"p": ""}
+        ]
+      }
+    ],
+    "suggested": [""],
+    "traits":
+    { "personality":
+      [
+
+      ],
+      "ideals":
+      [ 
+
+      ],
+      "bonds":
+      [ 
+
+      ],
+      "flaws":
+      [ 
+
+      ]
+    }
   }
 ]

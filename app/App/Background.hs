@@ -162,6 +162,7 @@ traitsView (Just t) =
   ]
 
 traitTable :: String -> [String] -> View Model Action
+traitTable _ [] = H.div_ [] []
 traitTable tableName xs =
   H.div_ [ P.class_ "s6" ]
   [ H.h4_ [] [ text $ ms (tableName <> "s") ]
