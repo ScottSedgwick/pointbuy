@@ -21,6 +21,7 @@ data Inline
   | Italic String
   | RollTable [String]
   | SpellTable [String]
+  | Table [[String]]
   deriving (Show, Eq, Generic)
 
 data TableJson = TableJson
@@ -41,6 +42,7 @@ instance FromJSON Inline where
                 , ("i", (\v -> Italic (unpackText v)))
                 , ("rt", (\v -> RollTable (unpackTextArray v)))
                 , ("st", (\v -> SpellTable (unpackTextArray v)))
+                , ("t", (\v -> Table (unpackTextArrays v)))
                 ]
     case res of
       Just r  -> pure r
@@ -60,6 +62,10 @@ unpackTextArray :: Value -> [String]
 unpackTextArray (Array a) = map unpackText (V.toList a)
 unpackTextArray v = error $ "Expected array of string but got " <> show v
 
+unpackTextArrays :: Value -> [[String]]
+unpackTextArrays (Array a) = map unpackTextArray (V.toList a)
+unpackTextArrays v = error $ "Expected array of array of string but got " <> show v
+
 firstJust :: [Maybe a] -> Maybe a
 firstJust (Just x:_) = Just x
 firstJust (_:xs)     = firstJust xs
@@ -71,33 +77,34 @@ renderInline (Bold s)        = H.p_ [] [ H.b_ [] [ text (ms s) ] ]
 renderInline (Italic s)      = H.p_ [] [ H.em_ [] [ text (ms s) ] ]
 renderInline (RollTable xs)  = rollTable "Description" xs
 renderInline (SpellTable xs) = spellTable "Spells" xs
+renderInline (Table xs)      = table xs
+
+tupleList :: a -> a -> [a]
+tupleList a b = [a,b]
 
 spellLevels :: [String]
 spellLevels = ["Cantrip", "1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th"]
 
 rollTable :: String -> [String] -> View m a
-rollTable title xs = stripeTable title ("d" <> show (length xs)) ys
+rollTable title xs = table ([("d" <> show (length xs)), title] : ys)
   where
-    ys = zip (map show [1..]) xs
+    ys = zipWith tupleList (map show [1..]) xs
 
 spellTable :: String -> [String] -> View m a
-spellTable title xs = stripeTable title "Spell Level" (zip spellLevels xs)
+spellTable title xs = table (["Spell Level", title] : (zipWith tupleList spellLevels xs))
 
-stripeTable :: String -> String -> [(String, String)] -> View m a
-stripeTable title hdr xs =
+stripeTable :: [String] -> [[String]] -> View m a
+stripeTable ts xs =
   H.table_ [ P.class_ "stripes" ]
   [ H.thead_ []
-    [ H.tr_ [] 
-      [ H.th_ [] [ text (ms hdr) ]
-      , H.th_ [] [ text (ms title ) ]
-      ]
+    [ H.tr_ [] (map (\t -> H.th_ [] [ text (ms t)]) ts)
     ]
   , H.tbody_ [] (map mkStripeRow xs)
   ]
 
-mkStripeRow :: (String, String) -> View m a
-mkStripeRow (x,s) = 
-  H.tr_ []
-  [ H.td_ [] [ text (ms x)]
-  , H.td_ [] [ text (ms s)]
-  ]
+mkStripeRow :: [String] -> View m a
+mkStripeRow xs = 
+  H.tr_ [] (map (\x -> H.td_ [] [ text (ms x)]) xs)
+
+table :: [[String]] -> View m a
+table xs = stripeTable (head xs) (tail xs)
