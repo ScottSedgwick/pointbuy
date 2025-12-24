@@ -4243,244 +4243,395 @@
       "flaws": []
     }
   },
-  { "title": "",
-    "sourceurl": "http://dnd5e.wikidot.com/background:",
-    "source": "",
+  { "title": "Quandrix Student",
+    "sourceurl": "http://dnd5e.wikidot.com/background:quandrix-student",
+    "source": "Strixhaven: A Curriculum of Chaos",
     "description": 
     [
-      ""
+      "In preparation to become a student of Quandrix College, you have spent years working through the college's math problems for prospective students. Your interests concentrate on the mathematical principles and patterns found in the natural world. You might lean more toward mathematics or physics, or you delve into more abstract studies of metaphysics, arcana, or logic."
     ],
     "proficiencies":
-    { "skills": [ "" ],
-      "tools": [ "" ],
-      "languages": [ "" ]
+    { "skills": [ "Arcana", "Nature" ],
+      "tools": [ "One type of artisan's tools" ],
+      "languages": [ "One of your choice" ]
     },
-    "equipment": [ "" ],
+    "equipment": [ "A bottle of black ink, an ink pen, an abacus, a book of arcane theory, a school uniform, and a pouch containing 15 gp." ],
     "features": [
-      { "title": "",
+      { "title": "Quandrix Initiate",
         "description": [
-          {"p": ""}
+          {"p": "You gain the Strixhaven Initiate feat and must choose Quandrix within it."},
+          {"p": "In addition, if you have the Spellcasting or Pact Magic feature, the spells on the Quandrix Spells table are added to the spell list of your spellcasting class. (If you are a multiclass character with multiple spell lists, these spells are added to all of them.)"},
+          {"t": [
+            ["Quandrix Spells", "" ],
+            ["1st", "Entangle, Guiding Bolt" ],
+            ["2nd", "Enlarge/Reduce, Vortex Warp" ],
+            ["3rd", "Aura of Vitality, Haste" ],
+            ["4th", "Control Water, Freedom of Movement" ],
+            ["5th", "Circle of Power, Passwall" ]
+          ]},
+          {"p": "Consider customizing how your spells look when you can cast them. Your Quandrix spells might manifest amid kaleidoscopic swirls of fractal patterns, amplifying the tiniest movements of your somatic components. When your magic creates or alters creatures, it might briefly surround the targets with shimmering fractal designs or tessellated patterns."}
+        ]
+      },
+      { "title": "Building a Quandrix Character",
+        "description": [
+          {"p": "Any spellcasting class or subclass can work well for a Quandrix character. Both the scholarly focus of Wizards (especially those who study the Schools of Abjuration, Illusion, or Transmutation) and the metamagic manipulations of Sorcerors are welcome in Quandrix, and many Druids explore the patterns of nature in Quandrix as well. A few Clerics, particularly those with the Knowledge or Nature domains, study in Quandrix as well."},
+          {"p": "Aside from traditional spellcasters, a few characters of other classes find homes in Quandrix. Some Fighters, Monks, Rangers, and Rogues study here, using Quandrix principles to train their minds."}
+        ]
+      },
+      { "title": "Quandrix Trinkets",
+        "description": [
+          {"p": "When you make your character, you may roll once on the Quandrix Trinkets table, instead of on the Trinkets table in the Player's Handbook, for your starting trinket."},
+          {"rt": [
+            "A small succulent in a dodecahedral clay pot",
+            "A blue knit hat that looks a bit like a bottle folding in on itself",
+            "A model hypercube carved from green crystal, showcasing the fourth dimension",
+            "A crumpled test on the theory of gravity manipulation, with a failing grade on the front and the name of a famous Quandrix professor",
+            "A blue tetrahedron that, when tapped twice, projects a recording of an old mathematics lecture",
+            "A round bread roll cut so that someone could spread butter on both halves without ever lifting the knife"
+          ]}
         ]
       }
     ],
-    "suggested": [""],
+    "suggested": ["With subjects ranging from the physical and tangible to the paradoxical and strange, the student body of Quandrix College includes an eclectic mix of individuals. The Quandrix Personality Traits table suggests a variety of traits you might adopt for your character."],
     "traits":
     { "personality":
       [
-
+        "When I find a subject I'm interested in, I won't stop studying until I know everything about it. It keeps me up at night.",
+        "I hope this all makes sense to me one day. Until then, I'm going to keep faking it.",
+        "Equations and patterns come naturally to my mind. I wish friendship came just as easily.",
+        "I believe I'm always the smartest person in the room. And I'll prove it, even if no one asks me to.",
+        "If these classes have taught me anything, it's that reality is a lie, and nothing matters. So why bother?",
+        "Before I graduate, I want to achieve something mathematically impossible. I must leave a legacy!"
+      ],
+      "ideals": [],
+      "bonds": [],
+      "flaws": []
+    }
+  },
+  { "title": "Rakdos Cultist",
+    "sourceurl": "http://dnd5e.wikidot.com/background:rakdos-cultist",
+    "source": "Guildmaster's Guide to Ravnica",
+    "description": 
+    [
+      "You're an entertainer at heart, a performer with a flair for the dramatic and a love of the spotlight. You've spent years honing your craft, mastering a demanding set of skills so you can perform them with panache and make them look easy. The wild applause, the screams of the crowds, the mayhem and terror spreading into the streets - this is what you live for.",
+      "You're also a member of a cult devoted to an ancient demon who delights in violence and chaos. It just so happens that Rakdos loves a good show, and your highest aspiration is to please the Defiler, the Lord of Riots, with your own performance."
+    ],
+    "proficiencies":
+    { "skills": [ "Acrobatics", "Performance" ],
+      "tools": [ "One type of musical instrument" ],
+      "languages": [ "Choose one of either Abyssal or Giant" ]
+    },
+    "equipment": [ "A Rakdos insignia, a musical instrument (one of your choice), a costume, a hooded lantern made of wrought iron, a 10-foot length of chain with sharply spiked links, a tinderbox, 10 torches, a set of common clothes, a pouch containing 10gp (a mix of Azorius and Boros 1-zino coins), and a bottle of sweet, red juice" ],
+    "features": [
+      { "title": "A Flair for the Dramatic",
+        "description": [
+          {"p": "Rakdos performance styles typically fuse standard circus-style acrobatics with fire, wrought-iron spikes and hooks, and monsters. You can roll a d8 or choose from the options in the Performance Options table to determine your preferred style of performance."},
+          {"b": "Performance Options"},
+          {"rt": [
+            "Spikewheel acrobat",
+            "Lampooning satirist",
+            "Fire juggler",
+            "Marionette puppeteer",
+            "Pain artist",
+            "Noise musician",
+            "Nightmare clown",
+            "Master of ceremonies"
+          ]}
+        ]
+      },
+      { "title": "Fearsome Reputation",
+        "description": [
+          {"p": "People recognize you as a member of the Cult of Rakdos, and they're careful not to draw your anger or ridicule. You can get away with minor criminal offenses, such as refusing to pay for food at a restaurant or breaking down a door at a local shop, if no legal authorities witness the crime. Most people are too daunted by you to report your wrongdoing to the Azorius."}
+        ]
+      },
+      { "title": "Rakdos Guild Spells",
+        "description": [
+          {"i": "Prerequisite: Spellcasting or Pact Magic class feature"},
+          {"p": "For you, the spells on the Rakdos Guild Spells table are added to the spell list of your spellcasting class. (If you are a multiclass character with multiple spell lists, these spells are added to all of them.)"},
+          {"b": "Rakdos Guild Spells"},
+          {"st": [
+            "Fire Bolt, Vicious Mockery",
+            "Burning Hands, Dissonant Whispers, Hellish Rebuke",
+            "Crown of Madness, Enthrall, Flaming Sphere",
+            "Fear, Haste",
+            "Confusion, Wall of Fire",
+            "Dominate Person"
+          ]},
+          {"p": "Your magic often produces a flashy spectacle, wreathing you or your targets in a mixture of harmless flame and shadowy shapes. When you manipulate an opponent's mind, a flaming symbol of Rakdos might momentarily appear like a mask over the target's face."}
+        ]
+      }
+    ],
+    "suggested": ["Members of demonic cults aren't generally known as the kindest or most mentally stable individuals, so you're likely to have something in your nature that distinguishes you from the law-abiding citizens of Ravnica."],
+    "traits":
+    { "personality":
+      [
+        "I revel in mayhem, the more destructive the better.",
+        "When violence breaks out, I lose myself in rage, and it's sometimes hard to stop.",
+        "Everything is funny to me, and the most hilarious and bloodiest things leave me cackling with sadistic glee.",
+        "I derive genuine pleasure from the pain of others.",
+        "I enjoy testing other people's patience.",
+        "I can't stand it when things are predictable, so I like to add a little chaos to every situation.",
+        "I throw my weight around to make sure I get my way.",
+        "I enjoy breaking delicate works of art. And fingers, which are sort of the same."
       ],
       "ideals":
       [ 
-
+        "Guild. My guild is all that really matters. (Any)",
+        "Hedonism. Death comes for everyone, so take as much pleasure as you can from every moment of life. (Neutral)",
+        "Creativity. I strive to find more ways to express my art through pain - my own as well as others'. (Chaotic)",
+        "Freedom. No one tells me what to do. (Chaotic)",
+        "Equality. I want to see Ravnica remade, with no guilds and no hierarchies. (Chaotic)",
+        "Spectacle. People are inspired by the greatness they see in art. (Any)"
       ],
       "bonds":
       [ 
-
+        "I have belonged to the same performance troupe for years, and these people mean everything to me.",
+        "A blood witch told me I have a special destiny to fulfill, and I'm trying to figure out what it is.",
+        "I'm secretly hoping that I can change the cult from the inside, using my influence to help rein in the wanton violence.",
+        "I own something that Rakdos once touched (it's seared black at the spot), and I cherish it.",
+        "I want to be better at my chosen form of performance than any other member of my troupe.",
+        "I am devoted to Rakdos and live to impress him."
       ],
       "flaws":
       [ 
-
+        "My family is prominent in another guild. I enjoy my wild life, but I don't want to embarrass them.",
+        "I couldn't hide my emotions and opinions even if I wanted to.",
+        "I throw caution to the wind.",
+        "I resent the rich and powerful.",
+        "When I'm angry, I lash out in violence.",
+        "There's no such thing as too much pleasure."
       ]
     }
   },
-  { "title": "",
-    "sourceurl": "http://dnd5e.wikidot.com/background:",
-    "source": "",
+  { "title": "Rewarded",
+    "sourceurl": "http://dnd5e.wikidot.com/background:rewarded",
+    "source": "The Book of Many Things",
     "description": 
     [
-      ""
+      "You were living a difficult life before your destiny suddenly changed through a miraculous turn of good fortune. Perhaps a benevolent deity gave you precisely what you most desired. You might have stumbled across a Deck of Many Things and drawn a card with a potent, positive effect. Or maybe you inherited a modest fortune from a distant relative you didn't know you had.",
+      "Regardless, you left the daily miseries of your old life behind in favor of a life of adventure and excitement. Your old debts have been paid, responsibilities you thought inescapable are behind you, or you suddenly possess rare and unusual skills unknown to ordinary folk."
     ],
     "proficiencies":
-    { "skills": [ "" ],
-      "tools": [ "" ],
-      "languages": [ "" ]
+    { "skills": [ "Insight", "Persuasion" ],
+      "tools": [ "One gaming set" ],
+      "languages": [ "One of your choice" ]
     },
-    "equipment": [ "" ],
+    "equipment": [ "A bottle of black ink, an ink pen, five sheets of paper, a gaming set (matching your chosen proficiency), a signet ring, a set of fine clothes, and a pouch containing 18 gp." ],
     "features": [
-      { "title": "",
+      { "title": "Fortune's Favour",
         "description": [
-          {"p": ""}
+          {"p": "Your unexpected good fortune is reflected by a minor boon. You gain the Lucky, Magic Initiate, or Skilled feat (your choice). Your choice of feat reflects the transformation that changed your life. An encounter with a genie who gave you three wishes might have resulted in magical powers represented by Magic Initiate. If you paid off all your family debts with a fortuitous round of three-dragon ante, you might be Lucky instead. Alternatively, you could use the Skilled feat to reflect whatever trial you endured to secure your new destiny and to model the knowledge and abilities imparted to you by whatever force transformed your life."}
+        ]
+      },
+      { "title": "Building a Rewarded Character",
+        "description": [
+          {"p": "Rewarded characters have varied histories, but they have one thing in common: they were down on their luck before their lives abruptly turned around. They might have given up all hope of a happier life, only to suddenly get a second chance. A rewarded character has often spent many years struggling to escape painful circumstances. Now, extricated from the (sometimes literal) prison that was their former life, they throw their cares to the wind and become adventurers."},
+          {"p": "If your character's life was changed by a Deck of Many Things, consider which card was responsible. Perhaps the Fates card undid a tragic mistake your character made in their youth. The Gem card could have wiped out debts incurred over a lifetime. Maybe the Sage card provided the advice needed to escape a hopeless situation, the Star card increased an ability score to its current value, or a Wish spell cast after drawing the Moon card transformed your character from a peddler to a fledgling sorcerer infused with magic and new knowledge and skills. If you're making a character at higher than 1st level, magic items they have could have been granted by the Key or Sun card."}
+        ]
+      },
+      { "title": "Rewarded Trinkets",
+        "description": [
+          {"p": "When you make your character, you may roll once on the Rewarded Trinkets table, instead of on the Trinkets table in the Player's Handbook, for your starting trinket."},
+          {"rt": [
+            "A perfumed silk scarf from an admirer",
+            "A crystal bead that glows like a candle in the dark",
+            "A letter of introduction and invitation from an influential person in a far-off city",
+            "A motto or symbol whose meaning eludes you, etched on a piece of your equipment",
+            "A crisp playing card that never seems to tear or soil, depicting the card that affected you",
+            "Half a medallion designed to be rejoined to its other half"
+          ]}
         ]
       }
     ],
-    "suggested": [""],
+    "suggested": ["Your character's perspective on life has changed thanks to their new destiny. The Rewarded Personality Traits table suggests traits you might adopt for your character and cards from the Deck of Many Things that might have prompted this trait."],
     "traits":
     { "personality":
       [
-
+        "A safe home is a foundation on which anything else can be built. (Key, Throne)",
+        "I was elevated to heights I could never otherwise attain, and I won't waste my fortune. (Star, Sun)",
+        "I try to be a source of inspiration and joy to others. Life is never as bad as you think! (Euryale, Jester)",
+        "Courage and boldness can carry the day when all else fails. (Comet, Knight)",
+        "My good fortune means I can lift others up as well. (Gem, Moon)",
+        "Having the right answers is the first step to solving any problem, no matter how dire. (Fates, Sage)"
+      ],
+      "ideals": [],
+      "bonds": [],
+      "flaws": []
+    }
+  },
+  { "title": "Rival Intern",
+    "sourceurl": "http://dnd5e.wikidot.com/background:rival-intern",
+    "source": "Acquisitions Incorporated",
+    "description": 
+    [
+      "You were an intern at a rival of Acquisitions Incorporated, and you gained a healthy respect for not just the job and the franchising opportunities. but for the ruthless and efficient way Acquisitions Incorporated goes about its business. Why deal with the rest, when you can work for the best?",
+      "Perhaps the rival did not treat you as well as you were hoping, or you washed out of that organization. Maybe you hope to leverage the knowledge you gained there for an advantage at Acquisitions Incorporated. Either way, you're now bringing your talents to the company, ready to put your skills to use."
+    ],
+    "proficiencies":
+    { "skills": [ "History", "Investigation" ],
+      "tools": [ "One type of artisan's tools" ],
+      "languages": [ "One of your choice" ]
+    },
+    "equipment": [ "One set of artisan's tools, a ledger from your previous employer containing a small piece of useful information, a set of fine clothes, and a belt pouch containing 10 gp." ],
+    "features": [
+      { "title": "Inside Informant",
+        "description": [
+          {"p": "You have connections to your previous employer or other groups you dealt with during your previous employment. You can communicate with your contacts, gaining information at the DM's discretion."}
+        ]
+      }
+    ],
+    "suggested": ["If you were happy with your previous internship. the parting of ways might have been amicable. If not, it might have involved armed guards removing you from the premises. If you were passed over at your previous position, it might have left you a blend of seething rage, practiced nonchalance, and keen knowledge of where the bodies are buried (perhaps literally)."],
+    "traits":
+    { "personality":
+      [
+        "My previous employer didn't respect me, and now I'll do whatever I can to gain respect.",
+        "The job is important, but the relationships I forge with my coworkers are even more so.",
+        "The job is everything to me. Who needs relaxation, hobbies, and a social life?",
+        "I know I'm not the best and brightest, but if I put my best self forward, I can overcome anything.",
+        "My former boss was an idiot. So was my boss before that. And before that. I'm sure those were all coincidences.",
+        "This company is so much better than my previous one. It will always be the best until they stop paying me.",
+        "I know this dagger belongs to the company, but I'm sure they won't miss it. Or this flask. Or this armor.",
+        "It's only a matter of time before I'll be upper management. I just have to kiss up to my superiors and kick down those beneath me."
       ],
       "ideals":
       [ 
-
+        "Advancement. Money and power can be gained more easily within an organization. I plan to gain as much as possible. (Evil)",
+        "Structure. Life goes much more smoothly when you follow the rules and work within a system. (Lawful)",
+        "Uncertainty. The more chaos that swirls around me, the more opportunities I can find to profit. (Chaotic)",
+        "Justice. I can't stand people being treated unjustly. I do whatever it takes to stop injustice and those who flout the law. (Lawful)",
+        "Pleasure. What's the use of working hard and making money if you can't enjoy the finer things in life? (Any)",
+        "Power. Money is fine, but real power means never having to say you're sorry. (Evil)"
       ],
       "bonds":
       [ 
-
+        "I have a family member in need. I consider them in everything I do.",
+        "My peers keep me grounded.",
+        "My past mistakes cost someone else dearly. I have to rectify that.",
+        "A childhood mentor put me on my current path. If I succeed, I want to repay that mentor in some way.",
+        "I value an oath of loyalty I took to a group of friends over everything else in my life.",
+        "Although I don't get along well with people, my pet means the world to me."
       ],
       "flaws":
       [ 
-
+        "I know what's best. Trust me.",
+        "Flaw? I have no flaws. I'm perfect.",
+        "My loyalties are ... fluid.",
+        "If anything goes wrong, it must be someone else's fault. Let me explain that in detail.",
+        "There's right and there's wrong, and there's no gray area in between.",
+        "Our superiors might not like what you're doing. I'm going to have to put that in my report."
       ]
     }
   },
-  { "title": "",
-    "sourceurl": "http://dnd5e.wikidot.com/background:",
-    "source": "",
+  { "title": "Ruined",
+    "sourceurl": "http://dnd5e.wikidot.com/background:ruined",
+    "source": "The Book of Many Things",
     "description": 
     [
-      ""
+      "Everything was going so well! You had a life of luxury, love, and comfort when you suddenly lost it all. Perhaps you were framed for crimes you didn't commit and lost your reputation, fortune, and career. Maybe a rampaging dragon or another monster wiped out everything you had in a single calamitous afternoon. Or you might have sought out a Deck of Many Things, hoping to make your successful life even more glorious-only to draw a destructive card that changed your destiny forever.",
+      "Your desperation has driven you to the career of adventurer. You don't seek out dark dungeons and their monstrous inhabitants for excitement and glory; you do it because every other path is closed to you. But you have risen high on fortune's wheel once before, and with luck and fortitude, you could do so again."
     ],
     "proficiencies":
-    { "skills": [ "" ],
-      "tools": [ "" ],
-      "languages": [ "" ]
+    { "skills": [ "Stealth", "Survival" ],
+      "tools": [ "One gaming set" ],
+      "languages": [ "One of your choice" ]
     },
-    "equipment": [ "" ],
+    "equipment": [ "A cracked hourglass, a set of rusty manacles, a half-empty bottle, a hunting trap, a gaming set (matching your chosen proficiency), a set of traveler's clothes, and a pouch containing 13 gp" ],
     "features": [
-      { "title": "",
+      { "title": "Still Standing",
         "description": [
-          {"p": ""}
+          {"p": "You have weathered ruinous misfortune, and you possess hidden reserves others don't expect. You gain the Alert, Skilled, or Tough feat (your choice). Your choice of feat reflects how you've dealt with the terrible loss that changed your life forever. If you've kept your senses sharp for every opportunity and climbed your way out of misery by seizing the tiniest scrap of hope, choose Alert. If you've redoubled your efforts to reclaim what was once yours, choose Skilled. If you've stoically persevered through your misfortune, select Tough."}
+        ]
+      },
+      { "title": "Building a Ruined Character",
+        "description": [
+          {"p": "Ruined characters were on top of the world before misfortune struck. Many were wealthy. Others come from modest backgrounds, but they were surrounded by friends, family, and loved ones. They might have been famous, or simply never encountered serious hardship before. Some were born to privilege or rose to prominence through trickery or a false reputation. Now a Deck of Many Things-or another calamity-has knocked them down like a house of cards."},
+          {"p": "If your character's life was ruined by a Deck of Many Things, consider which card was responsible. Perhaps your character was imprisoned for years by the Donjon or Void card, and now everyone they knew has died. Maybe your character drew the Rogue card, and the person closest to them-a spouse, child, or parent-turned against them. A devil unleashed by the Flames card might have destroyed their life. The Ruin or Talons card might have stolen the character's material goods or saddled them with vast debt."}
+        ]
+      },
+      { "title": "Ruined Trinkets",
+        "description": [
+          {"p": "When you make your character, you may roll once on the Ruined Trinkets table, instead of on the Trinkets table in the Player's Handbook, for your starting trinket."},
+          {"rt": [
+            "A rusted scrap of a once-beloved family heirloom",
+            "A land deed, but all the names and markings that once tied it to you have faded into obscurity",
+            "A bauble once imbued with powerful magic",
+            "A battered playing card with a hole pierced in it, its face depicting the card that affected you",
+            "A yellowed Humanoid tooth that whispers eerily when placed under a pillow",
+            "A keepsake from someone you were once close to but who is now your enemy"
+          ]}
         ]
       }
     ],
-    "suggested": [""],
+    "suggested": ["Rising above misfortune shapes one's perspective. The Ruined Personality Traits table suggests traits you might adopt for your character (and ruinous cards that might have prompted this trait)."],
     "traits":
     { "personality":
       [
-
+        "I've changed from my past, and I work to live up to my new path. (Balance, Throne)",
+        "Every moment is a gift I refuse to squander. (Euryale, Skull)",
+        "Now that I've overcome having nothing, I can survive anything. (Fool, Ruin, Talons)",
+        "I know enemies are set against me, and I always prepare for the worst. (Flames, Rogue)",
+        "I interpret every event as part of a larger pattern I just haven't worked out yet. (Puzzle, Star)",
+        "I must make up for so much time I've already lost. (Donjon, Void)"
       ],
-      "ideals":
-      [ 
-
-      ],
-      "bonds":
-      [ 
-
-      ],
-      "flaws":
-      [ 
-
-      ]
+      "ideals": [],
+      "bonds": [],
+      "flaws": []
     }
   },
-  { "title": "",
-    "sourceurl": "http://dnd5e.wikidot.com/background:",
-    "source": "",
+  { "title": "Rune Carver",
+    "sourceurl": "http://dnd5e.wikidot.com/background:rune-carver",
+    "source": "Bigby Presents - Glory of the Giants",
     "description": 
     [
-      ""
+      "You've dedicated your life to studying runecraft. Whether you were taught by a master rune carver or learned by poring over ancient engravings, you can tap into the supernatural power held within runes.",
+      "The art of runecraft was initially created by giants, but over time, the practice has been adopted by many peoples. As such, though Giant runes are the most commonly used, many rune carvers incorporate symbols from their native languages into the craft."
     ],
     "proficiencies":
-    { "skills": [ "" ],
-      "tools": [ "" ],
-      "languages": [ "" ]
+    { "skills": [ "History", "Perception" ],
+      "tools": [ "One type of artisan's tools" ],
+      "languages": [ "Giant" ]
     },
-    "equipment": [ "" ],
+    "equipment": [ "A set of artisan's tools (one of your choice), a small knife, a whetstone, a set of common clothes, and a pouch containing 10 gp." ],
     "features": [
-      { "title": "",
+      { "title": "Rune Shaper",
         "description": [
-          {"p": ""}
+          {"p": "You gain the une Shaper feat."}
+        ]
+      },
+      { "title": "Rune Styles",
+        "description": [
+          {"p": "Each rune carver has a unique style and preferred medium. To determine how you make your runes, you can roll on the Rune Style table."},
+          {"b": "Rune Style"},
+          {"rt": [
+            "You inscribe runes in wax or clay with a fine metal needle.",
+            "You whittle pieces of wood into small figurines you mark with runes.",
+            "You engrave runes onto glass beads and thread them onto necklaces and bracelets.",
+            "You stitch your runes into the hems of clothing.",
+            "You carve runes on a set of animal bones you can throw in different formations.",
+            "You draw your runes into candles, melting the wax to smooth over the engravings."
+          ]}
+        ]
+      },
+      { "title": "Building a Rune Carver Character",
+        "description": [
+          {"p": "Scholarly pursuits, ancient mysteries, or a fateful encounter might inspire a character to pursue the secrets of a rune carver."}
         ]
       }
     ],
-    "suggested": [""],
+    "suggested": ["The Rune Carver Personality Traits table suggests a variety of traits you might adopt for your character."],
     "traits":
     { "personality":
       [
-
+        "Is it practical to learn an ancient language that is rarely spoken? No. But is it fun? Very.",
+        "I learned one of my ancestors was a lauded rune carver whose story was lost to time. I seek to rekindle that legacy.",
+        "The old, traditional markings of runecraft look so boring. Why not give my runes some flair?",
+        "In my studies of runes, I strive to understand how great civilizations of the past fell, so that I may prevent it from happening to societies of the present.",
+        "Life may be a whirlwind of chaos around me, but whenever I create my runes, I feel at peace.",
+        "My brain struggles to process ink words written on paper, but the tactile feeling of carved runes makes my mind sing."
       ],
-      "ideals":
-      [ 
-
-      ],
-      "bonds":
-      [ 
-
-      ],
-      "flaws":
-      [ 
-
-      ]
-    }
-  },
-  { "title": "",
-    "sourceurl": "http://dnd5e.wikidot.com/background:",
-    "source": "",
-    "description": 
-    [
-      ""
-    ],
-    "proficiencies":
-    { "skills": [ "" ],
-      "tools": [ "" ],
-      "languages": [ "" ]
-    },
-    "equipment": [ "" ],
-    "features": [
-      { "title": "",
-        "description": [
-          {"p": ""}
-        ]
-      }
-    ],
-    "suggested": [""],
-    "traits":
-    { "personality":
-      [
-
-      ],
-      "ideals":
-      [ 
-
-      ],
-      "bonds":
-      [ 
-
-      ],
-      "flaws":
-      [ 
-
-      ]
-    }
-  },
-  { "title": "",
-    "sourceurl": "http://dnd5e.wikidot.com/background:",
-    "source": "",
-    "description": 
-    [
-      ""
-    ],
-    "proficiencies":
-    { "skills": [ "" ],
-      "tools": [ "" ],
-      "languages": [ "" ]
-    },
-    "equipment": [ "" ],
-    "features": [
-      { "title": "",
-        "description": [
-          {"p": ""}
-        ]
-      }
-    ],
-    "suggested": [""],
-    "traits":
-    { "personality":
-      [
-
-      ],
-      "ideals":
-      [ 
-
-      ],
-      "bonds":
-      [ 
-
-      ],
-      "flaws":
-      [ 
-
-      ]
+      "ideals": [],
+      "bonds": [],
+      "flaws": []
     }
   },
   { "title": "",
