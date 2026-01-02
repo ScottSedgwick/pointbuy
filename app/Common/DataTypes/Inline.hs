@@ -21,6 +21,7 @@ data Inline
   | Italic String
   | RollTable [String]
   | SpellTable [String]
+  | SpellTable1 [String]
   | Table [[String]]
   deriving (Show, Eq, Generic)
 
@@ -42,6 +43,7 @@ instance FromJSON Inline where
                 , ("i", (\v -> Italic (unpackText v)))
                 , ("rt", (\v -> RollTable (unpackTextArray v)))
                 , ("st", (\v -> SpellTable (unpackTextArray v)))
+                , ("st1", (\v -> SpellTable1 (unpackTextArray v)))
                 , ("t", (\v -> Table (unpackTextArrays v)))
                 ]
     case res of
@@ -72,12 +74,13 @@ firstJust (_:xs)     = firstJust xs
 firstJust []         = Nothing
 
 renderInline :: Inline -> View m a
-renderInline (Plain s)       = H.p_ [] [ text (ms s) ]
-renderInline (Bold s)        = H.p_ [] [ H.b_ [] [ text (ms s) ] ]
-renderInline (Italic s)      = H.p_ [] [ H.em_ [] [ text (ms s) ] ]
-renderInline (RollTable xs)  = rollTable "Description" xs
-renderInline (SpellTable xs) = spellTable "Spells" xs
-renderInline (Table xs)      = table xs
+renderInline (Plain s)        = H.p_ [] [ text (ms s) ]
+renderInline (Bold s)         = H.p_ [] [ H.b_ [] [ text (ms s) ] ]
+renderInline (Italic s)       = H.p_ [] [ H.em_ [] [ text (ms s) ] ]
+renderInline (RollTable xs)   = rollTable "Description" xs
+renderInline (SpellTable xs)  = spellTable "Spells" xs
+renderInline (SpellTable1 xs) = spellTable1 "Spells" xs
+renderInline (Table xs)       = table xs
 
 tupleList :: a -> a -> [a]
 tupleList a b = [a,b]
@@ -93,6 +96,9 @@ rollTable title xs = table ([("d" <> show (length xs)), title] : ys)
 spellTable :: String -> [String] -> View m a
 spellTable title xs = table (["Spell Level", title] : (zipWith tupleList spellLevels xs))
 
+spellTable1 :: String -> [String] -> View m a
+spellTable1 title xs = table (["Spell Level", title] : (zipWith tupleList (drop 1 spellLevels) xs))
+
 stripeTable :: [String] -> [[String]] -> View m a
 stripeTable ts xs =
   H.table_ [ P.class_ "stripes" ]
@@ -107,4 +113,5 @@ mkStripeRow xs =
   H.tr_ [] (map (\x -> H.td_ [] [ text (ms x)]) xs)
 
 table :: [[String]] -> View m a
-table xs = stripeTable (head xs) (tail xs)
+table [] = stripeTable [] []
+table (x:xs) = stripeTable x xs
