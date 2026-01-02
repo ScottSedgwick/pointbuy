@@ -11,13 +11,13 @@ import           Control.Lens.TH    ( makeLenses )
 import           Data.Aeson         ( FromJSON )
 import           Data.Default       ( Default, def )
 import           GHC.Generics       ( Generic )
-import           GHCJS.Marshal      ( FromJSVal )
+import           Miso.DSL           ( FromJSVal )
 import           Miso               ( Component ( initialAction ), Effect, MisoString, Transition, View, (<#), component, fromMisoString, get, io, ms, text )
 import           Miso.Fetch         ( Response(body, errorMessage), getJSON )
 import qualified Miso.Html          as H
 import qualified Miso.Html.Event    as E
 import qualified Miso.Html.Property as P
-import           Miso.Types         ( JSM )
+import           Language.Javascript.JSaddle.Monad ( JSM, liftJSM )
 import           System.Random      ( randomRIO )
 
 data InsultJSON = InsultJSON
@@ -46,6 +46,7 @@ updateModel GetInsults       = getJSON "data/insults.json" [] SetInsults ErrorHa
 updateModel (SetCurrent x)   = current .= x
 updateModel (ErrorHandler r) = exec (SetCurrent (fromMisoString $ maybe "Unknown error." id (errorMessage r)))
 updateModel (SetInsults r)   = options .= (insults (body r))
+-- updateModel Generate = exec (SetCurrent "Testing")
 updateModel Generate         = do
   m <- get
   io $ do
@@ -55,7 +56,7 @@ updateModel Generate         = do
 exec :: Action -> Effect a Model Action
 exec a = get >>= \model -> model <# (pure a)
 
-pickRandom :: [a] -> JSM a
+pickRandom :: [a] -> IO a
 pickRandom xs = do
   i <- randomRIO (0, length xs - 1)
   pure $ xs !! i
