@@ -46,7 +46,6 @@ updateModel GetInsults       = getJSON "data/insults.json" [] SetInsults ErrorHa
 updateModel (SetCurrent x)   = current .= x
 updateModel (ErrorHandler r) = exec (SetCurrent (fromMisoString $ maybe "Unknown error." id (errorMessage r)))
 updateModel (SetInsults r)   = options .= (insults (body r))
--- updateModel Generate = exec (SetCurrent "Testing")
 updateModel Generate         = do
   m <- get
   io $ do

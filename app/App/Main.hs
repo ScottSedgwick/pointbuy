@@ -74,6 +74,7 @@ viewApplOption a =
 
 viewAppl :: Model -> Appl -> View Model Action
 viewAppl m Backgrounds = H.div_ [ P.hidden_ (m ^. selectedAppl /= Backgrounds) ] [ mount ( AB.page m (m ^. background) ) ]
+viewAppl m Ciphers     = H.div_ [ P.hidden_ (m ^. selectedAppl /= Ciphers    ) ] [ mount ( AE.page (m ^. ciphers) ) ]
 viewAppl m Crafting    = H.div_ [ P.hidden_ (m ^. selectedAppl /= Crafting   ) ] [ mount ( AC.page (m ^. crafting) ) ]
 viewAppl m DiceRoller  = H.div_ [ P.hidden_ (m ^. selectedAppl /= DiceRoller ) ] [ mount ( AD.page (m ^. dice) ) ]
 viewAppl m Feats       = H.div_ [ P.hidden_ (m ^. selectedAppl /= Feats      ) ] [ mount ( AF.page (m ^. feat) ) ]
@@ -81,11 +82,11 @@ viewAppl m Insults     = H.div_ [ P.hidden_ (m ^. selectedAppl /= Insults    ) ]
 viewAppl m Lineages    = H.div_ [ P.hidden_ (m ^. selectedAppl /= Lineages   ) ] [ mount ( AL.page (m ^. lineage) ) ]
 viewAppl m MagicItems  = H.div_ [ P.hidden_ (m ^. selectedAppl /= MagicItems ) ] [ mount ( AM.page (m ^. magic) ) ]
 viewAppl m PointBuy    = H.div_ [ P.hidden_ (m ^. selectedAppl /= PointBuy   ) ] [ mount ( AP.page (m ^. pointbuy) ) ]
-viewAppl m Spells      = H.div_ [ P.hidden_ (m ^. selectedAppl /= Spells     ) ] [ mount ( AS.page (m ^. spell) ) ]
-viewAppl m Ciphers     = H.div_ [ P.hidden_ (m ^. selectedAppl /= Ciphers    ) ] [ mount ( AE.page (m ^. ciphers) ) ]
+viewAppl m Spells      = H.div_ [ P.hidden_ (m ^. selectedAppl /= Spells     ) ] [ mount ( AS.page m (m ^. spell) ) ]
 
 isApplEnabled :: Appl -> Bool
 isApplEnabled Backgrounds = True
+isApplEnabled Ciphers     = True
 isApplEnabled Crafting    = False
 isApplEnabled DiceRoller  = False
 isApplEnabled Feats       = False
@@ -93,5 +94,4 @@ isApplEnabled Insults     = True
 isApplEnabled Lineages    = False
 isApplEnabled MagicItems  = False
 isApplEnabled PointBuy    = False
-isApplEnabled Spells      = False
-isApplEnabled Ciphers     = True
+isApplEnabled Spells      = True

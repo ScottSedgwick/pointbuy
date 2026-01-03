@@ -19,6 +19,7 @@ data Inline
   = Plain String
   | Bold String
   | Italic String
+  | UList [String]
   | RollTable [String]
   | SpellTable [String]
   | SpellTable1 [String]
@@ -41,6 +42,7 @@ instance FromJSON Inline where
                 [ ("p", (\v -> Plain  (unpackText v)))
                 , ("b", (\v -> Bold   (unpackText v)))
                 , ("i", (\v -> Italic (unpackText v)))
+                , ("ul", (\v -> UList (unpackTextArray v)))
                 , ("rt", (\v -> RollTable (unpackTextArray v)))
                 , ("st", (\v -> SpellTable (unpackTextArray v)))
                 , ("st1", (\v -> SpellTable1 (unpackTextArray v)))
@@ -77,6 +79,7 @@ renderInline :: Inline -> View m a
 renderInline (Plain s)        = H.p_ [] [ text (ms s) ]
 renderInline (Bold s)         = H.p_ [] [ H.b_ [] [ text (ms s) ] ]
 renderInline (Italic s)       = H.p_ [] [ H.em_ [] [ text (ms s) ] ]
+renderInline (UList xs)       = H.ul_ [] (map (\s -> H.li_ [] [text (ms s)]) xs)
 renderInline (RollTable xs)   = rollTable "Description" xs
 renderInline (SpellTable xs)  = spellTable "Spells" xs
 renderInline (SpellTable1 xs) = spellTable1 "Spells" xs

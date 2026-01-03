@@ -10,6 +10,7 @@ import           Miso               ( MisoString )
 
 data Appl 
   = Backgrounds
+  | Ciphers
   | Crafting
   | DiceRoller
   | Feats
@@ -18,12 +19,12 @@ data Appl
   | MagicItems
   | PointBuy
   | Spells
-  | Ciphers
   deriving stock (Show, Eq, Enum, Bounded, Generic)
 instance Default Appl where
   def = Crafting
 instance ShowPretty Appl where
   showPretty Backgrounds = "Backgrounds"
+  showPretty Ciphers     = "Ciphers"
   showPretty Crafting    = "Crafting"
   showPretty DiceRoller  = "Dice Roller"
   showPretty Feats       = "Feats"
@@ -32,10 +33,10 @@ instance ShowPretty Appl where
   showPretty MagicItems  = "Magic Items"
   showPretty PointBuy    = "Point Buy Calculator"
   showPretty Spells      = "Spells"
-  showPretty Ciphers     = "Ciphers"
 
 applIcon :: Appl -> MisoString
 applIcon Backgrounds = "history"
+applIcon Ciphers     = "password"
 applIcon Crafting    = "construction"
 applIcon DiceRoller  = "casino"
 applIcon Feats       = "trophy"
@@ -44,4 +45,3 @@ applIcon Lineages    = "group"
 applIcon MagicItems  = "star"
 applIcon PointBuy    = "calculate"
 applIcon Spells      = "explosion"
-applIcon Ciphers     = "password"

@@ -44,6 +44,7 @@ executable dndapp
                       , Common.Components
                       , Common.DataTypes.Background
                       , Common.DataTypes.Inline
+                      , Common.DataTypes.Spell
                       , Common.Sources
                       , Common.Unshow
                       , Common.Utils
