@@ -2,7 +2,7 @@ module Common.DataTypes.Spell where
 
 import           Common.DataTypes.Inline ( Inline )
 import           Control.Lens.TH         ( makeLenses )
-import           Data.Aeson              ( FromJSON, Value(..), (.:), (.:?), parseJSON, withObject )
+import           Data.Aeson              ( FromJSON, Value(..), (.:), (.:?), (.!=), parseJSON, withObject )
 import           GHC.Generics            ( Generic )
 
 data Spell = Spell
@@ -22,7 +22,7 @@ makeLenses ''Spell
 instance FromJSON Spell where
   parseJSON = withObject "Spell" $ \v -> Spell
     <$> v .: "title"
-    <*> v .: "source"
+    <*> v .:? "source" .!= []
     <*> v .: "level"
     <*> v .: "school"
     <*> v .: "castingTime"
