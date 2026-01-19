@@ -6,41 +6,44 @@ module App.Spells
 import           Common.Applications     ( Appl( Spells ) )
 import           Common.Classes
 import           Common.Components       ( banner )
-import           Common.DataTypes.Inline ( renderInline )
+import           Common.DataTypes.Inline ( renderStructure )
 import           Common.DataTypes.Spell  ( Spell(..), castingTime, components, description, duration, level, lists, range, school, source, title )
-import           Common.Utils            ( showLevel, toLower )
+import           Common.Utils            ( showLevel )
 import           Control.Lens            ( (+=), (.=), (^.) )
 import           Control.Lens.TH         ( makeLenses )
 import           Data.Default            ( Default, def )
+import           Data.Either             ( either )
 import qualified Data.List               as L
 import           GHC.Generics            ( Generic )
 import           Miso                    ( Component, Effect, MisoString, Transition, View, component, fromMisoString, initialAction, ms, text )
 import qualified Miso.CSS                as C
-import           Miso.Fetch              ( Response(body, errorMessage), getJSON )
+import           Miso.Fetch              ( Response(body, errorMessage), getJSON, getText )
 import qualified Miso.Html               as H
 import qualified Miso.Html.Event         as E
 import qualified Miso.Html.Property      as P
+import           Miso.JSON               ( eitherDecode )
+import           Miso.String             ( intercalate, isInfixOf, toLower )
 
 data Action
   = GetSpells
-  | SetSpells (Response [Spell])
+  | SetSpells (Response MisoString)
   | ErrorHandler (Response MisoString)
   | UpdateTitleFilter MisoString
   | UpdateLevelFilter MisoString
   | UpdateClassFilter MisoString
   | UpdateSchoolFilter MisoString
   | UpdateSourceFilter MisoString
-  | SetPage String
+  | SetPage MisoString
 
 data Model = Model
-  { _filterTitle :: String
+  { _filterTitle :: MisoString
   , _filterLevel :: Int
-  , _filterClass :: String
-  , _filterSchool :: String
-  , _filterSource :: String
-  , _spells :: [Spell]
-  , _selectedfile :: Maybe String
-  , _selecteddata :: Maybe String
+  , _filterClass :: MisoString
+  , _filterSchool :: MisoString
+  , _filterSource :: MisoString
+  , _spells :: Either MisoString [Spell]
+  , _selectedfile :: Maybe MisoString
+  , _selecteddata :: Maybe MisoString
   , _errMessage :: Maybe MisoString
   } deriving (Show, Eq, Generic)
 instance Default Model where
@@ -50,7 +53,7 @@ instance Default Model where
     , _filterClass = "All"
     , _filterSchool = "All"
     , _filterSource = ""
-    , _spells = []
+    , _spells = Right []
     , _selectedfile = Nothing
     , _selecteddata = Nothing
     , _errMessage = Nothing
@@ -58,8 +61,8 @@ instance Default Model where
 makeLenses ''Model
 
 updateModel :: Action -> Effect a Model Action
-updateModel (GetSpells)            = getJSON "data/spells.json" [] SetSpells ErrorHandler
-updateModel (SetSpells r)          = spells .= (body r)
+updateModel GetSpells              = getText "data/spells.json" [] SetSpells ErrorHandler
+updateModel (SetSpells r)          = spells .= (eitherDecode (body r))
 updateModel (ErrorHandler s)       = errMessage .= (errorMessage s)
 updateModel (UpdateTitleFilter s)  = filterTitle .= (fromMisoString s)
 updateModel (UpdateLevelFilter s)  = filterLevel .= (read $ fromMisoString s)
@@ -74,6 +77,7 @@ viewModel m =
   [ banner Spells
   , H.div_ [] (filterView m : (map spellView (filteredSpells m)))
   , H.div_ [] [ H.p_ [] [ text ( maybe "" id (m ^. errMessage) ) ] ]
+  , H.div_ [] [ H.p_ [] [ text "Data:" ], H.p_ [] [ text ( ms $ show (m ^. spells) ) ] ]
   ]
 
 filterView :: Model -> View Model Action
@@ -113,10 +117,10 @@ mkSelectFilter caption action items =
   ]
 
 filteredSpells :: Model -> [Spell]
-filteredSpells m = filter (\s -> titleFilter m s && levelFilter m s && classFilter m s && schoolFilter m s && sourceFilter m s) (m ^. spells)
+filteredSpells m = filter (\s -> titleFilter m s && levelFilter m s && classFilter m s && schoolFilter m s && sourceFilter m s) (either (const []) id (m ^. spells))
 
 titleFilter :: Model -> Spell -> Bool
-titleFilter m s = (toLower $ m ^. filterTitle) `L.isInfixOf` (toLower $ s ^. title)
+titleFilter m s = (toLower $ m ^. filterTitle) `isInfixOf` (toLower $ s ^. title)
 
 levelFilter :: Model -> Spell -> Bool
 levelFilter m s = (m ^. filterLevel == -1) || (m ^. filterLevel == s ^. level)
@@ -128,7 +132,7 @@ schoolFilter :: Model -> Spell -> Bool
 schoolFilter m s = (m ^. filterSchool == "All") || (m ^. filterSchool == s ^. school)
 
 sourceFilter :: Model -> Spell -> Bool
-sourceFilter m s = L.any (\t -> (toLower (m ^. filterSource)) `L.isInfixOf` (toLower t)) (s ^. source)
+sourceFilter m s = L.any (\t -> (toLower (m ^. filterSource)) `isInfixOf` (toLower t)) (s ^. source)
 
 spellView :: Spell -> View Model Action
 spellView s = 
@@ -138,9 +142,9 @@ spellView s =
       [ H.div_ [ P.class_ "grid tiny-line" ]
         [ H.div_ [ P.class_ "s3" ] [ H.strong_ [] [ text ( ms $ s ^. title ) ] ]
         , H.div_ [ P.class_ "s2" ] [ text ( ms $ showLevel (s ^. level) ) ]
-        , H.div_ [ P.class_ "s3" ] [ text ( ms $ L.intercalate ", " (s ^. lists) ) ]
-        , H.div_ [ P.class_ "s2" ] [ text ( ms $ s ^. school ) ]
-        , H.div_ [ P.class_ "s2" ] [ text ( ms $ L.intercalate ", " (s ^. source) ) ]
+        , H.div_ [ P.class_ "s3" ] [ text ( intercalate ", " (s ^. lists) ) ]
+        , H.div_ [ P.class_ "s2" ] [ text ( s ^. school ) ]
+        , H.div_ [ P.class_ "s2" ] [ text ( intercalate ", " (s ^. source) ) ]
         ]
       ]
     , H.article_ [ P.class_ "white" ] 
@@ -153,7 +157,7 @@ spellView s =
         , H.p_ [ P.class_ "s11" ] [ text (ms $ s ^. duration ) ]
         , H.b_ [ P.class_ "s1" ] [ text "Components:" ]
         , H.p_ [ P.class_ "s11" ] [ text (ms $ s ^. components ) ]
-        , H.div_ [ P.class_ "s12" ] (map renderInline (s ^. description))
+        , H.div_ [ P.class_ "s12" ] (map renderStructure (s ^. description))
         ]
       ]
     ]

@@ -8,7 +8,6 @@ import           Common.Classes
 import           Common.Components   ( banner )
 import           Control.Lens       ( (.=), (+=), (^.), (?=) )
 import           Control.Lens.TH    ( makeLenses )
-import           Data.Aeson         ( FromJSON )
 import           Data.Default       ( Default, def )
 import           GHC.Generics       ( Generic )
 import           Miso.DSL           ( FromJSVal )
@@ -17,25 +16,28 @@ import           Miso.Fetch         ( Response(body, errorMessage), getJSON )
 import qualified Miso.Html          as H
 import qualified Miso.Html.Event    as E
 import qualified Miso.Html.Property as P
+import           Miso.JSON          ( FromJSON, (.:), parseJSON, withObject )
 import           Language.Javascript.JSaddle.Monad ( JSM, liftJSM )
 import           System.Random      ( randomRIO )
 
 data InsultJSON = InsultJSON
-  { insults :: [String]
+  { insults :: [MisoString]
   } deriving (Show, Eq, Generic)
-instance FromJSON InsultJSON
+instance FromJSON InsultJSON where
+  parseJSON = withObject "InsultJSON" $ \v -> InsultJSON
+    <$> v .: "insults"
 instance FromJSVal InsultJSON
 
 data Action
   = GetInsults
   | Generate
-  | SetCurrent String
+  | SetCurrent MisoString
   | ErrorHandler (Response InsultJSON)
   | SetInsults (Response InsultJSON)
 
 data Model = Model
-  { _current :: String
-  , _options :: [ String ]
+  { _current :: MisoString
+  , _options :: [ MisoString ]
   } deriving (Show, Eq, Generic)
 instance Default Model where
   def = Model { _current = "", _options = [] }
@@ -45,7 +47,7 @@ updateModel :: Action -> Effect a Model Action
 updateModel GetInsults       = getJSON "data/insults.json" [] SetInsults ErrorHandler
 updateModel (SetCurrent x)   = current .= x
 updateModel (ErrorHandler r) = exec (SetCurrent (fromMisoString $ maybe "Unknown error." id (errorMessage r)))
-updateModel (SetInsults r)   = options .= (insults (body r))
+updateModel (SetInsults r)   = options .= (insults (body r)) >> io (pure Generate)
 updateModel Generate         = do
   m <- get
   io $ do

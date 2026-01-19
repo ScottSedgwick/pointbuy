@@ -22,6 +22,7 @@ import qualified App.PointBuy        as AP
 import qualified App.Spells          as AS
 import           Common.Applications ( Appl(..), applIcon )
 import           Common.Classes
+import           Common.Components   ( banner )
 
 data Action 
   = ChangeAppl Appl
@@ -61,10 +62,17 @@ updateModel (ChangeAppl x) = selectedAppl .= x
 
 viewModel :: Model -> View Model Action
 viewModel model =
-  H.div_ [] 
-  [ H.nav_ [ P.class_ "m l left" ] (map viewApplOption [minBound .. maxBound])
-  , H.main_ [] ( map (viewAppl model) [minBound..maxBound] )
+  H.div_ [ P.class_ "grid" ] 
+  [ viewNav model
+  , H.main_ [ P.class_ "s11" ] ( map (viewAppl model) [minBound..maxBound] )
   ]
+
+viewNav :: Model -> View Model Action
+viewNav m =
+  H.nav_ [ P.class_ "s1 m l left" ]
+  ( (H.header_ [ P.class_ "blue middle-align center-align w-auto p-3" ] [ H.i_ [] [text (applIcon (m ^. selectedAppl))]])
+  : map viewApplOption [minBound .. maxBound]
+  )
 
 viewApplOption :: Appl -> View Model Action
 viewApplOption a = 

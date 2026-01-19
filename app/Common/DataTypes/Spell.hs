@@ -1,21 +1,22 @@
 module Common.DataTypes.Spell where
 
-import           Common.DataTypes.Inline ( Inline )
-import           Control.Lens.TH         ( makeLenses )
-import           Data.Aeson              ( FromJSON, Value(..), (.:), (.:?), (.!=), parseJSON, withObject )
-import           GHC.Generics            ( Generic )
+import Common.DataTypes.Inline ( Structure )
+import Control.Lens.TH         ( makeLenses )
+import GHC.Generics            ( Generic )
+import Miso.JSON               ( FromJSON, (.:), (.:?), (.!=), parseJSON, withObject )
+import Miso.String             ( MisoString )
 
 data Spell = Spell
-  { _title :: String
-  , _source :: [String]
+  { _title :: MisoString
+  , _source :: [MisoString]
   , _level :: Int
-  , _school :: String
-  , _castingTime :: String
-  , _range :: String
-  , _components :: String
-  , _duration :: String
-  , _description :: [Inline]
-  , _lists :: [String]
+  , _school :: MisoString
+  , _castingTime :: MisoString
+  , _range :: MisoString
+  , _components :: MisoString
+  , _duration :: MisoString
+  , _description :: [Structure]
+  , _lists :: [MisoString]
   } deriving (Show, Eq, Generic)
 makeLenses ''Spell
 

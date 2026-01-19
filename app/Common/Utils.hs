@@ -1,6 +1,7 @@
 module Common.Utils where
 
 import qualified Data.Char as C
+import           Miso.String ( MisoString, fromMisoString, ms )
 
 maybeHead :: [a] -> Maybe a
 maybeHead []    = Nothing
@@ -16,3 +17,6 @@ showLevel x = show x <> "th level"
 
 toLower :: String -> String
 toLower = map C.toLower
+
+msToLower :: MisoString -> MisoString
+msToLower = ms . toLower . fromMisoString

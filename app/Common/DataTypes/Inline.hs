@@ -1,120 +1,178 @@
 module Common.DataTypes.Inline where
 
 import           Common.Utils        ( maybeHead )
-import           Control.Applicative ((<|>))
-import           Data.Aeson         ( FromJSON, Value(..), (.:), (.:?), parseJSON, withObject )
-import           Data.Aeson.Types   ( Object, Parser )
-import           Data.Aeson.KeyMap  ( Key(..), (!?), keys )
-import qualified Data.Maybe         as M
-import qualified Data.Text          as T
-import qualified Data.Vector        as V
-import           GHC.Generics       ( Generic )
-import           Miso               ( Attribute, Component, Effect, MisoString, Transition, View, component, initialAction, ms, text )
-import           Miso.Fetch         ( Response(body, errorMessage), getJSON )
-import qualified Miso.Html          as H
-import qualified Miso.Html.Event    as E
-import qualified Miso.Html.Property as P
+import           Control.Applicative ((<|>), empty )
+-- import           Control.Monad       ( mzero )
+-- import           Data.Aeson          ( FromJSON, ToJSON, Value(..), (.:), (.:?), parseJSON, toJSON, withObject )
+import           Data.Aeson.Types    ( Object, Parser )
+-- import           Data.Aeson.KeyMap   ( Key(..), (!?), fromList, keys, member, singleton )
+import           Data.Map            ( fromList, member, singleton )
+import qualified Data.Maybe          as M
+import qualified Data.Text           as T
+import qualified Data.Vector         as V
+import           GHC.Generics        ( Generic )
+import           Miso                ( Attribute, Component, Effect, MisoString, Transition, View, component, initialAction, ms, text )
+import           Miso.Fetch          ( Response(body, errorMessage), getJSON )
+import qualified Miso.Html           as H
+import qualified Miso.Html.Event     as E
+import qualified Miso.Html.Property  as P
+import           Miso.JSON           ( FromJSON, Value(..), ToJSON, (.:), (.:?), parseJSON, toJSON, withObject )
+import           Miso.String         ( ms )
 
-data Inline 
-  = Plain String
-  | Bold String
-  | Italic String
-  | UList [String]
-  | RollTable [String]
-  | SpellTable [String]
-  | SpellTable1 [String]
-  | Table [[String]]
-  deriving (Show, Eq, Generic)
-
-data TableJson = TableJson
-  { headings :: [String]
-  , rows :: [[String]]
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON TableJson where
-  parseJSON = withObject "TableJson" $ \v -> TableJson
-    <$> v .: "headings"
-    <*> v .: "rows"
+data Inline
+  = T MisoString
+  | B MisoString
+  | I MisoString
+  | A MisoString MisoString
+  | H1 MisoString
+  | H2 MisoString
+  | H3 MisoString
+  | H4 MisoString
+  | H5 MisoString
+  | H6 MisoString
+  | BR
+  deriving stock (Show, Eq)
 
 instance FromJSON Inline where
-  parseJSON = withObject "Inline" $ \v -> do
-    let res = firstJust $ map (parseObject v) 
-                [ ("p", (\v -> Plain  (unpackText v)))
-                , ("b", (\v -> Bold   (unpackText v)))
-                , ("i", (\v -> Italic (unpackText v)))
-                , ("ul", (\v -> UList (unpackTextArray v)))
-                , ("rt", (\v -> RollTable (unpackTextArray v)))
-                , ("st", (\v -> SpellTable (unpackTextArray v)))
-                , ("st1", (\v -> SpellTable1 (unpackTextArray v)))
-                , ("t", (\v -> Table (unpackTextArrays v)))
-                ]
-    case res of
-      Just r  -> pure r
-      Nothing -> error "Invalid data type for Inline"
+  parseJSON (Object v)
+    | member "t"  v = T <$> v .: "t"
+    | member "b"  v = B <$> v .: "b"
+    | member "i"  v = I <$> v .: "i"
+    | member "a"  v = A <$> v .: "a" <*> v .: "c"
+    | member "h1" v = H1 <$> v .: "h1"
+    | member "h2" v = H2 <$> v .: "h2"
+    | member "h3" v = H3 <$> v .: "h3"
+    | member "h4" v = H4 <$> v .: "h4"
+    | member "h5" v = H5 <$> v .: "h5"
+  parseJSON _ = empty
 
-parseObject :: Object -> (Key, (Value -> Inline)) -> Maybe Inline
-parseObject o (k, f) =
-  case o !? k of
-    (Just v) -> Just $ f v
-    Nothing  -> Nothing
+instance ToJSON Inline where
+  toJSON (T s)   = Object (singleton "t" (String s))
+  toJSON (B s)   = Object (singleton "b" (String s))
+  toJSON (I s)   = Object (singleton "i" (String s))
+  toJSON (A u s) = Object (fromList [("a", (String u)),("c", (String s))])
+  toJSON (H1 s)  = Object (singleton "h1" (String s))
+  toJSON (H2 s)  = Object (singleton "h2" (String s))
+  toJSON (H3 s)  = Object (singleton "h3" (String s))
+  toJSON (H4 s)  = Object (singleton "h4" (String s))
+  toJSON (H5 s)  = Object (singleton "h5" (String s))
+  toJSON (H6 s)  = Object (singleton "h6" (String s))
+  toJSON BR      = Object (singleton "br" (String ""))
 
-unpackText :: Value -> String
-unpackText (String s) = T.unpack s
-unpackText v = error $ "Expected string type but got " <> show v
+data Structure
+  = P [Inline]
+  | UL [[Inline]]
+  | TB [[[Inline]]]
+  | RT [[Inline]]
+  | ST [[Inline]]
+  | ST1 [[Inline]]
+  deriving stock (Show, Eq)
 
-unpackTextArray :: Value -> [String]
-unpackTextArray (Array a) = map unpackText (V.toList a)
-unpackTextArray v = error $ "Expected array of string but got " <> show v
+instance FromJSON Structure where
+  parseJSON (Object v)
+    | member "p"  v = P <$> v .: "p"
+    | member "ul" v = UL <$> v .: "ul"
+    | member "tb" v = TB <$> v .: "tb"
+    | member "rt" v = RT <$> v .: "rt"
+    | member "st" v = ST <$> v .: "st"
+    | member "st1" v = ST1 <$> v .: "st1"
+    | otherwise = empty
+  parseJSON _ = empty
 
-unpackTextArrays :: Value -> [[String]]
-unpackTextArrays (Array a) = map unpackTextArray (V.toList a)
-unpackTextArrays v = error $ "Expected array of array of string but got " <> show v
+instance ToJSON Structure where
+  toJSON (P  xs) = Object (singleton "p"  (toJSON xs))
+  toJSON (UL xs) = Object (singleton "ul" (toJSON xs))
+  toJSON (TB xs) = Object (singleton "tb" (toJSON xs))
+  toJSON (RT xs) = Object (singleton "rt" (toJSON xs))
+  toJSON (ST xs) = Object (singleton "st" (toJSON xs))
+  toJSON (ST1 xs) = Object (singleton "st1" (toJSON xs))
+
+-- unpackText :: Value -> String
+-- unpackText (String s) = T.unpack s
+-- unpackText v = error $ "Expected string type but got " <> show v
+
+-- unpackTextArray :: Value -> [String]
+-- unpackTextArray (Array a) = map unpackText (V.toList a)
+-- unpackTextArray v = error $ "Expected array of string but got " <> show v
+
+-- unpackTextArrays :: Value -> [[String]]
+-- unpackTextArrays (Array a) = map unpackTextArray (V.toList a)
+-- unpackTextArrays v = error $ "Expected array of array of string but got " <> show v
 
 firstJust :: [Maybe a] -> Maybe a
 firstJust (Just x:_) = Just x
 firstJust (_:xs)     = firstJust xs
 firstJust []         = Nothing
 
+renderStructure :: Structure -> View m a
+renderStructure (P xs) = H.p_ [] (map renderInline xs)
+renderStructure (UL xs) = H.ul_ [] (map (\x -> H.li_ [] (map renderInline x)) xs)
+renderStructure (TB xs) = table xs
+renderStructure (RT xs) = rollTable "Description" xs
+renderStructure (ST xs) = spellTable "Spell" xs
+renderStructure (ST1 xs) = spellTable1 "Spell" xs
+
 renderInline :: Inline -> View m a
-renderInline (Plain s)        = H.p_ [] [ text (ms s) ]
-renderInline (Bold s)         = H.p_ [] [ H.b_ [] [ text (ms s) ] ]
-renderInline (Italic s)       = H.p_ [] [ H.em_ [] [ text (ms s) ] ]
-renderInline (UList xs)       = H.ul_ [] (map (\s -> H.li_ [] [text (ms s)]) xs)
-renderInline (RollTable xs)   = rollTable "Description" xs
-renderInline (SpellTable xs)  = spellTable "Spells" xs
-renderInline (SpellTable1 xs) = spellTable1 "Spells" xs
-renderInline (Table xs)       = table xs
+renderInline (T s)     = text s
+renderInline (B s)     = H.b_ [] [ text s ]
+renderInline (I s)     = H.i_ [] [ text s ]
+renderInline (A s1 s2) = H.a_ [ P.href_ s1 ] [ text s2 ]
+renderInline (H1 s)    = H.h1_ [] [ text s ]
+renderInline (H2 s)    = H.h2_ [] [ text s ]
+renderInline (H3 s)    = H.h3_ [] [ text s ]
+renderInline (H4 s)    = H.h4_ [] [ text s ]
+renderInline (H5 s)    = H.h5_ [] [ text s ]
+renderInline (H6 s)    = H.h6_ [] [ text s ]
+renderInline BR        = H.br_ []
+-- renderInline (Plain s)        = H.p_ [] [ text (ms s) ]
+-- renderInline (Bold s)         = H.p_ [] [ H.b_ [] [ text (ms s) ] ]
+-- renderInline (Italic s)       = H.p_ [] [ H.em_ [] [ text (ms s) ] ]
+-- renderInline (UList xs)       = H.ul_ [] (map (\s -> H.li_ [] [text (ms s)]) xs)
+-- renderInline (RollTable xs)   = rollTable "Description" xs
+-- renderInline (SpellTable xs)  = spellTable "Spells" xs
+-- renderInline (SpellTable1 xs) = spellTable1 "Spells" xs
+-- renderInline (Table xs)       = table xs
 
-tupleList :: a -> a -> [a]
-tupleList a b = [a,b]
+zipEm :: [a] -> [a] -> [[a]]
+zipEm [] _ = []
+zipEm _ [] = []
+zipEm (x:xs) (y:ys) = [x,y] : zipEm xs ys
 
-spellLevels :: [String]
-spellLevels = ["Cantrip", "1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th"]
+spellLevels :: [[Inline]]
+spellLevels = [[T "Cantrip"], [T "1st"], [T "2nd"], [T "3rd"], [T "4th"], [T "5th"], [T "6th"], [T "7th"], [T "8th"], [T "9th"]]
 
-rollTable :: String -> [String] -> View m a
-rollTable title xs = table ([("d" <> show (length xs)), title] : ys)
+rollTable :: MisoString -> [[Inline]] -> View m a
+rollTable title xs = table $ zipEm col1 col2
   where
-    ys = zipWith tupleList (map show [1..]) xs
+    col1 = [T $ ms $ "d" <> show (length xs)] : map (\n -> [T $ ms $ show n]) [1..]
+    col2 = [T title] : xs
 
-spellTable :: String -> [String] -> View m a
-spellTable title xs = table (["Spell Level", title] : (zipWith tupleList spellLevels xs))
+spellTable :: MisoString -> [[Inline]] -> View m a
+spellTable title xs = table $ zipEm col1 col2
+  where
+    col1 = [T "Spell Level"] : spellLevels
+    col2 = [T title] : xs
 
-spellTable1 :: String -> [String] -> View m a
-spellTable1 title xs = table (["Spell Level", title] : (zipWith tupleList (drop 1 spellLevels) xs))
+spellTable1 :: MisoString -> [[Inline]] -> View m a
+spellTable1 title xs = table $ zipEm col1 col2
+  where
+    col1 = [T "Spell Level"] : (drop 1 spellLevels)
+    col2 = [T title] : xs
 
-stripeTable :: [String] -> [[String]] -> View m a
+stripeTable :: [[Inline]] -> [[[Inline]]] -> View m a
 stripeTable ts xs =
   H.table_ [ P.class_ "stripes" ]
   [ H.thead_ []
-    [ H.tr_ [] (map (\t -> H.th_ [] [ text (ms t)]) ts)
+    [ H.tr_ [] (map (\t -> H.th_ [] (map renderInline t)) ts)
     ]
   , H.tbody_ [] (map mkStripeRow xs)
   ]
 
-mkStripeRow :: [String] -> View m a
+mkStripeRow :: [[Inline]] -> View m a
 mkStripeRow xs = 
-  H.tr_ [] (map (\x -> H.td_ [] [ text (ms x)]) xs)
+  H.tr_ [] (map (\x -> H.td_ [] (map renderInline x)) xs)
 
-table :: [[String]] -> View m a
+table :: [[[Inline]]] -> View m a
+-- table _ = H.p_ [] [ text "table goes here" ]
 table [] = stripeTable [] []
 table (x:xs) = stripeTable x xs

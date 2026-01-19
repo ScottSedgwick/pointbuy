@@ -8,14 +8,17 @@ import           Control.Lens.TH    ( makeLenses )
 import           Data.Aeson         ( FromJSON )
 import qualified Data.List          as L
 import qualified Data.Map           as M
+import qualified Data.Text          as T
 import           Data.Default       ( Default, def )
 import           GHC.Generics       ( Generic )
 import           GHCJS.Marshal      ( FromJSVal )
 import           Miso               ( Attribute, Component, Effect, MisoString, Transition, View, component, fromMisoString, initialAction, ms, text )
-import           Miso.Fetch         ( Response(body, errorMessage), getJSON )
+import           Miso.Fetch         ( Response(body, errorMessage), getJSON, getText )
 import qualified Miso.Html          as H
 import qualified Miso.Html.Event    as E
 import qualified Miso.Html.Property as P
+import           Miso.JSON          ( eitherDecode )
+import           Miso.String        ( intercalate, isInfixOf, toLower )
 
 import           Common.Applications ( Appl( Backgrounds ) )
 import           Common.Classes
@@ -24,35 +27,33 @@ import           Common.DataTypes.Background
 import           Common.DataTypes.Inline
 import           Common.Sources      ( Source, allSources )
 import           Common.Unshow       ( unshow )
-import           Common.Utils        ( maybeHead, toLower )
+import           Common.Utils        ( maybeHead )
 
 data Action
   = GetBackgrounds
-  | SetBackgrounds (Response [Background])
+  | SetBackgrounds (Response MisoString)
   | ErrorHandler (Response MisoString)
   | UpdateFilter MisoString
   | SetPage String
 
 data Model = Model
-  { _filterTitle :: String
-  , _backgrounds :: [Background]
-  , _selectedfile :: Maybe String
+  { _filterTitle :: MisoString
+  , _backgrounds :: Either MisoString [Background]
   , _selecteddata :: Maybe String
   , _errMessage :: Maybe MisoString
   } deriving (Show, Eq, Generic)
 instance Default Model where
   def = Model 
         { _filterTitle = ""
-        , _backgrounds = []
-        , _selectedfile = Nothing
+        , _backgrounds = Right []
         , _selecteddata = Nothing
         , _errMessage = Nothing
         }
 makeLenses ''Model
 
 updateModel :: Action -> Effect a Model Action
-updateModel (GetBackgrounds)     = getJSON "data/backgrounds.json" [] SetBackgrounds ErrorHandler
-updateModel (SetBackgrounds r)   = backgrounds .= (body r)
+updateModel GetBackgrounds       = getText "data/backgrounds.json" [] SetBackgrounds ErrorHandler
+updateModel (SetBackgrounds r)   = backgrounds .= (eitherDecode (body r))
 updateModel (ErrorHandler s)     = errMessage .= (errorMessage s)
 updateModel (UpdateFilter s)     = filterTitle .= (fromMisoString s)
 updateModel (SetPage s)          = selecteddata .= Just s
@@ -63,6 +64,7 @@ viewModel m =
   [ banner Backgrounds
   , H.div_ [] (filterView : (map backgroundView (filteredBackgrounds m)))
   , H.div_ [] [ H.p_ [] [ text ( maybe "" id (m ^. errMessage) ) ] ]
+  -- , H.div_ [] [ H.p_ [] [ text $ ms $ show m ]]
   ]
 
 filterView :: View Model Action
@@ -82,7 +84,23 @@ filterView =
   ]
 
 filteredBackgrounds :: Model -> [Background]
-filteredBackgrounds m = filter (\b -> (toLower $ m ^. filterTitle) `L.isInfixOf` (toLower $ b ^. title)) (m ^. backgrounds)
+filteredBackgrounds m = 
+  case (m ^. backgrounds) of
+    Left err -> [errBg err]
+    Right bs -> filter (\b -> (toLower $ m ^. filterTitle) `isInfixOf` (toLower $ b ^. title)) bs
+
+errBg :: MisoString -> Background 
+errBg s = Background
+  { _title = s
+  , _description = []
+  , _source = ""
+  , _sourceurl = ""
+  , _proficiencies = Nothing
+  , _equipment = []
+  , _features = []
+  , _suggested = []
+  , _traits = Nothing
+  } 
 
 backgroundView :: Background -> View Model Action
 backgroundView b = 
@@ -123,35 +141,32 @@ proficienciesView b =
     Just ps ->
       [ H.h4_ [] [ text "Proficiencies" ] 
       , H.p_ [] (
-        [ H.strong_ [] [ text "Skill Proficiencies: " ], text (ms $ L.intercalate ", " $ ps ^. skill), H.br_ []
-        , H.strong_ [] [ text "Tool Proficiencies: " ], text (ms $ L.intercalate ", " $ ps ^. tool), H.br_ []
-        , H.strong_ [] [ text "Languages: " ], text (ms $ L.intercalate ", " $ ps ^. languages)
+        [ H.strong_ [] [ text "Skill Proficiencies: " ], text (intercalate ", " $ ps ^. skill), H.br_ []
+        , H.strong_ [] [ text "Tool Proficiencies: " ], text (intercalate ", " $ ps ^. tool), H.br_ []
+        , H.strong_ [] [ text "Languages: " ], text (intercalate ", " $ ps ^. languages)
         ] <> equipmentView (b ^. equipment)
         )
       ]
 
-equipmentView :: Maybe [String] -> [ View Model Action ]
-equipmentView Nothing   = []
-equipmentView (Just []) = []
-equipmentView (Just xs) = [ H.br_ [], H.strong_ [] [ text "Equipment: " ], text (ms $ L.intercalate ", " xs) ]
+equipmentView :: [MisoString] -> [ View Model Action ]
+equipmentView [] = []
+equipmentView xs = [ H.br_ [], H.strong_ [] [ text "Equipment: " ], text (intercalate ", " xs) ]
 
-featuresView :: Maybe [BackgroundFeature] -> [View Model Action]
-featuresView Nothing   = []
-featuresView (Just []) = []
-featuresView (Just xs) = ( H.h4_ [] [ text "Features" ] ) : (concatMap featureView xs)
+featuresView :: [BackgroundFeature] -> [View Model Action]
+featuresView [] = []
+featuresView xs = ( H.h4_ [] [ text "Features" ] ) : (concatMap featureView xs)
 
 featureView :: BackgroundFeature -> [View Model Action]
-featureView f = ( H.h6_ [] [ text (ms $ f ^. featureTitle) ] ) : (map renderInline (f ^. featureDescription))
+featureView f = ( H.h6_ [] [ text (ms $ f ^. featureTitle) ] ) : (map renderStructure (f ^. featureDescription))
 
-suggestedView :: Maybe [String] -> [View Model Action]
-suggestedView Nothing   = []
-suggestedView (Just []) = []
-suggestedView (Just xs) = ( H.h4_ [] [ text "Suggested Characteristics"] ) : map f xs
+suggestedView :: [MisoString] -> [View Model Action]
+suggestedView [] = []
+suggestedView xs = ( H.h4_ [] [ text "Suggested Characteristics"] ) : map f xs
   where
-    f x = H.p_ [] [ text ( ms $ x ) ]   
+    f x = H.p_ [] [ text x ]   
 
 traitsView :: Maybe BackgroundTraits -> [View Model Action]
-traitsView Nothing  = []
+traitsView Nothing = []
 traitsView (Just t) = 
   [ H.div_ [ P.class_ "grid" ]
     [ traitTable "Personality Trait" ( t ^. personality )
@@ -161,12 +176,12 @@ traitsView (Just t) =
     ]
   ]
 
-traitTable :: String -> [String] -> View Model Action
+traitTable :: MisoString -> [MisoString] -> View Model Action
 traitTable _ [] = H.div_ [] []
 traitTable tableName xs =
   H.div_ [ P.class_ "s6" ]
   [ H.h4_ [] [ text $ ms (tableName <> "s") ]
-  , rollTable tableName xs
+  , rollTable tableName (map (\x -> [T x]) xs)
   ]
 
 page :: a -> Model -> Component a Model Action
