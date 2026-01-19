@@ -3,6 +3,7 @@
 module Main where
 
 import Data.Default                ( def )
+import qualified Data.Map.Strict as M
 import Miso                        ( App, Component(..), component, run, startApp )
 
 import App.Main (Action, Model, updateModel, viewModel)
@@ -10,7 +11,7 @@ import App.Main (Action, Model, updateModel, viewModel)
 ----------------------------------------------------------------------------
 -- | Entry point for a miso application
 main :: IO ()
-main = run (startApp app)
+main = run (startApp M.empty app)
 
 ----------------------------------------------------------------------------
 -- | WASM export, required when compiling w/ the WASM backend.
