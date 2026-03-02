@@ -69,17 +69,19 @@ viewModel model =
   ]
 
 viewNav :: Model -> View Model Action
-viewNav m =
-  H.nav_ [ P.class_ "s1 m l left" ]
-  ( (H.header_ [ P.class_ "blue middle-align center-align w-auto p-3" ] [ H.i_ [] [text (applIcon (m ^. selectedAppl))]])
-  : mapMaybe viewApplOption [minBound .. maxBound]
-  )
+viewNav m = 
+  H.nav_ [ P.class_ "s1 m l left" ] [ H.table_ [] (mapMaybe viewApplOption [minBound .. maxBound]) ]
+  
 
 viewApplOption :: Appl -> Maybe (View Model Action)
 viewApplOption a = 
-  if isApplEnabled a
-  then Just $ H.a_ [] [ H.i_ [ E.onClick (ChangeAppl a) ] [ text (applIcon a) ], H.span_ [] [ text ( ms (showPretty a) ) ] ]
-  else Nothing
+  if not (isApplEnabled a)
+    then Nothing
+    else Just $
+      H.tr_ []
+      [ H.td_ [ P.align_ "center" ] [ H.span_ [ E.onClick (ChangeAppl a) ] [ H.i_ [] [text (applIcon a)] ] ]
+      , H.td_ [ P.align_ "left" ] [ H.a_ [ E.onClick (ChangeAppl a) ] [ text ( ms (showPretty a) ) ] ]
+      ]
 
 viewAppl :: Model -> Appl -> View Model Action
 viewAppl m Backgrounds = H.div_ [ P.hidden_ (m ^. selectedAppl /= Backgrounds) ] [ mount_ ( AB.page m (m ^. background) ) ]
