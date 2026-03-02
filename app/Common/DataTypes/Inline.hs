@@ -11,7 +11,7 @@ import qualified Data.Maybe          as M
 import qualified Data.Text           as T
 import qualified Data.Vector         as V
 import           GHC.Generics        ( Generic )
-import           Miso                ( Attribute, Component, Effect, MisoString, Transition, View, component, initialAction, ms, text )
+import           Miso                ( Attribute, Component, Effect, MisoString, View, component, ms, text )
 import           Miso.Fetch          ( Response(body, errorMessage), getJSON )
 import qualified Miso.Html           as H
 import qualified Miso.Html.Event     as E

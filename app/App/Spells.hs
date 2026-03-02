@@ -15,7 +15,7 @@ import           Data.Default            ( Default, def )
 import           Data.Either             ( either )
 import qualified Data.List               as L
 import           GHC.Generics            ( Generic )
-import           Miso                    ( Component, Effect, MisoString, Transition, View, component, fromMisoString, initialAction, ms, text )
+import           Miso                    ( Component (mount), Effect, MisoString, View, component, fromMisoString, ms, text )
 import qualified Miso.CSS                as C
 import           Miso.Fetch              ( Response(body, errorMessage), getJSON, getText )
 import qualified Miso.Html               as H
@@ -77,7 +77,6 @@ viewModel m =
   [ banner Spells
   , H.div_ [] (filterView m : (map spellView (filteredSpells m)))
   , H.div_ [] [ H.p_ [] [ text ( maybe "" id (m ^. errMessage) ) ] ]
-  , H.div_ [] [ H.p_ [] [ text "Data:" ], H.p_ [] [ text ( ms $ show (m ^. spells) ) ] ]
   ]
 
 filterView :: Model -> View Model Action
@@ -164,6 +163,6 @@ spellView s =
   ]
 
 page :: a -> Model -> Component a Model Action
-page parent model = p { initialAction = Just GetSpells }
+page parent model = p { mount = Just GetSpells }
   where
     p = component model updateModel viewModel

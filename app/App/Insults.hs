@@ -11,7 +11,7 @@ import           Control.Lens.TH    ( makeLenses )
 import           Data.Default       ( Default, def )
 import           GHC.Generics       ( Generic )
 import           Miso.DSL           ( FromJSVal )
-import           Miso               ( Component ( initialAction ), Effect, MisoString, Transition, View, (<#), component, fromMisoString, get, io, ms, text )
+import           Miso               ( Component (mount), Effect, MisoString, View, (<#), component, fromMisoString, get, io, ms, text )
 import           Miso.Fetch         ( Response(body, errorMessage), getJSON )
 import qualified Miso.Html          as H
 import qualified Miso.Html.Event    as E
@@ -72,6 +72,6 @@ viewModel m =
 
 -- Component constructor ---------------------------------
 page :: Model -> Component a Model Action
-page model = p { initialAction = Just GetInsults }
+page model = p { mount = Just GetInsults }
   where
     p = component model updateModel viewModel

@@ -12,7 +12,7 @@ import qualified Data.Text          as T
 import           Data.Default       ( Default, def )
 import           GHC.Generics       ( Generic )
 import           GHCJS.Marshal      ( FromJSVal )
-import           Miso               ( Attribute, Component, Effect, MisoString, Transition, View, component, fromMisoString, initialAction, ms, text )
+import           Miso               ( Attribute, Component (mount), Effect, MisoString, View, component, fromMisoString, ms, text )
 import           Miso.Fetch         ( Response(body, errorMessage), getJSON, getText )
 import qualified Miso.Html          as H
 import qualified Miso.Html.Event    as E
@@ -185,6 +185,6 @@ traitTable tableName xs =
   ]
 
 page :: a -> Model -> Component a Model Action
-page parent model = p { initialAction = Just GetBackgrounds }
+page parent model = p { mount = Just GetBackgrounds }
   where
     p = component model updateModel viewModel

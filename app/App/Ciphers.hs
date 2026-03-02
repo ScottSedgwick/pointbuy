@@ -9,7 +9,7 @@ import           Data.Default       ( Default, def )
 import           Data.List          ( isPrefixOf )
 import           GHC.Generics       ( Generic )
 import           GHC.Read           ( Read, lexLitChar )
-import           Miso               ( Component, Effect, MisoString, Transition, View, (<#), component, fromMisoString, get, io, ms, put, text )
+import           Miso               ( Component, Effect, MisoString, View, (<#), component, fromMisoString, get, io, ms, put, text )
 import qualified Miso.Html          as H
 import qualified Miso.Html.Event    as E
 import qualified Miso.Html.Property as P

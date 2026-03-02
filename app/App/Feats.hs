@@ -10,7 +10,7 @@ import           Control.Lens       ( (+=), (^.) )
 import           Control.Lens.TH    ( makeLenses )
 import           Data.Default       ( Default, def )
 import           GHC.Generics       ( Generic )
-import           Miso               ( Component, Effect, MisoString, Transition, View, component, ms, text )
+import           Miso               ( Component, Effect, MisoString, View, component, ms, text )
 import qualified Miso.Html          as H
 import qualified Miso.Html.Event    as E
 import qualified Miso.Html.Property as P
