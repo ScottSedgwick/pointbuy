@@ -5,8 +5,8 @@ synopsis:           All-in-one collection of D&D 5e helper applications
 category:           Web
 license:            BSD-3-Clause
 license-file:       LICENSE
-author:             ssedgwick
-maintainer:         ssedgwick@cochlear.com
+author:             Scott Sedgwick
+maintainer:         scott.sedgwick@gmail.com
 build-type:         Simple
 extra-doc-files:    CHANGELOG.md
 
