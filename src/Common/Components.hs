@@ -12,9 +12,10 @@ import           Common.Classes
 
 -- banner :: forall m.Appl -> View m a
 banner a = 
-  H.header_ [ P.class_ "fixed banner tiny-height middle-align center-align blue", textProp "style" "margin-bottom: 10px;" ]
-  [ H.i_ [ P.class_ "small-margin" ] [ text (applIcon a) ]
-  , H.div_ [ P.class_ "small-margin" ] 
-    [ H.span_ [] [ text (ms $ showPretty a) ]
+  H.header_ [ P.class_ "primary-container" ]
+  [ H.nav_ [] 
+    [ H.button_ [ P.class_ "circle transparent" ] [ H.i_ [ P.class_ "responsive" ] [ text (applIcon a) ] ]
+    , H.h6_ [ P.class_ "max center-align" ] [ text (ms $ showPretty a) ]
+    , H.button_ [ P.class_ "circle transparent" ] [ H.i_ [ P.class_ "responsive" ] [ text (applIcon a) ] ]
     ]
   ]

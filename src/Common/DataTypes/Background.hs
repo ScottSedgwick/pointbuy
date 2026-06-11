@@ -74,3 +74,4 @@ instance FromJSON Background where
     <*> v .:? "features" .!= []
     <*> v .:? "suggested" .!= []
     <*> v .:? "traits"
+    

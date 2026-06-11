@@ -77,10 +77,9 @@ viewApplOption :: Appl -> Maybe (View Model Action)
 viewApplOption a = 
   if not (isApplEnabled a)
     then Nothing
-    else Just $
-      H.tr_ []
-      [ H.td_ [ P.align_ "center" ] [ H.span_ [ E.onClick (ChangeAppl a) ] [ H.i_ [] [text (applIcon a)] ] ]
-      , H.td_ [ P.align_ "left" ] [ H.a_ [ E.onClick (ChangeAppl a) ] [ text ( ms (showPretty a) ) ] ]
+    else Just $ H.button_ [ E.onClick (ChangeAppl a), P.class_ "border small-round responsive tiny-margin" ]
+      [ H.i_ [] [ text (applIcon a)]
+      , H.span_ [] [ text ( ms (showPretty a) ) ]
       ]
 
 viewAppl :: Model -> Appl -> View Model Action
@@ -103,6 +102,6 @@ isApplEnabled DiceRoller  = False
 isApplEnabled Feats       = False
 isApplEnabled Insults     = True
 isApplEnabled Lineages    = False
-isApplEnabled MagicItems  = False
+isApplEnabled MagicItems  = True
 isApplEnabled PointBuy    = False
 isApplEnabled Spells      = True

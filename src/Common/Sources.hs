@@ -3,8 +3,12 @@ module Common.Sources
   , allSources
   ) where
 
+import Common.Utils  ( parseSumValue, parseSumObject, parseString )
+import Control.Monad ( mzero )
 import Data.Maybe    ( Maybe(..) )
 import Common.Unshow ( Unshow, unshow )
+import Miso.JSON     ( FromJSON, Object, Parser, ToJSON, Value(..), (.:), (.=), object, parseJSON, toJSON, withObject )
+import Miso.String   ( MisoString, fromMisoString, ms )
 
 data Source
   = SourceAcquisitionsIncorporated
@@ -65,7 +69,7 @@ data Source
   | SourceTalDoreiCampaignSettingReborn
   | SourceSigilAndTheOutlands
   | SourceElementalEvilPlayersCompanion
-  | SourceUnknown String
+  | SourceUnknown MisoString
 
 instance Show Source where
   show SourceAcquisitionsIncorporated = "Acquisitions Incorporated"
@@ -126,7 +130,7 @@ instance Show Source where
   show SourceTalDoreiCampaignSettingReborn = "Tal'Dorei Campaign Setting Reborn"
   show SourceSigilAndTheOutlands = "Sigil and the Outlands"
   show SourceElementalEvilPlayersCompanion = "Elemental Evil Player's Companion"
-  show (SourceUnknown s) = s
+  show (SourceUnknown s) = fromMisoString s
 
 instance Eq Source where
   (==) SourceAcquisitionsIncorporated SourceAcquisitionsIncorporated = True
@@ -316,4 +320,130 @@ instance Unshow Source where
   unshow "Sigil and the Outlands" = Just SourceSigilAndTheOutlands
   unshow "Elemental Evil Player's Companion" = Just SourceElementalEvilPlayersCompanion
   unshow "All" = Nothing
-  unshow s = Just (SourceUnknown s)
+  unshow s = Just (SourceUnknown $ ms s)
+
+instance FromJSON Source where
+  parseJSON (String v) = parseSumValue v
+    [ ("Acquisitions Incorporated", SourceAcquisitionsIncorporated)
+    , ("Baldurs Gate Descent Into Avernus", SourceBaldursGateDescentIntoAvernus)
+    , ("Book Of Many Things", SourceBookOfManyThings)
+    , ("Bigby Presents Glory Of The Giants", SourceBigbyPresentsGloryOfTheGiants)
+    , ("Candlekeep Mysteries", SourceCandlekeepMysteries)
+    , ("Curse Of Strahd", SourceCurseOfStrahd)
+    , ("Critical Role Call Of Netherdeep", SourceCriticalRoleCallOfNetherdeep)
+    , ("Critical Role Twitter", SourceCriticalRoleTwitter)
+    , ("Divine Contention", SourceDivineContention)
+    , ("DMG", SourceDMG)
+    , ("Dragonlance Shadow Of The Dragon Queen", SourceDragonlanceShadowOfTheDragonQueen)
+    , ("Eberron Rising From The Last War", SourceEberronRisingFromTheLastWar)
+    , ("Explorers Guide To Wildemount", SourceExplorersGuideToWildemount)
+    , ("Fizbans Treasury Of Dragons", SourceFizbansTreasuryOfDragons)
+    , ("Guildmasters Guide To Ravnica", SourceGuildmastersGuideToRavnica)
+    , ("Ghosts Of Saltmarsh", SourceGhostsOfSaltmarsh)
+    , ("Dungeons And Dragons Honor Among Thieves", SourceDungeonsAndDragonsHonorAmongThieves)
+    , ("Icewind Dale Rime Of The Frostmaiden", SourceIcewindDaleRimeOfTheFrostmaiden)
+    , ("Infernal Machine Rebuild", SourceInfernalMachineRebuild)
+    , ("Journeys Through The Radiant Citadel", SourceJourneysThroughTheRadiantCitadel)
+    , ("Keys From The Golden Vault", SourceKeysFromTheGoldenVault)
+    , ("Lost Laboratory Of Kwalish", SourceLostLaboratoryOfKwalish)
+    , ("Lost Mine Of Phandelver", SourceLostMineOfPhandelver)
+    , ("Monstrous Compendium 2", SourceMonstrousCompendium2)
+    , ("Mordenkainen Presents Monsters Of The Multiverse", SourceMordenkainenPresentsMonstersOfTheMultiverse)
+    , ("Mulmaster Bonds And Backgrounds", SourceMulmasterBondsAndBackgrounds)
+    , ("Mythic Odysseys Of Theros", SourceMythicOdysseysOfTheros)
+    , ("Out Of The Abyss", SourceOutOfTheAbyss)
+    , ("Phandelver And Below The Shattered Obelisk", SourcePhandelverAndBelowTheShatteredObelisk)
+    , ("Planescape Adventures In The Multiverse", SourcePlanescapeAdventuresInTheMultiverse)
+    , ("Plane Shift Amonkhet", SourcePlaneShiftAmonkhet)
+    , ("Plane Shift Innistrad", SourcePlaneShiftInnistrad)
+    , ("Quests From The Infinite Staircase", SourceQuestsFromTheInfiniteStaircase)
+    , ("Princes Of The Apocalypse", SourcePrincesOfTheApocalypse)
+    , ("The Rise Of Tiamat", SourceTheRiseOfTiamat)
+    , ("Spelljammer Adventures In Space", SourceSpelljammerAdventuresInSpace)
+    , ("State Of Hillsfar", SourceStateOfHillsfar)
+    , ("Strixhaven Curriculum Of Chaos", SourceStrixhavenCurriculumOfChaos)
+    , ("Sleeping Dragons Wake", SourceSleepingDragonsWake)
+    , ("Storm Kings Thunder", SourceStormKingsThunder)
+    , ("Sword Coast Adventurers Guide", SourceSwordCoastAdventurersGuide)
+    , ("Tashas Cauldron Of Everything", SourceTashasCauldronOfEverything)
+    , ("Tomb Of Annihilation", SourceTombOfAnnihilation)
+    , ("Tyranny Of Dragons", SourceTyrannyOfDragons)
+    , ("Tales From The Yawning Portal", SourceTalesFromTheYawningPortal)
+    , ("Van Richtens Guide To Ravenloft", SourceVanRichtensGuideToRavenloft)
+    , ("Vecna Eye Of Ruin", SourceVecnaEyeOfRuin)
+    , ("Volos Guide To Monsters", SourceVolosGuideToMonsters)
+    , ("Waterdeep Dragon Heist", SourceWaterdeepDragonHeist)
+    , ("Waterdeep Dungeon Of The Mad Mage", SourceWaterdeepDungeonOfTheMadMage)
+    , ("Wayfarers Guide To Eberron", SourceWayfarersGuideToEberron)
+    , ("The Wild Beyond The Witchlight", SourceTheWildBeyondTheWitchlight)
+    , ("Xanathars Guide To Everything", SourceXanatharsGuideToEverything)
+    , ("Players Handbook", SourcePlayersHandbook)
+    , ("Hit Point Press Humblewood Campaign Setting", SourceHitPointPressHumblewoodCampaignSetting)
+    , ("Tal Dorei Campaign Setting Reborn", SourceTalDoreiCampaignSettingReborn)
+    , ("Sigil And The Outlands", SourceSigilAndTheOutlands)
+    , ("Elemental Evil Players Companion", SourceElementalEvilPlayersCompanion)
+    ]
+  parseJSON (Object v) = parseSumObject v [("Unknown", parseString SourceUnknown)]
+  parseJSON _ = mzero
+
+instance ToJSON Source where
+  toJSON SourceAcquisitionsIncorporated = String "Acquisitions Incorporated"
+  toJSON SourceBaldursGateDescentIntoAvernus = String "Baldurs Gate Descent Into Avernus"
+  toJSON SourceBookOfManyThings = String "Book Of Many Things"
+  toJSON SourceBigbyPresentsGloryOfTheGiants = String "Bigby Presents Glory Of The Giants"
+  toJSON SourceCandlekeepMysteries = String "Candlekeep Mysteries"
+  toJSON SourceCurseOfStrahd = String "Curse Of Strahd"
+  toJSON SourceCriticalRoleCallOfNetherdeep = String "Critical Role Call Of Netherdeep"
+  toJSON SourceCriticalRoleTwitter = String "Critical Role Twitter"
+  toJSON SourceDivineContention = String "Divine Contention"
+  toJSON SourceDMG = String "DMG"
+  toJSON SourceDragonlanceShadowOfTheDragonQueen = String "Dragonlance Shadow Of The Dragon Queen"
+  toJSON SourceEberronRisingFromTheLastWar = String "Eberron Rising From The Last War"
+  toJSON SourceExplorersGuideToWildemount = String "Explorers Guide To Wildemount"
+  toJSON SourceFizbansTreasuryOfDragons = String "Fizbans Treasury Of Dragons"
+  toJSON SourceGuildmastersGuideToRavnica = String "Guildmasters Guide To Ravnica"
+  toJSON SourceGhostsOfSaltmarsh = String "Ghosts Of Saltmarsh"
+  toJSON SourceDungeonsAndDragonsHonorAmongThieves = String "Dungeons And Dragons Honor Among Thieves"
+  toJSON SourceIcewindDaleRimeOfTheFrostmaiden = String "Icewind Dale Rime Of The Frostmaiden"
+  toJSON SourceInfernalMachineRebuild = String "Infernal Machine Rebuild"
+  toJSON SourceJourneysThroughTheRadiantCitadel = String "Journeys Through The Radiant Citadel"
+  toJSON SourceKeysFromTheGoldenVault = String "Keys From The Golden Vault"
+  toJSON SourceLostLaboratoryOfKwalish = String "Lost Laboratory Of Kwalish"
+  toJSON SourceLostMineOfPhandelver = String "Lost Mine Of Phandelver"
+  toJSON SourceMonstrousCompendium2 = String "Monstrous Compendium 2"
+  toJSON SourceMordenkainenPresentsMonstersOfTheMultiverse = String "Mordenkainen Presents Monsters Of The Multiverse"
+  toJSON SourceMulmasterBondsAndBackgrounds = String "Mulmaster Bonds And Backgrounds"
+  toJSON SourceMythicOdysseysOfTheros = String "Mythic Odysseys Of Theros"
+  toJSON SourceOutOfTheAbyss = String "Out Of The Abyss"
+  toJSON SourcePhandelverAndBelowTheShatteredObelisk = String "Phandelver And Below The Shattered Obelisk"
+  toJSON SourcePlanescapeAdventuresInTheMultiverse = String "Planescape Adventures In The Multiverse"
+  toJSON SourcePlaneShiftAmonkhet = String "Plane Shift Amonkhet"
+  toJSON SourcePlaneShiftInnistrad = String "Plane Shift Innistrad"
+  toJSON SourceQuestsFromTheInfiniteStaircase = String "Quests From The Infinite Staircase"
+  toJSON SourcePrincesOfTheApocalypse = String "Princes Of The Apocalypse"
+  toJSON SourceTheRiseOfTiamat = String "The Rise Of Tiamat"
+  toJSON SourceSpelljammerAdventuresInSpace = String "Spelljammer Adventures In Space"
+  toJSON SourceStateOfHillsfar = String "State Of Hillsfar"
+  toJSON SourceStrixhavenCurriculumOfChaos = String "Strixhaven Curriculum Of Chaos"
+  toJSON SourceSleepingDragonsWake = String "Sleeping Dragons Wake"
+  toJSON SourceStormKingsThunder = String "Storm Kings Thunder"
+  toJSON SourceSwordCoastAdventurersGuide = String "Sword Coast Adventurers Guide"
+  toJSON SourceTashasCauldronOfEverything = String "Tashas Cauldron Of Everything"
+  toJSON SourceTombOfAnnihilation = String "Tomb Of Annihilation"
+  toJSON SourceTyrannyOfDragons = String "Tyranny Of Dragons"
+  toJSON SourceTalesFromTheYawningPortal = String "Tales From The Yawning Portal"
+  toJSON SourceVanRichtensGuideToRavenloft = String "Van Richtens Guide To Ravenloft"
+  toJSON SourceVecnaEyeOfRuin = String "Vecna Eye Of Ruin"
+  toJSON SourceVolosGuideToMonsters = String "Volos Guide To Monsters"
+  toJSON SourceWaterdeepDragonHeist = String "Waterdeep Dragon Heist"
+  toJSON SourceWaterdeepDungeonOfTheMadMage = String "Waterdeep Dungeon Of The Mad Mage"
+  toJSON SourceWayfarersGuideToEberron = String "Wayfarers Guide To Eberron"
+  toJSON SourceTheWildBeyondTheWitchlight = String "The Wild Beyond The Witchlight"
+  toJSON SourceXanatharsGuideToEverything = String "Xanathars Guide To Everything"
+  toJSON SourcePlayersHandbook = String "Players Handbook"
+  toJSON SourceHitPointPressHumblewoodCampaignSetting = String "Hit Point Press Humblewood Campaign Setting"
+  toJSON SourceTalDoreiCampaignSettingReborn = String "Tal Dorei Campaign Setting Reborn"
+  toJSON SourceSigilAndTheOutlands = String "Sigil And The Outlands"
+  toJSON SourceElementalEvilPlayersCompanion = String "Elemental Evil Players Companion"
+  toJSON (SourceUnknown s) = object [ "Unknown" .= String s ]
+

@@ -32,3 +32,4 @@ instance FromJSON Spell where
     <*> v .: "duration"
     <*> v .: "description"
     <*> v .: "lists"
+    

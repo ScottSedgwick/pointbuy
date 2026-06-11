@@ -69,7 +69,7 @@ viewModel m =
 
 filterView :: View Model Action
 filterView =
-  H.header_ [ P.class_ "fixed" ]
+  H.header_ [ P.class_ "fixed tiny-margin-top" ]
   [ H.article_ [ P.class_ "white" ]
     [ H.div_ [ P.class_ "grid" ]
       [ H.div_ [ P.class_ "s12" ]

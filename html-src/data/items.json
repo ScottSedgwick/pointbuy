@@ -1,0 +1,32 @@
+[ 
+  { 
+    "title": "Armblade",
+    "url": "https://dnd5e.wikidot.com//wondrous-items:armblade",
+    "rarity": [ "Common" ],
+    "itemtype": { "Weapon" : "any one-handed melee weapon" },
+    "attunement": 
+      {
+        "attune": true,
+        "text": "warforged"
+      },
+    "source": [ "Eberron Rising From The Last War" ],
+    "description": 
+      [
+        { "p": [ {"i": "Weapon (any one-handed melee weapon), common (requires attunement by a warforged)"} ] },
+        { "p": 
+          [ 
+            { "t": "An " },
+            { "i": "armblade" },
+            { "t": " is a magic weapon that attaches to your arm, becoming inseparable from you as long as you're attuned to it. To attune to this item, you must hold it against your forearm for the entire attunement period." }
+          ]
+        },
+        { "p":
+          [ 
+            { "T": "As a bonus action, you can retract the " },
+            { "I": "armblade" },
+            { "T": " into your forearm or extend it from there. While it is extended, you can use the weapon as if you were holding it, and you can't use that hand for other purposes." }
+          ]
+        }
+      ]
+  }
+]

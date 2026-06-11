@@ -42,9 +42,8 @@ data Model = Model
   , _filterSchool :: MisoString
   , _filterSource :: MisoString
   , _spells :: Either MisoString [Spell]
-  , _selectedfile :: Maybe MisoString
-  , _selecteddata :: Maybe MisoString
   , _errMessage :: Maybe MisoString
+  , _selecteddata :: Maybe MisoString
   } deriving (Show, Eq, Generic)
 instance Default Model where
   def = Model 
@@ -54,9 +53,8 @@ instance Default Model where
     , _filterSchool = "All"
     , _filterSource = ""
     , _spells = Right []
-    , _selectedfile = Nothing
-    , _selecteddata = Nothing
     , _errMessage = Nothing
+    , _selecteddata = Nothing
     }
 makeLenses ''Model
 
@@ -81,7 +79,7 @@ viewModel m =
 
 filterView :: Model -> View Model Action
 filterView m =
-  H.header_ [ P.class_ "fixed" ]
+  H.header_ [ P.class_ "fixed tiny-margin-top" ]
   [ H.article_ [ P.class_ "white" ]
     [ H.div_ [ P.class_ "grid" ]
       [ H.div_ [ P.class_ "s3" ] [ mkTextFilter "Spell" UpdateTitleFilter ]
